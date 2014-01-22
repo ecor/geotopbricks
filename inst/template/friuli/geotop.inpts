@@ -1,0 +1,220 @@
+!*******************************
+!******* CONFIGURATION *********
+!*******************************
+TimeStepEnergyAndWater = 3600
+InitDateDDMMYYYYhhmm = 20/12/2012 12:00
+EndDateDDMMYYYYhhmm =  10/01/2013 12:00
+EnergyBalance = 1
+PointSim=0
+
+!*******************************
+!********* GEOGRAPHY ***********
+!*******************************
+Latitude = 46.3
+Longitude= 11.7
+
+!*******************************
+!****** METEO STATIONS *********
+!*******************************
+NumberOfMeteoStations =11
+!POI_ID=212800,231100,231200,374000,392800,487400,488000,499000,499600,499800,501400
+!Name=Timau,Cleulis,Comeglians,Collina (Forni Avoltri),Ravascletto,Malga Plotta,Casera Zoufplan bassa,Rifugio Tamai - Zoncolan,Pramosio,Rifugio Marinelli,Paluzza
+MeteoStationCoordinateX=806983,806979,796134,794112,800478,798702,805311,801665,808678,798340,807694
+MeteoStationCoordinateY=5166540,5164930,5157650,5166270,5159220,5167490,5163740,5157270,5167190,5167470,5160550
+MeteoStationElevation=886.8,858.8,541.9,1315.9,915.1,2061.1,1756.7,1733.8,1504.5,2208.5,579.7
+MeteoStationLongitude=13.0069,13.0058,12.86,12.8392,12.9175,12.8997,12.9833,12.9317,13.0294,12.895,13.0122
+MeteoStationLatitude=46.5822,46.5678,46.5072,46.5856,46.5194,46.5944,46.5578,46.5014,46.5872,46.5944,46.5281
+MeteoStationStandardTime=1
+MeteoStationWindVelocitySensorHeight=5
+MeteoStationTemperatureSensorHeight =2
+
+MeteoFile = "meteo/meteo"
+
+!#######  header ##########
+HeaderDateDDMMYYYYhhmmMeteo = "Date"
+!HeaderJulianDayfrom0Meteo = "JDfrom0"
+HeaderIPrec = "Iprec"
+HeaderWindVelocity = "WindSp"
+HeaderWindDirection = "WindDir"
+HeaderRH = "RH"
+HeaderAirTemp = "AirT"
+HeaderSWglobal = "Swglob"
+HeaderCloudSWTransmissivity = "CloudTrans"
+
+
+!*******************************
+!******* SIM. POINTS ***********
+!*******************************
+PointFile = "ListPoints"
+!CoordinatePointX = 708380
+!CoordinatePointy = 5076890
+
+!#######  header ##########
+HeaderPointID = "ID"
+HeaderCoordinatePointX = "X"
+HeaderCoordinatePointY = "Y"
+
+!*******************************
+!******* HORIZON  *********
+!*******************************
+HorizonPointFile="horizon_point/horizon"
+HorizonMeteoStationFile="horizon_meteo/horizon"
+HeaderHorizonAngle="az"
+HeaderHorizonHeight="el"
+
+
+!*******************************
+!******* INPUT MAPS ************
+!*******************************
+DemFile = "input_maps_250m/dem"
+LandCoverMapFile = "input_maps_250m/landcover"
+SkyViewFactorMapFile = "input_maps_250m/sky"
+SlopeMapFile = "input_maps_250m/slope"
+AspectMapFile = "input_maps_250m/aspect"
+SoilMapFile = "input_maps_250m/soiltype"
+
+!*******************************
+!******** LAND COVER  **********
+!*******************************
+NumLandCoverTypes = 8
+!1: urban, 2: pasture, 3: rock, 4: peat, 5: water, 6: broadleaf, 7: coniferous, 8: sparse_veget
+!#######  param ##########
+SoilRoughness=10,10,10,10,10,10,10,10
+ThresSnowSoilRough=10,10,10,10,10,10,10,10
+VegHeight=0,200,0,200,0,1900,1900,800
+ThresSnowVegUp=0,200,0,200,0,1900,1900,800
+ThresSnowVegDown=0,200,0,200,0,1900,1900,800
+LSAI=0,2,0,2,0,4,4,2
+!CanopyFraction=0,1,0,1,0,1,1,0
+CanopyFraction=0
+DecayCoeffCanopy=0,2.5,0,2.5,0,4,4,2.5
+VegSnowBurying=1,1,1,1,1,1,1,1
+RootDepth=0,30,0,30,0,2000,2000,300
+MinStomatalRes=0,60,0,60,0,60,60,60
+VegReflectVis=0,0.15,0,0.15,0,0.12,0.09,0.15
+VegReflNIR=0,0.4,0,0.4,0,0.43,0.36,0.4
+VegTransVis=0,0.07,0,0.07,0,0.04,0.04,0.07
+VegTransNIR=0,0.32,0,0.32,0,0.22,0.09,0.32
+LeafAngles=0,0.3,0,0.3,0,0.1,0.01,0.01
+CanDensSurface=0,1,0,1,0,20,20,5
+SoilAlbVisDry=0.16,0.16,0.16,0.16,0.16,0.16,0.16,0.16
+SoilAlbNIRDry=0.33,0.33,0.33,0.33,0.33,0.33,0.33,0.33
+SoilAlbVisWet=0.08,0.08,0.08,0.08,0.08,0.08,0.08,0.08
+SoilAlbNIRWet=0.16,0.16,0.16,0.16,0.16,0.16,0.16,0.16
+SoilEmissiv=0.99,0.99,0.99,0.99,0.99,0.99,0.99,0.99
+
+
+!*******************************
+!*******  SOIL TYPE ************
+!*******************************
+SoilParFile = "soil/soil"
+SoilLayerTypes = 1
+!#######  header ##########
+HeaderSoilDz = "Dz"
+HeaderLateralHydrConductivity = "Kh"
+HeaderNormalHydrConductivity = "Kv"
+HeaderThetaRes = "res"
+HeaderFieldCapacity = "fc"
+HeaderThetaSat = "sat"
+HeaderAlpha = "a"
+HeaderN = "n"
+HeaderSpecificStorativity = "SS"
+
+!#######  param ##########
+ThermalConductivitySoilSolids = 2.5
+ThermalCapacitySoilSolids = 2.3E6
+
+!*******************************
+!*********** SNOW *************
+!*******************************
+InitSWE=0
+InitSnowDensity=250.0
+InitSnowTemp=0
+InitSnowAge=0
+ThresTempRain=0.5
+ThresTempSnow=0.0
+DewTempOrNormTemp=0
+AlbExtParSnow=10.0
+! quando la neve arriva a 10 cm, fa una media con quella del suolo
+FreshSnowReflVis=0.95
+FreshSnowReflNIR=0.65
+IrriducibleWatSatSnow=0.02
+SnowEmissiv=0.98
+SnowRoughness=0.1
+SnowCorrFactor=1.0
+RainCorrFactor=1
+MaxSnowPorosity=0.7
+DrySnowDefRate=1.0
+SnowDensityCutoff=100.0
+WetSnowDefRate=1.5
+SnowViscosity=1.0E+6
+!FetchUp=100
+!FetchDown=1000
+!SnowSMIN=30
+!SnowSMAX=80
+!SnowCURV= -200
+
+MaxWaterEqSnowLayerContent = 10
+MaxSnowLayersMiddle = 5
+SWEbottom = 20
+SWEtop = 50
+
+!*******************************
+!******* LAPSE RATES **********
+!*******************************
+!LapseRateFile="LapseRates"
+!HeaderDateDDMMYYYYhhmmLapseRates="Date"
+!HeaderLapseRateTemp="dTa_dz"
+!HeaderLapseRateDewTemp="dTd_dz"
+!HeaderLapseRatePrec="dprec_dz"
+
+LapseRatePrec = -0.2
+LapseRateTemp= 6.5
+
+
+!*******************************
+!******* INIT. CONDIT **********
+!*******************************
+
+InitWaterTableDepth = 1000
+InitSoilTemp = 5
+
+!*******************************
+!******* NUMERICS **********
+!*******************************
+HeatEqTol=1.00E-06
+HeatEqMaxIter=700
+
+!=============================================================================
+!  OUTPUT TIME SERIES
+!=============================================================================
+
+DtPlotPoint = 1
+PointOutputFile = "output_tabs/point"
+!SnowProfileFile = "output_tabs/snow"
+DatePoint=1
+PsnowPoint=2
+PrainPoint=3
+SnowDepthPoint=4
+SWEPoint=5
+AirTempPoint=6
+TsurfPoint=7
+
+OutputSnowMaps = 0
+SWEMapFile= "output_maps/SWE"
+SnowDepthMapFile = "output_maps/snowdepth"
+HNMapFile = "output_maps/HN"
+!=============================================================================
+!  RECOVERY FILE NAMES
+!=============================================================================
+SubfolderRecoveryFiles="rec"
+ContinuousRecovery=1
+! every 10 days does an update of the simulation
+! when you launch it again, it starts from the last recovery
+!RunIfAnOldRunIsPresent=1
+!se c'e' questa keywordk, rifa la simulazione anche se 
+!c'e' un failed run o un successful run
+! altrimenti, se c'e' un successfulrun o un failed run 
+! da un messaggio di errore
+!RecoverSim = 21
+!SavingPoints = 10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,165,170,175,182,189

@@ -1,0 +1,354 @@
+!=======================================
+! INPUT FOR GEOtop 1.225-8 Version(geotop/branches/stefano/1.225-8/src)
+! Distributed simulation Ton catchment
+! Toy catchment 2 m resolution
+!=======================================
+
+!=======================================
+! GENERAL SETTINGS
+!=======================================
+
+!Calculation max time step dt in s 
+
+TimeStepEnergyAndWater = 3600
+InitDateDDMMYYYYhhmm = 01/05/2004 00:00
+EndDateDDMMYYYYhhmm =  05/05/2004 00:00
+
+! Catchment centroid (for Sun position) 
+Latitude	=	46.75604 
+Longitude	=	10.70311 
+StandardTimeSimulation	=	1
+
+! Simulation settings
+WaterBalance = 1
+EnergyBalance = 1
+
+! Recovery files settings
+SubfolderRecoveryFiles="rec"
+ContinuousRecovery=1
+
+! No Sky ViewFactor is calculated
+FlagSkyViewFactor = 0
+
+!Output timeseries Dt in hours 
+DtPlotDischarge = 1
+DtPlotPoint = 1
+DtPlotBasin = 24
+
+!Output maps Dt in hours 
+OutputSoilMaps = 24
+OutputSurfEBALMaps = 24
+OutputMeteoMaps = 24
+OutputSnowMaps = 24
+OutputGlacierMaps	=	24
+
+!=======================================
+! METEO STATIONS
+!=======================================
+
+! meteo.inpts file generad by meteo.CTTFEM2GEOtop.R : copy and paste the file content to the 'geotop.inpts file'
+!
+! Station  0001  FEMid:  st21  Name:  Ronzo Chienis
+! Station  0002  FEMid:  st22  Name:  Faedo - Maso Togn
+! Station  0003  FEMid:  st23  Name:  Lomaso
+! Station  0004  FEMid:  st24  Name:  Baselga di Pine'
+! Station  0005  FEMid:  st25  Name:  Denno
+! Station  0006  FEMid:  st26  Name:  Rovereto
+! Station  0007  FEMid:  st27  Name:  S. Michele a/A
+! Station  0008  FEMid:  st28  Name:  Borgo Valsugana
+! Station  0009  FEMid:  st29  Name:  Arco
+! Station  0010  FEMid:  st30  Name:  Ala
+! Station  0011  FEMid:  st31  Name:  Cles
+! Station  0012  FEMid:  st32  Name:  Trento Sud
+! Station  0013  FEMid:  st81  Name:  Telve
+! Station  0014  FEMid:  st82  Name:  Storo
+! Station  0015  FEMid:  st83  Name:  Cavedine
+! Station  0016  FEMid:  st84  Name:  Fondo
+! Station  0017  FEMid:  st85  Name:  Bezzecca
+! Station  0018  FEMid:  st86  Name:  Vigolo Vattaro
+! Station  0019  FEMid:  st87  Name:  Predazzo
+! Station  0020  FEMid:  st88  Name:  Caldes
+!
+!
+NumberOfMeteoStations=20
+MeteoStationCoordinateX=650848.94,667418.75,644512.25,673925.5,658436.12,656731.75,663628.5,691493,646362.06,657311.62,656926.31,664587.69,691634.94,621316.62,653434.94,663596.25,633824.38,669940.5,700104,650793.5
+MeteoStationCoordinateY=5083241,5117975.5,5097349,5110493,5125738,5082504,5116620.5,5102047,5085824,5072279.5,5136199.5,5098670.5,5103481,5078208.5,5094289,5144884,5083901,5096203,5130422.5,5137986
+MeteoStationElevation=957,696,492,983,324,170,203,420,84,172,656,185,412,385,552,918,705,706,1001,773
+MeteoStationWindVelocitySensorHeight=10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10
+MeteoStationTemperatureSensorHeight=2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2
+!
+!
+
+
+
+
+
+
+
+
+
+!======================================= 
+! METEO HAEDERS 
+!======================================= 
+
+HeaderDateDDMMYYYYhhmmMeteo = "Date"
+HeaderJulianDayfrom0Meteo = "JDfrom0"
+HeaderIPrec = "Iprec"
+HeaderWindVelocity = "WindSp"
+HeaderWindDirection = "WindDir"
+HeaderWindX = "WindX"
+HeaderWindY = "WindY"
+HeaderRH = "RelHum"
+HeaderAirTemp = "AirT"
+HeaderAirPress = "AirP"
+HeaderSWglobal = "SWglobal"
+HeaderCloudSWTransmissivity = "CloudTrans"
+
+!======================================= 
+! OUTPUT POINT SETTINGS 
+!======================================= 
+
+! output check points corresponding to meteo station
+CoordinatePointX = 659767.62
+CoordinatePointY = 5124805.00
+
+
+!======================================= 
+!RATES OF DECREASE WITH ELEVATION
+!======================================= 
+!K/1000m
+!LapseRateTemp	=	6.5
+!LapseRateDewTemp	=	2.5
+!mm/1000m
+!LapseRatePrec	=	-0.3
+
+! Indication of the lapserate-file
+
+LapseRateFile = "lapserate"
+HeaderDateDDMMYYYYhhmmLapseRates = "Date"
+HeaderJulianDayfrom0Meteo = "JDfrom0"
+HeaderLapseRateTemp = "LapseRateTemp"
+HeaderLapseRateDewTemp = "LapseRateDewTemp"
+HeaderLapseRatePrec = "LapseRatePrec"
+
+!=======================================
+! LAND COVER
+!=======================================
+
+! for  ton-test 1 from Giacomo Bertoldi's WG1 500 meter resolution: 
+! 1 grassland, 2 rocks, 3 glacier , 4forest , 5 bare soil 
+! VegHeigth is reduced from 8000 to 1900 (CHECK AND DISCUSS WITH GIACOMO)
+NumLandCoverTypes	=	5
+SoilRoughness	=	100
+ThresSnowSoilRough	=	100
+VegHeight	=	200,0,0,200,50
+ThresSnowVegUp	=	50
+ThresSnowVegDown	=	10
+LSAI	=	2,0,0,4,0.2
+CanopyFraction	=	1,0,0,1,0.1
+DecayCoeffCanopy	=	2.5
+VegSnowBurying	=	1
+RootDepth	=	200,0,0,500,20
+MinStomatalRes	=	60
+VegReflectVis	=	0.1
+VegReflNIR	=	0.58
+VegTransVis	=	0.05
+VegTransNIR	=	0.25
+LeafAngles	=	0
+CanDensSurface	=	0.5
+SoilAlbVisDry	=	0.15
+SoilAlbNIRDry	=	0.25
+SoilAlbVisWet	=	0.15
+SoilAlbNIRWet	=	0.25
+SoilEmissiv	=	0.96
+SurFlowResLand	=	0.05
+SurFlowResExp	=	0.667 
+
+
+
+ =======================================
+! SOIL
+!=======================================
+FrozenSoilHydrCondReduction  = 0
+! [mm] 
+!!InitWaterTableDepth = 
+InitSoilPressure = -100
+
+SoilLayerThicknesses	=	100,100,200,500,1200,3000,5000,12000,25000
+! [C]
+InitSoilTemp	=	0.5
+! [mm/s]
+NormalHydrConductivity	=	0.1
+LateralHydrConductivity	=	0.1
+! [-]
+ThetaRes	=	0.08
+WiltingPoint	=	0.15
+FieldCapacity	=	0.3
+ThetaSat	=	0.5
+NVanGenuchten	=	1.5
+! [mm^-1]
+AlphaVanGenuchten	=	0.01
+! 
+ThermalConductivitySoilSolids	=	2.5
+!
+ThermalCapacitySoilSolids	=	2.30E+06
+! [mm^-1]
+SpecificStorativity	=	1.00E-05
+!InitWaterTableHeightOverTopoSurface = -10
+!=======================================
+! CHANNELS
+!=======================================
+
+RatioChannelWidthPixelWidth	=	0.01
+! in [mm]
+ChannelDepression	=	2000
+
+ThresWaterDepthLandInf = 5
+ThresWaterDepthLandSup = 50
+SurFlowResChannel = 20
+ThresWaterDepthChannel = 50
+ 
+  
+!======================================= 
+! SNOW AND GLACIERS 
+!======================================= 
+ 
+MaxWaterEqSnowLayerContent=10
+SWEtop=40
+SWEbottom=20
+MaxSnowLayersMiddle=5
+
+InitGlacierDensity = 700
+InitGlacierTemp = -5
+
+!MaxWaterEqGlacLayerContent=50
+!GWEtop=300
+!GWEbottom=100
+! MaxGlacLayersMiddle=3
+
+!======================================= 
+! Energy budget settings 
+!======================================= 
+ 
+FlagSkyViewFactor	=	0 
+LWinParameterization	=	4 
+MoninObukhov	=	2 
+CanopyStabCorrection	=	1 
+
+!======================================= 
+! Morphological parameters
+!======================================= 
+
+SlopeWeight = 1 
+CurvatureWeight = 100
+NumLowPassFilterOnDemForAll	=	2
+NumLowPassFilterOnDemForCurv	=	20
+
+!======================================= 
+!Numerical parameters 
+!======================================= 
+ 
+!RichardTol	=	1.E-6
+RichardTol	=	1.E-4
+MinLambdaWater = 1.E-15
+RichardMaxIter	=	1000 
+ExitMinLambdaWater = 1
+
+MinRatioKactualToKSat = 1E-5
+MaxCourantSupFlowLand	=	0.1 
+MaxCourantSupFlowChannel	=	0.1
+MinSupWaterDepthLand	=	1 
+MinDiffSupWaterDepthLandChannel = 50
+MinTimeStepSupFlow	=	1 
+HeatEqTol	=	1.E-4 
+HeatEqMaxIter	=	200 
+MaxTimesHalvingTimeStepEnergy = 5 
+CanopyMaxIter	=	3 
+BusingerMaxIter	=	3 
+TsMaxIter	=	3 
+LocMaxIter	=	3 
+
+!=============================================================================
+!  FILE NAMES
+!=============================================================================
+
+! Input files 
+ 
+DemFile = "dem"
+MeteoFile = "meteoforcings/meteo"
+! MISINGLandCoverMapFile = "landcover500"
+!  MISSINGSkyViewFactorMapFile = "sky"
+SlopeMapFile = "slope"
+AspectMapFile = "aspect"
+CurvaturesMapFile = "curvature"
+HorizonMeteoStationFile = "meteoforcings/horizon"
+!!!!!RiverNetwork = "net"
+!InitGlacierDepthMapFile	=	"glacier500"
+!BedrockDepthMapFile = "soildepth"
+ 
+! Output files
+
+! Tabs 
+DischargeFile = "tabs/discharge"
+
+PointOutputFile = "tabs/point" 
+PointAll = 1
+
+SnowProfileFile = "tabs/snow"
+SnowAll = 1
+
+SnowCoveredAreaFile = "tabs/snowcover"
+
+BasinOutputFile = "tabs/basin" 
+
+BasinAll = 1
+
+SoilAveragedTempProfileFile = "tabs/soilTz" 
+SoilLiqContentProfileFile = "tabs/thetaliq" 
+SoilIceContentProfileFile = "tabs/thetaice" 
+SoilAll = 1
+
+
+
+! Maps
+
+SoilAveragedTempTensorFile = "maps/T"
+SurfaceTempMapFile = "maps/Ts"
+
+SoilLiqContentTensorFile = "maps/thetaliq"
+IceLiqContentTensorFile = "maps/thetaice"
+
+LandSurfaceWaterDepthMapFile = "maps/hsup"
+WaterTableDepthMapFile = "maps/watertable"
+
+SWEMapFile = "maps/SWE"
+SnowDepthMapFile = "maps/snowdepth"
+
+! SnowDurationMapFile = "maps/snowdur"
+SnowMeltedMapFile= "maps/snowmelt"
+
+! NetRadiationMapFile = "maps/Rn" ! gives segmentation fault
+InShortwaveRadiationMapFile = "maps/Rswin"
+SurfaceHeatFluxMapFile = "maps/EB"
+SurfaceSensibleHeatFluxMapFile = "maps/H"
+SurfaceLatentHeatFluxMapFile = "maps/LE"
+
+PrecipitationMapFile = "maps/Prec"
+NetPrecipitationFile = "maps/Pnet"
+EvapotranspirationFromSoilFile = "maps/ET"
+
+AirTempMapFile = "maps/Ta"
+
+GlacierDepthMapFile = "maps/glacdepth"
+GlacierWaterEqMapFile = "maps/GWE"
+GlacierMeltedMapFile = "maps/glacmelt"
+
+! ChannelSurfaceWaterDepthMapFile = "maps/ch"
+
+
+!=============================================================================
+!  RECOVERY FILE NAMES
+!=============================================================================
+
+ContinuousRecovery = 10
+SubfolderRecoveryFiles = "rec"

@@ -1,0 +1,43 @@
+\name{write.vectorized.variable.in.string}
+\alias{write.vectorized.variable.in.string}
+\title{Writes one or more variables (scalars, vectors or Rasters) in a string each, following \code{*.inpts} or Matlab-like syntax.}
+\usage{
+write.vectorized.variable.in.string(l, NAflag = -9999,
+  matlab.syntax = FALSE, ...)
+}
+\arguments{
+  \item{l}{a code{list} object contained the variables
+  (scalars, vectors or Rasters) which will be written in a
+  string each.}
+
+  \item{NAflag}{numeric. Default is -9999, see
+  \code{\link{writeRasterxGEOtop}}.}
+
+  \item{matlab.syntax}{logical value. Default is
+  \code{FALSE}. If \code{TRUE} the file syntax is like the
+  one of a *.m Matlab script file.}
+
+  \item{...}{further aguments}
+}
+\value{
+the string vector
+\code{<NAME_VARIABLE>==<VALUES_VARIABLE>}.
+}
+\description{
+Writes one or more variables (scalars, vectors or Rasters)
+in a string each, following \code{*.inpts} or Matlab-like
+syntax.
+}
+\note{
+Add Quote if necessary
+}
+\examples{
+a <- 1:5
+l <- list(v=a,a=a)
+out <- write.vectorized.variable.in.string(l,matlab.syntax=TRUE)
+out
+}
+\seealso{
+\code{\link{read.ascii.vectorized.brick}}
+}
+

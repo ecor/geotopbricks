@@ -1,0 +1,32 @@
+! METEO STATION EXAMPLES
+!
+! Station  0001  FEMid:  st21  Name:  Ronzo Chienis
+! Station  0002  FEMid:  st22  Name:  Faedo - Maso Togn
+! Station  0003  FEMid:  st23  Name:  Lomaso
+! Station  0004  FEMid:  st24  Name:  Baselga di Pine'
+! Station  0005  FEMid:  st25  Name:  Denno
+! Station  0006  FEMid:  st26  Name:  Rovereto
+! Station  0007  FEMid:  st27  Name:  S. Michele a/A
+! Station  0008  FEMid:  st28  Name:  Borgo Valsugana
+! Station  0009  FEMid:  st29  Name:  Arco
+! Station  0010  FEMid:  st30  Name:  Ala
+! Station  0011  FEMid:  st31  Name:  Cles
+! Station  0012  FEMid:  st32  Name:  Trento Sud
+! Station  0013  FEMid:  st81  Name:  Telve
+! Station  0014  FEMid:  st82  Name:  Storo
+! Station  0015  FEMid:  st83  Name:  Cavedine
+! Station  0016  FEMid:  st84  Name:  Fondo
+! Station  0017  FEMid:  st85  Name:  Bezzecca
+! Station  0018  FEMid:  st86  Name:  Vigolo Vattaro
+! Station  0019  FEMid:  st87  Name:  Predazzo
+! Station  0020  FEMid:  st88  Name:  Caldes
+!
+!
+NumberOfMeteoStations=20
+MeteoStationCoordinateX=...
+MeteoStationCoordinateY=...
+MeteoStationElevation=...
+MeteoStationWindVelocitySensorHeight=10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10
+MeteoStationTemperatureSensorHeight=2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2
+!
+!

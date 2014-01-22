@@ -1,0 +1,57 @@
+\name{get.geotop.recovery.state}
+\alias{get.geotop.recovery.state}
+\title{This function saves all spatially distrubuted information contained in the recovery folder into a comprehensive \code{list} object.}
+\usage{
+get.geotop.recovery.state(recFolder, xx = "0000", formatter = "L\%04d",
+  extension = ".asc", nsoillayers = 10, ...)
+}
+\arguments{
+  \item{recFolder}{directory when recvery maps are set. In
+  GEOtop it is ...}
+
+  \item{xx}{charcter String. Default is \code{"0000"}}
+
+  \item{extension}{file estension used for asccii recovery
+  map files. It must contains \code{'.'} as the first
+  character. Defaut is \code{".asc"} .}
+
+  \item{formatter}{string character for the the decimal
+  formatter to be used. Default is \code{"L\%04d"}.}
+
+  \item{nsoillayers}{number of soil layers used in the
+  GEOtop simulation}
+
+  \item{...}{further arguments}
+}
+\value{
+a \code{list} object containining all recovery raster maps.
+}
+\description{
+This function saves all spatially distrubuted information
+contained in the recovery folder into a comprehensive
+\code{list} object.
+}
+\note{
+This function has been used with the built 1.225-9 of
+GEOtop .
+}
+\examples{
+library(geotopbricks)
+example_Rscript <- system.file('template/example.geotop.recovery.state.R',package="geotopbricks")
+example_Rscript
+
+# Not Run because it elapses too long time!!!
+# Please Uncomment the following line to run by yourself!!!
+# source(example_Rscript)
+}
+\author{
+Emanuele Cordano
+}
+\seealso{
+\code{\link{brick.decimal.formatter}},
+
+\code{\link{raster}},\code{\link{set.geotop.recovery.state}},
+
+\code{\link{write.vectorized.geotop.recovery}},\code{\link{read.vectorized.geotop.recovery}}
+}
+

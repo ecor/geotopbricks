@@ -1,0 +1,11 @@
+! ASCII_TEXT TEMPLATE OF SPATIO-TEMPORAL VARIABLE
+! DISTRIBUTED IN A 3D SPATIAL GRID (X - Y - Z or LAYER)  
+!
+!  xmx,ymx: maximum x and y coordinate 
+!  ymn,ymn: minimum x and y coordinate
+!  nlayers: number of vertical layers along z axis
+!  nrow: number of rows 
+!  ncol: number of columns
+!  brickvalues: variable values organized as a vector (x - y - z) 
+!
+!

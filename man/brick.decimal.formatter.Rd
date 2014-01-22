@@ -1,0 +1,62 @@
+\name{brick.decimal.formatter}
+\alias{brick.decimal.formatter}
+\title{Imports a brick of raster ascii maps into a 'brick' object}
+\usage{
+brick.decimal.formatter(file = NULL, file_prefix, formatter = "\%04d",
+  file_extension = ".asc", nlayers = 10, use.read.raster.from.url = FALSE,
+  crs = NULL, start.from.zero = FALSE)
+}
+\arguments{
+  \item{file}{fileneme of the 'brick' files containing the
+  decimal formatter. It is \code{NULL} by default,
+  otherwise it replaces \code{file_suffix},
+  \code{formatter} and \code{file_extension}.}
+
+  \item{file_prefix}{character string suffix name of the
+  'brick' files.}
+
+  \item{formatter}{string value.  Default is \code{"\%04d"}
+  .}
+
+  \item{file_extension}{strinf value. Default is
+  \code{".asc"}}
+
+  \item{nlayers}{number of layers}
+
+  \item{use.read.raster.from.url}{logical value. Default is
+  \code{FALSE}. (this is recommended in this function). If
+  \code{TRUE} the RasterLayer are read with
+  \code{\link{read.raster.from.url}}, istead of
+  \code{\link{raster}} (otherwise). It is recomended in
+  case the files whose paths are contained in \code{x} are
+  remote and are 'http' addresses. In this cases the
+  stand-alone method \code{raster(x)} does not always work
+  and \code{use.read.raster.from.url} is necessary.}
+
+  \item{start.from.zero}{logical value. Default is
+  \code{FALSE}. If \code{TRUE} the formatter starts from
+  \code{0000}, otherwise it starts from \code{0001}.}
+
+  \item{crs}{coordinate system see
+  \code{\link{RasterBrick-class}},\code{\link{brick}},
+  Default is \code{NULL}.}
+}
+\value{
+the output is returned as a \code{\link{RasterBrick-class}}
+object
+}
+\description{
+Imports a brick of raster ascii maps into a 'brick' object
+}
+\examples{
+library(geotopbricks)
+library(raster)
+file <- system.file("doc/examples/snowthickness",package="geotopbricks")
+file <- paste(file,"SnowThickness0000L\%04d.asc",sep="/")
+# nlayers=15
+nlayers <- 6 ## Only 6 layers are read to minimize the elapsed time of the example!!
+b <- brick.decimal.formatter(file=file,nlayers=nlayers)
+nlayers(b)
+names(b)
+}
+

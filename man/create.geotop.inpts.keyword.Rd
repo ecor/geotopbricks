@@ -1,0 +1,48 @@
+\name{create.geotop.inpts.keyword}
+\alias{create.geotop.inpts.keyword}
+\title{Creates an 'geotop.inpts'  files the keyword and their values of a date.frame like the one returned by \code{\link{declared.geotop.inpts.keywords}}}
+\usage{
+create.geotop.inpts.keyword(df, file = "geotop.inpts.copy", wpath = NULL,
+  comment.lines = "default", header = "default", ...)
+}
+\arguments{
+  \item{df}{data frame returend by
+  \code{\link{declared.geotop.inpts.keywords}}}
+
+  \item{file}{connetion or file name where to write 'df'}
+
+  \item{wpath}{complere path to \code{file} (optional).
+  Default is \code{NULL}.}
+
+  \item{comment.lines}{string or vector of strings to add
+  as comments for each keyword. If it is \code{NULL} the
+  comment lines are omitted.}
+
+  \item{header}{string or vector of strings to add as a
+  header. If it is \code{NULL} the header is omitted.}
+
+  \item{...}{further arguments for
+  \code{\link{writeLines}}}
+}
+\description{
+Creates an 'geotop.inpts' files the keyword and their
+values of a date.frame like the one returned by
+\code{\link{declared.geotop.inpts.keywords}}
+}
+\details{
+In case \code{comment.lines} and \code{header} are set
+equal to \code{"default"}, they are suitably modified
+within the function code. See the example output.
+}
+\examples{
+library(geotopbricks)
+
+#Simulation working path
+wpath <- 'http://www.boussinesq.org/geotopbricks/simulations/panola13_run2xC_test3'
+df <- declared.geotop.inpts.keywords(wpath=wpath)
+create.geotop.inpts.keyword(df=df)
+}
+\seealso{
+\code{\link{writeLines}},\code{\link{declared.geotop.inpts.keywords}}
+}
+

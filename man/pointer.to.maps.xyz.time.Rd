@@ -1,0 +1,42 @@
+\name{pointer.to.maps.xyz.time}
+\alias{pointer.to.maps.xy.time}
+\alias{pointer.to.maps.xyz.time}
+\title{pointer.to.maps.xyz.time}
+\usage{
+pointer.to.maps.xyz.time(wpath, map.prefix = "thetaliq",
+  suffix = "L\%04dN\%04d.asc", zoo.index = NULL, ntime, nlayers)
+}
+\arguments{
+  \item{wpath}{complete working path to *.asc maps are
+  saved}
+
+  \item{map.prefix}{string prefix name map before}
+
+  \item{suffix}{z-time or time suffix plus file extention
+  character string. Default for GEOtop application is
+  \code{"L\%04dN\%04d.asc"} for xy+z+time maps or
+  \code{"N\%04d.asc"} for xy+time maps.}
+
+  \item{zoo.index}{time or date index. Default is
+  \code{NULL} , otherwise function returns a zoo object
+  with \code{zoo.index} as index.}
+
+  \item{ntime}{number of time instant. If \code{zoo.index}
+  is not \code{NULL}, it is calculated from
+  \code{zoo.index} length.}
+
+  \item{nlayers}{number of vertical layers.}
+}
+\value{
+A dota.frame or zoo object containig the paths to maps fpr
+each time and z layer.
+}
+\description{
+
+
+pointer.to.maps.xy.time
+}
+\author{
+Emanuele Cordano
+}
+

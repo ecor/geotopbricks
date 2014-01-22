@@ -1,0 +1,64 @@
+\name{writeRasterxGEOtop}
+\alias{writeRasterxGEOtop}
+\title{This function uses  \code{\link{writeRaster}} to create .asc maps which can be read by GEOtop}
+\usage{
+writeRasterxGEOtop(x, filename = NULL, overwrite = TRUE, NAflag = -9999,
+  use.decimal.formatter = FALSE, start.from.zero = FALSE, keyword, wpath,
+  suffix.ext = ".asc", ...)
+}
+\arguments{
+  \item{x}{a Raster object, see \code{\link{writeRaster}}.
+  It can be also a \code{\link{RasterBrick-class}} object.}
+
+  \item{filename}{see \code{\link{writeRaster}}. It is a
+  vector of string or one string containing a decimal
+  formatter (see \code{\link{brick.decimal.formatter}}) in
+  case \code{x} is a \code{\link{RasterBrick-class}}
+  object.}
+
+  \item{overwrite}{logical. Default is \code{TRUE}, see
+  \code{\link{writeRaster}}.}
+
+  \item{NAflag}{numeric. Dafauli is -9999, see
+  \code{\link{writeRaster}}.}
+
+  \item{use.decimal.formatter}{logical value. Default is
+  \code{FALSE}. If it is \code{TRUE} or \code{x} is a
+  \code{\link{RasterBrick-class}} object with
+  \code{nlayers(x)!=length(filename)} , \code{filename} is
+  considered as one string containing a decimal formatter
+  (e.g. \code{"\%04d"}, see
+  \code{\link{brick.decimal.formatter}}). Otherwise, if
+  \code{filename} is considered as a vector string.}
+
+  \item{start.from.zero}{logical value. Default is
+  \code{FALSE}. If \code{TRUE} the formatter starts from
+  \code{0000}, otherwise it starts from \code{0001}.}
+
+  \item{keyword}{geotop keyword to be used to extract the
+  raster file name from \code{geotop.inpts} file. This is
+  enabled if \code{filename} is equal to \code{NULL}.}
+
+  \item{wpath}{simulation folder containing
+  \code{geotop.inpts} file.}
+
+  \item{suffix.ext}{charachter string to be added to the
+  \code{keyword} value,e.g. possible suffix and extension
+  of the raster file name. Default is \code{".asc"}.}
+
+  \item{...}{further arguments of
+  \code{\link{get.geotop.inpts.keyword.value}} or
+  \code{\link{writeRaster}}}
+}
+\description{
+This function uses \code{\link{writeRaster}} to create .asc
+maps which can be read by GEOtop
+}
+\note{
+It makes use of \code{\link{system}} functons. It uses
+\code{*.asc} format for raster files.  In case the file
+name \code{filename} is missing and then \code{NULL}, it
+must be imported by the simulation \code{geotop.inpts}
+file.
+}
+

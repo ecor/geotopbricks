@@ -1,0 +1,1 @@
+Recovery map files are reduced to save memory space on disk!!

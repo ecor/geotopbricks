@@ -1,0 +1,31 @@
+\docType{methods}
+\name{plot}
+\alias{plot}
+\alias{plot,GeotopRasterBrick,ANY-method}
+\title{plot}
+\usage{
+\S4method{plot}{GeotopRasterBrick,ANY}(x, y = NULL, ...)
+}
+\arguments{
+  \item{x}{the \code{\link{GeotopRasterBrick}} object}
+
+  \item{y}{further argument}
+
+  \item{...}{further argument for S4 method \code{plot} for
+  Raster object.}
+}
+\description{
+\code{plot} method for a \code{GeotopRasterBrick} object
+}
+\examples{
+library(geotopbricks)
+# The examples is the following R script conteined in a 'inst' directory of the package source
+f <- system.file("doc/examples/example.plot.GeotopRasterBrick.R",package="geotopbricks")
+#  source(f) # Uncomment this line to run the example.
+# You can copy the example file using file.copy(from=f,to=....,...) See file.copy documentation
+}
+\seealso{
+\code{\link{KML}}
+}
+\keyword{methods}
+

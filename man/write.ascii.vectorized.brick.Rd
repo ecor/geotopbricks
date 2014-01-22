@@ -1,0 +1,60 @@
+\name{write.ascii.vectorized.brick}
+\alias{write.ascii.vectorized.brick}
+\title{Writes a z-layer brick referred to a time instant (e.g. date) in an ascii format like \code{'geotop.inpts'} file.}
+\usage{
+write.ascii.vectorized.brick(b, file = NULL, header = NULL,
+  overwrite = TRUE, NAflag = -9999, matlab.syntax = FALSE, ...)
+}
+\arguments{
+  \item{b}{a \code{\link{RasterBrick-class}} or
+  \code{\link{GeotopRasterBrick-class}} object}
+
+  \item{file}{file name to write}
+
+  \item{header}{character string vector for header text
+  lines. If missing, a default header is written. #Default
+  is \code{c("! header")}.}
+
+  \item{overwrite}{logical. Default is \code{TRUE}, see
+  \code{\link{writeRaster}}.}
+
+  \item{NAflag}{numeric. Default is -9999, see
+  \code{\link{writeRasterxGEOtop}}.}
+
+  \item{matlab.syntax}{logical value. Default is
+  \code{FALSE}. If \code{TRUE} the file syntax is like the
+  one of a *.m Matlab script file.}
+
+  \item{...}{further aguments inserted as attribute}
+}
+\value{
+the string vector possibly written in \code{file}.
+}
+\description{
+Writes a z-layer brick referred to a time instant (e.g.
+date) in an ascii format like \code{'geotop.inpts'} file.
+}
+\note{
+Add Quote if necessary. This function is NOT mantained and
+will be DEPRECATED.
+}
+\examples{
+## Not Run
+## library(geotopbricks)
+## library(raster)
+## file <- system.file("doc/examples/snowthickness",package="geotopbricks")
+## file <- paste(file,"SnowThickness0000L\%04d.asc",sep="/")
+## b <- brick.decimal.formatter(file=file,nlayers=15)
+## nlayers(b)
+## names(b)
+## file <- "snow.txt"
+## btext <- write.ascii.vectorized.brick(b,Date="1/1/2009",file="snow.txt")
+## The printed object
+## str(btext)
+## bb <- read.ascii.vectorized.brick(file = file)
+## bf <- abs(as.matrix(bb[[1]]-b[[1]]))<.Machine$double.eps^0.5
+}
+\seealso{
+\code{\link{read.ascii.vectorized.brick}}
+}
+

@@ -1,0 +1,50 @@
+\name{write.vectorized.geotop.recovery}
+\alias{write.vectorized.geotop.recovery}
+\title{It writes a \code{list} object returened by \code{\link{get.geotop.recovery.state}} as a string vector or in a text file, following \code{*.inpts} or Matlab-like syntax.}
+\usage{
+write.vectorized.geotop.recovery(rec, file = NULL, header = NULL,
+  overwrite = TRUE, NAflag = -9999, matlab.syntax = TRUE, ...)
+}
+\arguments{
+  \item{rec}{a \code{list} object returened by
+  \code{\link{get.geotop.recovery.state}}}
+
+  \item{file}{ascii text file name whrere to write the
+  string vector}
+
+  \item{header}{character string vector for header text
+  lines. If missing, a default header is written. Default
+  is \code{c("! header")} or he one assigned by
+  \code{matlab.syntax}.}
+
+  \item{overwrite}{logical. Default is \code{TRUE}, see
+  \code{\link{writeRaster}}.}
+
+  \item{NAflag}{numeric. Default is -9999, see
+  \code{\link{writeRasterxGEOtop}}.}
+
+  \item{matlab.syntax}{logical value. Default is
+  \code{TRUE}. If \code{TRUE} the file syntax is like the
+  one of a *.m Matlab script file.}
+
+  \item{...}{further aguments inserted as attribute}
+}
+\value{
+a string vector containg the \code{rec} variables.
+}
+\description{
+It writes a \code{list} object returened by
+\code{\link{get.geotop.recovery.state}} as a string vector
+or in a text file, following \code{*.inpts} or Matlab-like
+syntax.
+}
+\note{
+Add Quote if necessary
+}
+\examples{
+# See the examples of the 'get.geotop.recovery.state' function
+}
+\seealso{
+\code{\link{get.geotop.recovery.state}},\code{\link{set.geotop.recovery.state}},\code{\link{write.vectorized.variable.in.string}}
+}
+

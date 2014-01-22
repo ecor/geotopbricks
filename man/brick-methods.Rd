@@ -1,0 +1,69 @@
+\docType{methods}
+\name{brick}
+\alias{#}
+\alias{brick}
+\alias{brick,GeotopRasterBrick-method}
+\alias{brick,zoo-method}
+\title{brick}
+\usage{
+\S4method{brick}{zoo}(x, layer = 1, timerange = NULL, time = NULL,
+  rows = 1:nrow(x), crs = NULL, use.read.raster.from.url = TRUE)
+
+\S4method{brick}{GeotopRasterBrick}(x)
+}
+\arguments{
+  \item{x}{a 'zoo' object returned by function
+  \code{\link{pointer.to.maps.xyz.time}} or
+  \code{\link{pointer.to.maps.xy.time}} or a
+  \code{\link{GeotopRasterBrick-class}} object}
+
+  \item{layer}{layer at which raster maps are imported. If
+  is \code{NULL}, maps ara no-zlayer distributed and
+  \code{zoo} must be returend by
+  \code{\link{pointer.to.maps.xy.time}}}
+
+  \item{timerange}{two-elememts vector containing the time
+  range at which geotop maps are imported}
+
+  \item{time}{vector of time instants at which geotop maps
+  are imported}
+
+  \item{rows}{rows of \code{zoo} correspondig to the geotop
+  maps that are imported. By default all rows of \code{zoo}
+  are considered. It is calculated by \code{time} or
+  \code{timerange} if they are not set as \code{NULL}.}
+
+  \item{crs}{coordinate system see
+  \code{\link{RasterBrick-class}}}
+
+  \item{use.read.raster.from.url}{logical value. Default is
+  \code{TRUE}. If \code{TRUE} the RasterLayer are read with
+  \code{\link{read.raster.from.url}}, istead of
+  \code{\link{raster}} (otherwise). It is recomended in
+  case the files whose paths are contained in \code{x} are
+  remote and are 'http' addresses. In this cases the
+  stand-alone method \code{raster(x)} does not always work
+  and \code{use.read.raster.from.url} is necessary.}
+}
+\value{
+a \code{\link{RasterBrick-class}} containing the geopop
+maps indicated by \code{x}, which is already in a
+\code{\link{GeotopRasterBrick-class}} object or a 'zoo'
+object returned by function
+\code{\link{pointer.to.maps.xyz.time}} or
+\code{\link{pointer.to.maps.xy.time}}.
+}
+\description{
+Added implemetation for 'brick' S4 method
+
+brick method for GeotopRasterBrick
+}
+\examples{
+# TON TOSS
+# See the examples in the functions listed in the 'SeeAlso' section
+}
+\seealso{
+\code{\link{getvalues.brick.at.depth}},\code{\link{vertical.aggregate.brick.within.depth}}
+}
+\keyword{methods}
+

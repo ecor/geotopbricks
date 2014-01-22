@@ -1,0 +1,204 @@
+\name{brickFromOutputSoil3DTensor}
+\alias{brickFromOutputSoil3DTensor}
+\alias{rasterFromOutput2DMap}
+\title{Extracts a brick or a raster layer from a output 3D Tensor or 2D map respectively}
+\usage{
+brickFromOutputSoil3DTensor(x, when, layers = "SoilLayerThicknesses",
+  one.layer = FALSE, suffix = "L\%04dN\%04d.asc", wpath = NULL,
+  tz = "A", start_date_key = "InitDateDDMMYYYYhhmm",
+  end_date_key = "EndDateDDMMYYYYhhmm", timestep = "OutputSoilMaps",
+  use.read.raster.from.url = FALSE, crs = NULL, projfile = "geotop.proj",
+  start.from.zero = FALSE, secondary.suffix = NULL, ...)
+
+rasterFromOutput2DMap(x, when, ...)
+}
+\arguments{
+  \item{x}{string. GEOtop keyword reletated to the 3D or 2D
+  variable to be imported in R.}
+
+  \item{when}{\code{\link{POSIXct-class}} for date and time
+  on which the variable \code{x} is requested.}
+
+  \item{layers}{number of soil layer or geotop keyword for
+  soil leyer (e.g. \code{SoilLayerThicknesses} or
+  \code{SoilFile}). Default is
+  \code{SoilLayerThicknesses}.}
+
+  \item{timestep}{time step expressed in seconds every
+  which the raster file has been created. It can be a
+  string corresponding to the geotop keyword in the inpts
+  file. Default value is \code{"OutputSoilMaps"}.}
+
+  \item{suffix}{charcher string containing the decimal
+  formatter used by GEOtop in the output file names.
+  Default is "L%04dN%04.asc". A simple user is recommended
+  not to modify the value of this argument and use the
+  default value.}
+
+  \item{wpath,tz,use.read.raster.from.url}{see
+  \code{\link{get.geotop.inpts.keyword.value}}}
+
+  \item{projfile}{name of the \code{*.proj} file containing
+  CRS information. See
+  \code{\link{get.geotop.inpts.keyword.value}}. Default is
+  \code{"geotop.proj"}. If is \code{NULL} or \code{NA} or
+  this file does not exist, it is not searched and read..
+  In case \code{use.read.raster.from.url} is \code{TRUE}
+  and no \code{NULL} or \code{NA} values are assinged, the
+  \code{*.proj} file is searched.}
+
+  \item{crs,start.from.zero}{see
+  \code{\link{brick.decimal.formatter}}. If \code{crs} is
+  not \code{NULL} (Default) , \code{projfile} is ignored.}
+
+  \item{one.layer}{logical value. If \code{TRUE} a
+  \code{\link{RasterLayer-class}} object is imported,
+  otherwise a \code{\link{RasterBrick-class}}object is
+  returened. Default for \code{brickFromOutputSoil3DTensor}
+  is \code{FALSE}}
+
+  \item{start_date_key,end_date_key}{initial and final
+  detes and times of the GEOtop simulation or alternatively
+  the respective keywords of \code{*.inpts} file (Default)}
+
+  \item{secondary.suffix}{String secondary suffix which can
+  be added at the end of the Map file name (optional).
+  Default is \code{NULL} and no secondary suffix is added.}
+
+  \item{...}{additional arguments for
+  \code{\link{get.geotop.inpts.keyword.value}} or
+  \code{\link{brickFromOutputSoil3DTensor}}}
+}
+\description{
+Extracts a brick or a raster layer from a output 3D Tensor
+or 2D map respectively
+}
+\details{
+These functions \code{brickFromOutputSoil3DTensor} and
+\code{rasterFromOutput2DMap} return 3D or 2D
+\code{\link{Raster-class}} objects respectively.
+\code{rasterFromOutput2DMap} is a wrapper function of
+\code{brickFromOutputSoil3DTensor} with the option
+\code{one.layer==TRUE}. The functionswork with the
+following output keywords:
+
+\code{"SoilTempTensorFile"},
+
+\code{"SoilAveragedTempTensorFile"},
+
+\code{"SoilLiqContentTensorFile"},
+
+\code{"SoilAveragedLiqContentTensorFile"},
+
+\code{"SoilIceContentTensorFile"},
+
+\code{"SoilAveragedIceContentTensorFile"},
+
+\code{"SoilLiqWaterPressTensorFile"},
+
+\code{"SoilTotWaterPressTensorFile"} for
+\code{\link{brickFromOutputSoil3DTensor}};
+
+\code{"FirstSoilLayerTempMapFile"},
+
+\code{"FirstSoilLayerAveragedTempMapFile"},
+
+\code{"FirstSoilLayerLiqContentMapFile"},
+
+\code{"FirstSoilLayerIceContentMapFile"},
+
+\code{"LandSurfaceWaterDepthMapFile"},
+
+\code{"ChannelSurfaceWaterDepthMapFile"},
+
+\code{"NetRadiationMapFile"},
+
+\code{"InLongwaveRadiationMapFile"},
+
+\code{"NetLongwaveRadiationMapFile"},
+
+\code{"NetShortwaveRadiationMapFile"},
+
+\code{"InShortwaveRadiationMapFile"},
+
+\code{"DirectInShortwaveRadiationMapFile"},
+
+\code{"ShadowFractionTimeMapFile"},
+
+\code{"SurfaceHeatFluxMapFile"},
+
+\code{"SurfaceSensibleHeatFluxMapFile"},
+
+\code{"SurfaceLatentHeatFluxMapFile"},
+
+\code{"SurfaceTempMapFile"},
+
+\code{"PrecipitationMapFile"},
+
+\code{"CanopyInterceptedWaterMapFile"},
+
+\code{"SnowDepthMapFile"},
+
+\code{"GlacierDepthMapFile"},
+
+\code{"SnowMeltedMapFile"},
+
+\code{"SnowSublMapFile"},
+
+\code{"GlacierMeltedMapFile"},
+
+\code{"GlacierSublimatedMapFile"},
+
+\code{"AirTempMapFile"},
+
+\code{"WindSpeedMapFile"},
+
+\code{"WindDirMapFile"},
+
+\code{"RelHumMapFile"},
+
+\code{"SWEMapFile"},
+
+\code{"GlacierWaterEqMapFile"}
+
+\code{"SnowDurationMapFile"},
+
+\code{"ThawedSoilDepthMapFile"},
+
+\code{"ThawedSoilDepthFromAboveMapFile"},
+
+\code{"WaterTableDepthMapFile"},
+
+\code{"WaterTableDepthFromAboveMapFile"},
+
+\code{"NetPrecipitationMapFile"},
+
+\code{"EvapotranspirationFromSoilMapFile"} for
+\code{\link{rasterFromOutput2DMap}}.
+}
+\examples{
+library(geotopbricks)
+# The data containing in the link are only for educational use
+wpath <- "http://www.boussinesq.org/geotopbricks/simulations/idroclim_test1"
+x <- "SoilLiqContentTensorFile"
+when <- as.POSIXlt("2002-03-22 UTC",tz="A")
+
+# Not Run because it elapses too long time!!!
+# Please Uncomment the following lines to run by yourself!!!
+
+# b <- brickFromOutputSoil3DTensor(x,when=when,wpath=wpath,tz="A",use.read.raster.from.url=TRUE)
+
+# a 2D map:
+x_e <- "SnowDepthMapFile"
+# Not Run: uncomment the following line
+# m <- rasterFromOutput2DMap(x_e,when=when,wpath=wpath,timestep="OutputSnowMaps",tz="A")
+# Not Run: uncomment the following line
+# plot(m)
+}
+\author{
+Emanuele Cordano
+}
+\seealso{
+\code{\link{get.geotop.inpts.keyword.value}},\code{\link{brick.decimal.formatter}}
+}
+
