@@ -16,7 +16,7 @@ NULL
 #' @param secondary.suffix String secondary suffix which can be added at the end of the Map file name (optional). Default is \code{NULL} and no secondary suffix is added.  
 #' @param ... additional arguments for \code{\link{get.geotop.inpts.keyword.value}} or \code{\link{brickFromOutputSoil3DTensor}}
 #'  
-#' @rdname brickFromOutputSoil3DTensor
+#' 
 #' @author Emanuele Cordano
 #' 
 #'  
