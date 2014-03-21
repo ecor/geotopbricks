@@ -286,6 +286,22 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 					 temp <- temp[index(temp)>=start_date & index(temp)<=end_date,]
 					 
 				 }
+#	# alternatively			 
+#	            index <- temp[,i_index] 
+#	            index <- as.POSIXlt(index,format=format,tz=tz)
+#				if (!is.null(start_date) & !is.null(end_date)) { 
+#	
+#	 					temp <- temp[index>=start_date & index<=end_date,]
+#				}
+#				
+#	 			temp<- temp[,-i_index]
+#	 			temp <- as.zoo(temp)
+#	  			index(temp) <- index
+#	#
+#	#
+				 
+				 
+				 
 				 
 			 }
 			 
