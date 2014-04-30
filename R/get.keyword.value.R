@@ -214,7 +214,7 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 		 
 		 
 		 
-		 ContinuousRecoveryCond <- !is.na(ContinuousRecovery) & !is.null(ContinuousRecovery) & length(ContinuousRecovery)==1 & round(ContinuousRecovery)==ContinuousRecovery &  ContinuousRecovery>1
+		 ContinuousRecoveryCond <- !is.na(ContinuousRecovery) & !is.null(ContinuousRecovery) & length(ContinuousRecovery)==1 & round(ContinuousRecovery)==ContinuousRecovery &  ContinuousRecovery>0 ## ec on 20143004 This condition was ContinuousRecovery>1
 		 
 		 if (ContinuousRecoveryCond) {
 			 

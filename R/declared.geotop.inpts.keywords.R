@@ -72,13 +72,13 @@ declared.geotop.inpts.keywords <- function(wpath,inpts.file="geotop.inpts",comme
 		file <- pipe(file) # added line according to http://stackoverflow.com/posts/2226880/edit
 		open <- TRUE
 	}	else {
-		
+		print('qui')
 		file <- file(file)
 		open <- FALSE
 	}
 	
 	x <- readLines(file,warn=warn,...)
-	
+	print(open)
 	if (open) close(file)
 	
 	l <- nchar(x)
