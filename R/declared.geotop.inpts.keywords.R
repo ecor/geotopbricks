@@ -67,19 +67,19 @@ declared.geotop.inpts.keywords <- function(wpath,inpts.file="geotop.inpts",comme
 	}
 	
 	
-	if (str_sub(file,1,3)=='ssh' | str_sub(file,1,5)=='plink') {
-		
-		file <- pipe(file) # added line according to http://stackoverflow.com/posts/2226880/edit
-		open <- TRUE
-	}	else {
-		print('qui')
-		file <- file(file)
-		open <- FALSE
-	}
-	
+#	if (str_sub(file,1,3)=='ssh' | str_sub(file,1,5)=='plink') {
+#		
+#		file <- pipe(file) # added line according to http://stackoverflow.com/posts/2226880/edit
+#		open <- TRUE
+#	}	else {
+#		print('qui')
+#		file <- file(file)
+#		open <- FALSE
+#	} ## commented line (to be removed) by ec 2014-05-20
+	file <- file(file)
 	x <- readLines(file,warn=warn,...)
-	print(open)
-	if (open) close(file)
+	
+#	if (open) close(file)
 	
 	l <- nchar(x)
 	

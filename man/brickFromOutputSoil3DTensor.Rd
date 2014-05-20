@@ -181,17 +181,18 @@ library(geotopbricks)
 # The data containing in the link are only for educational use
 wpath <- "http://www.boussinesq.org/geotopbricks/simulations/idroclim_test1"
 x <- "SoilLiqContentTensorFile"
-when <- as.POSIXct("2002-03-22 UTC",tz="A")
+tz <-  "Etc/GMT+1"
+when <- as.POSIXct("2002-03-22",tz=tz)
 
 # Not Run because it elapses too long time!!!
 # Please Uncomment the following lines to run by yourself!!!
 
- b <- brickFromOutputSoil3DTensor(x,when=when,wpath=wpath,tz="A",use.read.raster.from.url=TRUE)
+ b <- brickFromOutputSoil3DTensor(x,when=when,wpath=wpath,tz=tz,use.read.raster.from.url=TRUE)
 
 # a 2D map:
 x_e <- "SnowDepthMapFile"
 # Not Run: uncomment the following line
- m <- rasterFromOutput2DMap(x_e,when=when,wpath=wpath,timestep="OutputSnowMaps",tz="A")
+ m <- rasterFromOutput2DMap(x_e,when=when,wpath=wpath,timestep="OutputSnowMaps",tz=tz)
 # Not Run: uncomment the following line
 # plot(m)
 }

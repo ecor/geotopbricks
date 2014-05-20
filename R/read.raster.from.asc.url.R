@@ -19,20 +19,21 @@ read.raster.from.url <- function(x,header_nrow=6,...) {
 	
 #	y <- url(x,...)
 	
-	# ec date 09-03-2013
-	if (str_sub(x,1,3)=='ssh' | str_sub(x,1,5)=='plink') {
-		
-		file <- pipe(x) # added line according to http://stackoverflow.com/posts/2226880/edit
-		 open <- TRUE                   
-	}	else {
-		
-		file <- file(x)
-		open <- FALSE
-	}
-	# ec date 09-03-2013
+#	# ec date 09-03-2013
+#	if (str_sub(x,1,3)=='ssh' | str_sub(x,1,5)=='plink') {
+#		
+#		file <- pipe(x) # added line according to http://stackoverflow.com/posts/2226880/edit
+#		 open <- TRUE                   
+#	}	else {
+#		
+#		file <- file(x)
+#		open <- FALSE
+#	}
+#	# ec date 09-03-2013
+	file <- file(x)    ### 2014-05-20 ec 
 	lin <- readLines(file,warn=FALSE)
 	
-	if (open) close(file) # added ec date 09-03-2013
+##	if (open) close(file) # added ec date 09-03-2013
 	
 	s0 <- str_split(lin,pattern=" ")
 	

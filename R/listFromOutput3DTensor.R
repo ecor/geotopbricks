@@ -147,9 +147,9 @@ NULL
 #
 
 #' 
-#' tz <- "A"
-#' start <- as.POSIXct("2002-03-22 UTC,tz=tz)
-#' end <- as.POSIXct("2002-03-25 UTC,tz=tz)
+#' tz <-  "Etc/GMT+1"
+#' start <- as.POSIXct("2002-03-22",tz=tz)
+#' end <- as.POSIXct("2002-03-25",tz=tz)
 #' day <- 3600*24
 #' when <- seq(from=start,to=end,by=day)
 #' #' # The data containing in the link are only for educational use

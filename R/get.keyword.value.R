@@ -244,24 +244,19 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 			
 			
 			####
-			if (str_sub(x,1,3)=='ssh' | str_sub(x,1,5)=='plink') {
-			
-				file <- pipe(x) # added line according to http://stackoverflow.com/posts/2226880/edit
-				open <- TRUE
-				
-			 }	else {
-				 
-				 file <- x 
-			 }# TO ADJUST #else {
-			
-				#file <- file(x)
-				#open <- FALSE
-			 #}
-			 # ec date 09-03-2013
-			 
+#			if (str_sub(x,1,3)=='ssh' | str_sub(x,1,5)=='plink') {
+#			
+#				file <- pipe(x) # added line according to http://stackoverflow.com/posts/2226880/edit
+#				open <- TRUE
+#				
+#			 }	else {
+#				 
+#				 file <- x 
+#			 }
+			 file <- file(x)
 			 temp <- read.table(file,header=TRUE,sep=",")
 			 
-			# if (open) close(file) # added ec date 09-03-2013
+			
 			 
 			 if (is.numeric(isNA) & length(isNA)==1) temp[temp<=isNA] <- NA # added on 6 dec 2012
 			 i_index <- which(names(temp)==date_field)
