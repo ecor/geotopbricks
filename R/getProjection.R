@@ -25,19 +25,10 @@ getProjection <- function(x,cond=TRUE,...) {
 	open <- FALSE
 	if (cond) {
 		
-#		if (str_sub(x,1,3)=='ssh' | str_sub(x,1,5)=='plink') {
-#			
-#			file <- pipe(x) # added line according to http://stackoverflow.com/posts/2226880/edit
-#			open <- TRUE
-#		}	else {
-#			
-#			file <- file(x)
-#			ospen <- FALSE
-#		}
-		file <- file(x)
-		out <- as.character(scan(file,what="list",sep="\n",n=1))
+	
+		out <- as.character(scan(x,what="list",sep="\n",n=1))
 		
-#		if (open) close(file)
+
 		
 	}
 	

@@ -30,8 +30,8 @@ read.raster.from.url <- function(x,header_nrow=6,...) {
 #		open <- FALSE
 #	}
 #	# ec date 09-03-2013
-	file <- file(x)    ### 2014-05-20 ec 
-	lin <- readLines(file,warn=FALSE)
+###	file <- file(x)    ### 2014-05-20 ec 
+	lin <- readLines(x,warn=FALSE)
 	
 ##	if (open) close(file) # added ec date 09-03-2013
 	

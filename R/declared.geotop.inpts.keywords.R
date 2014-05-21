@@ -76,7 +76,7 @@ declared.geotop.inpts.keywords <- function(wpath,inpts.file="geotop.inpts",comme
 #		file <- file(file)
 #		open <- FALSE
 #	} ## commented line (to be removed) by ec 2014-05-20
-	file <- file(file)
+#	file <- file(file)
 	x <- readLines(file,warn=warn,...)
 	
 #	if (open) close(file)

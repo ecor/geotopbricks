@@ -4,12 +4,13 @@
 \usage{
 get.geotop.inpts.keyword.value(keyword, inpts.frame = NULL,
   vector_sep = NULL, numeric = FALSE, format = "\%d/\%m/\%Y \%H:\%M",
-  date = FALSE, tz = "A", raster = FALSE, file_extension = ".asc",
-  add_wpath = FALSE, wpath = NULL, use.read.raster.from.url = TRUE,
-  data.frame = FALSE, formatter = "\%04d", level = 1,
-  date_field = "Date", isNA = -9999, matlab.syntax = TRUE,
-  projfile = "geotop.proj", start_date = NULL, end_date = NULL,
-  ContinuousRecovery = 0, ContinuousRecoveryFormatter = "_crec\%04d", ...)
+  date = FALSE, tz = "Etc/GMT+1", raster = FALSE,
+  file_extension = ".asc", add_wpath = FALSE, wpath = NULL,
+  use.read.raster.from.url = TRUE, data.frame = FALSE,
+  formatter = "\%04d", level = 1, date_field = "Date", isNA = -9999,
+  matlab.syntax = TRUE, projfile = "geotop.proj", start_date = NULL,
+  end_date = NULL, ContinuousRecovery = 0,
+  ContinuousRecoveryFormatter = "_crec\%04d", ...)
 }
 \arguments{
   \item{keyword}{keyword name}
@@ -40,7 +41,8 @@ get.geotop.inpts.keyword.value(keyword, inpts.frame = NULL,
 
   \item{tz}{format string representing the time zone, see
   \code{\link{as.POSIXlt}}, used if \code{date} is
-  \code{TRUE}. Default is \code{"A"}.}
+  \code{TRUE}. Default is \code{"Etc/GMT+1"} (until the
+  previous version it was \code{"A"}) which meens UTC +1.}
 
   \item{raster}{logical value. Default is \code{FALSE}. If
   \code{TRUE} function returns direclty the raster map as
