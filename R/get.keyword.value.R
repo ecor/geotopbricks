@@ -258,10 +258,12 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 			 
 			
 			 i_index <- which(names(temp)==date_field)
-			 if (is.numeric(isNA) & length(isNA)==1) temp[temp<=isNA,-i_index] <- NA # added on 6 dec 2012
+			 if (length(i_index>1)) {
+				 
+				 if (is.numeric(isNA) & length(isNA)==1) temp[,-i_index][temp[,-i_index]<=isNA] <- NA # added on 6 dec 2012
 			 
 			
-	
+			 }	
 		
 		#####
 		
