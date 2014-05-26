@@ -29,8 +29,8 @@ NULL
 #' 
 #' library(geotopbricks)
 #' data(bondone)
-#' 
-#' create.geotop.meteo.files(x=meteo)
+#' ## Not Run - Uncomment te following line to run the example
+#' ## create.geotop.meteo.files(x=meteo)
 #' 
 #' 
 

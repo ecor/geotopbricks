@@ -60,8 +60,8 @@ Creates geotop meteo files from (a list of) 'zoo' objects
 \examples{
 library(geotopbricks)
 data(bondone)
-
-create.geotop.meteo.files(x=meteo)
+## Not Run - Uncomment te following line to run the example
+## create.geotop.meteo.files(x=meteo)
 }
 \seealso{
 \code{\link{write.table}},\code{\link{get.geotop.inpts.keyword.value}}
