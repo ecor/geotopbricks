@@ -49,7 +49,7 @@ names(CoordinatePointLandCover) <- CoordinatePointCode
 names(CoordinatePointElevation) <- CoordinatePointCode
 
 
-level <- c("FEM11","T0436","FEM23", "T0179","T0175") ###,"FEM90","T0433")
+level <- c("FEM11","FEM90","FEM23", "T0179","T0175") ###,"FEM90","T0433")
 level <- CoordinatePointNumber[level]
 level <- sort(level)
 
