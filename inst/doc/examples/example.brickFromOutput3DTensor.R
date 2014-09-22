@@ -31,7 +31,7 @@ library(geotopbricks)
 wpath <- "http://www.boussinesq.org/geotopbricks/simulations/idroclim_test1"
 
 x <- "SoilLiqContentTensorFile"
-when <- as.POSIXlt("2002-03-22 UTC",tz="A")
+when <- as.POSIXct("2002-03-22 UTC",tz="Etc/GMT+1")
 b <- brickFromOutputSoil3DTensor(x,when=when,wpath=wpath,tz="A",use.read.raster.from.url=TRUE)
 
 # set colors 
