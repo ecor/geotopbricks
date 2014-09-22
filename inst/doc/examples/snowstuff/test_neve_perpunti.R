@@ -25,7 +25,7 @@ library(scales)
 wpath <- "/home/ecor/attivita/2014/caprioli/simulazioni/rendena100m_20140807_v2"
 wpath <- "/Volumes/GONGOLO/caprioli/rendena100m_20140807_v2"
 
-ContinuousRecovery <- 2 # nr. di interruzioni della simulazione (vedere nella cartella tabs i file di tipo "xxxxxx_crec0001.txt" e cercare il nr. pi� alto)
+ContinuousRecovery <- 3 # nr. di interruzioni della simulazione (vedere nella cartella tabs i file di tipo "xxxxxx_crec0001.txt" e cercare il nr. pi� alto)
 
 max <- 20
 
@@ -49,7 +49,7 @@ names(CoordinatePointLandCover) <- CoordinatePointCode
 names(CoordinatePointElevation) <- CoordinatePointCode
 
 
-level <- c("FEM11","T0436","FEM23", "T0179","T0175","FEM90","T0433")
+level <- c("FEM11","T0436","FEM23", "T0179","T0175") ###,"FEM90","T0433")
 level <- CoordinatePointNumber[level]
 level <- sort(level)
 
@@ -119,9 +119,15 @@ names(pointvalues) <- names(level)
 id <- c("snow_depth.mm.","snow_water_equivalent.mm.","snow_temperature.C.","snow_subl.mm.","Tair.C.","Tsurface.C.","Tvegetation.C.","Prain_over_canopy.mm.","Psnow_under_canopy.mm.","Prain_under_canopy.mm.","Prain_rain_on_snow.mm.","Psnow_over_canopy.mm.","snow_water_equivalent.mm.","Psnow_under_canopy.mm.","SWin.W.m2.","snow_density.kg.m3.", "Tsurface.C.", "Surface_Energy_balance.W.m2." )     
 
 
-
-# tiene solo quelle contenute in id
-pointvalues_rev <- lapply(X=pointvalues,FUN=function(x,id){x[,id]},id=id)
+# only id columuns are saved
+pointvalues_rev <- lapply(X=pointvalues,FUN=function(x,id){
+						
+						out <- x[,id]
+						
+						str(out)
+						return(out)
+						
+		},id=id)
 
 
 #####  VERIFICA TEMPERATURE 
@@ -165,7 +171,7 @@ time_aggregation <- 3600 ## hourly
 pointvalues_melt <- meltFromZooList(x=pointvalues_rev,aggregate=time_aggregation,FUN=mean)
 meteovalues_melt <- meltFromZooList(x=meteovalues,aggregate=time_aggregation,FUN=mean)
 
-pointvalues_melt <- rbind(meteovalues_melt,pointvalues_melt)
+##pointvalues_melt <- rbind(meteovalues_melt,pointvalues_melt)
 variables <- unique(pointvalues_melt$variable)
 locations <- unique(pointvalues_melt$L1)
 
@@ -182,7 +188,7 @@ locations <- unique(pointvalues_melt$L1)
 #variable <- c("temp_z80.000000","temp_z230.000000","temp_z580.000000")
 #variable <- c("Prain_over_canopy.mm.","Prain_under_canopy.mm.","EP.mm")
 
-variable <- c("Tair.C.","snow_depth.mm.","Psnow_under_canopy.mm.","Prain_under_canopy.mm.","snow_water_equivalent.mm.","SWin.W.m2.","snow_density.kg.m3.", "Tsurface.C." , "Surface_Energy_balance.W.m2.","P_obs.mm.","Tair_obs.C.")
+variable <- c("Tair.C.","snow_depth.mm.","Psnow_under_canopy.mm.","Prain_under_canopy.mm.","snow_water_equivalent.mm.", "Tsurface.C." , "Surface_Energy_balance.W.m2.")
 
 
 pointvalues_plot <- pointvalues_melt[pointvalues_melt$variable %in% variable & pointvalues_melt$Time >= start & pointvalues_melt$Time <= end,]
@@ -205,6 +211,7 @@ print(qp)
 pdf <- "./plot/n_"
 suffix <- paste(as.character(start),as.character(end),sep="_")
 pdf <- paste(pdf,suffix,".pdf",sep="")
+dev.off()
 
 pdf(pdf)
 print(qp)
