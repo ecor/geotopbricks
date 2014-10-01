@@ -5,9 +5,9 @@ NULL
 #' 
 #' @param x string. GEOtop keyword reletated to the 3D or 2D variable to be imported in R. 
 #' @param when \code{\link{POSIXlt-class}} for date and time on which the variable \code{x} is requested. 
-#' @param layers number of soil layer or geotop keyword for soil leyer (e.g. \code{SoilLayerThicknesses} or \code{SoilFile}). Default is  \code{SoilLayerThicknesses}. 
+#' @param layers number of soil layer or geotop keyword for soil layer (e.g. \code{SoilLayerThicknesses} or \code{SoilFile}). Default is  \code{SoilLayerThicknesses}. 
 #' @param timestep time step expressed in seconds every which the raster file has been created. It can be a string corresponding to the geotop keyword in the inpts file. Default value is \code{"OutputSoilMaps"}.
-#' @param suffix charcher string containing the decimal formatter used by GEOtop in the output file names. Default is "L%04dN%04.asc". A simple user is recommended not to modify the value of this argument and use the default value.
+#' @param suffix charachter string containing the decimal formatter used by GEOtop in the output file names. Default is "L\%04dN\%04.asc". A simple user is recommended not to modify the value of this argument and use the default value.
 #' @param wpath,tz,use.read.raster.from.url see \code{\link{get.geotop.inpts.keyword.value}}
 #' @param projfile  name of the \code{*.proj} file containing CRS information. See \code{\link{get.geotop.inpts.keyword.value}}. Default is \code{"geotop.proj"}. If is \code{NULL} or \code{NA} or this file does not exist, it is not searched and read.. In case \code{use.read.raster.from.url} is \code{TRUE} and no \code{NULL} or \code{NA} values are assinged, the \code{*.proj} file is searched. 
 #' @param crs,start.from.zero see \code{\link{brick.decimal.formatter}}. If \code{crs} is not \code{NULL} (Default) , \code{projfile} is ignored.
