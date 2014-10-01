@@ -223,10 +223,11 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 			 length_points <- length(filepath)
 			 names_points <- filepath
 			 
-	####		 exists <- 
+			exists <- file.exists(filecrecpath)
+			filecrecpath <- filecrecpath[exists] 
 			 
 			 
-			 filepath <- c(filepath,filecrecpath)
+			filepath <- c(filepath,filecrecpath)
 			 
 			 
 		 }
