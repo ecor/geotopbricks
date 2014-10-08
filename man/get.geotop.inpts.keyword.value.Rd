@@ -11,7 +11,7 @@ get.geotop.inpts.keyword.value(keyword, inpts.frame = NULL,
   formatter = "\%04d", level = 1, date_field = "Date", isNA = -9999,
   matlab.syntax = TRUE, projfile = "geotop.proj", start_date = NULL,
   end_date = NULL, ContinuousRecovery = 0,
-  ContinuousRecoveryFormatter = "_crec\%04d", ...)
+  ContinuousRecoveryFormatter = "_crec\%04d", check.columns = FALSE, ...)
 }
 \arguments{
 \item{keyword}{keyword name}
