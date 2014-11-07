@@ -29,7 +29,7 @@
 writeRasterxGEOtop <- function(x,filename=NULL,overwrite=TRUE,NAflag=-9999.0,use.decimal.formatter=FALSE,start.from.zero=FALSE,keyword,wpath,suffix.ext=".asc",...) {
 
 	
-options(scipen=99999) # It remove cientific notation	
+options(scipen=99999) # It remove scientific notation	
  ## add write "brick" modality. 
  
  if (is.null(filename)) {
@@ -83,6 +83,24 @@ if (class(x)=="RasterBrick") {
  file.copy(from=namen[nlast],to=name,overwrite=TRUE)
 
  for (i in 1:nlast) file.remove(namen[i])
+
+## set prj 
+		fileprj <- str_replace(filename,".asc",".prj")
+		
+		if (fileprj!=filename) {
+		###	print(fileprj)
+			crs <- proj4string(x)
+			
+			if (is.null(crs)) crs <- NA 
+			if (!is.na(crs)) { 
+				require("rgdal")
+				wkt <- showWKT(crs)
+				writeLines(text=wkt,con=fileprj)
+			}
+		}
+
+	
+
 
 
 }

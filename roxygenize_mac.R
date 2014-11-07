@@ -20,16 +20,15 @@
 ###############################################################################
 library(roxygen2)
 
-path <- "/home/ecor/Dropbox/R-packages"
+path <- "/Users/ecor/R-packages"
 pkg_name <- "geotopbricks"
 pkg_dir <- paste(path,pkg_name,sep="/")
 cran_pkg_path <- paste(path,"toCran",sep="/")
 cran_pkg_dir <- paste(cran_pkg_path,pkg_name,sep="/")
 
 
-roxygenize(pkg_dir,clean=TRUE)
+roxygenize(pkg_dir,roxygen.dir=pkg_dir,copy.package=FALSE,unlink.target=FALSE,overwrite=TRUE)
 
-#roxygen.dir=pkg_dir copy.package=FALSE,unlink.target=FALSE
 
 ## installation
 oo <- installed.packages()
