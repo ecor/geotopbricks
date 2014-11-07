@@ -82,7 +82,7 @@ NULL
 #' 
 #' 
 
-get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=NULL,numeric=FALSE,format="%d/%m/%Y %H:%M",date=FALSE,tz="Etc/GMT+1",raster=FALSE,file_extension=".asc",add_wpath=FALSE,wpath=NULL,use.read.raster.from.url=TRUE,data.frame=FALSE,formatter="%04d",level=1,date_field="Date",isNA=-9999.000000,matlab.syntax=TRUE,projfile="geotop.proj",start_date=NULL,end_date=NULL,ContinuousRecovery=0,ContinuousRecoveryFormatter="_crec%04d",...) {
+get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=NULL,numeric=FALSE,format="%d/%m/%Y %H:%M",date=FALSE,tz="Etc/GMT+1",raster=FALSE,file_extension=".asc",add_wpath=FALSE,wpath=NULL,use.read.raster.from.url=TRUE,data.frame=FALSE,formatter="%04d",level=1,date_field="Date",isNA=-9999.000000,matlab.syntax=TRUE,projfile="geotop.proj",start_date=NULL,end_date=NULL,ContinuousRecovery=0,ContinuousRecoveryFormatter="_crec%04d",check.columns=FALSE,...) {
 
 # Added by the author on Feb 6 2012	
 	
@@ -257,10 +257,36 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 #				 
 #				 file <- x 
 #			 }
-			 file <- file(x)
-			 temp <- read.table(file,header=TRUE,sep=",")
-			 
 			
+		##	 temp <- read.table(file,header=TRUE,sep=",")
+			 
+			 if (check.columns==TRUE) {
+				 
+				 temp <- readLines(x)
+				 tempfolder <- system.file("temporary",package="geotopbricks")
+				 tempfile <- paste(tempfolder,"temp.csv")
+				# print(x)
+				# str(temp)
+		         templist <- str_split(temp,",")
+				 len <- length(templist[[1]])
+				 index <- which(unlist(lapply(X=templist,FUN=function(x,l) {length(x)==l},l=len)))
+				 
+				 
+		
+				 writeLines(text=temp[index],con=tempfile)
+				 file <- file(tempfile)
+		##		 stop("check01")
+				temp <- read.table(file,header=TRUE,sep=",")
+				 
+				 
+			 } else {
+				 file <- file(x)
+				 temp <- read.table(file,header=TRUE,sep=",")
+				 
+			 }
+			
+			 
+			 
 			 i_index <- which(names(temp)==date_field)
 			 if (length(i_index>1)) {
 				 

@@ -40,6 +40,7 @@ NULL
 #' @param wpath working directory containing GEOtop files
 #' @param inpts.file name of the GEOtop configuration file. Default is \code{"geotop.inpts"}
 #' @param comment comment indicator charcater. Default is \code{"!"}
+#' @param no.comment string indicatos read as comment ones by GEOtop but they do not indicate comments by "geotopbricks" package. 
 #' @param exceptions string vector. If keywords contain an element of this vector, the blank spaces in Value \code{" "} will not be removed. 
 #' @param warn logical argument of \code{\link{readLines}}. Default is \code{FALSE}.
 #' @param ... further arguments of \code{\link{readLines}} 
@@ -53,7 +54,7 @@ NULL
 #' @seealso \code{\link{get.geotop.inpts.keyword.value}}
 #' 
 
-declared.geotop.inpts.keywords <- function(wpath,inpts.file="geotop.inpts",comment="!",exceptions="Date",warn=FALSE,...) {
+declared.geotop.inpts.keywords <- function(wpath,inpts.file="geotop.inpts",comment="!",exceptions="Date",warn=FALSE,no.comment=c("!>!","!>>!"),...) {
 
 	
 	if (!is.null(wpath)) {
@@ -85,7 +86,20 @@ declared.geotop.inpts.keywords <- function(wpath,inpts.file="geotop.inpts",comme
 	
 	x <- x[l>2] 
 	
-	xout <- str_split(x,comment)
+	if (length(no.comment)>0) {
+		
+		xout <- x 
+		for (itnc in no.comment) {
+			
+		##print(xout[35:38])
+		xout <- unlist(lapply(X=xout,FUN=str_replace, pattern=itnc, replacement=""))
+		##print(xout[35:58])
+		}
+	} else {
+		
+		xout <- x
+	}
+	xout <- str_split(xout,comment)
 
 	
 	for (i in 1:length(xout)) {

@@ -4,7 +4,8 @@
 \title{Collects all keywords contained in the 'getop.inpts' configuration files and their values in a data frame object.}
 \usage{
 declared.geotop.inpts.keywords(wpath, inpts.file = "geotop.inpts",
-  comment = "!", exceptions = "Date", warn = FALSE, ...)
+  comment = "!", exceptions = "Date", warn = FALSE,
+  no.comment = c("!>!", "!>>!"), ...)
 }
 \arguments{
 \item{wpath}{working directory containing GEOtop files}
@@ -16,6 +17,8 @@ declared.geotop.inpts.keywords(wpath, inpts.file = "geotop.inpts",
 \item{exceptions}{string vector. If keywords contain an element of this vector, the blank spaces in Value \code{" "} will not be removed.}
 
 \item{warn}{logical argument of \code{\link{readLines}}. Default is \code{FALSE}.}
+
+\item{no.comment}{string indicatos read as comment ones by GEOtop but they do not indicate comments by "geotopbricks" package.}
 
 \item{...}{further arguments of \code{\link{readLines}}}
 }
