@@ -20,7 +20,7 @@
 ###############################################################################
 library(roxygen2)
 
-path <- "/home/ecor/Dropbox/R-packages"
+path <- "/Users/ecor/Dropbox/R-packages"
 pkg_name <- "geotopbricks"
 pkg_dir <- paste(path,pkg_name,sep="/")
 cran_pkg_path <- paste(path,"toCran",sep="/")
