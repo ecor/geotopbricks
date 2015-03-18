@@ -30,7 +30,7 @@ cran_pkg_dir <- paste(cran_pkg_path,pkg_name,sep="/")
 roxygenize(pkg_dir,roxygen.dir=pkg_dir,copy.package=FALSE,unlink.target=FALSE,overwrite=TRUE)
 
 
-## installation
+## installation meteo
 oo <- installed.packages()
 if (pkg_name %in% oo[,"Package"]) {
 	
@@ -66,9 +66,22 @@ if (toCran) {
 			system(paste("rm -rf",cran_pkg_unuseful,sep=" "))
 			cran_pkg_unuseful <- paste(cran_pkg_dir,"Read-and-delete-me",sep="/")
 			system(paste("rm -rf",cran_pkg_unuseful,sep=" "))
-			cran_pkg_unuseful <- paste(cran_pkg_dir,"roxygenize.R",sep="/")
+			cran_pkg_unuseful <- paste(cran_pkg_dir,"roxygenize*",sep="/")
 			system(paste("rm -rf",cran_pkg_unuseful,sep=" "))
-	}
+			
+			toremove <- c(".DS_Store","inst/.DS_Store","inst/doc/.DS_Store","inst/doc/examples/.DS_Store","inst/doc/examples/snowstuff/.DS_Store","inst/template/.DS_Store","inst/template/friuli/.DS_Store", ".Rapp.history",
+					"R/.DS_Store",".git")
+			cran_pkg_unuseful <- paste(cran_pkg_dir,toremove,sep="/")
+			for (it in cran_pkg_unuseful) {
+				
+				system(paste("rm -rf",it,sep=" "))
+				
+				
+			}
+			
+		
+		
+		}
 
 
 

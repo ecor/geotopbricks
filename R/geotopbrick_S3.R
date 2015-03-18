@@ -24,7 +24,7 @@ NULL
 #' @rdname geotopbrick
 #' 
 #' @method geotopbrick default
-#' @S3method geotopbrick default
+## @S3method geotopbrick default
 #' 
 #' 
 #' @export
@@ -61,7 +61,7 @@ NULL
 #' @rdname geotopbrick
 #' 
 #' @method geotopbrick zoo
-#' @S3method geotopbrick zoo
+#@S3method geotopbrick zoo
 #' @aliases geotopbrick.zoo 
 #' 
 #' 
@@ -94,7 +94,7 @@ NULL
 
 
 #' @method geotopbrick RasterLayer
-#' @S3method geotopbrick RasterLayer
+# @S3method geotopbrick RasterLayer
 #' @aliases geotopbrick.RasterLayer
 #' 
 #' @export
@@ -129,7 +129,7 @@ NULL
 
 
 #' @method geotopbrick RasterBrick
-#' @S3method geotopbrick RasterBrick
+# @S3method geotopbrick RasterBrick
 #' @aliases geotopbrick.RasterBrick
 #' 
 #' @export
@@ -163,7 +163,7 @@ NULL
 #' @rdname geotopbrick
 #' 
 #' @method geotopbrick GeotopRasterBrick
-#' @S3method geotopbrick GeotopRasterBrick
+# @S3method geotopbrick GeotopRasterBrick
 #' 
 #' @aliases geotopbrick.GeotopRasterBrick
 #' @export

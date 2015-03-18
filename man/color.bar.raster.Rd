@@ -3,19 +3,38 @@
 \alias{color.bar.raster}
 \title{Graphic Representation of a Color legend of a Raster or GeotopbrickRaster object as a Color bar, inspired by the function written by John Colby}
 \usage{
-color.bar.raster(x, col, ...)
+color.bar.raster(x, col, min = NA, max = NA, ...)
 }
 \arguments{
-\item{x}{a Rster or GeotopRasterBrick object}
+\item{x}{a Raster or GeotopRasterBrick object}
 
 \item{col}{the color palette used}
+
+\item{max,min}{maximum and minimum value (used if you need to crop the scale legend within a cartein interval)}
 
 \item{...}{arguments to be passed to \code{\link{color.bar}}}
 }
 \description{
 Graphic Representation of a Color legend of a Raster or GeotopbrickRaster object as a Color bar, inspired by the function written by John Colby
 }
+\examples{
+library(geotopbricks)
+
+## Simulation working path
+
+file <- system.file("rendena100/SnowDepthMapFile-2014-MA-mean-winter-2013-2014.asc",
+package="geotopbricks")
+snow <- raster(file)
+
+min <- 0 # snow depth expressed in millimeters
+max <- 2500 # snow depth expressed in millimeters
+
+colors <- terrain.colors(1000)
+
+color.bar.raster(x=snow,col=colors,digits=2)
+color.bar.raster(x=snow,col=colors,min=min,max=max,digits=2)
+}
 \seealso{
-\code{\link{color.bar}}
+\code{\link{color.bar}},\code{\link{setMinMax}}
 }
 

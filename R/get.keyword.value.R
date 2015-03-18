@@ -27,6 +27,10 @@ NULL
 #' @param matlab.syntax logical value. Default is \code{FALSE}. If \code{TRUE} a vector is written in a string according to *.m file syntax. Warning: this synstax is not read by GEOtop. 
 #' @param projfile fileneme of the GEOtop projection file. Default is \code{geotop.proj}.
 #' @param start_date,end_date null objects or dates in \code{POSIXlt} format between which the variables are returned. It is enabled in case that \code{date_field} is not \code{NULL} or \code{NA} and \code{data.frame} is \code{TRUE}. Default is \code{NULL}.
+#' @param zlayer.formatter decimal formatter. It is used if \code{data.frame==TRUE} and the columns refers to different soil depths. Default is \code{NULL}. 
+#' @param z_unit z coordinate measurement unit. GEOtop values expressed in millimeters which are converted to centimeters by default. Default is \code{c("centimeters","millimeters")}. Otherwise can be the ratio between the unit and one meter. It is used if \code{zlayer.formatter=="z\%04d"} or similar.
+#' @param geotop_z_unit z coordinate measurement unit used by GEOtop. Default is \code{millimeters}. It is used if \code{zlayer.formatter=="z\%04d"} or similar.
+#' 
 #' @param ContinuousRecovery integer value. Default is 0. It is used for tabular output data and is the number of times GEOtop simulation broke  during its running and was re-launched with 'Contiuous Recovery' option. 
 #' @param ContinuousRecoveryFormatter character string. Default is \code{'_crec\%04d'}. It is used only for tabular output data and if \code{ContinuousRecovery} is equal or greater than 1. 
 #' @param ... further arguments of \code{\link{declared.geotop.inpts.keywords}} 
@@ -82,7 +86,7 @@ NULL
 #' 
 #' 
 
-get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=NULL,numeric=FALSE,format="%d/%m/%Y %H:%M",date=FALSE,tz="Etc/GMT+1",raster=FALSE,file_extension=".asc",add_wpath=FALSE,wpath=NULL,use.read.raster.from.url=TRUE,data.frame=FALSE,formatter="%04d",level=1,date_field="Date",isNA=-9999.000000,matlab.syntax=TRUE,projfile="geotop.proj",start_date=NULL,end_date=NULL,ContinuousRecovery=0,ContinuousRecoveryFormatter="_crec%04d",...) {
+get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=NULL,numeric=FALSE,format="%d/%m/%Y %H:%M",date=FALSE,tz="Etc/GMT+1",raster=FALSE,file_extension=".asc",add_wpath=FALSE,wpath=NULL,use.read.raster.from.url=TRUE,data.frame=FALSE,formatter="%04d",level=1,date_field="Date",isNA=-9999.000000,matlab.syntax=TRUE,projfile="geotop.proj",start_date=NULL,end_date=NULL,ContinuousRecovery=0,ContinuousRecoveryFormatter="_crec%04d",zlayer.formatter=NULL,z_unit=c("centimeters","millimeters"),geotop_z_unit="millimeters",...) {
 #####	check.columns=FALSE
 # Added by the author on Feb 6 2012	
 	
@@ -340,7 +344,7 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 		
 		 names(out) <- filepath 
 		 
-		 if (length(out)==1) out <- out[[1]]
+		## if (length(out)==1) out <- out[[1]] COMMENTED BY EC ON 20150313
 		 
 		 if (ContinuousRecoveryCond) {
 			 
@@ -395,6 +399,50 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 			 
 			 
 		 }
+		 
+		 ##### 
+		 
+		 if (!is.null(date_field) & !is.na(date_field) & length(i_index)==1 & length(date_field)>0) {
+			 
+			 if (is.null(zlayer.formatter)) zlayer.formatter <- NA
+			 
+			
+			 
+			 
+			 if (!is.na(zlayer.formatter)) {
+				 
+				 if (length(z_unit)>1) z_unit <- z_unit[1]
+				 if (length(geotop_z_unit)>1) geotop_z_unit <- geotop_z_unit[1]
+				 
+				 if (z_unit=="millimeters") z_unit <- 0.001
+				 if (z_unit=="centimeters") z_unit <- 0.01
+				 
+				 if (geotop_z_unit=="millimeters") geotop_z_unit <- 0.001
+				 if (geotop_z_unit=="centimeters") geotop_z_unit <- 0.01
+				 
+				 
+				 
+				 zu <- geotop_z_unit/z_unit
+				 
+				 out <- lapply(X=out,FUN=function(x,zfrm,zu){
+							 
+							 out <- x[,str_detect(names(x),"X")]
+							 
+							 zval <- as.numeric(str_replace(names(out),"X",""))*zu
+							 
+							 names(out) <- sprintf(zfrm,zval)
+							 
+							 return(out)
+							 
+						 },zfrm=zformatter,z=zu)
+				 
+			 }
+			 
+		## ... to go on 	 
+			 
+		 }
+		 
+		 if (length(out)==1) out <- out[[1]] ## added by EC on 20150313
 	} else 	if (add_wpath) {
 		
 		if (!is.null(wpath)) out <- paste(wpath,out,sep="/")

@@ -11,7 +11,9 @@ get.geotop.inpts.keyword.value(keyword, inpts.frame = NULL,
   formatter = "\%04d", level = 1, date_field = "Date", isNA = -9999,
   matlab.syntax = TRUE, projfile = "geotop.proj", start_date = NULL,
   end_date = NULL, ContinuousRecovery = 0,
-  ContinuousRecoveryFormatter = "_crec\%04d", ...)
+  ContinuousRecoveryFormatter = "_crec\%04d", zlayer.formatter = NULL,
+  z_unit = c("centimeters", "millimeters"), geotop_z_unit = "millimeters",
+  ...)
 }
 \arguments{
 \item{keyword}{keyword name}
@@ -57,6 +59,12 @@ get.geotop.inpts.keyword.value(keyword, inpts.frame = NULL,
 \item{ContinuousRecovery}{integer value. Default is 0. It is used for tabular output data and is the number of times GEOtop simulation broke  during its running and was re-launched with 'Contiuous Recovery' option.}
 
 \item{ContinuousRecoveryFormatter}{character string. Default is \code{'_crec\%04d'}. It is used only for tabular output data and if \code{ContinuousRecovery} is equal or greater than 1.}
+
+\item{zlayer.formatter}{decimal formatter. It is used if \code{data.frame==TRUE} and the columns refers to different soil depths. Default is \code{NULL}.}
+
+\item{z_unit}{z coordinate measurement unit. GEOtop values expressed in millimeters which are converted to centimeters by default. Default is \code{c("centimeters","millimeters")}. Otherwise can be the ratio between the unit and one meter. It is used if \code{zlayer.formatter=="z\%04d"} or similar.}
+
+\item{geotop_z_unit}{z coordinate measurement unit used by GEOtop. Default is \code{millimeters}. It is used if \code{zlayer.formatter=="z\%04d"} or similar.}
 
 \item{...}{further arguments of \code{\link{declared.geotop.inpts.keywords}}}
 }

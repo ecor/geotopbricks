@@ -48,7 +48,7 @@ NULL
 # library(geotopbricks)
 # library(soilwater)
 #
-# wpath <- 'http://meteogis.fmach.it/idroclima/panola13_run2xC_test3'
+
 #
 # prefix <- get.geotop.inpts.keyword.value("SoilLiqWaterPressTensorFile",wpath=wpath)
 #

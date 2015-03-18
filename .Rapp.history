@@ -1,0 +1,708 @@
+str(colot)
+xvalue <- c(0,2,5,10,25,50,75,100,150,200,300,400,500,1000,10000)#
+color <- array("#000022",length(xvalue))#
+#
+color[1] <- "#FFFF33"#
+color[2] <- "#FFFF66"#
+color[3] <- "#FFFF00"#
+color[4] <- "#80FF00"#
+color[5] <- "#00FF00"#
+color[6] <- "#0099FF"#
+color[7] <- "#000099"#
+color[8] <- "#4C0099"#
+color[9] <- "#990099"#
+color[10] <- "#660066"#
+color[11] <- "#330066"#
+color[12] <- "#000066"#
+color[13] <- "#110066"#
+color[14] <- "#000066"#
+color[15] <- "#000033"#
+xout <- 0:10000#
+#
+colorout <- colorApprox(x=xvalue,col=color,xout=xout)#
+#
+n <- lenght(color)#
+image(1:n,1,as.matrix(1:n),col=color,xlab="color (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")#
+#
+n <- length(colorout)#
+#
+image(1:n,1,as.matrix(1:n),col=color,xlab="colorout (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")
+traceback()
+colorout <- colorApprox(x=xvalue,col=color,xout=xout)
+source('~/Dropbox/R-packages/coloring/R/colorApprox.R', chdir = TRUE)
+colorout <- colorApprox(x=xvalue,col=color,xout=xout)
+help(approx)
+source('~/Dropbox/R-packages/coloring/R/colorApprox.R', chdir = TRUE)
+colorout <- colorApprox(x=xvalue,col=color,xout=xout)
+source('~/Dropbox/R-packages/coloring/roxygenize.R', chdir = TRUE)
+library(coloring)
+help(colorApprox)
+xvalue <- c(0,2,5,10,25,50,75,100,150,200,300,400,500,1000,10000)#
+color <- array("#000022",length(xvalue))#
+#
+color[1] <- "#FFFF33"#
+color[2] <- "#FFFF66"#
+color[3] <- "#FFFF00"#
+color[4] <- "#80FF00"#
+color[5] <- "#00FF00"#
+color[6] <- "#0099FF"#
+color[7] <- "#000099"#
+color[8] <- "#4C0099"#
+color[9] <- "#990099"#
+color[10] <- "#660066"#
+color[11] <- "#330066"#
+color[12] <- "#000066"#
+color[13] <- "#110066"#
+color[14] <- "#000066"#
+color[15] <- "#000033"#
+xout <- 0:10000#
+#
+colorout <- colorApprox(x=xvalue,col=color,xout=xout)#
+#
+n <- lenght(color)#
+image(1:n,1,as.matrix(1:n),col=color,xlab="color (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")#
+#
+n <- length(colorout)#
+#
+image(1:n,1,as.matrix(1:n),col=color,xlab="colorout (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")
+source('~/Dropbox/R-packages/coloring/roxygenize.R', chdir = TRUE)
+library(coloring)
+help(colorApprox)
+xvalue <- c(0,2,5,10,25,50,75,100,150,200,300,400,500,1000,10000)#
+color <- array("#000022",length(xvalue))#
+#
+color[1] <- "#FFFF33"#
+color[2] <- "#FFFF66"#
+color[3] <- "#FFFF00"#
+color[4] <- "#80FF00"#
+color[5] <- "#00FF00"#
+color[6] <- "#0099FF"#
+color[7] <- "#000099"#
+color[8] <- "#4C0099"#
+color[9] <- "#990099"#
+color[10] <- "#660066"#
+color[11] <- "#330066"#
+color[12] <- "#000066"#
+color[13] <- "#110066"#
+color[14] <- "#000066"#
+color[15] <- "#000033"#
+xout <- 0:10000#
+#
+colorout <- colorApprox(x=xvalue,col=color,xout=xout)#
+#
+n <- lenght(color)#
+image(1:n,1,as.matrix(1:n),col=color,xlab="color (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")#
+#
+n <- length(colorout)#
+#
+image(1:n,1,as.matrix(1:n),col=color,xlab="colorout (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")
+str(colorout)
+n
+source('~/Dropbox/R-packages/coloring/roxygenize.R', chdir = TRUE)
+library(coloring)
+help(colorApply)
+help(colorApprox)
+xvalue <- c(0,2,5,10,25,50,75,100,150,200,300,400,500,1000,10000)#
+color <- array("#000022",length(xvalue))#
+#
+color[1] <- "#FFFF33"#
+color[2] <- "#FFFF66"#
+color[3] <- "#FFFF00"#
+color[4] <- "#80FF00"#
+color[5] <- "#00FF00"#
+color[6] <- "#0099FF"#
+color[7] <- "#000099"#
+color[8] <- "#4C0099"#
+color[9] <- "#990099"#
+color[10] <- "#660066"#
+color[11] <- "#330066"#
+color[12] <- "#000066"#
+color[13] <- "#110066"#
+color[14] <- "#000066"#
+color[15] <- "#000033"#
+xout <- 0:10000#
+#
+colorout <- colorApprox(x=xvalue,col=color,xout=xout)#
+#
+n <- length(color)#
+image(1:n,1,as.matrix(1:n),col=color,xlab="color (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")#
+#
+n <- length(colorout)#
+#
+image(1:n,1,as.matrix(1:n),col=colorout,xlab="colorout (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")
+source('~/Dropbox/R-packages/coloring/roxygenize.R', chdir = TRUE)
+library(coloring)
+help(colorApprox)
+xvalue <- c(0,2,5,10,25,50,75,100,150,200,300,400,500,1000,10000)#
+color <- array("#000022",length(xvalue))#
+#
+color[1] <- "#FFFF33"#
+color[2] <- "#FFFF66"#
+color[3] <- "#FFFF00"#
+color[4] <- "#80FF00"#
+color[5] <- "#00FF00"#
+color[6] <- "#0099FF"#
+color[7] <- "#000099"#
+color[8] <- "#4C0099"#
+color[9] <- "#990099"#
+color[10] <- "#660066"#
+color[11] <- "#330066"#
+color[12] <- "#000066"#
+color[13] <- "#110066"#
+color[14] <- "#000066"#
+color[15] <- "#000033"#
+xout <- 0:10000#
+#
+colorout <- colorApprox(x=xvalue,col=color,xout=xout)#
+#
+n <- length(color)#
+image(1:n,1,as.matrix(1:n),col=color,xlab="color (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")#
+#
+n <- 500#
+#
+image(1:n,1,as.matrix(1:n),col=colorout,xlab="colorout (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")
+xvalue <- c(0,2,5,10,25,50,75,100,150,200,300,400,500,1000,10000)#
+color <- array("#000022",length(xvalue))#
+#
+color[1] <- "#FFFF33"#
+color[2] <- "#FFFF66"#
+color[3] <- "#FFFF00"#
+color[4] <- "#80FF00"#
+color[5] <- "#00FF00"#
+color[6] <- "#0099FF"#
+color[7] <- "#000099"#
+color[8] <- "#4C0099"#
+color[9] <- "#990099"#
+color[10] <- "#660066"#
+color[11] <- "#330066"#
+color[12] <- "#000066"#
+color[13] <- "#110066"#
+color[14] <- "#000066"#
+color[15] <- "#000033"#
+xout <- 0:10000#
+#
+colorout <- colorApprox(x=xvalue,col=color,xout=xout)#
+#
+n <- length(color)#
+image(1:n,1,as.matrix(1:n),col=color,xlab="color (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")#
+#
+n <- 200#
+#
+image(1:n,1,as.matrix(1:n),col=colorout,xlab="colorout (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")
+xvalue <- c(0,2,5,10,25,50,75,100,150,200,300,400,500,1000,10000)#
+color <- array("#000022",length(xvalue))#
+#
+color[1] <- "#FFFF33"#
+color[2] <- "#FFFF66"#
+color[3] <- "#FFFF00"#
+color[4] <- "#80FF00"#
+color[5] <- "#00FF00"#
+color[6] <- "#0099FF"#
+color[7] <- "#000099"#
+color[8] <- "#4C0099"#
+color[9] <- "#990099"#
+color[10] <- "#660066"#
+color[11] <- "#330066"#
+color[12] <- "#000066"#
+color[13] <- "#110066"#
+color[14] <- "#000066"#
+color[15] <- "#000033"#
+xout <- 0:10000#
+#
+colorout <- colorApprox(x=xvalue,col=color,xout=xout)#
+#
+n <- length(color)#
+image(1:n,1,as.matrix(1:n),col=color,xlab="color (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")#
+#
+n <- 100#
+#
+image(1:n,1,as.matrix(1:n),col=colorout,xlab="colorout (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")
+xvalue <- c(0,2,5,10,25,50,75,100,150,200,300,400,500,1000,10000)#
+color <- array("#000022",length(xvalue))#
+#
+color[1] <- "#FFFF33"#
+color[2] <- "#FFFF66"#
+color[3] <- "#FFFF00"#
+color[4] <- "#80FF00"#
+color[5] <- "#00FF00"#
+color[6] <- "#0099FF"#
+color[7] <- "#000099"#
+color[8] <- "#4C0099"#
+color[9] <- "#990099"#
+color[10] <- "#660066"#
+color[11] <- "#330066"#
+color[12] <- "#000066"#
+color[13] <- "#110066"#
+color[14] <- "#000066"#
+color[15] <- "#000033"#
+xout <- 0:10000#
+#
+colorout <- colorApprox(x=xvalue,col=color,xout=xout)#
+#
+n <- length(color)#
+image(1:n,1,as.matrix(1:n),col=color,xlab="color (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")#
+#
+n <- 50#
+#
+image(1:n,1,as.matrix(1:n),col=colorout,xlab="colorout (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")
+xvalue <- c(0,2,5,10,25,50,75,100,150,200,300,400,500,1000,10000)#
+color <- array("#000022",length(xvalue))#
+#
+color[1] <- "#FFFF33"#
+color[2] <- "#FFFF66"#
+color[3] <- "#FFFF00"#
+color[4] <- "#80FF00"#
+color[5] <- "#00FF00"#
+color[6] <- "#0099FF"#
+color[7] <- "#000099"#
+color[8] <- "#4C0099"#
+color[9] <- "#990099"#
+color[10] <- "#660066"#
+color[11] <- "#330066"#
+color[12] <- "#000066"#
+color[13] <- "#110066"#
+color[14] <- "#000066"#
+color[15] <- "#000033"#
+xout <- 0:10000#
+#
+colorout <- colorApprox(x=xvalue,col=color,xout=xout)#
+#
+n <- length(color)#
+image(1:n,1,as.matrix(1:n),col=color,xlab="color (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")#
+#
+n <- 10#
+#
+image(1:n,1,as.matrix(1:n),col=colorout,xlab="colorout (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")
+xvalue <- c(0,2,5,10,25,50,75,100,150,200,300,400,500,1000,10000)#
+color <- array("#000022",length(xvalue))#
+#
+color[1] <- "#FFFF33"#
+color[2] <- "#FFFF66"#
+color[3] <- "#FFFF00"#
+color[4] <- "#80FF00"#
+color[5] <- "#00FF00"#
+color[6] <- "#0099FF"#
+color[7] <- "#000099"#
+color[8] <- "#4C0099"#
+color[9] <- "#990099"#
+color[10] <- "#660066"#
+color[11] <- "#330066"#
+color[12] <- "#000066"#
+color[13] <- "#110066"#
+color[14] <- "#000066"#
+color[15] <- "#000033"#
+xout <- 0:10000#
+#
+colorout <- colorApprox(x=xvalue,col=color,xout=xout)#
+#
+n <- length(color)#
+image(1:n,1,as.matrix(1:n),col=color,xlab="color (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")#
+#
+n <- 10#
+#
+image(1:n,1,as.matrix(1:n),col=colorout[1:n],xlab="colorout (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")
+xvalue <- c(0,2,5,10,25,50,75,100,150,200,300,400,500,1000,10000)#
+color <- array("#000022",length(xvalue))#
+#
+color[1] <- "#FFFF33"#
+color[2] <- "#FFFF66"#
+color[3] <- "#FFFF00"#
+color[4] <- "#80FF00"#
+color[5] <- "#00FF00"#
+color[6] <- "#0099FF"#
+color[7] <- "#000099"#
+color[8] <- "#4C0099"#
+color[9] <- "#990099"#
+color[10] <- "#660066"#
+color[11] <- "#330066"#
+color[12] <- "#000066"#
+color[13] <- "#110066"#
+color[14] <- "#000066"#
+color[15] <- "#000033"#
+xout <- 0:10000#
+#
+colorout <- colorApprox(x=xvalue,col=color,xout=xout)#
+#
+n <- length(color)#
+image(1:n,1,as.matrix(1:n),col=color,xlab="color (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")#
+#
+n <- 500#
+#
+image(1:n,1,as.matrix(1:n),col=colorout[1:n],xlab="colorout (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")
+source('~/Dropbox/R-packages/coloring/roxygenize.R', chdir = TRUE)
+library(coloring)
+help(colorApprox)
+xvalue <- c(0,2,5,10,25,50,75,100,150,200,300,400,500,1000,10000)#
+color <- array("#000022",length(xvalue))#
+#
+color[1] <- "#FFFF33"#
+color[2] <- "#FFFF66"#
+color[3] <- "#FFFF00"#
+color[4] <- "#80FF00"#
+color[5] <- "#00FF00"#
+color[6] <- "#0099FF"#
+color[7] <- "#000099"#
+color[8] <- "#4C0099"#
+color[9] <- "#990099"#
+color[10] <- "#660066"#
+color[11] <- "#330066"#
+color[12] <- "#000066"#
+color[13] <- "#110066"#
+color[14] <- "#000066"#
+color[15] <- "#000033"#
+xout <- 0:10000#
+#
+colorout <- colorApprox(x=xvalue,col=color,xout=xout)#
+#
+n <- length(color)#
+image(1:n,1,as.matrix(1:n),col=color,xlab="color (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")#
+#
+n <- 500#
+#
+image(1:n,1,as.matrix(1:n),col=colorout[1:n],xlab="colorout (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")
+library(coloring)
+col <- snowColorSeq()
+help(snowColorSeq)
+source('~/Dropbox/R-packages/coloring/R/snowColorSeq.R', chdir = TRUE)
+col <- snowColorSeq()
+source('~/Dropbox/R-packages/coloring/R/snowColorSeq.R', chdir = TRUE)
+col <- snowColorSeq()
+source('~/Dropbox/R-packages/coloring/R/snowColorSeq.R', chdir = TRUE)
+col <- snowColorSeq()
+col
+source('~/Dropbox/R-packages/coloring/roxygenize.R', chdir = TRUE)
+library(coloring)
+help(snowColorSeq)
+col <- snowColorSeq()#
+#
+n <- length(col)#
+#
+image(1:n,1,as.matrix(1:n),col=col[1:n],xlab="colorout (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")
+n
+source('~/Dropbox/R-packages/coloring/R/snowColorSeq.R', chdir = TRUE)
+col <- snowColorSeq()#
+#
+n <- length(col)#
+#
+image(1:n,1,as.matrix(1:n),col=col[1:n],xlab="colorout (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")
+col <- snowColorSeq(max=1000)#
+#
+n <- length(col)#
+#
+image(1:n,1,as.matrix(1:n),col=col[1:n],xlab="colorout (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")
+xvalue <- c(0,2,5,10,25,50,75,100,150,200,300,400,500,1000,10000)#
+	color <- array("#000022",length(xvalue))#
+	color[1] <- "#FFFF33"#
+	color[2] <- "#FFFF66"#
+	color[3] <- "#FFFF00"#
+	color[4] <- "#80FF00"#
+	color[5] <- "#00FF00"#
+	color[6] <- "#0099FF"#
+	color[7] <- "#000099"#
+	color[8] <- "#4C0099"#
+	color[9] <- "#990099"#
+	color[10] <- "#660066"#
+	color[11] <- "#330066"#
+	color[12] <- "#220066"#
+	color[13] <- "#110066"#
+	color[14] <- "#000066"#
+	color[15] <- "#000033"
+col2ragb(color)
+col2rgb(color)
+xvalue <- c(0,2,5,10,25,50,75,100,150,200,300,400,500,1000,10000)#
+	color <- array("#000022",length(xvalue))#
+	color[1] <- "#FFFF33"#
+	color[2] <- "#FFFF66"#
+	color[3] <- "#FFFF00"#
+	color[4] <- "#80FF00"#
+	color[5] <- "#00FF00"#
+	color[6] <- "#0099FF"#
+	color[7] <- "#000099"#
+	color[8] <- "#4C0099"#
+	color[9] <- "#990099"#
+	color[10] <- "#660066"#
+	color[11] <- "#330066"#
+	color[12] <- "#220066"#
+	color[13] <- "#110066"#
+	color[14] <- "#000066"#
+	color[15] <- "#000033"
+mcol <- col2ragb(color)
+mcol <- col2rgb(color)
+col.names(mcol) <- xvalue
+colnames(mcol) <- xvalue
+mcol
+write.table(mcol,file="/Users/ecor/Dropbox/R-packages/coloring/inst/palette/SnowDepthColor.csv",sep=",")
+wpath <- system.file("palette",package="coloring")
+wpath
+source('~/Dropbox/R-packages/coloring/roxygenize.R', chdir = TRUE)
+wpath <- system.file("palette",package="coloring")
+file <- paste(wpath,"SnowDepthColor.csv",sep="/")
+file
+mcol <- read.table(file,sep=",",header=TRUE)
+str(mcol)
+mcol <- read.table(file,sep=",",header=TRUE,quote="")
+mcol
+help(read.table)
+mcol <- read.table(file,sep=",",header=TRUE)
+mcol <- as.matrix(read.table(file,sep=",",header=TRUE))
+mcol
+colnames(mcol)
+as.numeric(colnames(mcol))
+write.table(mcol,file="/Users/ecor/Dropbox/R-packages/coloring/inst/palette/SnowDepthColor.csv",sep=",",quote=FALSE)
+source('~/Dropbox/R-packages/coloring/roxygenize.R', chdir = TRUE)
+wpath <- system.file("palette",package="coloring")#
+#
+	file <- paste(wpath,"SnowDepthColor.csv",sep="/")
+df <- read.table(file,header=TRUE,sep=",")
+str(df)
+wpath <- system.file("palette",package="coloring")#
+#
+	file <- paste(wpath,"SnowDepthColor.csv",sep="/")#
+	df <- read.table(file,header=TRUE,sep=",")#
+	m <- as.matrix(df[,-1])#
+	rownames(m) <- df[,1]#
+	colnames(m) <- names(df)[-1]
+m
+help(as.numeric)
+str_replace(names(m),"X","")
+str_replace_all(names(m),"X","")
+str_replace(names(m),"X","")
+library(stringr)
+str_replace(names(m),"X","")
+str_replace(colnames(m),"X","")
+help(str_replace)
+sub(colnames(m),"X","")
+sub(x=colnames(m),"X","")
+source('~/Dropbox/R-packages/coloring/roxygenize.R', chdir = TRUE)
+library(coloring)
+help(SnowColorSeq)
+help(snowColorSeq)
+source('~/Dropbox/R-packages/coloring/roxygenize.R', chdir = TRUE)
+library(coloring)
+col <- ColorSeqFromCsv()
+source('~/Dropbox/R-packages/coloring/roxygenize.R', chdir = TRUE)
+library(coloring)
+col <- ColorSeqFromCsv()
+source('~/Dropbox/R-packages/coloring/R/snowColorSeq.R', chdir = TRUE)
+col <- ColorSeqFromCsv()
+source('~/Dropbox/R-packages/coloring/R/snowColorSeq.R', chdir = TRUE)
+col <- ColorSeqFromCsv()
+source('~/Dropbox/R-packages/coloring/R/snowColorSeq.R', chdir = TRUE)
+col <- ColorSeqFromCsv()
+source('~/Dropbox/R-packages/coloring/R/snowColorSeq.R', chdir = TRUE)
+col <- ColorSeqFromCsv()
+source('~/Dropbox/R-packages/coloring/R/snowColorSeq.R', chdir = TRUE)
+col <- snowColorSeq()
+source('~/Dropbox/R-packages/coloring/R/snowColorSeq.R', chdir = TRUE)
+col <- snowColorSeq()
+col
+n <- length(col)
+source('~/Dropbox/R-packages/coloring/roxygenize.R', chdir = TRUE)
+library(coloring)
+help(snowColorSeq)
+col <- snowColorSeq()#
+#
+n <- length(col)#
+#
+image(1:n,1,as.matrix(1:n),col=col[1:n],xlab="colorout (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")
+col
+col <- snowColorSeq(min=0,max=2000)#
+#
+n <- length(col)#
+#
+image(1:n,1,as.matrix(1:n),col=col[1:n],xlab="colorout (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")
+col <- snowColorSeq(min=0,max=5000)#
+#
+n <- length(col)#
+#
+image(1:n,1,as.matrix(1:n),col=col[1:n],xlab="colorout (sequential)",#
+       ylab="",xaxt="n",yaxt="n",bty="n")
+source('~/Dropbox/R-packages/coloring/roxygenize.R', chdir = TRUE)
+help(snowColorSeq)
+library(coloring)
+help(snowColorSeq)
+source('~/Dropbox/R-activity-2/rendena100/aggregation.snow.values/analyze.map.R', chdir = TRUE)
+y
+Max(y)
+getMax(y)
+get.Max(y)
+help(raster)
+maxValue(y)
+source('~/Dropbox/R-activity-2/rendena100/aggregation.snow.values/analyze.map.R', chdir = TRUE)
+read.table("~/Dropbox/R-packages/coloring/inst/palette/SnowDepthColor.csv",header=TRUE)
+source('~/Dropbox/R-activity-2/rendena100/aggregation.snow.values/analyze.map.R', chdir = TRUE)
+traceback()
+source('~/Dropbox/R-activity-2/rendena100/aggregation.snow.values/analyze.map.R', chdir = TRUE)
+source('~/Dropbox/R-packages/coloring/R/colorApprox.R', chdir = TRUE)
+source('~/Dropbox/R-packages/coloring/R/snowColorSeq.R', chdir = TRUE)
+colors <- snowColorSeq(N=N,min=min,max=max,units="millimeters")
+source('~/Dropbox/R-packages/coloring/R/colorApprox.R', chdir = TRUE)
+source('~/Dropbox/R-packages/coloring/R/snowColorSeq.R', chdir = TRUE)
+colors <- snowColorSeq(N=N,min=min,max=max,units="millimeters")
+source('~/Dropbox/R-packages/coloring/roxygenize.R', chdir = TRUE)
+source('~/Dropbox/R-activity-2/rendena100/aggregation.snow.values/analyze.map.R', chdir = TRUE)
+source('~/Dropbox/R-packages/coloring/roxygenize.R', chdir = TRUE)
+source('~/Dropbox/R-activity-2/rendena100/aggregation.snow.values/analyze.map.R', chdir = TRUE)
+KML(y,filename=kml,overwrite=TRUE,col=colors)
+source('~/Dropbox/R-activity-2/rendena100/aggregation.snow.values/analyze.map.R', chdir = TRUE)
+source('~/Dropbox/R-packages/coloring/roxygenize.R', chdir = TRUE)
+source('~/Dropbox/R-activity-2/rendena100/aggregation.snow.values/analyze.map.R', chdir = TRUE)
+colors
+help(rgb)
+rgb(0, 1, 0)
+rgb(0, 1, 0,0.5)
+rgb(0, 1, 0,1)
+rgb(0, 1, 0,alpha=0.7)
+rgb(0, 1, 0,alpha=0.7,maxValues=255)
+rgb(0, 1, 0,alpha=0.7,maxValue=255)
+rgb(0, 1, 0,alpha=0.7,maxColorValue=255)
+rgb(0, 1, 0,alpha=0,maxColorValue=255)
+rgb(0, 1, 0,alpha=255,maxColorValue=255)
+source('~/Dropbox/R-packages/coloring/roxygenize.R', chdir = TRUE)
+source('~/Dropbox/R-activity-2/rendena100/aggregation.snow.values/analyze.map.R', chdir = TRUE)
+source('~/Dropbox/R-activity-2/mazia/test_geotopbricks/TestErrorGeotopbricks.R', chdir = TRUE)
+source('~/Dropbox/R-packages/geotopbricks/roxygenize.R', chdir = TRUE)
+source('~/Dropbox/R-activity-2/mazia/test_geotopbricks/TestErrorGeotopbricks.R', chdir = TRUE)
+str(point_data)
+help(showWKT)
+source('~/Dropbox/R-packages/geotopbricks/roxygenize.R', chdir = TRUE)
+help(proj4string)
+source('~/Dropbox/R-packages/geotopbricks/roxygenize.R', chdir = TRUE)
+library(geotopbricks)
+help(writeRasterxGEOtop)
+library(geotopbricks)#
+#
+Simulation working path#
+wpath <- 'http://www.boussinesq.org/geotopbricks/simulations/panola13_run2xC_test3'#
+#
+slope <- get.geotop.inpts.keyword.value("SlopeMapFile",raster=TRUE,wpath=wpath)
+slope
+plot(slope)
+wpath <- 'http://www.boussinesq.org/geotopbricks/simulations/ton-toss'
+library(geotopbricks)#
+#
+Simulation working path#
+wpath <- 'http://www.boussinesq.org/geotopbricks/simulations/panola13_run2xC_test3'#
+#
+slope <- get.geotop.inpts.keyword.value("SlopeMapFile",raster=TRUE,wpath=wpath)
+plot(slope)
+library(geotopbricks)#
+#
+Simulation working path#
+wpath <- 'http://www.boussinesq.org/geotopbricks/simulations/panola13_run2xC_test3'#
+#
+slope <- get.ge
+wpath <- 'http://www.boussinesq.org/geotopbricks/simulations/ton-toss'
+slope <- get.geotop.inpts.keyword.value("SlopeMapFile",raster=TRUE,wpath=wpath)
+slope
+library(raster)
+source('~/Dropbox/R-packages/geotopbricks/roxygenize.R', chdir = TRUE)
+library(geotopbricks)
+help(writeRasterxGEOtop)
+library(geotopbricks)#
+#
+## Simulation working path#
+#
+file <- system.file("rendena100/SnowDepthMapFile-2014-MA-mean-winter-2013-2014.asc",package="geotopbricks")#
+snow <- raster(file)
+snow
+snowfile <- "./temporary/snow"
+writeRasterxGEOtop(x=snow,file=snowfile)
+dir.exists("./temporary")
+exists("./temporary")
+exists.dir("./temporary")
+directory.exists("./temporary")
+help(file.exists)
+help(dir.copy)
+snowfile <- "./temporary/snow.asc"
+dir.create("./temporary")
+writeRasterxGEOtop(x=snow,file=snowfile)
+source('~/Dropbox/R-packages/geotopbricks/roxygenize.R', chdir = TRUE)
+library(geotopbricks)
+help(writeRasterxGEOtop)
+library(geotopbricks)#
+#
+## Simulation working path#
+#
+file <- system.file("rendena100/SnowDepthMapFile-2014-MA-mean-winter-2013-2014.asc",package="geotopbricks")#
+snow <- raster(file)#
+snowfile <- "./temporary/snow.asc"#
+#
+dir.create("./temporary")#
+ writeRasterxGEOtop(x=snow,file=snowfile)
+source('~/Dropbox/R-packages/geotopbricks/roxygenize.R', chdir = TRUE)
+help(crop)
+help(grep)
+toremove <- c(".DS_Store,inst/.DS_Store,inst/doc/.DS_Store,inst/doc/examples/.DS_Store,inst/doc/examples/snowstuff/.DS_Store,inst/template/.DS_Store,inst/template/friuli/.DS_Store")#
+			toremove <- grep(toremove,",")
+toremove
+toremove <- c(".DS_Store,inst/.DS_Store,inst/doc/.DS_Store,inst/doc/examples/.DS_Store,inst/doc/examples/snowstuff/.DS_Store,inst/template/.DS_Store,inst/template/friuli/.DS_Store")
+toremove
+toremove <- grep(toremove,",")
+toremove
+help(grep)
+help(str_split)
+toremove
+toremove <- c(".DS_Store","inst/.DS_Store","inst/doc/.DS_Store","inst/doc/examples/.DS_Store","inst/doc/examples/snowstuff/.DS_Store","inst/template/.DS_Store","inst/template/friuli/.DS_Store")
+toremove
+source('~/Dropbox/R-packages/geotopbricks/roxygenize.R', chdir = TRUE)
+help(proj4string)
+library(raster)
+help(proj4string)
+r <- raster()#
+crs(r)#
+crs(r) <- "+proj=lcc +lat_1=48 +lat_2=33 +lon_0=-100 +ellps=WGS84"#
+crs(r)
+r
+proj4string(r)
+class(proj4string(r))
+class(projection(r))
+(projection(r))
+(crs(r))
+class(crs(r))
+source('~/Dropbox/R-packages/geotopbricks/roxygenize.R', chdir = TRUE)
+library(geotopbricks)
+help(writeRasterxGEOtop)
+library(geotopbricks)#
+#
+## Simulation working path#
+#
+file <- system.file("rendena100/SnowDepthMapFile-2014-MA-mean-winter-2013-2014.asc",#
+package="geotopbricks")#
+snow <- raster(file)#
+snowfile <- "./temporary/snow.asc"#
+#
+dir.create("./temporary")#
+ writeRasterxGEOtop(x=snow,file=snowfile)
+source('~/Dropbox/R-packages/geotopbricks/roxygenize.R', chdir = TRUE)
+help(color.bar.raster)
+source('~/Dropbox/R-packages/geotopbricks/roxygenize.R', chdir = TRUE)
