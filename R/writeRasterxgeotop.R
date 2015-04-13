@@ -105,8 +105,12 @@ if (class(x)=="RasterBrick") {
  for (i in 1:nlast) file.remove(namen[i])
 
 ## set prj 
-		fileprj <- str_replace(filename,".asc",".prj")
-		
+		## fileprj <- str_replace(filename,".asc",".prj")
+		# ec 20150412
+
+		fileprj <- filename
+		extension(fileprj) <- ".prj"
+
 		if (fileprj!=filename) {
 		###	print(fileprj)
 		##	crs <- proj4string(x)
