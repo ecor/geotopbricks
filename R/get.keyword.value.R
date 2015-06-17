@@ -4,8 +4,9 @@
 ###############################################################################
 
 NULL
-#'
-#' Returns the values of a keyword of "geotop.inpts" file or data frame with the suitable format
+#' Importing a GEOtop Keyword and its Value into R
+#' 
+#' It returns the values of a keyword of "geotop.inpts" file or data frame with the suitable format.
 #' 
 #' @param keyword keyword name
 #' @param inpts.frame data frame returned by \code{\link{declared.geotop.inpts.keywords}} or \code{NULL}. Default is \code{NULL}.
@@ -47,7 +48,8 @@ NULL
 #' library(geotopbricks)
 #' 
 #' #Simulation working path
-#' wpath <- 'http://www.boussinesq.org/geotopbricks/simulations/panola13_run2xC_test3'
+#### wpath <- 'http://www.rendena100.eu/public/geotopbricks/simulations/panola13_run2xC_test3'
+#' wpath <- 'http://www.rendena100.eu/public/geotopbricks/simulations/panola13_run2xC_test3'
  ###  wpath <- 'http://meteogis.fmach.it/idroclima//panola13_run2xC_test3'
 #' prefix <- get.geotop.inpts.keyword.value("SoilLiqWaterPressTensorFile",wpath=wpath)
 #' 
@@ -77,15 +79,38 @@ NULL
 #' nmeteo <- get.geotop.inpts.keyword.value("NumberOfMeteoStations",numeric=TRUE,wpath=wpath)
 #' level <- 1:nmeteo
 #' 
-#' # Not Run: uncomment the following lines to calculate "meteo"
+#' # Uncomment the following lises to run the R code: 
+#' 
+#' ## set meteo data
+#' 
+#' 
+#'  \dontrun{
 #' # meteo <- get.geotop.inpts.keyword.value("MeteoFile",wpath=wpath,data.frame=TRUE,
-#' #         level=level,start_date=start,end_date=end)
-#' #
+#' #       level=level,start_date=start,end_date=end)
+#' }
 #' 
 #' ##### end set meteo data
 #' 
+#' ## IMPORTING AN OUTPUT SOIL MOISTURE PROFILE: 
 #' 
-
+#'  wpath <- 'http://www.rendena100.eu/public/geotopbricks/simulations/Muntatschini_pnt_1_225_B2_004'
+#' 
+#' \dontrun{
+#' #	SMC  <- get.geotop.inpts.keyword.value("SoilLiqContentProfileFile",
+#' #          wpath=wpath,data.frame=TRUE,date_field="Date12.DDMMYYYYhhmm.",
+#' #          formatter="%04d")
+#' #
+#' #    SMCz  <- get.geotop.inpts.keyword.value("SoilLiqContentProfileFile",
+#' #         wpath=wpath,data.frame=TRUE,date_field="Date12.DDMMYYYYhhmm.",
+#' #          formatter="%04d",zlayer.formatter="z%04d")
+#' }
+#' 
+#' 
+#' 		
+#' 
+#' 
+#' 
+#' 
 get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=NULL,numeric=FALSE,format="%d/%m/%Y %H:%M",date=FALSE,tz="Etc/GMT+1",raster=FALSE,file_extension=".asc",add_wpath=FALSE,wpath=NULL,use.read.raster.from.url=TRUE,data.frame=FALSE,formatter="%04d",level=1,date_field="Date",isNA=-9999.000000,matlab.syntax=TRUE,projfile="geotop.proj",start_date=NULL,end_date=NULL,ContinuousRecovery=0,ContinuousRecoveryFormatter="_crec%04d",zlayer.formatter=NULL,z_unit=c("centimeters","millimeters"),geotop_z_unit="millimeters",...) {
 #####	check.columns=FALSE
 # Added by the author on Feb 6 2012	
@@ -433,8 +458,8 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 							 names(out) <- sprintf(zfrm,zval)
 							 
 							 return(out)
-							 
-						 },zfrm=zformatter,z=zu)
+					##		 zlayer.formatter
+						 },zfrm=zlayer.formatter,z=zu)
 				 
 			 }
 			 

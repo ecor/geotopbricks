@@ -602,26 +602,26 @@ help(writeRasterxGEOtop)
 library(geotopbricks)#
 #
 Simulation working path#
-wpath <- 'http://www.boussinesq.org/geotopbricks/simulations/panola13_run2xC_test3'#
+wpath <- 'http://www.rendena100.eu/public/geotopbricks/simulations/panola13_run2xC_test3'#
 #
 slope <- get.geotop.inpts.keyword.value("SlopeMapFile",raster=TRUE,wpath=wpath)
 slope
 plot(slope)
-wpath <- 'http://www.boussinesq.org/geotopbricks/simulations/ton-toss'
+wpath <- 'http://www.rendena100.eu/public/geotopbricks/simulations/ton-toss'
 library(geotopbricks)#
 #
 Simulation working path#
-wpath <- 'http://www.boussinesq.org/geotopbricks/simulations/panola13_run2xC_test3'#
+wpath <- 'http://www.rendena100.eu/public/geotopbricks/simulations/panola13_run2xC_test3'#
 #
 slope <- get.geotop.inpts.keyword.value("SlopeMapFile",raster=TRUE,wpath=wpath)
 plot(slope)
 library(geotopbricks)#
 #
 Simulation working path#
-wpath <- 'http://www.boussinesq.org/geotopbricks/simulations/panola13_run2xC_test3'#
+wpath <- 'http://www.rendena100.eu/public/geotopbricks/simulations/panola13_run2xC_test3'#
 #
 slope <- get.ge
-wpath <- 'http://www.boussinesq.org/geotopbricks/simulations/ton-toss'
+wpath <- 'http://www.rendena100.eu/public/geotopbricks/simulations/ton-toss'
 slope <- get.geotop.inpts.keyword.value("SlopeMapFile",raster=TRUE,wpath=wpath)
 slope
 library(raster)
