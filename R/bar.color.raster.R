@@ -71,7 +71,7 @@ color.bar.raster <- function(x,col,min=NA,max=NA,...) {
 	}
 	
 	
-	color.bar(lut=col,min=min,max=max,...)
+	geotopbricks::color.bar(lut=col,min=min,max=max,...)
 	
 	# TO DO 
 }

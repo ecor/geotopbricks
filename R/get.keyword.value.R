@@ -118,7 +118,7 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 	if (length(keyword)>1) {
 		out <- NULL
 		
-		out <- lapply(X=keyword,FUN=get.geotop.inpts.keyword.value,inpts.frame=inpts.frame,vector_sep=vector_sep,numeric=numeric,format=format,date=date,tz=tz,raster=raster,file_extension=file_extension,add_wpath=add_wpath,wpath=wpath,use.read.raster.from.url=use.read.raster.from.url,data.frame=data.frame,formatter=formatter,level=level,date_field=date_field,isNA=isNA,matlab.syntax=matlab.syntax,projfile=projfile,...)
+		out <- base::lapply(X=keyword,FUN=get.geotop.inpts.keyword.value,inpts.frame=inpts.frame,vector_sep=vector_sep,numeric=numeric,format=format,date=date,tz=tz,raster=raster,file_extension=file_extension,add_wpath=add_wpath,wpath=wpath,use.read.raster.from.url=use.read.raster.from.url,data.frame=data.frame,formatter=formatter,level=level,date_field=date_field,isNA=isNA,matlab.syntax=matlab.syntax,projfile=projfile,...)
 		names(out) <- keyword
 		
 		
@@ -127,7 +127,7 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 	
 	
 	
-	if (is.null(inpts.frame)) inpts.frame <- declared.geotop.inpts.keywords(wpath=wpath,...)
+	if (is.null(inpts.frame)) inpts.frame <- geotopbricks::declared.geotop.inpts.keywords(wpath=wpath,...)
 
 	out <- inpts.frame$Value[inpts.frame$Keyword==keyword]
 
@@ -375,7 +375,7 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 			 
 			 names_keys <- paste(keyword,formatter,sep="")
 			 names_keys <- sprintf(names_keys,1:length(names_points))
-			 out <- lapply(X=names_keys, FUN=function(x,list){
+			 out <- base::lapply(X=names_keys, FUN=function(x,list){
 						 
 				index <- str_detect(names(list),x)
 				list <- list[index]	 
@@ -449,7 +449,7 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 				 
 				 zu <- geotop_z_unit/z_unit
 				 
-				 out <- lapply(X=out,FUN=function(x,zfrm,zu){
+				 out <- base::lapply(X=out,FUN=function(x,zfrm,zu){
 							 
 							 out <- x[,str_detect(names(x),"X")]
 							 

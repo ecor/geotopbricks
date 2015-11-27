@@ -45,12 +45,12 @@ replace.keyword <- function(x,y="geotop.inpts",file.output=NULL,write.file.outpu
 	}
 
 	
-	xl <- readLines(x,...)
-	yl <- readLines(y,...)
+	xl <- base::readLines(x,...)
+	yl <- base::readLines(y,...)
 	
 	
 	
-	keywords <- declared.geotop.inpts.keywords(wpath=NULL,inpts.file=x,...)$Keyword	
+	keywords <- geotopbricks::declared.geotop.inpts.keywords(wpath=NULL,inpts.file=x,...)$Keyword	
 	
 	for (key in keywords) {
 		

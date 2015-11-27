@@ -79,7 +79,7 @@ create.geotop.meteo.files <- function(x,format="%d/%m/%Y %H:%M",file_prefix="met
 
 		
 		
-		write.table(x=y,file=filenamex,quote=quote,sep=sep,na=na,row.names=row.names,col.names=col.names,...)
+		utils::write.table(x=y,file=filenamex,quote=quote,sep=sep,na=na,row.names=row.names,col.names=col.names,...)
 	} 
 	
 		

@@ -239,11 +239,11 @@ listFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one.
 	
 	
 	
-	start_s <- get.geotop.inpts.keyword.value(start_date_key,date=TRUE,wpath=wpath,tz=tz,...) ###wpath=wpath,tz="A")
-	end_s <- get.geotop.inpts.keyword.value(end_date_key,date=TRUE,wpath=wpath,tz=tz,...) ###wpath=wpath,tz="A")
+	start_s <- geotopbricks::get.geotop.inpts.keyword.value(start_date_key,date=TRUE,wpath=wpath,tz=tz,...) ###wpath=wpath,tz="A")
+	end_s <- geotopbricks::get.geotop.inpts.keyword.value(end_date_key,date=TRUE,wpath=wpath,tz=tz,...) ###wpath=wpath,tz="A")
 	
 	
-	if (!is.numeric(timestep)) timestep <- get.geotop.inpts.keyword.value(timestep,wpath=wpath,numeric=TRUE,...)*3600 
+	if (!is.numeric(timestep)) timestep <- geotopbricks::get.geotop.inpts.keyword.value(timestep,wpath=wpath,numeric=TRUE,...)*3600 
 	
 	time <- seq(from=start_s,to=end_s,by=timestep)
 	
@@ -259,7 +259,7 @@ listFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one.
 		if (layers=="SoilLayerThicknesses") {
 		
 			###get.geotop.inpts.keyword.value("SoilLayerThicknesses",numeric=TRUE,wpath=wpath,...)
-			layers <- get.geotop.inpts.keyword.value("SoilLayerThicknesses",numeric=TRUE,wpath=wpath,...) ####wpath=wpath)
+			layers <- geotopbricks::get.geotop.inpts.keyword.value("SoilLayerThicknesses",numeric=TRUE,wpath=wpath,...) ####wpath=wpath)
 			###print(layers)
 			if (is.null(layers)) {
 				layers <-  "SoilParFile"
@@ -272,7 +272,7 @@ listFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one.
 		
 		if (layers[1]=="SoilParFile") {
 			
-			layers <- get.geotop.inpts.keyword.value("SoilParFile",wpath=wpath,add_wpath=TRUE,data.frame=TRUE,level=1,date_field=NULL,...)$Dz
+			layers <- geotopbricks::get.geotop.inpts.keyword.value("SoilParFile",wpath=wpath,add_wpath=TRUE,data.frame=TRUE,level=1,date_field=NULL,...)$Dz
 			
 		
 			
@@ -286,7 +286,7 @@ listFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one.
 		
 	}
 	
-	map.prefix <- get.geotop.inpts.keyword.value(x,numeric=FALSE,date=FALSE,wpath=wpath,add_wpath=TRUE,...)
+	map.prefix <- geotopbricks::get.geotop.inpts.keyword.value(x,numeric=FALSE,date=FALSE,wpath=wpath,add_wpath=TRUE,...)
 	
 	
 	if (!is.null(secondary.suffix)) {

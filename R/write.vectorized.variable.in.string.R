@@ -90,7 +90,7 @@ write.vectorized.variable.in.string <- function(l,NAflag=-9999,matlab.syntax=FAL
 		
 		names <- names(l)
 		# WARNING: The names of list elements are not saved, so they are 
-		out <- lapply(X=l,FUN=write.vectorized.variable.in.string,NAflag=NAflag,matlab.syntax=matlab.syntax,...)
+		out <- base::lapply(X=l,FUN=write.vectorized.variable.in.string,NAflag=NAflag,matlab.syntax=matlab.syntax,...)
 		
 		out <- paste(names,unlist(out),sep="")
 		

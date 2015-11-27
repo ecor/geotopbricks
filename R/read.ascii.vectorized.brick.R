@@ -38,7 +38,7 @@ read.ascii.vectorized.brick <- function(file=NULL,comment="!",crs="",NAflag=-999
 	
 	if (matlab.syntax) comment="#"
 
-	df <- declared.geotop.inpts.keywords(inpts.file=file,comment=comment,warn=FALSE,wpath=NULL,...) # commented wpath='.'
+	df <- geotopbricks::declared.geotop.inpts.keywords(inpts.file=file,comment=comment,warn=FALSE,wpath=NULL,...) # commented wpath='.'
 	
 	xmx <- get.geotop.inpts.keyword.value("xmx",inpts.frame=df,numeric=TRUE)
 	xmn <- get.geotop.inpts.keyword.value("xmn",inpts.frame=df,numeric=TRUE)

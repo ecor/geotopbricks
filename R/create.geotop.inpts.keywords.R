@@ -2,7 +2,7 @@
 # 
 # Author: ecor
 ###############################################################################
-
+#### color.bar
 NULL
 #'
 #' Creates an 'geotop.inpts'  files the keyword and their values of a date.frame like the one returned by \code{\link{declared.geotop.inpts.keywords}}
@@ -81,7 +81,7 @@ create.geotop.inpts.keyword <- function(df,file='geotop.inpts.copy',wpath=NULL,
 	
 	if (!is.null(header)) lines <- c(header,lines)
 	
-	writeLines(lines,con=file,sep="\n",...)
+	base::writeLines(lines,con=file,sep="\n",...)
 	
 	return(0)
 	

@@ -62,7 +62,7 @@ write.vectorized.geotop.recovery <- function(rec,file=NULL,header=NULL,overwrite
 	}
 	names <- rec$names
 	rec_attributes0 <- rec_attributes[!(rec_attributes %in% c("names","files"))]
-	l <- list(...)
+	l <- base::list(...)
 
 	if (is.null(header)) {
 		
@@ -108,7 +108,7 @@ write.vectorized.geotop.recovery <- function(rec,file=NULL,header=NULL,overwrite
 		names(li) <- n
 		
 ###		print(li)
-		postheader[i+1] <- write.vectorized.variable.in.string(li,NAflag=NAflag,matlab.syntax=matlab.syntax,...)
+		postheader[i+1] <- geotopbricks::write.vectorized.variable.in.string(li,NAflag=NAflag,matlab.syntax=matlab.syntax,...)
 		# TEST THIS FUNCTION!!!!
 		
 		b <- rec[[nms[1]]]
@@ -123,9 +123,9 @@ write.vectorized.geotop.recovery <- function(rec,file=NULL,header=NULL,overwrite
 	
 
 	
-	lines <- write.vectorized.variable.in.string(l,NAflag=NAflag,matlab.syntax=matlab.syntax,...)
+	lines <- geotopbricks::write.vectorized.variable.in.string(l,NAflag=NAflag,matlab.syntax=matlab.syntax,...)
 	
-	# ADD METADATA
+	# ADD METADATA write.ascii.vectorized.brick
 	
 	lines <- c(header,postheader,metadataheader,lines)
 	

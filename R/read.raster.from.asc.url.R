@@ -60,7 +60,7 @@ read.raster.from.url <- function(x,header_nrow=6,...) {
 	xmx <- xmn+cellsize*ncols
 	ymx <- ymn+cellsize*nrows
 	
-	out <- raster(x=values,xmn=xmn,ymn=ymn,xmx=xmx,ymx=ymx,...)
+	out <- raster::raster(x=values,xmn=xmn,ymn=ymn,xmx=xmx,ymx=ymx,...)
 
 	
 	return(out)

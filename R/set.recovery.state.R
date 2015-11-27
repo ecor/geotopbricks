@@ -40,7 +40,7 @@ set.geotop.recovery.state <- function(rec,newRecFolder,...) {
 			file  <- files_w[names==it]
 
 			####print(it)
-			writeRasterxGEOtop(x=rec[[it]],filename=file,use.decimal.formatter=FALSE,start.from.zero=FALSE,...)								
+			geotopbricks::writeRasterxGEOtop(x=rec[[it]],filename=file,use.decimal.formatter=FALSE,start.from.zero=FALSE,...)								
 			
 		}
 		
@@ -48,9 +48,9 @@ set.geotop.recovery.state <- function(rec,newRecFolder,...) {
 		for (it in names[LayersWithoutZero]) {
 			
 			file  <- files_w[names==it]
-			## print(it)
+			## print(it) 
 			## print(file)
-			writeRasterxGEOtop(x=rec[[it]],filename=file,use.decimal.formatter=TRUE,start.from.zero=FALSE,...)								
+			geotopbricks::writeRasterxGEOtop(x=rec[[it]],filename=file,use.decimal.formatter=TRUE,start.from.zero=FALSE,...)								
 			
 		}
 		
@@ -60,7 +60,7 @@ set.geotop.recovery.state <- function(rec,newRecFolder,...) {
 			### print(it)
 			## print(file)
 			
-			writeRasterxGEOtop(x=rec[[it]],filename=file,use.decimal.formatter=TRUE,start.from.zero=TRUE,...)
+			geotopbricks::writeRasterxGEOtop(x=rec[[it]],filename=file,use.decimal.formatter=TRUE,start.from.zero=TRUE,...)
 			
 		}		
 #	out$names <- names

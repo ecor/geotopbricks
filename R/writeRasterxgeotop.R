@@ -37,7 +37,7 @@
 #' snowfile <- "./temporary/snow.asc"
 #' 
 #' dir.create("./temporary")
-#'  writeRasterxGEOtop(x=snow,file=snowfile)
+#' writeRasterxGEOtop(x=snow,file=snowfile)
 #' 
 #' 
 #' 
@@ -54,7 +54,7 @@ options(scipen=99999) # It remove scientific notation
  
  if (is.null(filename)) {
 	 
-	 filename <- get.geotop.inpts.keyword.value(keyword,wpath=wpath,add_wpath=TRUE,...)
+	 filename <- geotopbricks::get.geotop.inpts.keyword.value(keyword,wpath=wpath,add_wpath=TRUE,...)
 	 filename <- paste(filename,suffix.ext,sep="")
 	 
  }
@@ -79,7 +79,7 @@ if (class(x)=="RasterBrick") {
 	
 	for (i in 1:nlayers(x)) {
 		
-		writeRasterxGEOtop(x=subset(x,i),filename=filename[i],overwrite=overwrite,NAflag=NAflag,...)
+		geotopbricks::writeRasterxGEOtop(x=subset(x,i),filename=filename[i],overwrite=overwrite,NAflag=NAflag,...)
 		
 	}
 	return()
@@ -87,7 +87,7 @@ if (class(x)=="RasterBrick") {
 } 
  
  
- writeRaster(x=x,filename=filename,overwrite=overwrite,NAflag=NAflag,...)
+ raster::writeRaster(x=x,filename=filename,overwrite=overwrite,NAflag=NAflag,...)
 
 # CORRECT THE HEADER 
 

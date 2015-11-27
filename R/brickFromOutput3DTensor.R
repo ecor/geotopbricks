@@ -208,11 +208,11 @@ brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one
 	
 	
 	
-	start_s <- get.geotop.inpts.keyword.value(start_date_key,date=TRUE,wpath=wpath,tz=tz,...) ###wpath=wpath,tz="A")
-	end_s <- get.geotop.inpts.keyword.value(end_date_key,date=TRUE,wpath=wpath,tz=tz,...) ###wpath=wpath,tz="A")
+	start_s <- geotopbricks::get.geotop.inpts.keyword.value(start_date_key,date=TRUE,wpath=wpath,tz=tz,...) ###wpath=wpath,tz="A")
+	end_s <- geotopbricks::get.geotop.inpts.keyword.value(end_date_key,date=TRUE,wpath=wpath,tz=tz,...) ###wpath=wpath,tz="A")
 	
 	
-	if (!is.numeric(timestep)) timestep <- get.geotop.inpts.keyword.value(timestep,wpath=wpath,numeric=TRUE,...)*3600 
+	if (!is.numeric(timestep)) timestep <- geotopbricks::get.geotop.inpts.keyword.value(timestep,wpath=wpath,numeric=TRUE,...)*3600 
 	
 	time <- seq(from=start_s,to=end_s,by=timestep)
 	
@@ -228,7 +228,7 @@ brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one
 		if (layers=="SoilLayerThicknesses") {
 		
 			###get.geotop.inpts.keyword.value("SoilLayerThicknesses",numeric=TRUE,wpath=wpath,...)
-			layers <- get.geotop.inpts.keyword.value("SoilLayerThicknesses",numeric=TRUE,wpath=wpath,...) ####wpath=wpath)
+			layers <- geotopbricks::get.geotop.inpts.keyword.value("SoilLayerThicknesses",numeric=TRUE,wpath=wpath,...) ####wpath=wpath)
 			###print(layers)
 			if (is.null(layers)) {
 				layers <-  "SoilParFile"
@@ -242,9 +242,9 @@ brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one
 		if (layers[1]=="SoilParFile") {
 			
 			
-			headerDz <- get.geotop.inpts.keyword.value("HeaderSoilDz",wpath=wpath,...)[1]
+			headerDz <- geotopbricks::get.geotop.inpts.keyword.value("HeaderSoilDz",wpath=wpath,...)[1]
 			if (is.null(headerDz)) headerDz <- "Dz"
-			layers <- get.geotop.inpts.keyword.value("SoilParFile",wpath=wpath,add_wpath=TRUE,data.frame=TRUE,level=1,date_field=NULL,...)[,headerDz]
+			layers <- geotopbricks::get.geotop.inpts.keyword.value("SoilParFile",wpath=wpath,add_wpath=TRUE,data.frame=TRUE,level=1,date_field=NULL,...)[,headerDz]
 			
 		
 			
@@ -256,7 +256,7 @@ brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one
 		
 		### SoilLayerNumber
 			
-			nl <- get.geotop.inpts.keyword.value("SoilLayerNumber",numeric=TRUE,wpath=wpath,...)[1]
+			nl <- geotopbricks::get.geotop.inpts.keyword.value("SoilLayerNumber",numeric=TRUE,wpath=wpath,...)[1]
 			if (!is.null(nl)) layers <- 1:nl
 		
 		} 
@@ -264,7 +264,7 @@ brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one
 		
 		if (!is.numeric(layers)) {
 			
-			wanring("Layers Not Numeric 1:2 by Defalut!")
+			warning("Layers Not Numeric 1:2 by Defalut!")
 			layers <- 1:2
 			
 		}
@@ -272,7 +272,7 @@ brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one
 		
 	}
 	
-	map.prefix <- get.geotop.inpts.keyword.value(x,numeric=FALSE,date=FALSE,wpath=wpath,add_wpath=TRUE,...)
+	map.prefix <- geotopbricks::get.geotop.inpts.keyword.value(x,numeric=FALSE,date=FALSE,wpath=wpath,add_wpath=TRUE,...)
 	
 	
 	if (!is.null(secondary.suffix)) {
@@ -379,7 +379,7 @@ NULL
 rasterFromOutput2DMap <- function(x,when,...) {
 	
 	
-	out <- brickFromOutputSoil3DTensor(x=x,when=when,layers=1,one.layer=TRUE,...)
+	out <- geotopbricks::brickFromOutputSoil3DTensor(x=x,when=when,layers=1,one.layer=TRUE,...)
 	return(out)
 	
 }

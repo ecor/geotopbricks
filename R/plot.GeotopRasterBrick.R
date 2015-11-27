@@ -99,7 +99,7 @@ setMethod('plot', signature(x='GeotopRasterBrick',y='ANY'),
 		function (x,y=NULL,...) { #} ,zip='', overwrite=FALSE, ...) {
 		
 			
-			out <- plot(brick(x),...) 
+			out <- garahics::plot(brick(x),...) 
 			return(out)
 		}
 
