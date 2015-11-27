@@ -101,11 +101,14 @@ get.geotop.recovery.state <- function(recFolder,xx="0000",formatter="L%04d",exte
 	
 	}
 	
-	# number of snow leyers is detected by raster layer 'out$SnowLayersNumber'
-	out$SnowLayersNumber <- setMinMax(out$SnowLayersNumber)
-	nsnowlayers <- maxValue(out$SnowLayersNumber)
-	nsnowlayers[nsnowlayers<1] <- 1
+	# number of snow layers is detected by raster layer 'out$SnowLayersNumber'
+	if (layersFromDir==FALSE) {
+		
 	
+		out$SnowLayersNumber <- setMinMax(out$SnowLayersNumber)
+		nsnowlayers <- maxValue(out$SnowLayersNumber)
+		nsnowlayers[nsnowlayers<1] <- 1
+	}
 	for (it in names[snowLayers]) {
 		
 
