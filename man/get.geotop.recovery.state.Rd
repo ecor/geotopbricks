@@ -5,7 +5,7 @@
 \title{This function saves all spatially distrubuted information contained in the recovery folder into a comprehensive \code{list} object.}
 \usage{
 get.geotop.recovery.state(recFolder, xx = "0000", formatter = "L\%04d",
-  extension = ".asc", nsoillayers = 10, ...)
+  extension = ".asc", nsoillayers = 10, layersFromDir = FALSE, ...)
 }
 \arguments{
 \item{recFolder}{directory when recvery maps are set. In GEOtop it is ...}
@@ -16,7 +16,9 @@ get.geotop.recovery.state(recFolder, xx = "0000", formatter = "L\%04d",
 
 \item{extension}{file estension used for asccii recovery map files. It must contains \code{'.'} as the first character. Defaut is \code{".asc"} .}
 
-\item{nsoillayers}{number of soil layers used in the GEOtop simulation}
+\item{nsoillayers}{number of soil layers used in the GEOtop simulation.}
+
+\item{layersFromDir}{}
 
 \item{...}{further arguments}
 }

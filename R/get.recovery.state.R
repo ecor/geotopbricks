@@ -81,7 +81,7 @@ get.geotop.recovery.state <- function(recFolder,xx="0000",formatter="L%04d",exte
 		
 
 		x <- as.character(files_w[names==it])
-		 print(x)
+		# print(x)
 		out[it] <- raster(x)
 		
 		
