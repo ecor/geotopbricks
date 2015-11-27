@@ -20,7 +20,8 @@ NULL
 #' @param xx charcter String. Default is \code{"0000"}
 #' @param extension file estension used for asccii recovery map files. It must contains \code{'.'} as the first character. Defaut is \code{".asc"} . 
 #' @param formatter string character for the the decimal formatter to be used. Default is \code{"L\%04d"}.
-#' @param nsoillayers number of soil layers used in the GEOtop simulation
+#' @param nsoillayers number of soil layers used in the GEOtop simulation.
+#' @param layersFromDir 
 #' @param ... further arguments 
 #' 
 #' @return a \code{list} object containining all recovery raster maps. 
@@ -48,7 +49,7 @@ NULL
 
 
 
-get.geotop.recovery.state <- function(recFolder,xx="0000",formatter="L%04d",extension=".asc",nsoillayers=10,...) {
+get.geotop.recovery.state <- function(recFolder,xx="0000",formatter="L%04d",extension=".asc",nsoillayers=10,layersFromDir=FALSE,...) {
 
 
 	names<-c("RainOnCanopy","SnowAge","SnowIceContent","SnowLayersNumber","SnowLiqWaterContent","SnowOnCanopy","SnowTemperature","SnowThickness","SoilChannelIceContent","SoilChannelPressure","SoilChannelTemperature","SoilIceContent","SoilPressure","SoilTemperature","VegTemperature")      
@@ -67,6 +68,14 @@ get.geotop.recovery.state <- function(recFolder,xx="0000",formatter="L%04d",exte
 #	## ##print(files)
 	out <- list()
 	
+	if (layersFromDir==TRUE)  {
+		
+		nsoillayers <-  "FromDir"
+		nsnowlayers <-  "FromDir"
+		
+	} 
+		
+		
 	for (it in names[noLayers]) {
 		
 		

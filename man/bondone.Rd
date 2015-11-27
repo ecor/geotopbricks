@@ -3,7 +3,7 @@
 \alias{meteo}
 \alias{bondone}
 \title{
-Bondene Dataset 
+Bondone Dataset 
 }
 
 \usage{

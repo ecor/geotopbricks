@@ -48,6 +48,9 @@ NULL
 brick.decimal.formatter <- function(file=NULL,file_prefix,formatter="%04d",file_extension=".asc",nlayers=10,use.read.raster.from.url=FALSE,crs=NULL,start.from.zero=FALSE) {
 	
 	b <- NULL
+	
+	formatter_dec <- formatter
+	
 	if (!is.null(file) & !is.na(file)) {
 		
 		file_prefix <- ""
@@ -56,7 +59,25 @@ brick.decimal.formatter <- function(file=NULL,file_prefix,formatter="%04d",file_
 		
 	}
 	
-	
+	if (nlayers=="FromDir") { ## ec 20151127
+		
+		filename <- paste(file_prefix,formatter,sep="")
+		sep1 <- max(str_locate_all(filename,"/")[[1]][,1])
+		sep2 <- max(str_locate_all(filename,formatter_dec)[[1]][1,1])
+		
+		dir <- str_sub(filename,end=sep1)
+		pattern <- str_sub(filename,start=sep1+1,end=sep2-1)		
+		nlayers <- length(list.files(dir,patter=pattern))
+		
+		islayerzero <- length(list.files(dir,pattern=paste(pattern,sprintf(formatter_dec,0),sep="")))
+		
+		nlayers <- nlayers-islayerzero
+		
+		start.from.zero <- (islayerzero==1)
+		
+		if (islayerzero>1) stop("Error in reading number of layer from directory!")
+		
+	}
 	
 	startlayer <- 1  # startlayer id 1 by default but can be 0 optionally!!
 	
@@ -80,7 +101,19 @@ brick.decimal.formatter <- function(file=NULL,file_prefix,formatter="%04d",file_
 		}
 	}
 	
+	#####
 	
+#	if (lsDir==TRUE) {
+#		
+#		##file <- str_detect(file,)
+#		sep <- max(str_locate_all("ab/eclipse/eclipse","/")[[1]][,1])
+#		dir <- str_sub(filepath[1],)
+#		####    #######
+#		
+#	}
+	
+	
+	#####
 	list <- as.list(array(NA,length(filepath)))
 	names(list) <- filepath 
 	
