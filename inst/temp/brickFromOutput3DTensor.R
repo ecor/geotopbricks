@@ -183,7 +183,7 @@ NULL
 
 
 
-brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one.layer=FALSE,suffix="L%04dN%04d.asc",time_formatter="N%04d",suffix_one.layer="N%04d.asc",wpath=NULL,tz="A",start_date_key="InitDateDDMMYYYYhhmm",end_date_key="EndDateDDMMYYYYhhmm",timestep="OutputSoilMaps",use.read.raster.from.url=FALSE,crs=NULL,projfile="geotop.proj",start.from.zero=FALSE,secondary.suffix=NULL,...) {
+brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one.layer=FALSE,suffix="L%04dN%04d.asc",time_formatter="N%04d",wpath=NULL,tz="A",start_date_key="InitDateDDMMYYYYhhmm",end_date_key="EndDateDDMMYYYYhhmm",timestep="OutputSoilMaps",use.read.raster.from.url=FALSE,crs=NULL,projfile="geotop.proj",start.from.zero=FALSE,secondary.suffix=NULL,...) {
 	
 	out <- NULL
 
@@ -311,24 +311,16 @@ brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one
 			##  
 			##
 			##
-			#suffix <- str_split(suffix,"N")[[1]]
-			#suffix[2] <- sprintf(suffix[2],n)
-			time_formatter_n <- sprintf(time_formatter,n)
-			
+			suffix <- str_split(suffix,"N")[[1]]
+			suffix[2] <- sprintf(suffix[2],n)
+		
 			if (one.layer) {
 		
-				suffix <- str_replace(suffix_one.layer,time_formatter,time_formatter_n)
-			## rc 20151218
-			
-			#####	suffix <- paste("N",suffix[2],sep="")
+				suffix <- paste("N",suffix[2],sep="")
 			
 			
 			} else {	
-				
-				suffix <- str_replace(suffix,time_formatter,time_formatter_n)
-			#######	suffix <- str_replace(suffix,time_formatter,time_formatter_n)
-				
-				####suffix <- paste(suffix,collapse="N")
+				suffix <- paste(suffix,collapse="N")
 			}	
 		
 			map.filename <- paste(map.prefix,suffix,sep="")

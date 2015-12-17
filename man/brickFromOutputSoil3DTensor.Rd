@@ -6,8 +6,9 @@
 \title{brickFromOutputSoil3DTensor}
 \usage{
 brickFromOutputSoil3DTensor(x, when, layers = "SoilLayerThicknesses",
-  one.layer = FALSE, suffix = "L\%04dN\%04d.asc", wpath = NULL,
-  tz = "A", start_date_key = "InitDateDDMMYYYYhhmm",
+  one.layer = FALSE, suffix = "L\%04dN\%04d.asc",
+  time_formatter = "N\%04d", suffix_one.layer = "N\%04d.asc",
+  wpath = NULL, tz = "A", start_date_key = "InitDateDDMMYYYYhhmm",
   end_date_key = "EndDateDDMMYYYYhhmm", timestep = "OutputSoilMaps",
   use.read.raster.from.url = FALSE, crs = NULL, projfile = "geotop.proj",
   start.from.zero = FALSE, secondary.suffix = NULL, ...)
