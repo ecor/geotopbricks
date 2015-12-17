@@ -143,6 +143,7 @@ declared.geotop.inpts.keywords <- function(wpath,inpts.file="geotop.inpts",comme
 		
 	}
 	
+	
 	out$Value[!exc] <- str_replace_all(out$Value[!exc],c(" "),"")
 	
 	

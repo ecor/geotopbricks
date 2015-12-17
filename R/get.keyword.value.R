@@ -257,7 +257,7 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 			 
 			 
 			filepath <- c(filepath,filecrecpath)
-			 
+			#print(filepath)  ### HERE EC 20151215
 			 
 		 }
 		 out <- filepath
@@ -318,7 +318,7 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 			 temp <- read.table(file,header=TRUE,sep=",")
 			 
 			 i_index <- which(names(temp)==date_field)
-			 if (length(i_index>1)) {
+			 if (length(i_index)>1) { ## ec 20151215
 				 
 				 if (is.numeric(isNA) & length(isNA)==1) temp[,-i_index][temp[,-i_index]<=isNA] <- NA # added on 6 dec 2012
 			 
@@ -328,10 +328,12 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 		#####
 		
 		
-		
+			#str(temp)
+##print("ba")
 			 if (!is.null(date_field) & !is.na(date_field) & length(i_index)==1 & length(date_field)>0 & (!ContinuousRecoveryCond)) {
 				
 				 index <- temp[,i_index]
+				
 				 temp<- temp[,-i_index]
 				 index <- as.POSIXlt(index,format=format,tz=tz)
 				 temp <- as.zoo(temp)
@@ -375,21 +377,36 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 			 
 			 names_keys <- paste(keyword,formatter,sep="")
 			 names_keys <- sprintf(names_keys,1:length(names_points))
-			 out <- base::lapply(X=names_keys, FUN=function(x,list){
-						 
+			 out <- base::lapply(X=names_keys, FUN=function(x,list,i_index){
+				
+				if (is.null(i_index)) i_index <- NA
+				if (length(i_index)<1) i_index <- NA
+				if (length(i_index)>1) i_index <- i_index[1]
 				index <- str_detect(names(list),x)
 				list <- list[index]	 
 					
 				out <- list[[1]]
-					
+				#print("bb")
+				#str(out)	
 				for (it in list[-1]) {
 						
-					out <- rbind(out,it)
+					#str(it)
+					if (!is.na(i_index)) {
+						
+					#	print(it[,i_index] %in% out[,i_index][1:10])
+					#	print(it[1:10])
+						itl <- it[!((it)[,i_index] %in% out[,i_index]),]
+						
+						out <- rbind(out,itl)
+					}	else {
+						
+					    out <- rbind(out,it) ## ec 20151215
+					}
 				}
-					
+				
 				return(out)	 
 					 
-			},list=out)  
+			},list=out,i_index=i_index)  
 			 
 			for (i in 1:length(out)) {
 				
@@ -399,6 +416,15 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 					index <- temp[,i_index]
 					temp<- temp[,-i_index]
 					index <- as.POSIXlt(index,format=format,tz=tz)
+					
+					#print(x)
+					###print(index)
+					#print(index[1:10])
+					#print(sort(index)[1:10])
+					#print(which(index!=sort(index)))
+					#print(index[which(index!=sort(index))])
+					#print(length(index))
+					#print(index[length(index)-11+1:10])
 					temp <- as.zoo(temp)
 					index(temp) <- index
 					# insert sart date & date
