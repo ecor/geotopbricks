@@ -183,7 +183,7 @@ NULL
 
 
 
-brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one.layer=FALSE,suffix="L%04dN%04d.asc",time_formatter="N%04d",suffix_one.layer="N%04d.asc",wpath=NULL,tz="A",start_date_key="InitDateDDMMYYYYhhmm",end_date_key="EndDateDDMMYYYYhhmm",timestep="OutputSoilMaps",use.read.raster.from.url=FALSE,crs=NULL,projfile="geotop.proj",start.from.zero=FALSE,secondary.suffix=NULL,...) {
+brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one.layer=FALSE,suffix="L%04dN%04d.asc",time_formatter="N%04d",suffix_one.layer="N%04d.asc",wpath=NULL,tz="A",start_date_key="InitDateDDMMYYYYhhmm",end_date_key="EndDateDDMMYYYYhhmm",timestep="OutputSoilMaps",use.read.raster.from.url=FALSE,crs=NULL,projfile="geotop.proj",start.from.zero=FALSE,secondary.suffix=NULL,only.map.filename=FALSE,...) {
 	
 	out <- NULL
 
@@ -333,7 +333,12 @@ brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one
 		
 			map.filename <- paste(map.prefix,suffix,sep="")
 			message(paste("As ",as.character(time[n]),sep=" "))
-			if (one.layer) {
+		
+			if (only.map.filename==TRUE) {
+			
+				out <- map.filename
+			
+			} else if (one.layer) {
 			
 				if (use.read.raster.from.url) {				
 					out <- read.raster.from.url(x=map.filename)
@@ -347,7 +352,8 @@ brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one
 			
 			
 			} else {
-			
+				
+				
 				out <- brick.decimal.formatter(map.filename,nlayers=length(layers),use.read.raster.from.url=use.read.raster.from.url,start.from.zero=start.from.zero,crs=crs)
 		
 				if (start.from.zero) {

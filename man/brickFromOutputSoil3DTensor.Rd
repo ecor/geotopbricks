@@ -11,7 +11,8 @@ brickFromOutputSoil3DTensor(x, when, layers = "SoilLayerThicknesses",
   wpath = NULL, tz = "A", start_date_key = "InitDateDDMMYYYYhhmm",
   end_date_key = "EndDateDDMMYYYYhhmm", timestep = "OutputSoilMaps",
   use.read.raster.from.url = FALSE, crs = NULL, projfile = "geotop.proj",
-  start.from.zero = FALSE, secondary.suffix = NULL, ...)
+  start.from.zero = FALSE, secondary.suffix = NULL,
+  only.map.filename = FALSE, ...)
 
 rasterFromOutput2DMap(x, when, ...)
 }
