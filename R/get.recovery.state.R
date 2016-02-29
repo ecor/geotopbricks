@@ -21,7 +21,7 @@ NULL
 #' @param extension file estension used for asccii recovery map files. It must contains \code{'.'} as the first character. Defaut is \code{".asc"} . 
 #' @param formatter string character for the the decimal formatter to be used. Default is \code{"L\%04d"}.
 #' @param nsoillayers number of soil layers used in the GEOtop simulation.
-#' @param layersFromDir 
+#' @param layersFromDir logical value. If is \code{TRUE} the number of soil/snow (vertical) layers used in the GEOtop simulation is automatically calculated and cannot be assigned through \code{nsoillayers}.
 #' @param ... further arguments 
 #' 
 #' @return a \code{list} object containining all recovery raster maps. 

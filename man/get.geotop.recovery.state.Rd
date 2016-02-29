@@ -18,7 +18,7 @@ get.geotop.recovery.state(recFolder, xx = "0000", formatter = "L\%04d",
 
 \item{nsoillayers}{number of soil layers used in the GEOtop simulation.}
 
-\item{layersFromDir}{}
+\item{layersFromDir}{logical value. If is \code{TRUE} the number of soil/snow (vertical) layers used in the GEOtop simulation is automatically calculated and cannot be assigned through \code{nsoillayers}.}
 
 \item{...}{further arguments}
 }

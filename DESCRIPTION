@@ -13,8 +13,8 @@ Description: It analyzes raster maps and other information as input/output
     https://github.com/se27xx/GEOtop. Technical details about the model are
     available in Endrizzi et al, 2014
     (http://www.geosci-model-dev.net/7/2831/2014/gmd-7-2831-2014.html).
-Version: 1.3.7.5
-Date: 2015-12-17
+Version: 1.3.8
+Date: 2016-02-29
 Repository: http://cran.r-project.org/
 Depends:
     R (>= 2.10),methods,raster,stringr,zoo

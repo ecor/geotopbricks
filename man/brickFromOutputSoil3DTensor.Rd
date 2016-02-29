@@ -25,7 +25,9 @@ rasterFromOutput2DMap(x, when, ...)
 
 \item{one.layer}{logical value. If \code{TRUE} a \code{\link{RasterLayer-class}} object is imported, otherwise a \code{\link{RasterBrick-class}}object is returened. Default for \code{brickFromOutputSoil3DTensor} is \code{FALSE}}
 
-\item{suffix}{charachter string containing the decimal formatter used by GEOtop in the output file names. Default is "L\%04dN\%04.asc". A simple user is recommended not to modify the value of this argument and use the default value.}
+\item{suffix}{charachter string containing the decimal formatter used by GEOtop in the output file names. Default is \code{"L\%04dN\%04.asc"}. A simple user is recommended not to modify the value of this argument and use the default value.}
+
+\item{time_formatter,suffix_one.layer}{charachter string  (\code{suffix_one.layer} is used for 2Dxy map) containing the decimal formatter used by GEOtop in the output file names to indicate time instant. Default is \code{"N\%04.asc"}. A simple user is recommended not to modify the value of this argument and use the default value.}
 
 \item{wpath,tz,use.read.raster.from.url}{see \code{\link{get.geotop.inpts.keyword.value}}}
 
@@ -38,6 +40,8 @@ rasterFromOutput2DMap(x, when, ...)
 \item{projfile}{name of the \code{*.proj} file containing CRS information. See \code{\link{get.geotop.inpts.keyword.value}}. Default is \code{"geotop.proj"}. If is \code{NULL} or \code{NA} or this file does not exist, it is not searched and read.. In case \code{use.read.raster.from.url} is \code{TRUE} and no \code{NULL} or \code{NA} values are assinged, the \code{*.proj} file is searched.}
 
 \item{secondary.suffix}{String secondary suffix which can be added at the end of the Map file name (optional). Default is \code{NULL} and no secondary suffix is added.}
+
+\item{only.map.filename}{logical value. If it is \code{TRUE}, only map file names are returned and maps are not imported. Default is \code{FALSE}.}
 
 \item{...}{additional arguments for \code{\link{get.geotop.inpts.keyword.value}} or \code{\link{brickFromOutputSoil3DTensor}}}
 }

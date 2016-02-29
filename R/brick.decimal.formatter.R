@@ -67,7 +67,7 @@ brick.decimal.formatter <- function(file=NULL,file_prefix,formatter="%04d",file_
 		
 		dir <- str_sub(filename,end=sep1)
 		pattern <- str_sub(filename,start=sep1+1,end=sep2-1)		
-		nlayers <- length(list.files(dir,patter=pattern))
+		nlayers <- length(list.files(dir,pattern=pattern))
 		
 		islayerzero <- length(list.files(dir,pattern=paste(pattern,sprintf(formatter_dec,0),sep="")))
 		

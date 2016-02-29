@@ -20,6 +20,7 @@ NULL
 #' 
 #' @seealso \code{\link{KML}}
 #' 
+##### @importMethodsFrom graphics plot
 #' @examples 
 #' 
 #' 
@@ -99,7 +100,7 @@ setMethod('plot', signature(x='GeotopRasterBrick',y='ANY'),
 		function (x,y=NULL,...) { #} ,zip='', overwrite=FALSE, ...) {
 		
 			
-			out <- garahics::plot(brick(x),...) 
+			out <- graphics::plot(brick(x),...) 
 			return(out)
 		}
 

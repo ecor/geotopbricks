@@ -8,13 +8,15 @@ NULL
 #' @param when \code{\link{POSIXct-class}} for date and time on which the variable \code{x} is requested. 
 #' @param layers number of soil layer or geotop keyword for soil layer (e.g. \code{SoilLayerThicknesses} or \code{SoilFile}). Default is  \code{SoilLayerThicknesses}. 
 #' @param timestep time step expressed in seconds every which the raster file has been created. It can be a string corresponding to the geotop keyword in the inpts file. Default value is \code{"OutputSoilMaps"}.
-#' @param suffix charachter string containing the decimal formatter used by GEOtop in the output file names. Default is "L\%04dN\%04.asc". A simple user is recommended not to modify the value of this argument and use the default value.
+#' @param suffix charachter string containing the decimal formatter used by GEOtop in the output file names. Default is \code{"L\%04dN\%04.asc"}. A simple user is recommended not to modify the value of this argument and use the default value.
+#' @param time_formatter,suffix_one.layer  charachter string  (\code{suffix_one.layer} is used for 2Dxy map) containing the decimal formatter used by GEOtop in the output file names to indicate time instant. Default is \code{"N\%04.asc"}. A simple user is recommended not to modify the value of this argument and use the default value.
 #' @param wpath,tz,use.read.raster.from.url see \code{\link{get.geotop.inpts.keyword.value}}
 #' @param projfile  name of the \code{*.proj} file containing CRS information. See \code{\link{get.geotop.inpts.keyword.value}}. Default is \code{"geotop.proj"}. If is \code{NULL} or \code{NA} or this file does not exist, it is not searched and read.. In case \code{use.read.raster.from.url} is \code{TRUE} and no \code{NULL} or \code{NA} values are assinged, the \code{*.proj} file is searched. 
 #' @param crs,start.from.zero see \code{\link{brick.decimal.formatter}}. If \code{crs} is not \code{NULL} (Default) , \code{projfile} is ignored.
 #' @param one.layer logical value. If \code{TRUE} a \code{\link{RasterLayer-class}} object is imported, otherwise a \code{\link{RasterBrick-class}}object is returened. Default for \code{brickFromOutputSoil3DTensor} is \code{FALSE}
 #' @param start_date_key,end_date_key initial and final detes and times of the GEOtop simulation or alternatively the respective keywords of \code{*.inpts} file (Default) 
 #' @param secondary.suffix String secondary suffix which can be added at the end of the Map file name (optional). Default is \code{NULL} and no secondary suffix is added.  
+#' @param only.map.filename logical value. If it is \code{TRUE}, only map file names are returned and maps are not imported. Default is \code{FALSE}.
 #' @param ... additional arguments for \code{\link{get.geotop.inpts.keyword.value}} or \code{\link{brickFromOutputSoil3DTensor}}
 #'  
 #' @rdname brickFromOutputSoil3DTensor
@@ -162,7 +164,7 @@ NULL
 #
 #SoilLiqWaterPressTensorFile 
 #
-#
+
 #
 #SoilTempTensorFile Name of the ensamble of raster maps corresponding to the temperature
 #of each layer (if PlotSoilDepth6=0 it writes the value at the corresponding
