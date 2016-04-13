@@ -6,7 +6,7 @@ NULL
 #' @rdname zoo-class
 #' @exportClass zoo 
 #' 
-#'   @keywords classes
+##   @keywords classes
 #' @examples showClass("zoo")
 
 

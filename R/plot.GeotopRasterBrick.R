@@ -11,7 +11,7 @@ NULL
 #' @name plot
 #' @export
 #' @rdname plot-methods
-#' @keywords methods
+# @keywords methods
 #' @docType methods
 #' @method plot GeotopRasterBrick 
 #' @aliases plot,GeotopRasterBrick,ANY-method

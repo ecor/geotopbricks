@@ -1,0 +1,22 @@
+GEOtop Regression Testing (1D mode):
+
+R scripts using "geotopricks": https://github.com/ecor/geotopbricks
+Author: Emanuele Cordano 
+Date: April 2016
+License: GPL 3.0
+
+Options: 
+
+-wpath <GEOTOP SIMULATION CONTAINING inpts.file> 
+-inpts.file geotop.inpts
+-output-dir <OUTPUT_DIRECTORY> 
+-suffix_version SE27XX,METEOIO-off,METEOIO-on
+-npoint 1
+
+Notes:
+
+-wpath <GEOTOP SIMULATION CONTAINING inpts.file> , -output-dir <OUTPUT_DIRECTORY>  are mandatory!!
+To run successfully this script, keywords "SoilTempProfileFile","SoilLiqContentProfileFile","SoilLiqWaterPressProfileFile" 
+must be set in the -inpts.file geotop.inpts !!
+
+

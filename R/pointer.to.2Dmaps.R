@@ -1,5 +1,8 @@
 NULL
 #'
+#' 'pointer.to.maps.xyz.time' function
+#' 
+#' 
 #'@param wpath complete working path to *.asc maps are saved 
 #'@param map.prefix string prefix name map before 
 #'@param suffix z-time or time suffix plus file extention character string. Default for GEOtop application is \code{"L\%04dN\%04d.asc"} for xy+z+time maps or \code{"N\%04d.asc"}  for xy+time maps.

@@ -13,7 +13,7 @@ NULL
 #' 
 #' @export
 #' @rdname KML-methods
-#' @keywords methods
+# @keywords methods
 #' @docType methods
 #' @method KML GeotopRasterBrick 
 #' @aliases KML,GeotopRasterBrick-method

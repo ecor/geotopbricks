@@ -31,7 +31,7 @@ NULL
 #' @param zlayer.formatter decimal formatter. It is used if \code{data.frame==TRUE} and the columns refers to different soil depths. Default is \code{NULL}. 
 #' @param z_unit z coordinate measurement unit. GEOtop values expressed in millimeters which are converted to centimeters by default. Default is \code{c("centimeters","millimeters")}. Otherwise can be the ratio between the unit and one meter. It is used if \code{zlayer.formatter=="z\%04d"} or similar.
 #' @param geotop_z_unit z coordinate measurement unit used by GEOtop. Default is \code{millimeters}. It is used if \code{zlayer.formatter=="z\%04d"} or similar.
-#' 
+#' @param add_suffix_dir character string. Add a suffix at the directory reported in the keyword value	 
 #' @param ContinuousRecovery integer value. Default is 0. It is used for tabular output data and is the number of times GEOtop simulation broke  during its running and was re-launched with 'Contiuous Recovery' option. 
 #' @param ContinuousRecoveryFormatter character string. Default is \code{'_crec\%04d'}. It is used only for tabular output data and if \code{ContinuousRecovery} is equal or greater than 1. 
 #' @param ... further arguments of \code{\link{declared.geotop.inpts.keywords}} 
@@ -111,14 +111,14 @@ NULL
 #' 
 #' 
 #' 
-get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=NULL,numeric=FALSE,format="%d/%m/%Y %H:%M",date=FALSE,tz="Etc/GMT+1",raster=FALSE,file_extension=".asc",add_wpath=FALSE,wpath=NULL,use.read.raster.from.url=TRUE,data.frame=FALSE,formatter="%04d",level=1,date_field="Date",isNA=-9999.000000,matlab.syntax=TRUE,projfile="geotop.proj",start_date=NULL,end_date=NULL,ContinuousRecovery=0,ContinuousRecoveryFormatter="_crec%04d",zlayer.formatter=NULL,z_unit=c("centimeters","millimeters"),geotop_z_unit="millimeters",...) {
+get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=NULL,numeric=FALSE,format="%d/%m/%Y %H:%M",date=FALSE,tz="Etc/GMT+1",raster=FALSE,file_extension=".asc",add_wpath=FALSE,wpath=NULL,use.read.raster.from.url=TRUE,data.frame=FALSE,formatter="%04d",level=1,date_field="Date",isNA=-9999.000000,matlab.syntax=TRUE,projfile="geotop.proj",start_date=NULL,end_date=NULL,ContinuousRecovery=0,ContinuousRecoveryFormatter="_crec%04d",zlayer.formatter=NULL,z_unit=c("centimeters","millimeters"),geotop_z_unit="millimeters",add_suffix_dir=NULL,...) {
 #####	check.columns=FALSE
 # Added by the author on Feb 6 2012	
 	
 	if (length(keyword)>1) {
 		out <- NULL
 		
-		out <- base::lapply(X=keyword,FUN=get.geotop.inpts.keyword.value,inpts.frame=inpts.frame,vector_sep=vector_sep,numeric=numeric,format=format,date=date,tz=tz,raster=raster,file_extension=file_extension,add_wpath=add_wpath,wpath=wpath,use.read.raster.from.url=use.read.raster.from.url,data.frame=data.frame,formatter=formatter,level=level,date_field=date_field,isNA=isNA,matlab.syntax=matlab.syntax,projfile=projfile,...)
+		out <- base::lapply(X=keyword,FUN=get.geotop.inpts.keyword.value,inpts.frame=inpts.frame,vector_sep=vector_sep,numeric=numeric,format=format,date=date,tz=tz,raster=raster,file_extension=file_extension,add_wpath=add_wpath,wpath=wpath,use.read.raster.from.url=use.read.raster.from.url,data.frame=data.frame,formatter=formatter,level=level,date_field=date_field,isNA=isNA,matlab.syntax=matlab.syntax,projfile=projfile,add_suffix_dir=add_suffix_dir,...)
 		names(out) <- keyword
 		
 		
@@ -137,6 +137,8 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 		return(NULL)
 		
 	}
+	
+	
 	len <- str_length(out)
 	
     
@@ -147,7 +149,22 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 		len <- str_length(out)
 		if ((str_sub(out,len,len)=='\"') |  (str_sub(out,len,len)=='\''))  out <- str_sub(out,end=len-1)
 	}
+	
+	
+	if (!is.null(add_suffix_dir)) {
+		out_ <- str_split(out,"/",n=2)[[1]]
+		dir <- paste(out_[1],add_suffix_dir,sep="")
+		out <- paste(dir,out_[2],sep="/")
+		
+		
+		
+	}
+		
+	
+	
+	
 	if ((numeric | date) & (is.null(vector_sep))) vector_sep <- "," 
+	
 	
 	if (!is.null(vector_sep)) {
 		if (numeric | matlab.syntax) {
@@ -158,6 +175,8 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 		}
 		
 		out <- (str_split(out,vector_sep))[[1]]
+		
+		
 		
 		if (matlab.syntax) { 
 			out <- str_replace_all(out,"\'","")

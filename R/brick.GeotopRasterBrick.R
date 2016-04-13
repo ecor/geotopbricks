@@ -33,7 +33,7 @@ NULL
 #' @aliases brick,zoo-method
 #'
 #  #' @rdname brick-methods
-# @keywords methods
+
 # @docType methods
 # @method brick GeotopRasterBrick 
 # @aliases brick,GeotopRasterBrick-method
@@ -125,7 +125,7 @@ NULL
 #' 
 #' @export
 #' @rdname brick-methods
-#' @keywords methods
+# @keywords methods
 #' @docType methods
 #' @method brick GeotopRasterBrick 
 #' @aliases brick,GeotopRasterBrick-method
