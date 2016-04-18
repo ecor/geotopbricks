@@ -14,7 +14,7 @@ Description: It analyzes raster maps and other information as input/output
     available in Endrizzi et al, 2014
     (http://www.geosci-model-dev.net/7/2831/2014/gmd-7-2831-2014.html).
 Version: 1.3.9
-Date: 2016-04-11
+Date: 2016-04-18
 Repository: http://cran.r-project.org/
 Depends:
     R (>= 2.10),methods,raster,stringr,zoo

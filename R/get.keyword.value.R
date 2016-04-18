@@ -132,8 +132,8 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 	out <- inpts.frame$Value[inpts.frame$Keyword==keyword]
 
 	if (length(out)==0) {
-		print("Warning (get.geotop.inpts.keyword.value): keyword without value:")
-		print(keyword)
+		mm00 <- sprintf("Warning (get.geotop.inpts.keyword.value): keyword %s without value:",keyword)
+		message(mm00)
 		return(NULL)
 		
 	}

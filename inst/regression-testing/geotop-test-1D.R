@@ -93,7 +93,11 @@ if (needHelp==TRUE) {
 	## Uncomment and update the following linse if it is launched in a R console
 	#value["-wpath"] <- '/home/ecor/local/geotop_dev/geotop/tests/1D/Calabria' 
 	#value["-output-dir"] <-  '/home/ecor/Dropbox/R-packages/geotop-test-suite/out' 
+	###
 	
+	# Example Usage:  ./geotop-test-1D.R -wpath /home/ecor/local/geotop_dev/geotop/tests/1D/Calabria -output-dir /home/ecor/local/geotop_dev/geotop_tests_1D_Calabria 
+	
+	###
 	####
 	
 	wpath <- value["-wpath"]
@@ -106,10 +110,37 @@ if (needHelp==TRUE) {
 	names(suffix) <- suffix_n
 	
 	
-	keyws <- c("SoilTempProfileFile","SoilLiqContentProfileFile","SoilLiqWaterPressProfileFile")
+	####keyws <- c("SoilTempProfileFile","SoilLiqContentProfileFile","SoilLiqWaterPressProfileFile")
+	keyws <- str_split(value["-keyws"],",")[[1]]
 	date_field <- "Date12.DDMMYYYYhhmm."
 	zlayer.formatter <- "z%04d"
 	outv <- list()
+	
+	### TEST KEYWS 
+	
+	keyws_value <- lapply(X=keyws,FUN=get.geotop.inpts.keyword.value,wpath=wpath,inpts.file=inpts.file)
+	names(keyws_value) <- keyws
+	cond <- sapply(X=keyws_value,FUN=is.null)
+	icond <- which(cond==TRUE)
+	if (length(icond)>0) {
+		
+		msg <- sprintf("The keywords %s are not present in the %s file!",paste(keyws[icond],collapse=","),inpts.file)
+		warning(msg)
+		
+		keyws <- keyws[-icond]
+		
+	}
+	
+	if (length(keyws)==0) {
+		
+		msg <- sprintf("None of the set keywords are present in the %s file!",inpts.file)
+		stop(msg)
+		
+	}
+	print(keyws_value) 
+	print(cond)
+	### END CHECK KEYWS
+	
 	
 	
 	it_this <- "this"
@@ -117,6 +148,9 @@ if (needHelp==TRUE) {
 	names(outv[[it_this]]) <- keyws
 	
 	outv[[it_this]] <- do.call(merge,outv[[it_this]])
+	
+	
+	
 	
 	for (it_ in names(suffix)) {
 		

@@ -10,13 +10,16 @@ Options:
 -wpath <GEOTOP SIMULATION CONTAINING inpts.file> 
 -inpts.file geotop.inpts
 -output-dir <OUTPUT_DIRECTORY> 
+-keyws SoilTempProfileFile,SoilLiqContentProfileFile,SoilLiqWaterPressProfileFile
 -suffix_version SE27XX,METEOIO-off,METEOIO-on
 -npoint 1
 
 Notes:
 
 -wpath <GEOTOP SIMULATION CONTAINING inpts.file> , -output-dir <OUTPUT_DIRECTORY>  are mandatory!!
-To run successfully this script, keywords "SoilTempProfileFile","SoilLiqContentProfileFile","SoilLiqWaterPressProfileFile" 
+To run successfully this script with no '-keyws' assignment, keywords "SoilTempProfileFile","SoilLiqContentProfileFile","SoilLiqWaterPressProfileFile" 
 must be set in the -inpts.file geotop.inpts !!
 
+Example Usage:  
 
+./geotop-test-1D.R -wpath /home/ecor/local/geotop_dev/geotop/tests/1D/Calabria -output-dir /home/ecor/local/geotop_dev/geotop_tests_1D_Calabria 
