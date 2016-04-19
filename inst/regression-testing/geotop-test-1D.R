@@ -40,7 +40,7 @@ if (length(args)==0) args <- "--help empty -npoints 2"
 
 help_flag <- "--help"
 flag_file <- system.file("regression-testing/test-1D.txt",package="geotopbricks") 
-			
+
 
 
 
@@ -49,14 +49,15 @@ needHelp <- argsParser(option=help_flag,args=args,novalue_response=FALSE)
 
 helpco <- readLines(flag_file)
 
-## Uncomment the following line if it is launched in a R console
-##needhelp=FALSE
+## Set TRUE the following line if it is launched in a R console
+Rconsole=FALSE
+if (Rconsole==TRUE) needHelp=!Rconsole
 
 if (needHelp==TRUE) {
 	
 	
 	
-			
+	
 	
 	vvout <- lapply(X=helpco,FUN=message)
 	
@@ -91,8 +92,11 @@ if (needHelp==TRUE) {
 	####
 	
 	## Uncomment and update the following linse if it is launched in a R console
-	#value["-wpath"] <- '/home/ecor/local/geotop_dev/geotop/tests/1D/Calabria' 
-	#value["-output-dir"] <-  '/home/ecor/Dropbox/R-packages/geotop-test-suite/out' 
+	if (Rconsole==TRUE) {
+	  value["-wpath"] <- '/home/ecor/local/geotop_dev/geotop/tests/1D/Calabria' 
+	  value["-output-dir"] <-  '/home/ecor/' 
+	  value["-keyws"] <- "SoilTempProfileFile"###,SoilLiqContentProfileFile,SoilLiqWaterPressProfileFile"
+	}
 	###
 	
 	# Example Usage:  ./geotop-test-1D.R -wpath /home/ecor/local/geotop_dev/geotop/tests/1D/Calabria -output-dir /home/ecor/local/geotop_dev/geotop_tests_1D_Calabria 
@@ -105,7 +109,7 @@ if (needHelp==TRUE) {
 	npoint <- as.numeric(value["-npoint"])
 	outdir <- value["-output-dir"]
 	suffix_n <- str_split(value["-suffix_version"],",")[[1]]
-	
+	help(merge)
 	suffix <- paste("-",suffix_n,sep="")
 	names(suffix) <- suffix_n
 	
@@ -137,33 +141,74 @@ if (needHelp==TRUE) {
 		stop(msg)
 		
 	}
-	print(keyws_value) 
-	print(cond)
+	
+	
+	
 	### END CHECK KEYWS
 	
 	
 	
 	it_this <- "this"
 	outv[[it_this]] <- lapply(X=keyws,FUN=get.geotop.inpts.keyword.value,wpath=wpath,inpts.file=inpts.file,data.frame=TRUE,date_field=date_field,zlayer.formatter=zlayer.formatter,level=npoint) 
+	
 	names(outv[[it_this]]) <- keyws
 	
 	outv[[it_this]] <- do.call(merge,outv[[it_this]])
+	if (length(keyws)==1) {
+		
+		###
+		
+		nn <- names(outv[[it_this]])
+		nn <- paste(nn,keyws[1],sep=".")
+		names(outv[[it_this]]) <- nn
+		
+		###
+		
+	}
 	
 	
+	####print("ba::")
+	####str(outv)
 	
 	
+	###stop()
 	for (it_ in names(suffix)) {
 		
 		outv[[it_]] <- lapply(X=keyws,FUN=get.geotop.inpts.keyword.value,wpath=wpath,inpts.file=inpts.file,data.frame=TRUE,add_suffix_dir=suffix[[it_]],date_field=date_field,zlayer.formatter=zlayer.formatter) 
+		
+		
 		names(outv[[it_]]) <- keyws
 		
 		outv[[it_]] <- do.call(merge,outv[[it_]])
+		
+		
+		if (length(keyws)==1) {
+			
+			###
+			
+			nn <- names(outv[[it_]])
+			nn <- paste(nn,keyws[1],sep=".")
+			names(outv[[it_]]) <- nn
+			
+			###
+			
+		}
+		
+		
+		
 		
 		
 		
 	}
 	
 	outv <- do.call(merge,outv)	
+	
+
+	
+	
+	
+	
+	
 	time <- index(outv)
 	fields <- names(outv)
 	
@@ -179,7 +224,7 @@ if (needHelp==TRUE) {
 	for (il in labels) {
 		
 		metadaf <- metaoutv[metaoutv$label==il,]
-		daf <- outv[,metadaf$field]
+		daf <- outv[,metadaf$field]		
 		
 		names(daf) <- metadaf$model
 		
@@ -194,7 +239,7 @@ if (needHelp==TRUE) {
 		
 		obs <- daf[,it_this_c]
 		
-	
+		
 		
 		check[[il]] <- try(gof(sim,obs),silent=TRUE)
 		
@@ -209,7 +254,7 @@ if (needHelp==TRUE) {
 			
 			if (all(oo==TRUE,na.rm=TRUE)) {
 				
-								
+				
 				
 			} else {
 				
@@ -221,6 +266,7 @@ if (needHelp==TRUE) {
 			
 			
 		}
+		
 		colnames(check[[il]])[colnames(check[[il]])==it_this_c] <- "optimum"
 		file <- sprintf("%s/gof_%s.log",outdir,il)
 		collapse=";"
@@ -245,6 +291,8 @@ if (needHelp==TRUE) {
 		rownames(dv) <- NULL
 		mdf <- melt(dv,id="time")
 		mdf$time <- mdf$time+time[1]
+		
+		mdf <- mdf[!is.na(mdf$value),]
 		title <- sprintf("Variable Pattern: %s",il)
 		gpattern[[il]] <- ggplot(data=mdf,aes(x=time,y=value)) + geom_line(aes(color=variable),size=1.25)+ggtitle(title)
 		file <- sprintf("%s/gpattern_%s.png",outdir,il)
@@ -263,6 +311,7 @@ if (needHelp==TRUE) {
 		
 		rownames(dv) <- NULL
 		mdf <- melt(dv,id="time")
+		mdf <- mdf[!is.na(mdf$value),]
 		mdf$time <- mdf$time+time[1]
 		title <- sprintf("Variable Error: %s",il)
 		gerror[[il]] <- ggplot(data=mdf,aes(x=time,y=value)) + geom_line(aes(color=variable),size=1.25)+ggtitle(title)
@@ -279,7 +328,3 @@ if (needHelp==TRUE) {
 	}
 	
 }	
-	
-	
-
-
