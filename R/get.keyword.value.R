@@ -42,6 +42,10 @@ NULL
 #' @return the keyword value 
 #' @import stringr 
 #' @import zoo
+#' 
+#' @importFrom utils read.table
+#' 
+#' 
 #' @examples
 #' 
 # library(stringr)  

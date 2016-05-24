@@ -34,8 +34,19 @@ library(hydroGOF)
 library(ggplot2)
 library(reshape2)
 
+external=FALSE
+## Set TRUE the following line if it is launched in a R console
+Rconsole=FALSE
 
-args<- commandArgs(TRUE)
+if (external==TRUE) {
+	
+	args<- commandArgs(TRUE)
+
+} else {
+	
+	Rconsole=TRUE
+}
+
 if (length(args)==0) args <- "--help empty -npoints 2"
 
 help_flag <- "--help"
@@ -49,8 +60,7 @@ needHelp <- argsParser(option=help_flag,args=args,novalue_response=FALSE)
 
 helpco <- readLines(flag_file)
 
-## Set TRUE the following line if it is launched in a R console
-Rconsole=FALSE
+
 if (Rconsole==TRUE) needHelp=!Rconsole
 
 if (needHelp==TRUE) {
@@ -268,15 +278,19 @@ if (needHelp==TRUE) {
 		}
 		
 		colnames(check[[il]])[colnames(check[[il]])==it_this_c] <- "optimum"
-		file <- sprintf("%s/gof_%s.log",outdir,il)
-		collapse=";"
-		lines <- paste(colnames(check[[il]]),collapse=collapse)
-		ind <- c("",rownames(check[[il]]))
-		lines <- c(lines,apply(check[[il]],FUN=paste,MARGIN=1,collapse=collapse))
-		lines <- paste(ind,lines,sep=collapse)
-		writeLines(lines,con=file)
+		
+		if (external==TRUE) { 
+		
+			file <- sprintf("%s/gof_%s.log",outdir,il)
+			collapse=";"
+			lines <- paste(colnames(check[[il]]),collapse=collapse)
+			ind <- c("",rownames(check[[il]]))
+			lines <- c(lines,apply(check[[il]],FUN=paste,MARGIN=1,collapse=collapse))
+			lines <- paste(ind,lines,sep=collapse)
+			writeLines(lines,con=file)
 		#write.table(check[[il]],file=file,sep="  ",quote=TRUE)
 		
+		}	
 		
 		
 		
@@ -295,9 +309,12 @@ if (needHelp==TRUE) {
 		mdf <- mdf[!is.na(mdf$value),]
 		title <- sprintf("Variable Pattern: %s",il)
 		gpattern[[il]] <- ggplot(data=mdf,aes(x=time,y=value)) + geom_line(aes(color=variable),size=1.25)+ggtitle(title)
-		file <- sprintf("%s/gpattern_%s.png",outdir,il)
-		ggsave(filename=file,plot=gpattern[[il]])
 		
+		if (external==TRUE) {
+			
+			file <- sprintf("%s/gpattern_%s.png",outdir,il)
+			ggsave(filename=file,plot=gpattern[[il]])
+		}
 		
 		#### END BEHAVIOR PLOT ####
 		
@@ -315,9 +332,12 @@ if (needHelp==TRUE) {
 		mdf$time <- mdf$time+time[1]
 		title <- sprintf("Variable Error: %s",il)
 		gerror[[il]] <- ggplot(data=mdf,aes(x=time,y=value)) + geom_line(aes(color=variable),size=1.25)+ggtitle(title)
-		file <- sprintf("%s/gerror_%s.png",outdir,il)
-		ggsave(filename=file,plot=gerror[[il]])
 		
+		if (external==TRUE) {
+			
+			file <- sprintf("%s/gerror_%s.png",outdir,il)
+			ggsave(filename=file,plot=gerror[[il]])
+		}
 		
 		#### END BEHAVIOR PLOT ####
 		

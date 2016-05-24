@@ -18,6 +18,15 @@ NULL
 #' @name color.bar
 #' @note This function is taken from \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}. Plese visit the URL for major details and give your feedback if possible. 
 #' @references \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}
+#' 
+#' @importFrom grDevices dev.new
+#' @importFrom grDevices dev.off
+#' @importFrom graphics axis 
+#' @importFrom graphics rect
+#' 
+#' 
+
+#' 
 #' @examples color.bar(colorRampPalette(c("light green", "yellow", "orange", "red"))(100), -1)
 #' 
 #' 

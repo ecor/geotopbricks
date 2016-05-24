@@ -57,6 +57,9 @@ NULL
 declared.geotop.inpts.keywords <- function(wpath,inpts.file="geotop.inpts",comment="!",exceptions="Date",warn=FALSE,no.comment=c("!>!","!>>!"),...) {
 
 	
+	
+	
+	
 	if (!is.null(wpath)) {
 					
 		file <- paste(wpath,inpts.file,sep="/") 

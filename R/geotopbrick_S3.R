@@ -97,6 +97,11 @@ NULL
 # @S3method geotopbrick RasterLayer
 #' @aliases geotopbrick.RasterLayer
 #' 
+#' 
+#' @importFrom methods new
+#' @importFrom methods callGeneric
+#' 
+#' 
 #' @export
 
 geotopbrick.RasterLayer <- function(x,layer=NULL,time=NULL,ascpath=zoo(NULL),...) {

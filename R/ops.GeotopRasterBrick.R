@@ -14,6 +14,9 @@ NULL
 #' @importFrom "methods" Arith 
 #' @importFrom "methods" Compare
 #' @importFrom "methods" Logic
+#' 
+#' @importFrom methods Ops
+#' 
 #' @export
 #' @rdname Ops-methods
 #' @keywords methods
