@@ -5,10 +5,10 @@
 \title{Importing a GEOtop Keyword and its Value into R}
 \usage{
 get.geotop.inpts.keyword.value(keyword, inpts.frame = NULL,
-  vector_sep = NULL, numeric = FALSE, format = "\%d/\%m/\%Y \%H:\%M",
-  date = FALSE, tz = "Etc/GMT+1", raster = FALSE,
-  file_extension = ".asc", add_wpath = FALSE, wpath = NULL,
-  use.read.raster.from.url = TRUE, data.frame = FALSE,
+  vector_sep = NULL, col_sep = ",", numeric = FALSE,
+  format = "\%d/\%m/\%Y \%H:\%M", date = FALSE, tz = "Etc/GMT-1",
+  raster = FALSE, file_extension = ".asc", add_wpath = FALSE,
+  wpath = NULL, use.read.raster.from.url = TRUE, data.frame = FALSE,
   formatter = "\%04d", level = 1, date_field = "Date", isNA = -9999,
   matlab.syntax = TRUE, projfile = "geotop.proj", start_date = NULL,
   end_date = NULL, ContinuousRecovery = 0,
@@ -21,7 +21,9 @@ get.geotop.inpts.keyword.value(keyword, inpts.frame = NULL,
 
 \item{inpts.frame}{data frame returned by \code{\link{declared.geotop.inpts.keywords}} or \code{NULL}. Default is \code{NULL}.}
 
-\item{vector_sep}{character value for the separator chacter if Keyword Value must be returned as a vector, otherwise it is \code{NULL}. Default is \code{NULL}, but if \code{numeric} or \code{date} are \code{FALSE},  \code{vector_sep} is set \code{","} by default.}
+\item{vector_sep}{character value for the separator character if Keyword Value must be returned as a vector, otherwise it is \code{NULL}. Default is \code{NULL}, but if \code{numeric} or \code{date} are \code{FALSE},  \code{vector_sep} is set \code{","} by default.}
+
+\item{col_sep}{character value for the separator character of columuns. It is used if Keyword Value is returned as a data frema or  zoo object or list of these objects. Default is \code{NULL}, but is set \code{","}.}
 
 \item{numeric}{logical value. If \code{TRUE} the Value has numeric type, otherwise it is a string or string vector. Default is \code{FALSE}.}
 
@@ -29,7 +31,7 @@ get.geotop.inpts.keyword.value(keyword, inpts.frame = NULL,
 
 \item{date}{logical value. If \code{TRUE} the Value is retured as \code{\link{POSIXlt}} date, otherwise it is a string or string vector. Default is \code{FALSE}.}
 
-\item{tz}{format string representing the time zone, see \code{\link{as.POSIXlt}}, used if \code{date} is \code{TRUE}. Default is \code{"Etc/GMT+1"} (until the previous version it was \code{"A"}) which meens UTC +1.}
+\item{tz}{format string representing the time zone, see \code{\link{as.POSIXlt}}, used if \code{date} is \code{TRUE}. Default is \code{"Etc/GMT-1"} (until the previous version it was \code{"A"}) which meens UTC +1.}
 
 \item{raster}{logical value. Default is \code{FALSE}. If \code{TRUE} function returns direclty the raster map as \code{\link{Raster-class}} object built with \code{\link{raster}} method.}
 
