@@ -339,7 +339,7 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 #			 }
 			
 			 file <- file(x)
-			 temp <- read.table(file,header=TRUE,sep=col_sep)
+			 temp <- read.table(file,header=TRUE,sep=col_sep,na.strings=isNA)
 			 
 			 i_index <- which(names(temp)==date_field)
 			 if (length(i_index)>1) { ## ec 20151215

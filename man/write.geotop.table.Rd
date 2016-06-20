@@ -2,7 +2,7 @@
 % Please edit documentation in R/write.geotop.table.R
 \name{write.geotop.table}
 \alias{write.geotop.table}
-\title{Write an R object (\code{data.frame} or \code{zoo}) into a CSV file readible by GEOtop.}
+\title{Writes an R object (\code{data.frame} or \code{zoo}) into a CSV file readible by GEOtop.}
 \usage{
 write.geotop.table(x, file, wpath = NULL, tz = "Etc/GMT-1",
   date_field = "Date12.DDMMYYYYhhmm.", file_end = "", sep = ",",
@@ -30,6 +30,6 @@ write.geotop.table(x, file, wpath = NULL, tz = "Etc/GMT-1",
 \item{...}{further arguments for \code{\link{write.table}}.}
 }
 \description{
-Write an R object (\code{data.frame} or \code{zoo}) into a CSV file readible by GEOtop.
+Writes an R object (\code{data.frame} or \code{zoo}) into a CSV file readible by GEOtop.
 }
 
