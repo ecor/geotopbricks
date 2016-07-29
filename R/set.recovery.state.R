@@ -28,18 +28,36 @@ NULL
 
 set.geotop.recovery.state <- function(rec,newRecFolder,...) {
 		out <- 0 
-		NoLayers <- rec$noLayers 
-		LayersWithoutZero <-  rec$soilLayers | rec$snowLayers
-		LayersWithZero <- rec$soilLayersWithZero
+		
+		if (file.exists(newRecFolder)!=TRUE) {
+			
+			msg <- sprintf("Directory %s does not exists, it must be created before running this function!!",newRecFolder)
+			stop(msg)
+		}
+		if (is.null(rec$glacLayers)) {
+			
+			###warning("No GlacLayers found, rec created with previous version of geotopbricks: ")
+			rec$glacLayers <- array(FALSE,length(rec$names))
+		}
 		
 		names <- rec$names
+		ii <- which(names %in% names(rec))
+		names <- names[ii]
+		NoLayers <- rec$noLayers[ii] 
+		
+		LayersWithoutZero <-  rec$soilLayers | rec$snowLayers | rec$glacLayers
+		LayersWithoutZero <- LayersWithoutZero[ii]
+		
+		LayersWithZero <- rec$soilLayersWithZero[ii]
+		
+		
 		files_w <- paste(newRecFolder,rec$files,sep="/")
 
 		for (it in names[NoLayers]) {
 			
 			file  <- files_w[names==it]
 
-			####print(it)
+			
 			geotopbricks::writeRasterxGEOtop(x=rec[[it]],filename=file,use.decimal.formatter=FALSE,start.from.zero=FALSE,...)								
 			
 		}

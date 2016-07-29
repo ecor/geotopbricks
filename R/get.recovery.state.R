@@ -43,7 +43,14 @@ NULL
 #' # Please Uncomment the following line to run by yourself!!!
 #' # source(example_Rscript)
 #' 
-
+# ##' recFolder <- '/home/ecor/Dropbox/R-packages/geotopbricks__/rec_after1day' 
+# rec <- get.geotop.recovery.state(recFolder) 
+# 
+# newRecFolder  <- '/home/ecor/Dropbox/R-packages/geotopbricks__/new_rec_after1day__' 
+# set.geotop.recovery.state(rec,newRecFolder=newRecFolder)
+#  newRecFolder  <- '/home/ecor/Dropbox/R-packages/geotopbricks__/ba' 
+# set.geotop.recovery.state(rec,newRecFolder=newRecFolder)
+# 
  
 
 
@@ -52,40 +59,52 @@ NULL
 get.geotop.recovery.state <- function(recFolder,xx="0000",formatter="L%04d",extension=".asc",nsoillayers=10,layersFromDir=FALSE,...) {
 
 
-	names<-c("RainOnCanopy","SnowAge","SnowIceContent","SnowLayersNumber","SnowLiqWaterContent","SnowOnCanopy","SnowTemperature","SnowThickness","SoilChannelIceContent","SoilChannelPressure","SoilChannelTemperature","SoilIceContent","SoilPressure","SoilTemperature","VegTemperature")      
+	
+	
+	names<-c("RainOnCanopy","SnowAge","SnowIceContent","SnowLayersNumber","SnowLiqWaterContent","SnowOnCanopy","SnowTemperature","SnowThickness","SoilChannelIceContent","SoilChannelPressure","SoilChannelTemperature","SoilIceContent","SoilPressure","SoilTemperature","VegTemperature",
+			"GlacIceContent","GlacLayersNumber","GlacLiqWaterContent","GlacTemperature","GlacThickness")      
 #	xx <- "0000"
     layer <- array(formatter,length(names))
 	
 	# 4 Groups of rasterbricks or rasters !!! 
-	noLayers <- (names %in% c("RainOnCanopy","VegTemperature","SnowAge","SnowLayersNumber","SnowOnCanopy"))	
+	noLayers <- (names %in% c("RainOnCanopy","VegTemperature","SnowAge","SnowLayersNumber","SnowOnCanopy","GlacLayersNumber"))	
 	soilLayersWithZero <- (names %in% c("SoilPressure","SoilChannelPressure"))
 	soilLayers <- (str_detect(names,"Soil")) & (!soilLayersWithZero) & (!noLayers)
 	snowLayers <- str_detect(names,"Snow") & (!noLayers) & (!soilLayers) & (!soilLayersWithZero)
+	glacLayers <- str_detect(names,"Glac") & (!noLayers) & (!soilLayers) & (!soilLayersWithZero) &(!snowLayers)
 	
 	layer[noLayers] <- ""
 	files <- paste(names,xx,layer,extension,sep="")
 	files_w <- paste(recFolder,files,sep="/")
-#	## ##print(files)
+#	
 	out <- list()
 	
 	if (layersFromDir==TRUE)  {
 		
 		nsoillayers <-  "FromDir"
 		nsnowlayers <-  "FromDir"
-		
+		nglaclayers <-  "FromDir"
 	} 
 		
-		
+	
 	for (it in names[noLayers]) {
 		
 		
 
 		x <- as.character(files_w[names==it])
-		# print(x)
-		out[it] <- raster(x)
+		
+		if (file.exists(x)==TRUE) { 
+			
+			out[[it]] <- raster(x)
+		
+		}  else {
+			
+			out[[it]] <- NULL
+		}
 		
 		
 	}
+	
 	for (it in names[soilLayersWithZero]) {
 		
 		x <- as.character(files_w[names==it])
@@ -102,34 +121,109 @@ get.geotop.recovery.state <- function(recFolder,xx="0000",formatter="L%04d",exte
 	}
 	
 	# number of snow layers is detected by raster layer 'out$SnowLayersNumber'
-	if (layersFromDir==FALSE) {
+	if (!is.null(out[["SnowLayersNumber"]])) {
+		
+		if (layersFromDir==FALSE) {
 		
 	
-		out$SnowLayersNumber <- setMinMax(out$SnowLayersNumber)
-		nsnowlayers <- maxValue(out$SnowLayersNumber)
-		nsnowlayers[nsnowlayers<1] <- 1
-	}
-	for (it in names[snowLayers]) {
+			out$SnowLayersNumber <- setMinMax(out$SnowLayersNumber)
+			nsnowlayers <- maxValue(out$SnowLayersNumber)
+			nsnowlayers[nsnowlayers<1] <- 1
+		}
+		for (it in names[snowLayers]) {
 		
 
-		x <- as.character(files_w[names==it])
-	
-		out[it] <- brick.decimal.formatter(file=x,nlayers=nsnowlayers,start.from.zero=FALSE)
+			x <- as.character(files_w[names==it])
+			
+			out[it] <- brick.decimal.formatter(file=x,nlayers=nsnowlayers,start.from.zero=FALSE)
 		
-		
+		}
 		
 	}
 	
-	out$names <- names
-	out$files <- files
+	##############
+	if (!is.null(out[["GlacLayersNumber"]])) {
+		if (layersFromDir==FALSE) {
+		
+		
+			out$GlacLayersNumber <- setMinMax(out$GlacLayersNumber)
+			nglaclayers <- maxValue(out$GlacLayersNumber)
+			nglaclayers[nglaclayers<1] <- 1
+		}
+		for (it in names[glacLayers]) {
+		
+		
+			x <- as.character(files_w[names==it])
+			##print(it)
+			##print(x)
+			out[it] <- brick.decimal.formatter(file=x,nlayers=nglaclayers,start.from.zero=FALSE)
+		
+		
+		
+		}
+	}
 	
-	out$noLayers <- noLayers
-	out$soilLayersWithZero <- soilLayersWithZero
-	out$soilLayers <- soilLayers
-	out$snowLayers <- snowLayers
+	
+	
+	
+	################
+	
+	
+	ii <- which(names %in% names(out))
+	
+	
+	out$names <- names[ii]
+	out$files <- files[ii]
+	
+	out$noLayers <- noLayers[ii]
+	out$soilLayersWithZero <- soilLayersWithZero[ii]
+	out$soilLayers <- soilLayers[ii]
+	out$snowLayers <- snowLayers[ii]
+	out$glacLayers <- glacLayers[ii]
+	###############################
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	#################################
+	
 	
 	
 	
 	return(out)
 	
 }
+
+############
+#
+#
+#
+#"GlacIceContent0000L0001.asc"       
+#   
+#     "GlacLayersNumber0000.asc"        
+#[17] "GlacLiqWaterContent0000L0001.asc"  "GlacTemperature0000L0001.asc"    
+#  
+#[47] "GlacThickness0000L0001.asc"      
+#
+#
+
+#
+#
+#"GlacIceContent,"GlacLayersNumber","GlacLiqWaterContent","GlacTemperature","GlacThickness")      
+#
+#
+
+
+
+
+
+
+
+

@@ -59,7 +59,7 @@ brick.decimal.formatter <- function(file=NULL,file_prefix,formatter="%04d",file_
 		
 	}
 	
-	if (nlayers=="FromDir") { ## ec 20151127
+	if (nlayers=="FromDir") { ## ec 20151127  ## NLAYER AUTOMATICALLY DETECTED FROM THE DIRECTORY
 		
 		filename <- paste(file_prefix,formatter,sep="")
 		sep1 <- max(str_locate_all(filename,"/")[[1]][,1])
