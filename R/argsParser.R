@@ -31,8 +31,8 @@ NULL
 #' value2 <- argsParser(option=option2,args=args)
 #' value22 <- argsParser(option=option2,args=args,novalue_response="./")
 #'  args_b <- "value=6 , fruit=apple"
-#' 
-#' value <- argsParser(option=option,args=args_b,sep=c(",","="))
+#' option3 <- "value"
+#' value <- argsParser(option=option3,args=args_b,sep=c(",","="))
 #' 
 
 
@@ -58,14 +58,17 @@ argsParser <- function(option,args,sep=" ",novalue_response=NULL) {
 		
 	} else if (sep[2]!=sep[1]) {
 		
-		args_s <- str_split(args,sep[2],n=1)
-		
+		##print(args)
+		args_s <- str_split(args,sep[2],n=2)
+		###print(args_s)
 		args <- lapply(X=args_s,FUN=function(x){x[2]})
-		names(args) <- lapply(X=args_s,FUN=function(x){x[1]})
 		args <- str_trim(args)
+		names(args) <- lapply(X=args_s,FUN=function(x){x[1]})
+		##print(args)
+		
 		names(args) <- str_trim(names(args))
 		option <- str_trim(option)
-		
+		##print(args)
 		out <- args[option]
 		
 		if (is.na(out)) out <- novalue_response
