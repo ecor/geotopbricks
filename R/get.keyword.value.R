@@ -35,6 +35,7 @@ NULL
 #' @param add_suffix_dir character string. Add a suffix at the directory reported in the keyword value	 
 #' @param ContinuousRecovery integer value. Default is 0. It is used for tabular output data and is the number of times GEOtop simulation broke  during its running and was re-launched with 'Contiuous Recovery' option. 
 #' @param ContinuousRecoveryFormatter character string. Default is \code{'_crec\%04d'}. It is used only for tabular output data and if \code{ContinuousRecovery} is equal or greater than 1. 
+#' @param MAXNROW maximum number accepted for \code{data.frema} output. Default is 4. It is used in case of \code{data.frame==TRUE}. In case the number of records in the function output is less than \code{MAXNROW} , function returns neither \code{data.frame} nor \code{zoo} objects but only the keyword value.
 #' @param ... further arguments of \code{\link{declared.geotop.inpts.keywords}} 
 #' 
 #' @export 
@@ -116,7 +117,7 @@ NULL
 #' 
 #' 
 #' 
-get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=NULL,col_sep=",",numeric=FALSE,format="%d/%m/%Y %H:%M",date=FALSE,tz="Etc/GMT-1",raster=FALSE,file_extension=".asc",add_wpath=FALSE,wpath=NULL,use.read.raster.from.url=TRUE,data.frame=FALSE,formatter="%04d",level=1,date_field="Date",isNA=-9999.000000,matlab.syntax=TRUE,projfile="geotop.proj",start_date=NULL,end_date=NULL,ContinuousRecovery=0,ContinuousRecoveryFormatter="_crec%04d",zlayer.formatter=NULL,z_unit=c("centimeters","millimeters"),geotop_z_unit="millimeters",add_suffix_dir=NULL,...) {
+get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=NULL,col_sep=",",numeric=FALSE,format="%d/%m/%Y %H:%M",date=FALSE,tz="Etc/GMT-1",raster=FALSE,file_extension=".asc",add_wpath=FALSE,wpath=NULL,use.read.raster.from.url=TRUE,data.frame=FALSE,formatter="%04d",level=1,date_field="Date",isNA=-9999.000000,matlab.syntax=TRUE,projfile="geotop.proj",start_date=NULL,end_date=NULL,ContinuousRecovery=0,ContinuousRecoveryFormatter="_crec%04d",zlayer.formatter=NULL,z_unit=c("centimeters","millimeters"),geotop_z_unit="millimeters",add_suffix_dir=NULL,MAXNROW=4,...) {
 #####	check.columns=FALSE
 # Added by the author on Feb 6 2012	
 	
@@ -504,7 +505,8 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 							 out <- x[,str_detect(names(x),"X")]
 							 
 							 zval <- as.numeric(str_replace(names(out),"X",""))*zu
-							 
+							 zval <- ceiling(zval)
+							
 							 names(out) <- sprintf(zfrm,zval)
 							 
 							 return(out)
@@ -518,6 +520,12 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 		 }
 		 
 		 if (length(out)==1) out <- out[[1]] ## added by EC on 20150313
+		 
+		 if (is.data.frame(out) | is.zoo(out)) if (nrow(out)<MAXNROW) {
+			 
+			 out <- NULL
+			 
+		 }
 	} else 	if (add_wpath) {
 		
 		if (!is.null(wpath)) out <- paste(wpath,out,sep="/")

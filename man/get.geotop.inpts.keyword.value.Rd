@@ -14,7 +14,7 @@ get.geotop.inpts.keyword.value(keyword, inpts.frame = NULL,
   end_date = NULL, ContinuousRecovery = 0,
   ContinuousRecoveryFormatter = "_crec\%04d", zlayer.formatter = NULL,
   z_unit = c("centimeters", "millimeters"), geotop_z_unit = "millimeters",
-  add_suffix_dir = NULL, ...)
+  add_suffix_dir = NULL, MAXNROW = 4, ...)
 }
 \arguments{
 \item{keyword}{keyword name}
@@ -70,6 +70,8 @@ get.geotop.inpts.keyword.value(keyword, inpts.frame = NULL,
 \item{geotop_z_unit}{z coordinate measurement unit used by GEOtop. Default is \code{millimeters}. It is used if \code{zlayer.formatter=="z\%04d"} or similar.}
 
 \item{add_suffix_dir}{character string. Add a suffix at the directory reported in the keyword value}
+
+\item{MAXNROW}{maximum number accepted for \code{data.frema} output. Default is 4. It is used in case of \code{data.frame==TRUE}. In case the number of records in the function output is less than \code{MAXNROW} , function returns neither \code{data.frame} nor \code{zoo} objects but only the keyword value.}
 
 \item{...}{further arguments of \code{\link{declared.geotop.inpts.keywords}}}
 }

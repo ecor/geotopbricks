@@ -197,7 +197,7 @@ brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one
 			projfile <- paste(wpath,projfile,sep="/")
 			
 			
-			cond <- file.exists(projfile) | use.read.raster.from.url
+			cond <- file.exists(projfile) ###| use.read.raster.from.url
 			crs <- getProjection(projfile,cond=cond)
 		#	if (cond) {
 		#	#	crs <- readLines(projfile,warn=FALSE)
