@@ -35,6 +35,7 @@ NULL
 #' @param add_suffix_dir character string. Add a suffix at the directory reported in the keyword value	 
 #' @param ContinuousRecovery integer value. Default is 0. It is used for tabular output data and is the number of times GEOtop simulation broke  during its running and was re-launched with 'Contiuous Recovery' option. 
 #' @param ContinuousRecoveryFormatter character string. Default is \code{'_crec\%04d'}. It is used only for tabular output data and if \code{ContinuousRecovery} is equal or greater than 1. 
+#' @param header.only logical value. Default is \code{FALSE}. If it is \code{TRUE} and \code{data.frame==TRUE}, only file hedaer  with variable names is returned by the function.
 #' @param MAXNROW maximum number accepted for \code{data.frema} output. Default is 4. It is used in case of \code{data.frame==TRUE}. In case the number of records in the function output is less than \code{MAXNROW} , function returns neither \code{data.frame} nor \code{zoo} objects but only the keyword value.
 #' @param ... further arguments of \code{\link{declared.geotop.inpts.keywords}} 
 #' 
@@ -117,7 +118,7 @@ NULL
 #' 
 #' 
 #' 
-get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=NULL,col_sep=",",numeric=FALSE,format="%d/%m/%Y %H:%M",date=FALSE,tz="Etc/GMT-1",raster=FALSE,file_extension=".asc",add_wpath=FALSE,wpath=NULL,use.read.raster.from.url=TRUE,data.frame=FALSE,formatter="%04d",level=1,date_field="Date",isNA=-9999.000000,matlab.syntax=TRUE,projfile="geotop.proj",start_date=NULL,end_date=NULL,ContinuousRecovery=0,ContinuousRecoveryFormatter="_crec%04d",zlayer.formatter=NULL,z_unit=c("centimeters","millimeters"),geotop_z_unit="millimeters",add_suffix_dir=NULL,MAXNROW=4,...) {
+get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=NULL,col_sep=",",numeric=FALSE,format="%d/%m/%Y %H:%M",date=FALSE,tz="Etc/GMT-1",raster=FALSE,file_extension=".asc",add_wpath=FALSE,wpath=NULL,use.read.raster.from.url=TRUE,data.frame=FALSE,formatter="%04d",level=1,date_field="Date",isNA=-9999.000000,matlab.syntax=TRUE,projfile="geotop.proj",start_date=NULL,end_date=NULL,ContinuousRecovery=0,ContinuousRecoveryFormatter="_crec%04d",zlayer.formatter=NULL,z_unit=c("centimeters","millimeters"),geotop_z_unit="millimeters",add_suffix_dir=NULL,MAXNROW=4,header.only=FALSE,...) {
 #####	check.columns=FALSE
 # Added by the author on Feb 6 2012	
 	
@@ -225,6 +226,54 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 		
 		
 		
+	} else if ((header.only==TRUE) & (data.frame==TRUE)) {
+		
+		if (file_extension==".asc" | file_extension=="asc") file_extension=".txt"
+		
+		keyword <- out
+		out <- paste(wpath,out,sep="/")
+		
+		if (is.null(formatter) | is.null(level) | length(level)<1) {
+			
+			formatter <- ""
+		} else {
+			
+			formatter <- array(formatter,length(level)) 
+			for (i in 1:length(level)) {
+				
+				formatter[i] <- sprintf(formatter[i],level[i])
+				
+			} 
+			
+			
+		}	  
+		
+		out <- paste(out,formatter,sep="")
+		
+		if (str_sub(file_extension,1,1)==".")  {
+			filepath <- paste(out,file_extension,sep="")
+		#	filecrec_extension=paste(ContinuousRecoveryFormatter,file_extension,sep="") ## Continous Recovery Option 
+		#	filecrecpath <- paste(out,filecrec_extension,sep="")
+		} else { 	
+			filepath <- paste(out,file_extension,sep=".") 
+		#	filecrec_extension=paste(ContinuousRecoveryFormatter,file_extension,sep=".") ## Continous Recovery Option 
+		#	filecrecpath <- paste(out,filecrec_extension,sep=".")
+		}
+		
+		out <- filepath
+		
+		file <- file(out)
+		temp <- read.table(file,header=TRUE,sep=col_sep,na.strings=isNA,nrows=1)
+		out <- names(temp)
+		out <- out[!(out %in% date_field)]
+	#	out <- readLines(out,n=1)
+	###	out <- str_replace(out,"[\.]",".")
+	#	out <- str_split(out,col_sep)[[1]]
+	#	df <- as.data.frame(array(NA,c(1,length(out))))
+	#	names(df) <- out 
+		
+	#	out <- df 
+	#	out <- filepath
 	} else if (data.frame) {
 		
 		if (file_extension==".asc" | file_extension=="asc") file_extension=".txt"

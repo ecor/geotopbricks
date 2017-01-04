@@ -14,7 +14,7 @@ get.geotop.inpts.keyword.value(keyword, inpts.frame = NULL,
   end_date = NULL, ContinuousRecovery = 0,
   ContinuousRecoveryFormatter = "_crec\%04d", zlayer.formatter = NULL,
   z_unit = c("centimeters", "millimeters"), geotop_z_unit = "millimeters",
-  add_suffix_dir = NULL, MAXNROW = 4, ...)
+  add_suffix_dir = NULL, MAXNROW = 4, header.only = FALSE, ...)
 }
 \arguments{
 \item{keyword}{keyword name}
@@ -72,6 +72,8 @@ get.geotop.inpts.keyword.value(keyword, inpts.frame = NULL,
 \item{add_suffix_dir}{character string. Add a suffix at the directory reported in the keyword value}
 
 \item{MAXNROW}{maximum number accepted for \code{data.frema} output. Default is 4. It is used in case of \code{data.frame==TRUE}. In case the number of records in the function output is less than \code{MAXNROW} , function returns neither \code{data.frame} nor \code{zoo} objects but only the keyword value.}
+
+\item{header.only}{logical value. Default is \code{FALSE}. If it is \code{TRUE} and \code{data.frame==TRUE}, only file hedaer  with variable names is returned by the function.}
 
 \item{...}{further arguments of \code{\link{declared.geotop.inpts.keywords}}}
 }
