@@ -125,7 +125,7 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 	if (length(keyword)>1) {
 		out <- NULL
 		
-		out <- base::lapply(X=keyword,FUN=get.geotop.inpts.keyword.value,inpts.frame=inpts.frame,vector_sep=vector_sep,col_sep=col_sep,numeric=numeric,format=format,date=date,tz=tz,raster=raster,file_extension=file_extension,add_wpath=add_wpath,wpath=wpath,use.read.raster.from.url=use.read.raster.from.url,data.frame=data.frame,formatter=formatter,level=level,date_field=date_field,isNA=isNA,matlab.syntax=matlab.syntax,projfile=projfile,add_suffix_dir=add_suffix_dir,zlayer.formatter=zlayer.formatter,z_unit=z_unit,geotop_z_unit=geotop_z_unit,...)
+		out <- base::lapply(X=keyword,FUN=get.geotop.inpts.keyword.value,inpts.frame=inpts.frame,vector_sep=vector_sep,col_sep=col_sep,numeric=numeric,format=format,date=date,tz=tz,raster=raster,file_extension=file_extension,add_wpath=add_wpath,wpath=wpath,use.read.raster.from.url=use.read.raster.from.url,data.frame=data.frame,formatter=formatter,level=level,date_field=date_field,isNA=isNA,matlab.syntax=matlab.syntax,projfile=projfile,add_suffix_dir=add_suffix_dir,zlayer.formatter=zlayer.formatter,z_unit=z_unit,geotop_z_unit=geotop_z_unit,add_suffix_dir=add_suffix_dir,MAXNROW=MAXNROW,header.only=header.only,...) 
 		names(out) <- keyword
 		
 		
@@ -392,13 +392,14 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 			 temp <- read.table(file,header=TRUE,sep=col_sep,na.strings=isNA)
 			 
 			 i_index <- which(names(temp)==date_field)
-			 if (length(i_index)>1) { ## ec 20151215
-				 
+		
+			 if (length(i_index)>=1) { ## ec 20170107 ## ec 20151215
+				
 				 if (is.numeric(isNA) & length(isNA)==1) temp[,-i_index][temp[,-i_index]<=isNA] <- NA # added on 6 dec 2012
 			 
 			
 			 }	
-		
+			
 		#####
 		
 		
