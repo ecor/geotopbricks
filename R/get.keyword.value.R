@@ -125,7 +125,7 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 	if (length(keyword)>1) {
 		out <- NULL
 		
-		out <- base::lapply(X=keyword,FUN=get.geotop.inpts.keyword.value,inpts.frame=inpts.frame,vector_sep=vector_sep,col_sep=col_sep,numeric=numeric,format=format,date=date,tz=tz,raster=raster,file_extension=file_extension,add_wpath=add_wpath,wpath=wpath,use.read.raster.from.url=use.read.raster.from.url,data.frame=data.frame,formatter=formatter,level=level,date_field=date_field,isNA=isNA,matlab.syntax=matlab.syntax,projfile=projfile,add_suffix_dir=add_suffix_dir,zlayer.formatter=zlayer.formatter,z_unit=z_unit,geotop_z_unit=geotop_z_unit,add_suffix_dir=add_suffix_dir,MAXNROW=MAXNROW,header.only=header.only,...) 
+		out <- base::lapply(X=keyword,FUN=get.geotop.inpts.keyword.value,inpts.frame=inpts.frame,vector_sep=vector_sep,col_sep=col_sep,numeric=numeric,format=format,date=date,tz=tz,raster=raster,file_extension=file_extension,add_wpath=add_wpath,wpath=wpath,use.read.raster.from.url=use.read.raster.from.url,data.frame=data.frame,formatter=formatter,level=level,date_field=date_field,isNA=isNA,matlab.syntax=matlab.syntax,projfile=projfile,add_suffix_dir=add_suffix_dir,zlayer.formatter=zlayer.formatter,z_unit=z_unit,geotop_z_unit=geotop_z_unit,MAXNROW=MAXNROW,header.only=header.only,...) 
 		names(out) <- keyword
 		
 		
