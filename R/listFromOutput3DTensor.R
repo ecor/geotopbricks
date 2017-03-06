@@ -272,13 +272,30 @@ listFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one.
 		
 		if (layers[1]=="SoilParFile") {
 			
-			layers <- geotopbricks::get.geotop.inpts.keyword.value("SoilParFile",wpath=wpath,add_wpath=TRUE,data.frame=TRUE,level=1,date_field=NULL,...)$Dz
+			
+			headerDz <- geotopbricks::get.geotop.inpts.keyword.value("HeaderSoilDz",wpath=wpath,...)[1]
+			if (is.null(headerDz)) headerDz <- "Dz"
+			layers <- geotopbricks::get.geotop.inpts.keyword.value("SoilParFile",wpath=wpath,add_wpath=TRUE,data.frame=TRUE,level=1,date_field=NULL,...)[,headerDz]
 			
 		
 			
 
-		} else if (!is.numeric(layers)) {
+		} 
+		
+		
+		if (!is.numeric(layers) | (length(layers)==1)) {
+		
+		### SoilLayerNumber
 			
+			nl <- geotopbricks::get.geotop.inpts.keyword.value("SoilLayerNumber",numeric=TRUE,wpath=wpath,...)[1]
+			if (!is.null(nl)) layers <- 1:nl
+		
+		} 
+		
+		
+		if (!is.numeric(layers)) {
+			
+			warning("Layers Not Numeric 1:2 by Defalut!")
 			layers <- 1:2
 			
 		}
@@ -300,10 +317,15 @@ listFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one.
 	
 	
 	print(paste("Maps to import:",length(when),"from",as.character(when[1]),"to",as.character(when[length(when)]),sep=" "))
-	out <- lapply(X=when,FUN=function(when,map.prefix,suffix,crs,layers,start.from.zero,one.layer,time,timestep) {
+	message("Important bug solved from 1.3.7.3, previous versions (<= 1.3.7.2) could return slightly different results!")
+	time <- time[-1]
+	out <- lapply(X=when,FUN=function(whenx,map.prefix,suffix,crs,layers,start.from.zero,one.layer,time,timestep) {
 		
-		print(paste("Importing",as.character(when),sep=" "))
-		t_index <- abs(when-time)<timestep
+		message(paste("Importing",as.character(whenx),sep=" "))
+		
+		t_index <- abs(as.numeric((whenx-time),units="secs"))<timestep
+	
+		
 		index <- 1
 		n <- which(t_index)[index]
 				
