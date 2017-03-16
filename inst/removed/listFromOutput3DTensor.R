@@ -127,24 +127,7 @@ NULL
 #' 
 #' @examples 
 #' 
-# library(geotopbricks)
-# # The data containing in the link are only for educational use
-# wpath <- "http://www.rendena100.eu/public/geotopbricks/simulations/idroclim_test1"
-# x <- "SoilLiqContentTensorFile"
-# when <- as.POSIXlt("2002-03-22 UTC",tz="A")
-# 
-# # Not Run because it elapses too long time!!! 
-# # Please Uncomment the following lines to run by yourself!!!
-# 
-# # b <- brickFromOutputSoil3DTensor(x,when=when,wpath=wpath,tz="A",use.read.raster.from.url=TRUE)
-# 
-# # a 2D map: 
-# x_e <- "SnowDepthMapFile"
-# # Not Run: uncomment the following line
-# # m <- rasterFromOutput2DMap(x_e,when=when,wpath=wpath,timestep="OutputSnowMaps",tz="A")
-# # Not Run: uncomment the following line
-# # plot(m)
-#
+#' library(geotopbricks)
 
 #' 
 #' tz <-  "Etc/GMT+1"
@@ -179,44 +162,12 @@ NULL
 
 
 
-#
-#SoilLiqContentTensorFile
-#
-#
-#SoilLiqContentTensorFile 
-#
-#Name of the ensamble of raster maps corresponding to the liquid water
-#content of each layer (if PlotSoilDepth6=0 it writes the value at the
-#corresponding depths)
-#
-#SoilLiqWaterPressTensorFile 
-#
-#
-#
-#SoilTempTensorFile Name of the ensamble of raster maps corresponding to the temperature
-#of each layer (if PlotSoilDepth6=0 it writes the value at the corresponding
-#depths)
-#SoilAveragedTempTensorFile Name of the ensamble of raster maps corresponding to the average temperature
-#of each layer (if PlotSoilDepth6=0 it writes the value at the
-#corresponding depths)
-#IceLiqContentTensorFile Name of the ensamble of raster maps corresponding to the average ice
-#content of each layer (if PlotSoilDepth6=0 it writes the value at the corresponding
-#depths)
-#Table 15.10: Keywords of print output tensor maps for soil and
-#
-#
-#
-#
-##
-
 
 
 
 listFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one.layer=FALSE,suffix="L%04dN%04d.asc",wpath=NULL,tz="A",start_date_key="InitDateDDMMYYYYhhmm",end_date_key="EndDateDDMMYYYYhhmm",timestep="OutputSoilMaps",use.read.raster.from.url=FALSE,crs=NULL,projfile="geotop.proj",start.from.zero=FALSE,secondary.suffix=NULL,...) {
 	
 	out <- NULL
-	
-
 
 	
 	if (is.null(crs)) { 
@@ -265,7 +216,7 @@ listFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one.
 				layers <-  "SoilParFile"
 			} else {
 				
-				#layers <- 1:length(layers)
+		#		layers <- 1:length(layers)
 			}	
 				
 		} 
@@ -338,32 +289,36 @@ listFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one.
 				
 		if (!is.na(n)) {
 		
-			suffix <- str_split(suffix,"N")[[1]]
-			suffix[2] <- sprintf(suffix[2],n)
-		
+			##
+			##  
+			##
+			##
+			#suffix <- str_split(suffix,"N")[[1]]
+			#suffix[2] <- sprintf(suffix[2],n)
+			time_formatter_n <- sprintf(time_formatter,n)
+			
 			if (one.layer) {
 		
-				suffix <- paste("N",suffix[2],sep="")
+				suffix <- str_replace(suffix_one.layer,time_formatter,time_formatter_n)
+			## rc 20151218
+			
+			#####	suffix <- paste("N",suffix[2],sep="")
 			
 			
 			} else {	
-				suffix <- paste(suffix,collapse="N")
+				
+				suffix <- str_replace(suffix,time_formatter,time_formatter_n)
+			#######	suffix <- str_replace(suffix,time_formatter,time_formatter_n)
+				
+				####suffix <- paste(suffix,collapse="N")
 			}	
 		
 			map.filename <- paste(map.prefix,suffix,sep="")
+			message(paste("As ",as.character(time[n]),sep=" "))
 		
 			if (one.layer) {
 			
-#				if (use.read.raster.from.url) {		#### RELPACE WITH returns.filename		
-#					out <- map.filename
-#				} else {
-#					out <- raster(map.filename)
-#				}
-#			
-#				if (!is.null(crs)) {
-#					projection(out) <- crs
-#				}
-			
+
 				out <- array(map.filename,2)
 				out[2] <- crs
 				names(out) <- c("Value","CRS")
@@ -408,8 +363,6 @@ listFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one.
 	
 	
 	if (length(out)==1) out <- out[[1]]
-	
-	### class(out) <- "ObjectRetunedByListFromOutputSoil3DTensor"
 	
 	return(out)
 	

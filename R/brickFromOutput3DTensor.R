@@ -152,35 +152,7 @@ NULL
 #' # plot(m)
 #'
 
-#
-#SoilLiqContentTensorFile
-#
-#
-#SoilLiqContentTensorFile 
-#
-#Name of the ensamble of raster maps corresponding to the liquid water
-#content of each layer (if PlotSoilDepth6=0 it writes the value at the
-#corresponding depths)
-#
-#SoilLiqWaterPressTensorFile 
-#
 
-#
-#SoilTempTensorFile Name of the ensamble of raster maps corresponding to the temperature
-#of each layer (if PlotSoilDepth6=0 it writes the value at the corresponding
-#depths)
-#SoilAveragedTempTensorFile Name of the ensamble of raster maps corresponding to the average temperature
-#of each layer (if PlotSoilDepth6=0 it writes the value at the
-#corresponding depths)
-#IceLiqContentTensorFile Name of the ensamble of raster maps corresponding to the average ice
-#content of each layer (if PlotSoilDepth6=0 it writes the value at the corresponding
-#depths)
-#Table 15.10: Keywords of print output tensor maps for soil and
-#
-#
-#
-#
-##
 
 
 
