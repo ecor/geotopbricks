@@ -1,0 +1,175 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> # TODO: Add comment
+> # 
+> # Author: ecor
+> ###############################################################################
+> 
+> library(geotopbricks)
+Loading required package: raster
+Loading required package: sp
+Loading required package: stringr
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+> library(reshape2)
+> 
+> wpath <- '/home/ecor/Dropbox/R-packages/geotopbricks_simulation/rendena'
+> 
+> alt_map <-  get.geotop.inpts.keyword.value("DemFile",raster=TRUE,wpath=wpath)
+Read 1 item
+> aspect_map <- get.geotop.inpts.keyword.value("AspectMapFile",raster=TRUE,wpath=wpath)
+Read 1 item
+> aspect_map[aspect_map>360-45/2] <- aspect_map[aspect_map>360-45/2]-360
+> 
+> aspect_cat <- 1:8
+> names(aspect_cat) <- aspect_class <- c("N","NE","E","SE","S","SW","W","NW")
+> 
+> aspect_cat_map <- (as.integer(aspect_map/45))+1
+> 
+> 
+> 
+> tz <- "Etc/GMT-1"
+> start <-  get.geotop.inpts.keyword.value("InitDateDDMMYYYYhhmm",date=TRUE,wpath=wpath,tz=tz) 
+> end <- get.geotop.inpts.keyword.value("EndDateDDMMYYYYhhmm",date=TRUE,wpath=wpath,tz=tz) 
+> dt <-  get.geotop.inpts.keyword.value("OutputSnowMaps",numeric=TRUE,wpath=wpath,tz=tz)*3600
+> 
+> 
+> when <- seq(from=start,to=end,by=dt)[-1]
+> 
+> x_e <- "SnowDepthMapFile"
+> m <- rasterFromOutput2DMap(x_e,when=when,wpath=wpath,timestep="OutputSnowMaps",
++ 		tz=tz,use.read.raster.from.url=FALSE)
+Read 1 item
+[1] "Maps to import: 14 from 2014-03-02 to 2014-03-15"
+Important bug solved from 1.3.7.3, previous versions (<= 1.3.7.2) could return slightly different results!
+Importing 2014-03-02
+As  2014-03-02
+Importing 2014-03-03
+As  2014-03-03
+Importing 2014-03-04
+As  2014-03-04
+Importing 2014-03-05
+As  2014-03-05
+Importing 2014-03-06
+As  2014-03-06
+Importing 2014-03-07
+As  2014-03-07
+Importing 2014-03-08
+As  2014-03-08
+Importing 2014-03-09
+As  2014-03-09
+Importing 2014-03-10
+As  2014-03-10
+Importing 2014-03-11
+As  2014-03-11
+Importing 2014-03-12
+As  2014-03-12
+Importing 2014-03-13
+As  2014-03-13
+Importing 2014-03-14
+As  2014-03-14
+Importing 2014-03-15
+As  2014-03-15
+> 
+> 
+> me <- lapply(X=m,FUN=function(x,alt,asp,aspcat,valmin){
++ 			
++ 			
++ 			ov <- alt[x>valmin]		
++ 			aspv <- names(aspect_cat)[asp[x>valmin]]
++ 			o <- tapply(X=ov,INDEX=aspv,FUN=min,na.rm=TRUE)	
++ 			###o <- min(o,na.rm=TRUE)
++ 			o <- o[names(aspect_cat)]
++ 			return(o)
++ 			
++ 			
++ 			
++ 		},alt=alt_map,asp=aspect_cat_map,aspcat=aspect_cat,valmin=100)
+> 
+> 
+> df <- melt(me)
+> names(df)[names(df)=="Var1"] <- "aspect"
+> names(df)[names(df)=="L1"] <- "time"
+> df$time <- as.Date(df$time,format="DATE-TIME %Y-%m-%d 00:00")
+> df$aspect <- as.character(df$aspect)
+> 
+> df <- df[,c("time","aspect","value")]
+> 
+> 
+> 
+> #stop("LO SCRIPT FINISCE QU!!!")
+> #
+> #
+> #aggr <- c("q25","median","q75","mean")
+> #mapaggr <- list()
+> #
+> #mapv <- list.files(mapdir,pattern=".asc",full.name=TRUE)
+> #names(mapv) <- list.files(mapdir,pattern=".asc",full.name=FALSE)
+> #names(mapv) <- str_replace(names(mapv),".asc","")
+> #names(mapv) <- str_replace(names(mapv),"SnowDepthMapFile-","")
+> #
+> #funm <- sapply(X=str_split(names(mapv),"-"),FUN=function(x){x[[1]]})
+> #time <- sapply(X=str_split(names(mapv),"-",n=2),FUN=function(x){x[[2]]})
+> #
+> #mapv <- mapv[funm %in% aggr]
+> #time <- time[funm %in% aggr]
+> #funm <- funm[funm %in% aggr]
+> #alt_map <-  get.geotop.inpts.keyword.value("DemFile",raster=TRUE,wpath=wpath)
+> #
+> #valmin <- 250 ## 50
+> #time <- paste(time,15,sep="-")
+> #time <- as.Date(time,format="%Y-%m-%d")
+> #df <- data.frame <- data.frame(Time=time,MonthlyAggrFunc=funm,SnowAlt=NA*0,stringsAsFactors=FALSE)
+> #
+> #alt_snow <- lapply(X=mapv,FUN=function(x,alt,asp,valmin){
+> #			
+> #			message(x)
+> #			o <- raster(x)
+> #			aspv <- names(aspect_cat)[asp[o>valmin]]
+> #		##	print(o)
+> #		##	print(alt)
+> #		##	print(asp)
+> #			ov <- alt[o>valmin]		
+> #		##	str(aspv)
+> #		##	str(ov)
+> #			o <- tapply(X=ov,INDEX=aspv,FUN=min,na.rm=TRUE)	
+> #			##o <- min(o,na.rm=TRUE)
+> #			
+> #			return(o)
+> #			
+> #		},alt=alt_map,asp=aspect_cat_map,valmin=valmin)
+> #
+> #stop("qui")
+> #df <- df[1:length(alt_snow),]
+> #df$SnowAlt <- alt_snow
+> 
+> file <- '/home/ecor/Dropbox/R-packages/geotopbricks/inst/brick3DTensor-test/output/alt_snow_vs_time_daily.csv' 
+> 
+> write.table(x=df,file=file,sep=",",row.names=FALSE,quote=FALSE)
+> 
+> proc.time()
+   user  system elapsed 
+  8.048   0.102   8.651 
