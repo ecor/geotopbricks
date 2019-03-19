@@ -9,12 +9,13 @@ get.geotop.inpts.keyword.value(keyword, inpts.frame = NULL,
   format = "\%d/\%m/\%Y \%H:\%M", date = FALSE, tz = "Etc/GMT-1",
   raster = FALSE, file_extension = ".asc", add_wpath = FALSE,
   wpath = NULL, use.read.raster.from.url = TRUE, data.frame = FALSE,
-  formatter = "\%04d", level = 1, date_field = "Date", isNA = -9999,
-  matlab.syntax = TRUE, projfile = "geotop.proj", start_date = NULL,
-  end_date = NULL, ContinuousRecovery = 0,
+  formatter = "\%04d", level = 1, date_field = "Date",
+  isNA = -9999, matlab.syntax = TRUE, projfile = "geotop.proj",
+  start_date = NULL, end_date = NULL, ContinuousRecovery = 0,
   ContinuousRecoveryFormatter = "_crec\%04d", zlayer.formatter = NULL,
-  z_unit = c("centimeters", "millimeters"), geotop_z_unit = "millimeters",
-  add_suffix_dir = NULL, MAXNROW = 4, header.only = FALSE, ...)
+  z_unit = c("centimeters", "millimeters"),
+  geotop_z_unit = "millimeters", add_suffix_dir = NULL, MAXNROW = 4,
+  header.only = FALSE, ...)
 }
 \arguments{
 \item{keyword}{keyword name}
@@ -91,7 +92,7 @@ If \code{inpts.frame} is \code{NULL}, \code{inpts.frame} will be obtained by cal
 library(geotopbricks)
 
 #Simulation working path
-wpath <- 'http://www.rendena100.eu/public/geotopbricks/simulations/panola13_run2xC_test3'
+wpath <- 'https://www.rendena100.eu/public/geotopbricks/simulations/panola13_run2xC_test3'
 prefix <- get.geotop.inpts.keyword.value("SoilLiqWaterPressTensorFile",wpath=wpath)
 
 slope <- get.geotop.inpts.keyword.value("SlopeMapFile",raster=TRUE,wpath=wpath) 
@@ -134,7 +135,7 @@ level <- 1:nmeteo
 
 ## IMPORTING AN OUTPUT SOIL MOISTURE PROFILE: 
 
- wpath <- 'http://www.rendena100.eu/public/geotopbricks/simulations/Muntatschini_pnt_1_225_B2_004'
+ wpath <- 'https://www.rendena100.eu/public/geotopbricks/simulations/Muntatschini_pnt_1_225_B2_004'
 
 \dontrun{
 #	SMC  <- get.geotop.inpts.keyword.value("SoilLiqContentProfileFile",
@@ -153,4 +154,3 @@ level <- 1:nmeteo
 
 
 }
-

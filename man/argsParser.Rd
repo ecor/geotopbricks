@@ -35,4 +35,3 @@ option3 <- "value"
 value <- argsParser(option=option3,args=args_b,sep=c(",","="))
 
 }
-

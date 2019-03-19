@@ -55,8 +55,8 @@ NULL
 #' library(geotopbricks)
 #' 
 #' #Simulation working path
-#### wpath <- 'http://www.rendena100.eu/public/geotopbricks/simulations/panola13_run2xC_test3'
-#' wpath <- 'http://www.rendena100.eu/public/geotopbricks/simulations/panola13_run2xC_test3'
+#### wpath <- 'https://www.rendena100.eu/public/geotopbricks/simulations/panola13_run2xC_test3'
+#' wpath <- 'https://www.rendena100.eu/public/geotopbricks/simulations/panola13_run2xC_test3'
  ###  wpath <- 'http://meteogis.fmach.it/idroclima//panola13_run2xC_test3'
 #' prefix <- get.geotop.inpts.keyword.value("SoilLiqWaterPressTensorFile",wpath=wpath)
 #' 
@@ -100,7 +100,7 @@ NULL
 #' 
 #' ## IMPORTING AN OUTPUT SOIL MOISTURE PROFILE: 
 #' 
-#'  wpath <- 'http://www.rendena100.eu/public/geotopbricks/simulations/Muntatschini_pnt_1_225_B2_004'
+#'  wpath <- 'https://www.rendena100.eu/public/geotopbricks/simulations/Muntatschini_pnt_1_225_B2_004'
 #' 
 #' \dontrun{
 #' #	SMC  <- get.geotop.inpts.keyword.value("SoilLiqContentProfileFile",

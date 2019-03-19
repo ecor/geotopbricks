@@ -26,7 +26,7 @@ library(sp)
 library(rgdal)
 library(geotopbricks)
 library(plotKML)
-wpath <- "http://www.rendena100.eu/public/geotopbricks/simulations/idroclim_test1"
+wpath <- "https://www.rendena100.eu/public/geotopbricks/simulations/idroclim_test1"
 wpath_kml <- '.'
 filename_kml <- 'meteopoint.kml'
 filename_kml <- paste(wpath_kml,filename_kml,sep="/")

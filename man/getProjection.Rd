@@ -21,11 +21,10 @@ It reads the CRS metadata utilzed in a GEOtop Simulation
 }
 \examples{
 library(geotopbricks)
-wpath <- "http://www.rendena100.eu/public/geotopbricks/simulations/idroclim_test1"
+wpath <- "https://www.rendena100.eu/public/geotopbricks/simulations/idroclim_test1"
 x <- paste(wpath,"geotop.proj",sep="/")
 
 
 crs <- getProjection(x)
 
 }
-

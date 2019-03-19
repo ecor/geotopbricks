@@ -32,4 +32,3 @@ write.geotop.table(x, file, wpath = NULL, tz = "Etc/GMT-1",
 \description{
 Writes an R object (\code{data.frame} or \code{zoo}) into a CSV file readible by GEOtop.
 }
-

@@ -3,8 +3,8 @@
 \docType{methods}
 \name{brick}
 \alias{brick}
-\alias{brick,GeotopRasterBrick-method}
 \alias{brick,zoo-method}
+\alias{brick,GeotopRasterBrick-method}
 \title{brick}
 \usage{
 \S4method{brick}{zoo}(x, layer = 1, timerange = NULL, time = NULL,
@@ -43,4 +43,3 @@ Added implemetation for 'brick' S4 method
 \seealso{
 \code{\link{getvalues.brick.at.depth}},\code{\link{vertical.aggregate.brick.within.depth}}
 }
-

@@ -28,7 +28,7 @@ library(stringr)
 
 library(geotopbricks)
 
-wpath <- "http://www.rendena100.eu/public/geotopbricks/simulations/idroclim_test1"
+wpath <- "https://www.rendena100.eu/public/geotopbricks/simulations/idroclim_test1"
 
 x <- "SoilLiqContentTensorFile"
 when <- as.POSIXct("2002-03-22 UTC",tz="Etc/GMT+1")

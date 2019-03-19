@@ -19,10 +19,9 @@ This function re-writes the recovery ascii raster maps in a given folder
 \examples{
 # See the examples of the 'get.geotop.recovery.state' function
 }
-\author{
-Emanuele Cordano
-}
 \seealso{
 \code{\link{get.geotop.recovery.state}},\code{\link{writeRasterxGEOtop}}
 }
-
+\author{
+Emanuele Cordano
+}

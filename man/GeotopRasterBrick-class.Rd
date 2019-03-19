@@ -2,8 +2,8 @@
 % Please edit documentation in R/AAAClasses.R
 \docType{class}
 \name{GeotopRasterBrick-class}
-\alias{GeotopRasterBrick}
 \alias{GeotopRasterBrick-class}
+\alias{GeotopRasterBrick}
 \title{GeotopRasterBrick-class}
 \description{
 A GeotopRasterBrick: an object to manage raster maps provied by GEOtop!!
@@ -32,11 +32,10 @@ showClass("GeotopRasterBrick")
 
  
 }
-\author{
-Emanuele Cordano
-}
 \seealso{
 \code{\link{Raster-class}}
 }
+\author{
+Emanuele Cordano
+}
 \keyword{classes}
-

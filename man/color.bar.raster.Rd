@@ -39,4 +39,3 @@ color.bar.raster(x=snow,col=colors,min=min,max=max,digits=2)
 \seealso{
 \code{\link{color.bar}},\code{\link{setMinMax}}
 }
-

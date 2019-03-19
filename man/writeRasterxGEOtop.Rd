@@ -4,9 +4,9 @@
 \alias{writeRasterxGEOtop}
 \title{This function uses  \code{\link{writeRaster}} to create .asc maps which can be read by GEOtop}
 \usage{
-writeRasterxGEOtop(x, filename = NULL, overwrite = TRUE, NAflag = -9999,
-  use.decimal.formatter = FALSE, start.from.zero = FALSE, keyword, wpath,
-  suffix.ext = ".asc", ...)
+writeRasterxGEOtop(x, filename = NULL, overwrite = TRUE,
+  NAflag = -9999, use.decimal.formatter = FALSE,
+  start.from.zero = FALSE, keyword, wpath, suffix.ext = ".asc", ...)
 }
 \arguments{
 \item{x}{a Raster object, see \code{\link{writeRaster}}. It can be also a \code{\link{RasterBrick-class}} object.}
@@ -55,4 +55,3 @@ writeRasterxGEOtop(x=snow,file=snowfile)
 
 
 }
-

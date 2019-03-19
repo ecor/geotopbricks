@@ -1,7 +1,5 @@
-
-
-
 NULL
+#' Ops
 #' 
 #' \code{Ops} method for a \code{GeotopRasterBrick} object
 #' 

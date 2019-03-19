@@ -7,7 +7,7 @@ end <- as.POSIXct("2002-03-25",tz=tz)
 day <- 3600*24
 when <- seq(from=start,to=end,by=day)
 #' # The data containing in the link are only for educational use
-wpath <- "http://www.rendena100.eu/public/geotopbricks/simulations/idroclim_test1"
+wpath <- "https://www.rendena100.eu/public/geotopbricks/simulations/idroclim_test1"
 x <- "SoilLiqContentTensorFile"
 when <- as.POSIXct("2002-03-22 UTC",tz="A")
 

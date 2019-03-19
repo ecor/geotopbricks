@@ -37,4 +37,3 @@ f <- system.file("doc/examples/example.plot.GeotopRasterBrick.R",package="geotop
 \seealso{
 \code{\link{KML}}
 }
-

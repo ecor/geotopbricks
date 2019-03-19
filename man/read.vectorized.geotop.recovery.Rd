@@ -35,4 +35,3 @@ a \code{\link{list}} object like \code{\link{get.geotop.recovery.state}}
 \seealso{
 \code{\link{write.vectorized.geotop.recovery}}
 }
-

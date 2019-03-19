@@ -40,4 +40,3 @@ Add Quote if necessary
 \seealso{
 \code{\link{get.geotop.recovery.state}},\code{\link{set.geotop.recovery.state}},\code{\link{write.vectorized.variable.in.string}}
 }
-

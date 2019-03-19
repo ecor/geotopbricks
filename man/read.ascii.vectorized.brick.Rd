@@ -32,4 +32,3 @@ Read a text file containing  values and matedata of a z-layer brick referred to 
 \seealso{
 \code{\link{write.ascii.vectorized.brick}}
 }
-

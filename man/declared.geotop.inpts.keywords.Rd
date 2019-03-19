@@ -32,4 +32,3 @@ Collects all keywords contained in the 'getop.inpts' configuration files and the
 \seealso{
 \code{\link{get.geotop.inpts.keyword.value}}
 }
-

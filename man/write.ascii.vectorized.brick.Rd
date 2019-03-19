@@ -50,4 +50,3 @@ Add Quote if necessary. This function is NOT mantained and will be DEPRECATED.
 \seealso{
 \code{\link{read.ascii.vectorized.brick}}
 }
-

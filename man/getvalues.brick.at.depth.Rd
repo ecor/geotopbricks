@@ -4,7 +4,8 @@
 \alias{getvalues.brick.at.depth}
 \title{Interpolates the values of a 'brick' at a certain depth  and returns the map of brick values at the "depth" level}
 \usage{
-getvalues.brick.at.depth(x, depth, layers, i0 = NULL, verify = FALSE, ...)
+getvalues.brick.at.depth(x, depth, layers, i0 = NULL, verify = FALSE,
+  ...)
 }
 \arguments{
 \item{x}{a 'RasterBrick' or a three-dimensional array}
@@ -49,4 +50,3 @@ f <- system.file("doc/examples/example.getvalues.brick.at.depth.R",package="geot
 \seealso{
 code{\link{vertical.aggregate.brick.within.depth}}
 }
-

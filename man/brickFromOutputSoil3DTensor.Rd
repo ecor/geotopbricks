@@ -10,9 +10,9 @@ brickFromOutputSoil3DTensor(x, when, layers = "SoilLayerThicknesses",
   time_formatter = "N\%04d", suffix_one.layer = "N\%04d.asc",
   wpath = NULL, tz = "A", start_date_key = "InitDateDDMMYYYYhhmm",
   end_date_key = "EndDateDDMMYYYYhhmm", timestep = "OutputSoilMaps",
-  use.read.raster.from.url = FALSE, crs = NULL, projfile = "geotop.proj",
-  start.from.zero = FALSE, secondary.suffix = NULL,
-  only.map.filename = FALSE, ...)
+  use.read.raster.from.url = FALSE, crs = NULL,
+  projfile = "geotop.proj", start.from.zero = FALSE,
+  secondary.suffix = NULL, only.map.filename = FALSE, ...)
 
 rasterFromOutput2DMap(x, when, ...)
 }
@@ -170,10 +170,9 @@ x_e <- "SnowDepthMapFile"
 # plot(m)
 
 }
-\author{
-Emanuele Cordano
-}
 \seealso{
 \code{\link{get.geotop.inpts.keyword.value}},\code{\link{brick.decimal.formatter}}
 }
-
+\author{
+Emanuele Cordano
+}

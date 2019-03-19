@@ -40,4 +40,3 @@ zl <- replace.keyword(x,wpath=wpath,write.file.output=FALSE)
 \author{
 Emanuele Cordano
 }
-

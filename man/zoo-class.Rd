@@ -9,4 +9,3 @@ A GeotopRasterBrick: an object to manage raster maps provied by GEOtop!!
 \examples{
 showClass("zoo")
 }
-

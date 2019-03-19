@@ -5,9 +5,10 @@
 \title{Creates geotop meteo files from (a list of) 'zoo' objects}
 \usage{
 create.geotop.meteo.files(x, format = "\%d/\%m/\%Y \%H:\%M",
-  file_prefix = "meteo", file_extension = ".txt", formatter = "\%04d",
-  na = "-9999", col.names = TRUE, row.names = FALSE,
-  date_field = "Date", sep = ",", level = NULL, quote = FALSE, ...)
+  file_prefix = "meteo", file_extension = ".txt",
+  formatter = "\%04d", na = "-9999", col.names = TRUE,
+  row.names = FALSE, date_field = "Date", sep = ",", level = NULL,
+  quote = FALSE, ...)
 }
 \arguments{
 \item{x}{'zoo' object or a list of 'zoo' object representing the meteorological station}
@@ -54,4 +55,3 @@ data(bondone)
 \seealso{
 \code{\link{write.table}},\code{\link{get.geotop.inpts.keyword.value}}
 }
-

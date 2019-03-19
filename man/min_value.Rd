@@ -17,4 +17,3 @@ the minimum (scalar) values of a \code{\link{GeotopRasterBrick}} object
 \description{
 Gets the minimum (scalar) values of a \code{\link{GeotopRasterBrick}} object
 }
-

@@ -5,8 +5,9 @@
 \title{Imports a brick of raster ascii maps into a 'brick' object}
 \usage{
 brick.decimal.formatter(file = NULL, file_prefix, formatter = "\%04d",
-  file_extension = ".asc", nlayers = 10, use.read.raster.from.url = FALSE,
-  crs = NULL, start.from.zero = FALSE)
+  file_extension = ".asc", nlayers = 10,
+  use.read.raster.from.url = FALSE, crs = NULL,
+  start.from.zero = FALSE)
 }
 \arguments{
 \item{file}{fileneme of the 'brick' files containing the decimal formatter. It is \code{NULL} by default, otherwise it replaces  \code{file_suffix}, \code{formatter} and \code{file_extension}.}
@@ -42,4 +43,3 @@ b <- brick.decimal.formatter(file=file,nlayers=nlayers)
 nlayers(b)
 names(b)
 }
-

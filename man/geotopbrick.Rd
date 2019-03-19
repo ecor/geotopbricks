@@ -2,11 +2,11 @@
 % Please edit documentation in R/geotopbrick_S3.R
 \name{geotopbrick}
 \alias{geotopbrick}
-\alias{geotopbrick.GeotopRasterBrick}
-\alias{geotopbrick.RasterBrick}
-\alias{geotopbrick.RasterLayer}
 \alias{geotopbrick.default}
 \alias{geotopbrick.zoo}
+\alias{geotopbrick.RasterLayer}
+\alias{geotopbrick.RasterBrick}
+\alias{geotopbrick.GeotopRasterBrick}
 \title{geotopbrick}
 \usage{
 geotopbrick(x = NULL, ...)
@@ -46,4 +46,3 @@ a \code{\link{GeotopRasterBrick-class}}
 \description{
 geotopbrick method bla bla bla
 }
-

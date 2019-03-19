@@ -25,4 +25,3 @@ This function reads a local or remote text files formatted as \url{http://en.wik
 \seealso{
 \code{\link{raster}},\code{\link{readLines}}
 }
-

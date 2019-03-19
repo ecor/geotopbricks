@@ -41,9 +41,6 @@ example_Rscript
 # source(example_Rscript)
 
 }
-\author{
-Emanuele Cordano
-}
 \seealso{
 \code{\link{brick.decimal.formatter}},
 
@@ -51,4 +48,6 @@ Emanuele Cordano
 
 \code{\link{write.vectorized.geotop.recovery}},\code{\link{read.vectorized.geotop.recovery}}
 }
-
+\author{
+Emanuele Cordano
+}

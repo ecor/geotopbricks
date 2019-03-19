@@ -7,7 +7,8 @@
 \title{KML}
 \usage{
 \S4method{KML}{GeotopRasterBrick}(x, filename,
-  crs = as.character("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"), ...)
+  crs = as.character("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"),
+  ...)
 }
 \arguments{
 \item{x}{the \code{\link{GeotopRasterBrick}} object}
@@ -33,4 +34,3 @@ f <- system.file("doc/examples/example.KML.GeotopRasterBrick.R",package="geotopb
 #  source(f) # Uncomment this line to run the example. 
 # You can copy the example file using file.copy(from=f,to=....,...) See file.copy documentation
 }
-

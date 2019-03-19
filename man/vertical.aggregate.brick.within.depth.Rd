@@ -5,8 +5,8 @@
 \title{Aggregates with a mean or an addition on the vertical profile the values of a 'brick' within a certain depth  and returns the vertical aggregated map}
 \usage{
 vertical.aggregate.brick.within.depth(x, depth = NULL, layers = NULL,
-  i0 = NULL, verify = FALSE, FUN = identity, divide.by.depth = FALSE,
-  ...)
+  i0 = NULL, verify = FALSE, FUN = identity,
+  divide.by.depth = FALSE, ...)
 }
 \arguments{
 \item{x}{a 'RasterBrick' or a three-dimensional array}
@@ -61,4 +61,3 @@ package="geotopbricks")
 \seealso{
 \code{\link{getvalues.brick.at.depth}},\code{\link{brick}}
 }
-

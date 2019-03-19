@@ -17,4 +17,3 @@ the maximum (scalar) values of a \code{\link{GeotopRasterBrick}} object
 \description{
 Gets the maximum (scalar) values of a \code{\link{GeotopRasterBrick}} object
 }
-

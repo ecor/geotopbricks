@@ -36,4 +36,3 @@ out
 \seealso{
 \code{\link{read.ascii.vectorized.brick}}
 }
-
