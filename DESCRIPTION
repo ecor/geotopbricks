@@ -21,5 +21,5 @@ Imports:
     rgdal
 Suggests:
     soilwater
-URL: www.geotop.org
+URL: www.geotop.org, https://github.com/ecor/geotopbricks
 RoxygenNote: 6.1.1
