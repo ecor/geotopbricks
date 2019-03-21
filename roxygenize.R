@@ -25,7 +25,7 @@ library(roxygen2)
 options(repos = c(CRAN="http://cran.r-project.org"))
 
 path <- "/home/ecor/Dropbox/R-packages"
-path <- "/STORAGE/projects/R-Packages"
+##path <- "/STORAGE/projects/R-Packages"
 
 pkg_name <- "geotopbricks"
 pkg_dir <- paste(path,pkg_name,sep="/")
