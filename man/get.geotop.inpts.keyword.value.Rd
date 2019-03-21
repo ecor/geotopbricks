@@ -127,8 +127,8 @@ level <- 1:nmeteo
 
 
  \dontrun{
-# meteo <- get.geotop.inpts.keyword.value("MeteoFile",wpath=wpath,data.frame=TRUE,
-#       level=level,start_date=start,end_date=end)
+ meteo <- get.geotop.inpts.keyword.value("MeteoFile",wpath=wpath,data.frame=TRUE,
+       level=level,start_date=start,end_date=end)
 }
 
 ##### end set meteo data
@@ -138,13 +138,13 @@ level <- 1:nmeteo
  wpath <- 'https://www.rendena100.eu/public/geotopbricks/simulations/Muntatschini_pnt_1_225_B2_004'
 
 \dontrun{
-#	SMC  <- get.geotop.inpts.keyword.value("SoilLiqContentProfileFile",
-#          wpath=wpath,data.frame=TRUE,date_field="Date12.DDMMYYYYhhmm.",
-#          formatter="\%04d")
-#
-#    SMCz  <- get.geotop.inpts.keyword.value("SoilLiqContentProfileFile",
-#         wpath=wpath,data.frame=TRUE,date_field="Date12.DDMMYYYYhhmm.",
-#          formatter="\%04d",zlayer.formatter="z\%04d")
+	SMC  <- get.geotop.inpts.keyword.value("SoilLiqContentProfileFile",
+          wpath=wpath,data.frame=TRUE,date_field="Date12.DDMMYYYYhhmm.",
+          formatter="\%04d")
+
+    SMCz  <- get.geotop.inpts.keyword.value("SoilLiqContentProfileFile",
+         wpath=wpath,data.frame=TRUE,date_field="Date12.DDMMYYYYhhmm.",
+          formatter="\%04d",zlayer.formatter="z\%04d")
 }
 
 
