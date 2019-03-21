@@ -12,11 +12,13 @@ NULL
 #' @examples 
 #' library(geotopbricks)
 #' wpath <- "https://www.rendena100.eu/public/geotopbricks/simulations/idroclim_test1"
+#' \dontrun{
+#' 
 #' x <- paste(wpath,"geotop.proj",sep="/")
 #' 
 #' 
 #' crs <- getProjection(x)
-#' 
+#' }
 
 getProjection <- function(x,cond=TRUE,...) {
 	

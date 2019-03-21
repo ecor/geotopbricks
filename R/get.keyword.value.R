@@ -55,9 +55,10 @@ NULL
 #' library(geotopbricks)
 #' 
 #' #Simulation working path
-#### wpath <- 'https://www.rendena100.eu/public/geotopbricks/simulations/panola13_run2xC_test3'
+#'  \dontrun{
+#' 
 #' wpath <- 'https://www.rendena100.eu/public/geotopbricks/simulations/panola13_run2xC_test3'
- ###  wpath <- 'http://meteogis.fmach.it/idroclima//panola13_run2xC_test3'
+#'  
 #' prefix <- get.geotop.inpts.keyword.value("SoilLiqWaterPressTensorFile",wpath=wpath)
 #' 
 #' slope <- get.geotop.inpts.keyword.value("SlopeMapFile",raster=TRUE,wpath=wpath) 
@@ -89,7 +90,7 @@ NULL
 #' # Uncomment the following lises to run the R code: 
 #' 
 #' ## set meteo data
-#' 
+#' }
 #' 
 #'  \dontrun{
 #'  meteo <- get.geotop.inpts.keyword.value("MeteoFile",wpath=wpath,data.frame=TRUE,

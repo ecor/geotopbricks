@@ -131,12 +131,13 @@ NULL
 #' @examples 
 #' 
 #' library(geotopbricks)
+#' \dontrun{
 #' # The data containing in the link are only for educational use
 #' wpath <- "https://www.rendena100.eu/public/geotopbricks/simulations/idroclim_test1"
 #' x <- "SoilLiqContentTensorFile"
-#' tz <-  "Etc/GMT+1"
+#' tz <-  "Etc/GMT-1"
 #' when <- as.POSIXct("2002-03-22",tz=tz)
-#' \dontrun{
+#' 
 #' # Not Run because it elapses too long time!!! 
 #' # Please Uncomment the following lines to run by yourself!!!
 #'  b <- brickFromOutputSoil3DTensor(x,when=when,wpath=wpath,tz=tz,use.read.raster.from.url=TRUE)

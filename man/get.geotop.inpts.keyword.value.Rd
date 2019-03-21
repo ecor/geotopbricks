@@ -92,7 +92,10 @@ If \code{inpts.frame} is \code{NULL}, \code{inpts.frame} will be obtained by cal
 library(geotopbricks)
 
 #Simulation working path
+ \dontrun{
+
 wpath <- 'https://www.rendena100.eu/public/geotopbricks/simulations/panola13_run2xC_test3'
+ 
 prefix <- get.geotop.inpts.keyword.value("SoilLiqWaterPressTensorFile",wpath=wpath)
 
 slope <- get.geotop.inpts.keyword.value("SlopeMapFile",raster=TRUE,wpath=wpath) 
@@ -124,7 +127,7 @@ level <- 1:nmeteo
 # Uncomment the following lises to run the R code: 
 
 ## set meteo data
-
+}
 
  \dontrun{
  meteo <- get.geotop.inpts.keyword.value("MeteoFile",wpath=wpath,data.frame=TRUE,

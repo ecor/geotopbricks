@@ -31,12 +31,12 @@ See the example output.
 \examples{
 
 library(geotopbricks)
-
+\dontrun{
 #Simulation working path
 wpath <- 'https://www.rendena100.eu/public/geotopbricks/simulations/panola13_run2xC_test3'
 df <- declared.geotop.inpts.keywords(wpath=wpath)
 create.geotop.inpts.keyword(df=df)
-
+}
 
 
 }
