@@ -4,9 +4,15 @@
 \alias{declared.geotop.inpts.keywords}
 \title{Collects all keywords contained in the 'getop.inpts' configuration files and their values in a data frame object.}
 \usage{
-declared.geotop.inpts.keywords(wpath, inpts.file = "geotop.inpts",
-  comment = "!", exceptions = "Date", warn = FALSE,
-  no.comment = c("!>!", "!>>!"), ...)
+declared.geotop.inpts.keywords(
+  wpath,
+  inpts.file = "geotop.inpts",
+  comment = "!",
+  exceptions = "Date",
+  warn = FALSE,
+  no.comment = c("!>!", "!>>!"),
+  ...
+)
 }
 \arguments{
 \item{wpath}{working directory containing GEOtop files}

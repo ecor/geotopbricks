@@ -2,8 +2,8 @@ NULL
 #'
 #' Gets the maximum (scalar) values of a \code{\link{GeotopRasterBrick}} object 
 #' 
-#' @param x a \code{\link{GeotopRasterBrick}} object 
-#' @param ... further arguments 
+#' @param x a \code{\link{GeotopRasterBrick}} object. 
+#' @param na.rm,... further arguments for \code{\link{max}}.
 #' 
 #' 
 #' @return the maximum (scalar) values of a \code{\link{GeotopRasterBrick}} object
@@ -16,9 +16,9 @@ NULL
 #' @export 
 #'
 
-max_value <- function(x) {
+max_value <- function(x,na.rm=TRUE,...) {
 	
-	out <- max(maxValue(brick(x)),na.rm=TRUE)
+	out <- max(maxValue(brick(x)),na.rm=na.rm,...)
 	
 	return (out) 
 	

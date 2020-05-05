@@ -2,8 +2,8 @@ NULL
 #'
 #' Gets the minimum (scalar) values of a \code{\link{GeotopRasterBrick}} object 
 #' 
-#' @param x a \code{\link{GeotopRasterBrick}} object 
-#' @param ... further arguments 
+#' @param x a \code{\link{GeotopRasterBrick}} object. 
+#' @param na.rm,... further arguments foe \code{\link{min}}.
 #' 
 #' 
 #' @return the minimum (scalar) values of a \code{\link{GeotopRasterBrick}} object
@@ -16,9 +16,9 @@ NULL
 #' @export 
 #'
 
-min_value <- function(x) {
+min_value <- function(x,na.rm=TRUE,...) {
 	
-	out <- min(minValue(brick(x)),na.rm=TRUE)
+	out <- min(minValue(brick(x)),na.rm=na.rm,...)
 	
 	return (out) 
 	

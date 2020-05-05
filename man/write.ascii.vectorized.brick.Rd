@@ -4,8 +4,15 @@
 \alias{write.ascii.vectorized.brick}
 \title{Writes a z-layer brick referred to a time instant (e.g. date) in an ascii format like \code{'geotop.inpts'} file.}
 \usage{
-write.ascii.vectorized.brick(b, file = NULL, header = NULL,
-  overwrite = TRUE, NAflag = -9999, matlab.syntax = FALSE, ...)
+write.ascii.vectorized.brick(
+  b,
+  file = NULL,
+  header = NULL,
+  overwrite = TRUE,
+  NAflag = -9999,
+  matlab.syntax = FALSE,
+  ...
+)
 }
 \arguments{
 \item{b}{a \code{\link{RasterBrick-class}} or \code{\link{GeotopRasterBrick-class}} object}

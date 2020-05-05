@@ -34,9 +34,9 @@
 #' snow <- raster(file)
 #' 
 #' 
-#' snowfile <- "./temporary/snow.asc"
+#' snowfile <- rasterTmpFile()
+#' extension(snowfile) <- ".asc"
 #' 
-#' dir.create("./temporary")
 #' writeRasterxGEOtop(x=snow,file=snowfile)
 #' 
 #' 

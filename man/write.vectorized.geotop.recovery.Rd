@@ -4,8 +4,15 @@
 \alias{write.vectorized.geotop.recovery}
 \title{It writes a \code{list} object returened by \code{\link{get.geotop.recovery.state}} as a string vector or in a text file, following \code{*.inpts} or Matlab-like syntax.}
 \usage{
-write.vectorized.geotop.recovery(rec, file = NULL, header = NULL,
-  overwrite = TRUE, NAflag = -9999, matlab.syntax = TRUE, ...)
+write.vectorized.geotop.recovery(
+  rec,
+  file = NULL,
+  header = NULL,
+  overwrite = TRUE,
+  NAflag = -9999,
+  matlab.syntax = TRUE,
+  ...
+)
 }
 \arguments{
 \item{rec}{a \code{list} object returened by \code{\link{get.geotop.recovery.state}}}

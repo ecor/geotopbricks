@@ -4,8 +4,14 @@
 \alias{create.geotop.inpts.keyword}
 \title{Creates an 'geotop.inpts'  files the keyword and their values of a date.frame like the one returned by \code{\link{declared.geotop.inpts.keywords}}}
 \usage{
-create.geotop.inpts.keyword(df, file = "geotop.inpts.copy",
-  wpath = NULL, comment.lines = "default", header = "default", ...)
+create.geotop.inpts.keyword(
+  df,
+  file = "geotop.inpts.copy",
+  wpath = NULL,
+  comment.lines = "default",
+  header = "default",
+  ...
+)
 }
 \arguments{
 \item{df}{data frame returend by \code{\link{declared.geotop.inpts.keywords}}}

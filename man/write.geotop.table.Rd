@@ -4,9 +4,18 @@
 \alias{write.geotop.table}
 \title{Writes an R object (\code{data.frame} or \code{zoo}) into a CSV file readible by GEOtop.}
 \usage{
-write.geotop.table(x, file, wpath = NULL, tz = "Etc/GMT-1",
-  date_field = "Date12.DDMMYYYYhhmm.", file_end = "", sep = ",",
-  format = "\%d/\%m/\%Y \%H:\%M", na = "-9999", ...)
+write.geotop.table(
+  x,
+  file,
+  wpath = NULL,
+  tz = "Etc/GMT-1",
+  date_field = "Date12.DDMMYYYYhhmm.",
+  file_end = "",
+  sep = ",",
+  format = "\%d/\%m/\%Y \%H:\%M",
+  na = "-9999",
+  ...
+)
 }
 \arguments{
 \item{x}{R object (\code{data.frame} or \code{zoo}) to be exported and written.}

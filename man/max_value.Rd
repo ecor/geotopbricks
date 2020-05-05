@@ -4,12 +4,12 @@
 \alias{max_value}
 \title{max_value}
 \usage{
-max_value(x)
+max_value(x, na.rm = TRUE, ...)
 }
 \arguments{
-\item{x}{a \code{\link{GeotopRasterBrick}} object}
+\item{x}{a \code{\link{GeotopRasterBrick}} object.}
 
-\item{...}{further arguments}
+\item{na.rm, ...}{further arguments for \code{\link{max}}.}
 }
 \value{
 the maximum (scalar) values of a \code{\link{GeotopRasterBrick}} object

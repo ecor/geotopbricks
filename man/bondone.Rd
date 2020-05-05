@@ -31,14 +31,14 @@ The \code{\link{zoo}} object 'meteo' contains:
 The corresponding time axis vector for each observation  can be printed by typing \code{index(meteo)}.
 }
 \details{
-This data set stores all meteorological information useful for a GEOtop \url{www.geotop.org} simulation. 
+This data set stores all meteorological information useful for a GEOtop simulation. 
 The user can easily use the package with his/her own data after replacing the values of such variables.
 }
 \format{
 Data frame , 'zoo' object
 }
 \source{
-Original data are provided by Provincia Autonoma di Trento (\url{http://www.meteotrentino.it/})).
+Original data are provided by Provincia Autonoma di Trento (\url{https://www.meteotrentino.it/})).
 
 This dataset is intended for research purposes only, being distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY.
 }

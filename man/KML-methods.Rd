@@ -6,9 +6,12 @@
 \alias{KML,GeotopRasterBrick-method}
 \title{KML}
 \usage{
-\S4method{KML}{GeotopRasterBrick}(x, filename,
+\S4method{KML}{GeotopRasterBrick}(
+  x,
+  filename,
   crs = as.character("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"),
-  ...)
+  ...
+)
 }
 \arguments{
 \item{x}{the \code{\link{GeotopRasterBrick}} object}

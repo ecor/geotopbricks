@@ -4,8 +4,14 @@
 \alias{read.ascii.vectorized.brick}
 \title{Read a text file containing  values and matedata of a z-layer brick referred to a time instant (e.g. date). The file is formatted like an ascii format like \code{'geotop.inpts'} file.}
 \usage{
-read.ascii.vectorized.brick(file = NULL, comment = "!", crs = "",
-  NAflag = -9999, matlab.syntax = FALSE, ...)
+read.ascii.vectorized.brick(
+  file = NULL,
+  comment = "!",
+  crs = "",
+  NAflag = -9999,
+  matlab.syntax = FALSE,
+  ...
+)
 }
 \arguments{
 \item{file}{file name to write}

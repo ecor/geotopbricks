@@ -4,12 +4,12 @@
 \alias{min_value}
 \title{min_value}
 \usage{
-min_value(x)
+min_value(x, na.rm = TRUE, ...)
 }
 \arguments{
-\item{x}{a \code{\link{GeotopRasterBrick}} object}
+\item{x}{a \code{\link{GeotopRasterBrick}} object.}
 
-\item{...}{further arguments}
+\item{na.rm, ...}{further arguments foe \code{\link{min}}.}
 }
 \value{
 the minimum (scalar) values of a \code{\link{GeotopRasterBrick}} object

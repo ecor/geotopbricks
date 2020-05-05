@@ -4,8 +4,15 @@
 \alias{get.geotop.recovery.state}
 \title{This function saves all spatially distrubuted information contained in the recovery folder into a comprehensive \code{list} object.}
 \usage{
-get.geotop.recovery.state(recFolder, xx = "0000", formatter = "L\%04d",
-  extension = ".asc", nsoillayers = 10, layersFromDir = FALSE, ...)
+get.geotop.recovery.state(
+  recFolder,
+  xx = "0000",
+  formatter = "L\%04d",
+  extension = ".asc",
+  nsoillayers = 10,
+  layersFromDir = FALSE,
+  ...
+)
 }
 \arguments{
 \item{recFolder}{directory when recvery maps are set. In GEOtop it is ...}

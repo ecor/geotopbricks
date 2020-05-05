@@ -4,18 +4,39 @@
 \alias{get.geotop.inpts.keyword.value}
 \title{Importing a GEOtop Keyword and its Value into R}
 \usage{
-get.geotop.inpts.keyword.value(keyword, inpts.frame = NULL,
-  vector_sep = NULL, col_sep = ",", numeric = FALSE,
-  format = "\%d/\%m/\%Y \%H:\%M", date = FALSE, tz = "Etc/GMT-1",
-  raster = FALSE, file_extension = ".asc", add_wpath = FALSE,
-  wpath = NULL, use.read.raster.from.url = TRUE, data.frame = FALSE,
-  formatter = "\%04d", level = 1, date_field = "Date",
-  isNA = -9999, matlab.syntax = TRUE, projfile = "geotop.proj",
-  start_date = NULL, end_date = NULL, ContinuousRecovery = 0,
-  ContinuousRecoveryFormatter = "_crec\%04d", zlayer.formatter = NULL,
+get.geotop.inpts.keyword.value(
+  keyword,
+  inpts.frame = NULL,
+  vector_sep = NULL,
+  col_sep = ",",
+  numeric = FALSE,
+  format = "\%d/\%m/\%Y \%H:\%M",
+  date = FALSE,
+  tz = "Etc/GMT-1",
+  raster = FALSE,
+  file_extension = ".asc",
+  add_wpath = FALSE,
+  wpath = NULL,
+  use.read.raster.from.url = TRUE,
+  data.frame = FALSE,
+  formatter = "\%04d",
+  level = 1,
+  date_field = "Date",
+  isNA = -9999,
+  matlab.syntax = TRUE,
+  projfile = "geotop.proj",
+  start_date = NULL,
+  end_date = NULL,
+  ContinuousRecovery = 0,
+  ContinuousRecoveryFormatter = "_crec\%04d",
+  zlayer.formatter = NULL,
   z_unit = c("centimeters", "millimeters"),
-  geotop_z_unit = "millimeters", add_suffix_dir = NULL, MAXNROW = 4,
-  header.only = FALSE, ...)
+  geotop_z_unit = "millimeters",
+  add_suffix_dir = NULL,
+  MAXNROW = 4,
+  header.only = FALSE,
+  ...
+)
 }
 \arguments{
 \item{keyword}{keyword name}

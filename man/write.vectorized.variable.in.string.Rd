@@ -4,8 +4,12 @@
 \alias{write.vectorized.variable.in.string}
 \title{Writes one or more variables (scalars, vectors or Rasters) in a string each, following \code{*.inpts} or Matlab-like syntax.}
 \usage{
-write.vectorized.variable.in.string(l, NAflag = -9999,
-  matlab.syntax = FALSE, ...)
+write.vectorized.variable.in.string(
+  l,
+  NAflag = -9999,
+  matlab.syntax = FALSE,
+  ...
+)
 }
 \arguments{
 \item{l}{a code{list} object contained the variables (scalars, vectors or Rasters) which will be written in a string each.}

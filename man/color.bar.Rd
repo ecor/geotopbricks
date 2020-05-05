@@ -4,9 +4,19 @@
 \alias{color.bar}
 \title{Graphic Representation of a Color bar, function written by John Colby}
 \usage{
-color.bar(lut, min, max = -min, nticks = 11, ticks = seq(min, max,
-  len = nticks), title = "", width = 1.75, height = 5,
-  ncolmax = 100, digits = 4, pdf = NULL)
+color.bar(
+  lut,
+  min,
+  max = -min,
+  nticks = 11,
+  ticks = seq(min, max, len = nticks),
+  title = "",
+  width = 1.75,
+  height = 5,
+  ncolmax = 100,
+  digits = 4,
+  pdf = NULL
+)
 }
 \arguments{
 \item{lut}{see reference \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}}

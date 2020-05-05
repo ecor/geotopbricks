@@ -7,8 +7,15 @@
 \alias{brick,GeotopRasterBrick-method}
 \title{brick}
 \usage{
-\S4method{brick}{zoo}(x, layer = 1, timerange = NULL, time = NULL,
-  rows = 1:nrow(x), crs = NULL, use.read.raster.from.url = TRUE)
+\S4method{brick}{zoo}(
+  x,
+  layer = 1,
+  timerange = NULL,
+  time = NULL,
+  rows = 1:nrow(x),
+  crs = NULL,
+  use.read.raster.from.url = TRUE
+)
 
 \S4method{brick}{GeotopRasterBrick}(x)
 }

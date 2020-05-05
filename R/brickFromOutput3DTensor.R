@@ -17,7 +17,7 @@ NULL
 #' @param start_date_key,end_date_key initial and final detes and times of the GEOtop simulation or alternatively the respective keywords of \code{*.inpts} file (Default) 
 #' @param secondary.suffix String secondary suffix which can be added at the end of the Map file name (optional). Default is \code{NULL} and no secondary suffix is added.  
 #' @param only.map.filename logical value. If it is \code{TRUE}, only map file names are returned and maps are not imported. Default is \code{FALSE}.
-#' @param ... additional arguments for \code{\link{get.geotop.inpts.keyword.value}} or \code{\link{brickFromOutputSoil3DTensor}}
+#' @param add_suffix_dir,... additional arguments for \code{\link{get.geotop.inpts.keyword.value}} or \code{\link{brickFromOutputSoil3DTensor}}
 #'  
 #' @rdname brickFromOutputSoil3DTensor
 #' @author Emanuele Cordano
@@ -101,7 +101,7 @@ NULL
 #' 
 #' \code{"WindDirMapFile"}, 
 #'                   
-#' \code{"RelHumMapFile"}, 
+#' \code{"RelHumMapFiladd_suffix_dir=NULLe"}, 
 #'    
 #' \code{"SWEMapFile"},    
 #'    
@@ -160,7 +160,7 @@ NULL
 
 
 
-brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one.layer=FALSE,suffix="L%04dN%04d.asc",time_formatter="N%04d",suffix_one.layer="N%04d.asc",wpath=NULL,tz="A",start_date_key="InitDateDDMMYYYYhhmm",end_date_key="EndDateDDMMYYYYhhmm",timestep="OutputSoilMaps",use.read.raster.from.url=FALSE,crs=NULL,projfile="geotop.proj",start.from.zero=FALSE,secondary.suffix=NULL,only.map.filename=FALSE,...) {
+brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one.layer=FALSE,suffix="L%04dN%04d.asc",time_formatter="N%04d",suffix_one.layer="N%04d.asc",wpath=NULL,tz="A",start_date_key="InitDateDDMMYYYYhhmm",end_date_key="EndDateDDMMYYYYhhmm",timestep="OutputSoilMaps",use.read.raster.from.url=FALSE,crs=NULL,projfile="geotop.proj",start.from.zero=FALSE,secondary.suffix=NULL,only.map.filename=FALSE,add_suffix_dir=NULL,...) {
 	
 	out <- NULL
 
@@ -185,11 +185,11 @@ brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one
 	
 	
 	
-	start_s <- geotopbricks::get.geotop.inpts.keyword.value(start_date_key,date=TRUE,wpath=wpath,tz=tz,...) ###wpath=wpath,tz="A")
-	end_s <- geotopbricks::get.geotop.inpts.keyword.value(end_date_key,date=TRUE,wpath=wpath,tz=tz,...) ###wpath=wpath,tz="A")
+	start_s <- geotopbricks::get.geotop.inpts.keyword.value(start_date_key,date=TRUE,wpath=wpath,tz=tz,add_suffix_dir=NULL,...) ###wpath=wpath,tz="A")
+	end_s <- geotopbricks::get.geotop.inpts.keyword.value(end_date_key,date=TRUE,wpath=wpath,tz=tz,add_suffix_dir=NULL,...) ###wpath=wpath,tz="A")
 	
 	
-	if (!is.numeric(timestep)) timestep <- geotopbricks::get.geotop.inpts.keyword.value(timestep,wpath=wpath,numeric=TRUE,...)*3600 
+	if (!is.numeric(timestep)) timestep <- geotopbricks::get.geotop.inpts.keyword.value(timestep,wpath=wpath,numeric=TRUE,add_suffix_dir=NULL,...)*3600 
 	
 	time <- seq(from=start_s,to=end_s,by=timestep)
 	
@@ -205,7 +205,7 @@ brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one
 		if (layers=="SoilLayerThicknesses") {
 		
 			###get.geotop.inpts.keyword.value("SoilLayerThicknesses",numeric=TRUE,wpath=wpath,...)
-			layers <- geotopbricks::get.geotop.inpts.keyword.value("SoilLayerThicknesses",numeric=TRUE,wpath=wpath,...) ####wpath=wpath)
+			layers <- geotopbricks::get.geotop.inpts.keyword.value("SoilLayerThicknesses",numeric=TRUE,wpath=wpath,add_suffix_dir=NULL,...) ####wpath=wpath)
 			###print(layers)
 			if (is.null(layers)) {
 				layers <-  "SoilParFile"
@@ -219,9 +219,9 @@ brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one
 		if (layers[1]=="SoilParFile") {
 			
 			
-			headerDz <- geotopbricks::get.geotop.inpts.keyword.value("HeaderSoilDz",wpath=wpath,...)[1]
+			headerDz <- geotopbricks::get.geotop.inpts.keyword.value("HeaderSoilDz",wpath=wpath,add_suffix_dir=NULL,...)[1]
 			if (is.null(headerDz)) headerDz <- "Dz"
-			layers <- geotopbricks::get.geotop.inpts.keyword.value("SoilParFile",wpath=wpath,add_wpath=TRUE,data.frame=TRUE,level=1,date_field=NULL,...)[,headerDz]
+			layers <- geotopbricks::get.geotop.inpts.keyword.value("SoilParFile",wpath=wpath,add_wpath=TRUE,data.frame=TRUE,level=1,date_field=NULL,add_suffix_dir=NULL,...)[,headerDz]
 			
 		
 			
@@ -233,7 +233,7 @@ brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one
 		
 		### SoilLayerNumber
 			
-			nl <- geotopbricks::get.geotop.inpts.keyword.value("SoilLayerNumber",numeric=TRUE,wpath=wpath,...)[1]
+			nl <- geotopbricks::get.geotop.inpts.keyword.value("SoilLayerNumber",numeric=TRUE,wpath=wpath,add_suffix_dir=NULL,...)[1]
 			if (!is.null(nl)) layers <- 1:nl
 		
 		} 
@@ -249,7 +249,7 @@ brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one
 		
 	}
 	
-	map.prefix <- geotopbricks::get.geotop.inpts.keyword.value(x,numeric=FALSE,date=FALSE,wpath=wpath,add_wpath=TRUE,...)
+	map.prefix <- geotopbricks::get.geotop.inpts.keyword.value(x,numeric=FALSE,date=FALSE,wpath=wpath,add_wpath=TRUE,add_suffix_dir=add_suffix_dir,...)
 	
 	
 	if (!is.null(secondary.suffix)) {

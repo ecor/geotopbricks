@@ -10,19 +10,19 @@ A GeotopRasterBrick: an object to manage raster maps provied by GEOtop!!
 }
 \details{
 \describe{
-    \item{\code{ascpath}:}{A \code{"zoo"} S3 object containing the names of ascii maps provided by GEOtop
+    \item{\code{ascpath}:}{A \code{"zoo"} S3 object containing the names of ascii maps provided by GEOtop 
 
-}
+ }
  \item{\code{index}:}{A \code{"POSIXt"} S3 object containing time or dates on which raster layers of \code{brick} are referred
 
-}
+ }
  \item{\code{layer}:}{character. Name of the vertical layer at which raster map are referred
 
-}
-\item{\code{brick}:}{A \code{"RasterBrick-class"} S4 object containing the  Raster-Layer maps imported from GEOtop output files
+ }
+\item{\code{brick}:}{A \code{"RasterBrick-class"} S4 object containing the  Raster-Layer maps imported from GEOtop output files   
 
+ }   
 }   
-}
 
 #' @note A \code{GeotopRasterBrick} object can be created by \code{new("GeotopRasterBrick", ...)}
 }

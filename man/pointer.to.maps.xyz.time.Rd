@@ -5,8 +5,14 @@
 \alias{pointer.to.maps.xy.time}
 \title{pointer.to.maps.xyz.time}
 \usage{
-pointer.to.maps.xyz.time(wpath, map.prefix = "thetaliq",
-  suffix = "L\%04dN\%04d.asc", zoo.index = NULL, ntime, nlayers)
+pointer.to.maps.xyz.time(
+  wpath,
+  map.prefix = "thetaliq",
+  suffix = "L\%04dN\%04d.asc",
+  zoo.index = NULL,
+  ntime,
+  nlayers
+)
 }
 \arguments{
 \item{wpath}{complete working path to *.asc maps are saved}
