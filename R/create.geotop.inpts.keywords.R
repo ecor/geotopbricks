@@ -31,13 +31,16 @@ NULL
 #' 
 #' 
 #' @export
+#' 
 #' @examples 
 #' 
-# library(stringr)
 #' library(geotopbricks)
 #' \dontrun{
 #' #Simulation working path
-#' wpath <- 'https://www.rendena100.eu/public/geotopbricks/simulations/panola13_run2xC_test3'
+#' wpath <- 
+#' 'https://raw.githubusercontent.com/ecor/geotopbricks_doc/master/simulations/panola13_run2xC_test3'
+#' ## URL path (RAW VERSION) of 
+#' ## https://github.com/ecor/geotopbricks_doc/tree/master/simulations/panola13_run2xC_test3
 #' df <- declared.geotop.inpts.keywords(wpath=wpath)
 #' create.geotop.inpts.keyword(df=df)
 #' }

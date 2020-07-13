@@ -1,30 +1,3 @@
-geotopbricks
-============
-R plug-in 
-Development of CRAN R package geotopbricks (http://cran.r-project.org/web/packages/geotopbricks)
-
-To install this package on R fram R console:
-
-```{r}
-
->library(devtools)
-
->library(reotes)
-
->install_github("ecor/geotopbricks")
-
-```
-
-![](inst/sticker/sticker_geotopbricks.png){width=50%}
-
-## Getting Started 
-
-
-
-
-
-
-```{r}
 library(geotopbricks)
 
 #Simulation working path
@@ -92,4 +65,3 @@ SMCz  <- get.geotop.inpts.keyword.value("SoilLiqContentProfileFile",
 
 
 
-```

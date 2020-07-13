@@ -11,7 +11,10 @@ NULL
 #' @return A string corresponding the projection and CRS if the argument \code{cond} is \code{TRUE}. 
 #' @examples 
 #' library(geotopbricks)
-#' wpath <- "https://www.rendena100.eu/public/geotopbricks/simulations/idroclim_test1"
+#' 
+#' wpath <- 'https://raw.githubusercontent.com/ecor/geotopbricks_doc/master/simulations/idroclim_test1'
+#' ## URL path  (RAW VERSION) of 
+#' ## https://github.com/ecor/geotopbricks_doc/tree/master/simulations/idroclim_test1
 #' \dontrun{
 #' 
 #' x <- paste(wpath,"geotop.proj",sep="/")

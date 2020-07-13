@@ -165,7 +165,9 @@ The functionswork with the following output keywords:
 library(geotopbricks)
 \dontrun{
 # The data containing in the link are only for educational use
-wpath <- "https://www.rendena100.eu/public/geotopbricks/simulations/idroclim_test1"
+wpath <- 'https://raw.githubusercontent.com/ecor/geotopbricks_doc/master/simulations/idroclim_test1'
+## URL path (RAW VERSION) of 
+## https://github.com/ecor/geotopbricks_doc/tree/master/simulations/idroclim_test1
 x <- "SoilLiqContentTensorFile"
 tz <-  "Etc/GMT-1"
 when <- as.POSIXct("2002-03-22",tz=tz)

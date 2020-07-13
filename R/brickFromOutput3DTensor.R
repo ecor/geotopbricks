@@ -121,7 +121,7 @@ NULL
 #' 
 #' \code{"EvapotranspirationFromSoilMapFile"} for \code{\link{rasterFromOutput2DMap}}.
 #' 
-
+#' 
 #' 
 #' 
 #' @seealso \code{\link{get.geotop.inpts.keyword.value}},\code{\link{brick.decimal.formatter}}
@@ -133,7 +133,9 @@ NULL
 #' library(geotopbricks)
 #' \dontrun{
 #' # The data containing in the link are only for educational use
-#' wpath <- "https://www.rendena100.eu/public/geotopbricks/simulations/idroclim_test1"
+#' wpath <- 'https://raw.githubusercontent.com/ecor/geotopbricks_doc/master/simulations/idroclim_test1'
+#' ## URL path (RAW VERSION) of 
+#' ## https://github.com/ecor/geotopbricks_doc/tree/master/simulations/idroclim_test1
 #' x <- "SoilLiqContentTensorFile"
 #' tz <-  "Etc/GMT-1"
 #' when <- as.POSIXct("2002-03-22",tz=tz)
