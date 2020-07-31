@@ -120,8 +120,8 @@ declared.geotop.inpts.keywords <- function(wpath,inpts.file="geotop.inpts",comme
 	split="="
 	x <- x[str_detect(x,split)]
 	
-	xout <- str_split(x,split)
-	
+	##xout <- str_split(x,split) ## TO REPLAACE with xout <- str_split(x,split,n=2)
+	xout <- str_split(x,split,n=2) ## replaced on 20200731
 	out <- as.data.frame(array(NA,c((length(xout)),2)))
 	
 	names(out) <- c("Keyword","Value")
