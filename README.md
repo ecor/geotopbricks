@@ -15,8 +15,9 @@ To install this package on R fram R console:
 
 ```
 
-![](inst/sticker/sticker_geotopbricks.png){width=0.50/width}
+![](inst/sticker/sticker_geotopbricks_v2.png)
 
+![](inst/sticker/sticker_geotopbricks_v1.png)
 ## Getting Started 
 
 
