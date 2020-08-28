@@ -14,10 +14,14 @@ To install this package on R fram R console:
 >install_github("ecor/geotopbricks")
 
 ```
+<img src="inst/sticker/sticker_geotopbricks_v1.png"  width="400"/>
+<img src="inst/sticker/sticker_geotopbricks_v2_.png"  width="400"/>
 
-![](inst/sticker/sticker_geotopbricks_v2.png)
+<!--![image](inst/sticker/sticker_geotopbricks_v2_.png)
+![image](inst/sticker/sticker_geotopbricks_v1.png) -->
 
-![](inst/sticker/sticker_geotopbricks_v1.png)
+
+
 ## Getting Started 
 
 
