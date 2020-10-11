@@ -579,7 +579,7 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 		 
 		 if (length(out)==1) out <- out[[1]] ## added by EC on 20150313
 		 
-		 if (is.data.frame(out) | is.zoo(out)) if (nrow(out)<MAXNROW) {
+		 if ((is.data.frame(out) | is.zoo(out)) & !is.null(nrow(out))) if (nrow(out)<MAXNROW) { ## EC 20201010
 			 
 			 out <- NULL
 			 
