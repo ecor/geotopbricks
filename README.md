@@ -102,4 +102,5 @@ SMCz  <- get.geotop.inpts.keyword.value("SoilLiqContentProfileFile",
 ## Further Presentations
 
 Repository containing source code / scripts of conference documentiation and presentations: https://github.com/ecor/geotopbricks_doc
+
 UseR 2019, July 10, Toulouse,France presentation's video: https://www.youtube.com/watch?v=sKMCyoOnpf8
