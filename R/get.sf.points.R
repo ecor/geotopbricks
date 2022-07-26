@@ -5,22 +5,24 @@ NULL
 #' @param suffixes keyword suffixes
 #' @param coord_suffixes coordinate keyword suffixes. Default is \code{c("PointX","PointY")}
 #' @param wpath GEOtop simulation path 
-#' @param ... further arguments for \code{\link{get.geotop.inpts.keyword.value}}
+#' @param vector_sep,... further arguments for \code{\link{get.geotop.inpts.keyword.value}}
 #'
-#'
-#'
+#' @importFrom sf st_point st_sf st_sfc
+#' 
+#' @export
+#' 
 #' @examples
 #' 
-#' wpath <- "/stablo/local/simulations/sumava_test009b_distr/"
+#' wpath <- system.file("template/sumava",package="geotopbricks") 
 #' out <- get.geotop.points(wpath=wpath)
 #' out <- get.geotop.points(prefix="CoordinatePoint",suffix=c("Code","Source"),wpath=wpath)
-#'  out <- get.geotop.points(prefix="MeteoStation",suffix=c("Code","Source"),wpath=wpath)
+#' out <- get.geotop.points(prefix="MeteoStation",suffix=c("Code","Source"),wpath=wpath)
+
 
 get.geotop.points <- function(prefix=c("MeteoStation","CoordinatePoint"),suffixes=c("Code","Elevation","Source"),coord_suffixes=list(MeteoStation=c("CoordinateX","CoordinateY"),CoordinatePoint=c("X","Y")),wpath,...,vector_sep=",") {
 
 
-##celevm <- colorNumeric(rev(brewer.pal(11,"BrBG")),domain=seq(from=0,to=1500,by=100))
-###
+
 if (!(prefix[[1]] %in% names(coord_suffixes)))  {
   
   stop("prefix and coord_suffixes not supported!")

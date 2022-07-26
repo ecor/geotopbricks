@@ -1,0 +1,24 @@
+Model: GEOtop
+Compiler: c++ (gcc 5.4.0 "c++ (Ubuntu 5.4.0-6ubuntu1~16.04.9) 5.4.0 20160609")
+Processor: Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz
+Author:  Emanuele Cordano (emanuele.cordano@rendena100.eu),Elisa Bartoli (elisa.bartoli@gmail.com)
+Date: 2020-05-04
+
+Name: sumava
+
+Description: Simulations of Snow Map for two days in march 2014 in the Bavarian Forest National Park (Germany) and Sumava National Park (Czech Republic).  
+Sumava National Park (Czech Republic)  , https://en.wikipedia.org/wiki/%C5%A0umava_National_Park
+Bohemian Forest (Sumava)(Germany) , https://en.wikipedia.org/wiki/Bohemian_Forest
+Bavarian National  Forest (Germany)  , https://en.wikipedia.org/wiki/Bavarian_Forest_National_Park
+
+Time:
+- 01/03/2014 00:00
+- 01/03/2014 10:00
+
+Output:
+- tabs (3): every 1 hour (basin,discharge,snowcover)
+- maps (4): every 10 hours (hsup,snowdepth,SWEDENSITY,SWE)
+
+Comments:
+SnowProfileFile = "output-tabs/snow"
+is NOT printed.
