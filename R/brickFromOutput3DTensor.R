@@ -332,7 +332,7 @@ brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one
 			
 			} else {
 				
-				
+				message(map.filename)
 				out <- brick.decimal.formatter(map.filename,nlayers=length(layers),use.read.raster.from.url=use.read.raster.from.url,start.from.zero=start.from.zero,crs=crs)
 		
 				if (start.from.zero) {
