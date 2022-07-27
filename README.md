@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/16135363.svg)](https://zenodo.org/badge/latestdoi/16135363)
+
 geotopbricks
 ============
 R plug-in 
