@@ -41,7 +41,7 @@ Imports a brick of raster ascii maps into a 'brick' object
 \examples{
 library(geotopbricks)
 library(raster)
-file <- system.file("doc/examples/snowthickness",package="geotopbricks")
+file <- system.file("example_files/examples/snowthickness",package="geotopbricks")
 file <- paste(file,"SnowThickness0000L\%04d.asc",sep="/")
 # nlayers=15
 nlayers <- 6 ## Only 6 layers are read to minimize the elapsed time of the example!!
