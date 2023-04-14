@@ -82,17 +82,22 @@ NULL
 #' 
 #' 
 #' ##### set meteo data
-#' \dontrun{
+#' \donttest{
 #' 
 #' tz <- "Etc/GMT-1"  ## See help(timezones) In particular:
-#' ## Most platforms support time zones of the form Etc/GMT+n and Etc/GMT-n (possibly also without prefix Etc/), 
-#' ## which assume a fixed offset from UTC (hence no DST). Contrary to some expectations 
+#' ## Most platforms support time zones of the form Etc/GMT+n 
+#' ## and Etc/GMT-n (possibly also without prefix Etc/), 
+#' ## which assume a fixed offset from UTC (hence no DST). 
+#' ## Contrary to some expectations 
 #' ## (but consistent with names such as PST8PDT), negative offsets are times ahead of (east of) UTC, 
 #' ## positive offsets are times behind (west of) UTC.
-#' start <-  get.geotop.inpts.keyword.value("InitDateDDMMYYYYhhmm",date=TRUE,wpath=wpath,tz=tz) 
-#' end <- get.geotop.inpts.keyword.value("EndDateDDMMYYYYhhmm",date=TRUE,wpath=wpath,tz=tz) 
+#' start <-  get.geotop.inpts.keyword.value("InitDateDDMMYYYYhhmm",
+#' date=TRUE,wpath=wpath,tz=tz) 
+#' end <- get.geotop.inpts.keyword.value("EndDateDDMMYYYYhhmm",
+#' date=TRUE,wpath=wpath,tz=tz) 
 #' 
-#' nmeteo <- get.geotop.inpts.keyword.value("NumberOfMeteoStations",numeric=TRUE,wpath=wpath)
+#' nmeteo <- get.geotop.inpts.keyword.value("NumberOfMeteoStations",
+#' numeric=TRUE,wpath=wpath)
 #' level <- 1:nmeteo
 #' 
 #' ## set meteo data
@@ -110,7 +115,7 @@ NULL
 #' 'https://raw.githubusercontent.com/ecor/geotopbricks_doc/master/simulations/Muntatschini_pnt_1_225_B2_004'
 #' ## URL Path (RAW VERSION) of 
 #' ## https://github.com/ecor/geotopbricks_doc/tree/master/simulations/Muntatschini_pnt_1_225_B2_004
-#' \dontrun{
+#' \donttest{
 #' 	SMC  <- get.geotop.inpts.keyword.value("SoilLiqContentProfileFile",
 #'           wpath=wpath,data.frame=TRUE,date_field="Date12.DDMMYYYYhhmm.",
 #'           formatter="%04d")
