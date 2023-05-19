@@ -42,6 +42,7 @@ NULL
 #' @export 
 #' 
 #' @note If \code{inpts.frame} is \code{NULL}, \code{inpts.frame} will be obtained by calling the function \code{\link{declared.geotop.inpts.keywords}} with \code{...} arguments.
+#'
 #' @return the keyword value 
 #' @import stringr 
 #' @import zoo
@@ -111,8 +112,9 @@ NULL
 #' ## IMPORTING AN OUTPUT SOIL MOISTURE PROFILE: 
 #' 
 #' 
-#' wpath <-  
-#' 'https://raw.githubusercontent.com/ecor/geotopbricks_doc/master/simulations/Muntatschini_pnt_1_225_B2_004'
+#' wpath <-  paste0(
+#' 'https://raw.githubusercontent.com/ecor/geotopbricks_doc/',
+#' 'master/simulations/Muntatschini_pnt_1_225_B2_004')
 #' ## URL Path (RAW VERSION) of 
 #' ## https://github.com/ecor/geotopbricks_doc/tree/master/simulations/Muntatschini_pnt_1_225_B2_004
 #' \donttest{

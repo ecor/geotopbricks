@@ -19,7 +19,7 @@ NULL
 #' @rdname Ops-methods
 #' @keywords methods
 #' @docType methods
-#' @method Ops GeotopRasterBrick GeotopRasterBrick
+# @method Ops GeotopRasterBrick GeotopRasterBrick
 #' @aliases Ops,GeotopRasterBrick,GeotopRasterBrick-method
 
 
@@ -80,7 +80,7 @@ NULL
 #' @rdname Ops-methods
 #' 
 #' 
-#' @method Ops GeotopRasterBrick numeric
+# @method Ops GeotopRasterBrick numeric
 #' @aliases Ops,GeotopRasterBrick,numeric-method
 setMethod("Ops", signature(e1='GeotopRasterBrick', e2='numeric'),
 		function(e1,e2) {
@@ -99,14 +99,13 @@ NULL
 
 #'
 #' @export
-#' @rdname Ops-methods
 #' 
 #' 
 #' 
 #' @rdname Ops-methods
 # @keywords methods
 # @docType methods
-#' @method Ops numeric GeotopRasterBrick
+# @method Ops numeric GeotopRasterBrick
 #' @aliases Ops,numeric,GeotopRasterBrick-method
 
 setMethod("Ops", signature(e1='numeric', e2='GeotopRasterBrick'),
