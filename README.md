@@ -26,7 +26,7 @@ To install this package on R fram R console:
 
 ## Getting Started 
 
-
+Try to run the following lines of code. More material also on https://github.com/ecor/geotopbricks_doc  .
 
 
 
