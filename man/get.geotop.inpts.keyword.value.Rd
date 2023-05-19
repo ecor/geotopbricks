@@ -170,8 +170,9 @@ level <- 1:nmeteo
 ## IMPORTING AN OUTPUT SOIL MOISTURE PROFILE: 
 
 
-wpath <-  
-'https://raw.githubusercontent.com/ecor/geotopbricks_doc/master/simulations/Muntatschini_pnt_1_225_B2_004'
+wpath <-  paste0(
+'https://raw.githubusercontent.com/ecor/geotopbricks_doc/',
+'master/simulations/Muntatschini_pnt_1_225_B2_004')
 ## URL Path (RAW VERSION) of 
 ## https://github.com/ecor/geotopbricks_doc/tree/master/simulations/Muntatschini_pnt_1_225_B2_004
 \donttest{

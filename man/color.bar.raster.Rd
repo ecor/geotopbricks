@@ -23,8 +23,10 @@ library(geotopbricks)
 
 ## Simulation working path
 
-file <- system.file("rendena100/SnowDepthMapFile-2014-MA-mean-winter-2013-2014.asc",
-package="geotopbricks")
+##file <- system.file("rendena100/SnowDepthMapFile-2014-MA-mean-winter-2013-2014.asc",
+##package="geotopbricks")
+file <- paste0("https://raw.githubusercontent.com/ecor/geotopbricks_doc/master/template/",
+"rendena100/SnowDepthMapFile-2014-MA-mean-winter-2013-2014.asc")
 snow <- raster(file)
 
 min <- 0 # snow depth expressed in millimeters

@@ -3,7 +3,7 @@ NULL
 #' 
 #' @param x the \code{\link{GeotopRasterBrick}} object
 #' @param filename mane of the KML file to produce
-#' @param crs character string containg the LatLon reference system. Default is \code{"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"} (see \url{http://spatialreference.org/ref/epsg/4326/}). 
+#' @param crs character string containing the LatLon reference system. Default is \code{"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"} (see \url{http://spatialreference.org/ref/epsg/4326/}). 
 #' @param ... further argument for S4 method \code{KLM} for Raster object.
 #' 
 #' @note A coordinate transformation is made with \code{\link{projectRaster}}. 
@@ -22,14 +22,12 @@ NULL
 #' 
 #' 
 #' library(geotopbricks)
-#' # The examples is the following R script conteined in a 'inst' directory of the package source
+#' # The examples is the following R script contained in a 'inst' directory of the package source
 #' f <- system.file("doc/examples/example.KML.GeotopRasterBrick.R",package="geotopbricks")
-#' \dotrun{
+#' \dontrun{
 #'   source(f) # Uncomment this line to run the example. 
 #' } 
-#' ' # You can copy the example file using file.copy(from=f,to=....,...) See file.copy documentation
-
-
+#' # You can copy the example file using file.copy(from=f,to=....,...) See file.copy documentation
 ### NO \code{as.charachter("+init=epsg:4326")}(see URL)
 # rm(list=ls())
 # library(rgdal)
