@@ -21,4 +21,4 @@ Imports:
 Suggests:
     soilwater
 URL: https://www.geotop.org, https://github.com/ecor/geotopbricks
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
