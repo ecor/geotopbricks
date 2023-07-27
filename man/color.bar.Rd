@@ -19,17 +19,17 @@ color.bar(
 )
 }
 \arguments{
-\item{lut}{see reference \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}}
+\item{lut}{see reference \url{https://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}}
 
-\item{min}{see reference \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}}
+\item{min}{see reference \url{https://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}}
 
-\item{max}{see reference \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}}
+\item{max}{see reference \url{https://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}}
 
-\item{nticks}{see reference \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}}
+\item{nticks}{see reference \url{https://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}}
 
-\item{ticks}{see reference \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}}
+\item{ticks}{see reference \url{https://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}}
 
-\item{title}{see reference \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}}
+\item{title}{see reference \url{https://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}}
 
 \item{width, height}{width and height of the device}
 
@@ -55,5 +55,5 @@ color.bar(colorRampPalette(c("light green", "yellow", "orange", "red"))(100), -1
 \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}
 }
 \author{
-John Colby \url{http://stackoverflow.com/users/412342/john-colby}
+John Colby \url{https://stackoverflow.com/users/412342/john-colby}
 }

@@ -56,8 +56,8 @@ write.ascii.vectorized.brick <- function(b,file=NULL,header=NULL,overwrite=TRUE,
 	
 	
 	
-	if (class(b)=="GeotopRasterBrick") b <- brick(b)
-
+  #	if (class(b)=="GeotopRasterBrick") b <- brick(b) ## 20230721
+	if (is(b,"GeotopRasterBrick")) b <- brick(b)
 	l <- base::list(...)
 	l$xmx <- xmax(b)
 	l$ymx <- ymax(b)

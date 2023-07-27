@@ -14,14 +14,15 @@ NULL
 #' @param ... further arguments for \code{\link{write.table}}.
 #' 
 #' @importFrom utils write.table
-#' 
+#' @importFrom methods is
 #' @export
 #' 
 
 write.geotop.table <- function(x,file,wpath=NULL,tz = "Etc/GMT-1",date_field="Date12.DDMMYYYYhhmm.",
 		file_end = "",sep=",",format="%d/%m/%Y %H:%M", na = "-9999",...) {
 	
-	if (class(x)=="zoo") {
+#	if (class(x)=="zoo") {
+	if (is(x,"zoo")) { 
 	    time <- as.POSIXct(index(x))
 	    time <- as.POSIXlt(time,tz=tz)
 		x <- as.data.frame(x)

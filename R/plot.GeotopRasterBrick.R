@@ -39,14 +39,14 @@ NULL
 ### working path for 3D distributed raster maps 
 ### The study case of Ton-Toss (Val di Non, Trentino, Italy)
 #
-#wpath <- 'http://meteogis.fmach.it/idroclima/ton-toss' 
+#wpath <- 'http://www.rendena100.eu/public/geotopbricks/simulations/ton-toss' ## or 'http://meteogis.fmach.it/idroclima/ton-toss' 
 ## WARNING: In order to save disk space, some files of this simulation (unuseful for the example) were removed !!!!
 ## keyword for water content 3D+time output raster maps
 #watercontent_prefix <- get.geotop.inpts.keyword.value("SoilLiqContentTensorFile",wpath=wpath) #"thetaliq"
 ##  crs projection
 #crs  <-"+proj=utm +zone=32 +ellps=WGS84 +datum=WGS84 +units=m +no_defs "
 #
-##  vector with vertical layer thckness  
+##  vector with vertical layer thickness  
 #
 #layers <- get.geotop.inpts.keyword.value("SoilLayerThicknesses",numeric=TRUE,wpath=wpath) 
 #names(layers) <- paste("L",1:length(layers))

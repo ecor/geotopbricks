@@ -63,7 +63,8 @@ write.vectorized.variable.in.string <- function(l,NAflag=-9999,matlab.syntax=FAL
 			return(out)
 		} else if (length(x)>1) {
 		
-			if (class(x)=="RasterBrick" | class(x)=="RasterLayer") {
+#			if (class(x)=="RasterBrick" | class(x)=="RasterLayer") { 20230721
+			if (is(x,"RasterBrick") | is(x,"RasterLayer")) {
 				vals <- as.vector(getValues(x))
 			
 			

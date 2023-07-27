@@ -59,7 +59,7 @@ options(scipen=99999) # It remove scientific notation
 	 
  }
  
-if (class(x)=="RasterBrick") {
+if (is(x,"RasterBrick")) {
 
 	if ((length(filename)!=nlayers(x)) | (use.decimal.formatter) ) {
 		

@@ -1,16 +1,16 @@
 NULL
 #'
-#' It imports a 'RasterLayer' object in Escri-Asci format from a URL 'http://....<FILENAME>.asc
+#' It imports a 'RasterLayer' object in Escri-Asci format from a URL 'http(s)://....<FILENAME>.asc
 #' 
 #' @param x the charcater string containing the URL address
-#' @param header_nrow Number of header in the ASCII grid format. Deafault is 6. See \url{http://en.wikipedia.org/wiki/Esri_grid}
+#' @param header_nrow Number of header in the ASCII grid format. Deafault is 6. See \url{https://en.wikipedia.org/wiki/Esri_grid}
 #' @param ... additional arguments
 #'
-#' @note This function reads a local or remote text files formatted as \url{http://en.wikipedia.org/wiki/Esri_grid} and creates a 'RasterLayer' object.
+#' @note This function reads a local or remote text files formatted as \url{https://en.wikipedia.org/wiki/Esri_grid} and creates a 'RasterLayer' object.
 #' @export 
 #' @return a 'RasterLayer' object
 #' @seealso \code{\link{raster}},\code{\link{readLines}}
-###,\url{http://en.wikipedia.org/wiki/Esri_grid}
+###,\url{https://en.wikipedia.org/wiki/Esri_grid}
 #' 
 
 read.raster.from.url <- function(x,header_nrow=6,...) {

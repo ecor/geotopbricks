@@ -38,8 +38,8 @@ color.bar.raster <- function(x,col,min=NA,max=NA,...) {
 	smin <- min
 	smax <- max
 	
-	if (class(x)=="GeotopRasterBrick") {
-	
+#	if (class(x)=="GeotopRasterBrick") {20230721
+	if (is(x,"GeotopRasterBrick")) {
 		min <- min_value(x)
 		max <- max_value(x)
 	

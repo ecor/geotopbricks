@@ -2,18 +2,18 @@ NULL
 #'
 #' Graphic Representation of a Color bar, function written by John Colby
 #' 
-#' @param lut see reference \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette} 
-#' @param min see reference \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette} 
-#' @param max see reference \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette} 
-#' @param nticks see reference \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}
-#' @param ticks see reference \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette} 
-#' @param title see reference \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette} 
+#' @param lut see reference \url{https://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette} 
+#' @param min see reference \url{https://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette} 
+#' @param max see reference \url{https://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette} 
+#' @param nticks see reference \url{https://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}
+#' @param ticks see reference \url{https://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette} 
+#' @param title see reference \url{https://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette} 
 #' @param width,height width and height of the device 
 #' @param digits specified number of significant digits
 #' @param pdf character value for pdf output file.  Default is \code{NULL} and no pdf file is created. 
 #' @param ncolmax maximum number of colors. Default is 100. 
 #' 
-#' @author John Colby \url{http://stackoverflow.com/users/412342/john-colby}
+#' @author John Colby \url{https://stackoverflow.com/users/412342/john-colby}
 #' @export
 #' @name color.bar
 #' @note This function is taken from \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}. Plese visit the URL for major details and give your feedback if possible. 
