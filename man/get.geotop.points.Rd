@@ -30,9 +30,13 @@ Get a \code{\link{sf}} object for Meteorological Stations or Control Points in a
 }
 \examples{
 
-wpath <- "https://github.com/ecor/geotopbricks_doc/tree/master/template/sumava"
+\donttest{
+###See simulation template: "https://github.com/ecor/geotopbricks_doc/tree/master/template/sumava"
+wpath <- "https://raw.githubusercontent.com/ecor/geotopbricks_doc/master/template/sumava/"
 ## system.file("template/sumava",package="geotopbricks") 
 out <- get.geotop.points(wpath=wpath)
 out <- get.geotop.points(prefix="CoordinatePoint",suffix=c("Code","Source"),wpath=wpath)
 out <- get.geotop.points(prefix="MeteoStation",suffix=c("Code","Source"),wpath=wpath)
+
+}
 }
