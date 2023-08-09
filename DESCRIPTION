@@ -1,6 +1,6 @@
 Package: geotopbricks
 Maintainer: Emanuele Cordano <emanuele.cordano@gmail.com>
-License: GPL (>= 2) + file LICENSE
+License: GPL (>= 3) + file LICENSE
 Title: An R Plug-in for the Distributed Hydrological Model GEOtop
 Type: Package
 Author: Emanuele Cordano
