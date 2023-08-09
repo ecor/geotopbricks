@@ -3,11 +3,7 @@ NULL
 #' 
 #' @param x the \code{\link{GeotopRasterBrick}} object
 #' @param filename mane of the KML file to produce
-<<<<<<< HEAD
 #' @param crs character string containing the LatLon reference system. Default is \code{"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"} (see \url{https://spatialreference.org/ref/epsg/4326/}). 
-=======
-#' @param crs character string containing the LatLon reference system. Default is \code{"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"} (see \url{http://spatialreference.org/ref/epsg/4326/}). 
->>>>>>> edd8fbfd9cd235b0847959439784fc381a76ce43
 #' @param ... further argument for S4 method \code{KLM} for Raster object.
 #' 
 #' @note A coordinate transformation is made with \code{\link{projectRaster}}. 
