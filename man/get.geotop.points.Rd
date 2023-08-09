@@ -7,8 +7,13 @@
 get.geotop.points(
   prefix = c("MeteoStation", "CoordinatePoint"),
   suffixes = c("Code", "Elevation", "Source"),
+<<<<<<< HEAD
   coord_suffixes = list(MeteoStation = c("CoordinateX", "CoordinateY"), CoordinatePoint =
     c("X", "Y")),
+=======
+  coord_suffixes = list(MeteoStation = c("CoordinateX", "CoordinateY"), CoordinatePoint
+    = c("X", "Y")),
+>>>>>>> edd8fbfd9cd235b0847959439784fc381a76ce43
   wpath,
   ...,
   vector_sep = ","
