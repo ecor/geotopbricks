@@ -43,7 +43,7 @@ color.bar(
 Graphic Representation of a Color bar, function written by John Colby
 }
 \note{
-This function is taken from \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}. Plese visit the URL for major details and give your feedback if possible.
+This function is taken from \url{https://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}. Plese visit the URL for major details and give your feedback if possible.
 }
 \examples{
 color.bar(colorRampPalette(c("light green", "yellow", "orange", "red"))(100), -1)
@@ -52,7 +52,7 @@ color.bar(colorRampPalette(c("light green", "yellow", "orange", "red"))(100), -1
 
 }
 \references{
-\url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}
+\url{https://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}
 }
 \author{
 John Colby \url{https://stackoverflow.com/users/412342/john-colby}

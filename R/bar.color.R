@@ -16,8 +16,8 @@ NULL
 #' @author John Colby \url{https://stackoverflow.com/users/412342/john-colby}
 #' @export
 #' @name color.bar
-#' @note This function is taken from \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}. Plese visit the URL for major details and give your feedback if possible. 
-#' @references \url{http://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}
+#' @note This function is taken from \url{https://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}. Plese visit the URL for major details and give your feedback if possible. 
+#' @references \url{https://stackoverflow.com/questions/9314658/colorbar-from-custom-colorramppalette}
 #' 
 #' @importFrom grDevices dev.new
 #' @importFrom grDevices dev.off
