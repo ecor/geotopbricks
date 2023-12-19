@@ -27,7 +27,7 @@ write.geotop.table <- function(x,file,wpath=NULL,tz = "Etc/GMT-1",date_field="Da
 	    time <- as.POSIXlt(time,tz=tz)
 		x <- as.data.frame(x)
 		nn <- names(x)
-		x[,date_field] <- as.character(time,format=format)
+		x[,date_field] <- format(time,format=format)
 		x <- x[,c(date_field,nn)]
 	}
 	

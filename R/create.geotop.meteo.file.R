@@ -21,19 +21,25 @@ NULL
 #' @param sep string value. Default is \code{","}. See \code{\link{write.table}}.
 #' @param quote logical parameter. Default is \code{TRUE}. See \code{\link{write.table}}.
 #' @param level integer argument. See \code{\link{get.geotop.inpts.keyword.value}} for major details. Default is \code{NULL} and is ignored.  
-#' @param ... further argurments for \code{\link{write.table}}
+#' @param ... further arguments for \code{\link{write.table}}
 #' 
 #' 
 #' @export
 #' @examples 
 #' 
 #' library(geotopbricks)
-#' data(bondone)
-#' ## Not Run - Uncomment te following line to run the example
-#' ## create.geotop.meteo.files(x=meteo)
+#' data(bondone) ## It contains a "meteo" zoo object.
 #' 
+#'
+#' set.seed(12)
 #' 
-
+#' file_prefix <- paste(tempdir(),"meteo",sep="/") 
+#' level=2
+#' out <- create.geotop.meteo.files(x=meteo,file_prefix=file_prefix,level=level) 
+#' ## It exports the "meteo" zoo object into a ASCII file for GEOtop
+#' head(readLines(out))
+#' out
+#'
 #' 
 #' 
 #' 
@@ -65,7 +71,7 @@ create.geotop.meteo.files <- function(x,format="%d/%m/%Y %H:%M",file_prefix="met
 		filepath <- paste(filename,file_extension,sep=".") 
 	}
 	filename <- filepath
-	
+	out <- as.character(NA)
 	for (i in 1:length(x)) { 
 				
 #		x[[i]] is a 'zoo' object 
@@ -75,11 +81,12 @@ create.geotop.meteo.files <- function(x,format="%d/%m/%Y %H:%M",file_prefix="met
 		y <- cbind(index(y),as.data.frame(y))
 		names(y) <- c(date_field,names)
 		
-		y[,date_field] <- as.character(y[,date_field],format=format)
+		y[,date_field] <- format(y[,date_field],format=format)
 
 		
 		
 		utils::write.table(x=y,file=filenamex,quote=quote,sep=sep,na=na,row.names=row.names,col.names=col.names,...)
+		out[i] <- filenamex
 	} 
 	
 		
@@ -87,5 +94,5 @@ create.geotop.meteo.files <- function(x,format="%d/%m/%Y %H:%M",file_prefix="met
 			
 	
 	
-	return(0)
+	return(out)
 }

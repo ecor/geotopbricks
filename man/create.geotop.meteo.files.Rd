@@ -45,7 +45,7 @@ create.geotop.meteo.files(
 
 \item{quote}{logical parameter. Default is \code{TRUE}. See \code{\link{write.table}}.}
 
-\item{...}{further argurments for \code{\link{write.table}}}
+\item{...}{further arguments for \code{\link{write.table}}}
 }
 \description{
 Creates geotop meteo files from (a list of) 'zoo' objects
@@ -53,10 +53,17 @@ Creates geotop meteo files from (a list of) 'zoo' objects
 \examples{
 
 library(geotopbricks)
-data(bondone)
-## Not Run - Uncomment te following line to run the example
-## create.geotop.meteo.files(x=meteo)
+data(bondone) ## It contains a "meteo" zoo object.
 
+
+set.seed(12)
+
+file_prefix <- paste(tempdir(),"meteo",sep="/") 
+level=2
+out <- create.geotop.meteo.files(x=meteo,file_prefix=file_prefix,level=level) 
+## It exports the "meteo" zoo object into a ASCII file for GEOtop
+head(readLines(out))
+out
 
 
 
