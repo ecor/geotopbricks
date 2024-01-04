@@ -12,7 +12,7 @@ write.vectorized.variable.in.string(
 )
 }
 \arguments{
-\item{l}{a code{list} object contained the variables (scalars, vectors or Rasters) which will be written in a string each.}
+\item{l}{a \code{list} object contained the variables (scalars, vectors or Rasters) which will be written in a string each.}
 
 \item{NAflag}{numeric. Default is -9999, see \code{\link{writeRasterxGEOtop}}.}
 

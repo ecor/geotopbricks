@@ -36,7 +36,7 @@ the string vector possibly written in \code{file}.
 Writes a z-layer brick referred to a time instant (e.g. date) in an ascii format like \code{'geotop.inpts'} file.
 }
 \note{
-Add Quote if necessary. This function is NOT mantained and will be DEPRECATED.
+Add Quote if necessary. This function is NOT maintained and will be DEPRECATED.
 }
 \examples{
 ## Not Run

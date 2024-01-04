@@ -21,7 +21,7 @@ NULL
 #' 
 #' 
 #' 
-#' @note Add Quote if necessary. This function is NOT mantained and will be DEPRECATED.
+#' @note Add Quote if necessary. This function is NOT maintained and will be DEPRECATED.
 #'  
 #' @seealso \code{\link{read.ascii.vectorized.brick}}
 #' @return the string vector possibly written in \code{file}. 

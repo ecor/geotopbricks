@@ -1,6 +1,6 @@
 NULL
 #'
-#' 'pointer.to.maps.xyz.time' function
+#' 'pointer.to.maps.xyz.time' function (obsolete)
 #' 
 #' 
 #'@param wpath complete working path to *.asc maps are saved 
@@ -12,7 +12,7 @@ NULL
 #'
 #'@author Emanuele Cordano
 #'
-#' @return A dota.frame or zoo object containig the paths to maps fpr each time and z layer.
+#' @return A data.frame or zoo object containig the paths to maps fpr each time and z layer.
 #' @title pointer.to.maps.xyz.time
 #' @name pointer.to.maps.xyz.time
 #' @rdname pointer.to.maps.xyz.time

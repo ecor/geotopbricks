@@ -28,10 +28,10 @@ pointer.to.maps.xyz.time(
 \item{nlayers}{number of vertical layers.}
 }
 \value{
-A dota.frame or zoo object containig the paths to maps fpr each time and z layer.
+A data.frame or zoo object containig the paths to maps fpr each time and z layer.
 }
 \description{
-'pointer.to.maps.xyz.time' function
+'pointer.to.maps.xyz.time' function (obsolete)
 }
 \author{
 Emanuele Cordano

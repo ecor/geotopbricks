@@ -12,7 +12,7 @@ NULL
 #' 
 #z-layer brick referred to a time instant (e.g. date) in an ascii format like \code{'geotop.inpts'} file. 
 #' 
-#' @param l a code{list} object contained the variables (scalars, vectors or Rasters) which will be written in a string each. 
+#' @param l a \code{list} object contained the variables (scalars, vectors or Rasters) which will be written in a string each. 
 #' @param NAflag numeric. Default is -9999, see \code{\link{writeRasterxGEOtop}}.
 #' @param matlab.syntax logical value. Default is \code{FALSE}. If \code{TRUE} the file syntax is like the one of a *.m Matlab script file.
 #' @param ... further aguments 

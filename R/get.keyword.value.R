@@ -426,6 +426,7 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 				
 				 temp<- temp[,-i_index]
 				 index <- as.POSIXlt(index,format=format,tz=tz)
+				 ## why is POSIXlt index <- as.POSIXct(index,format=format,tz=tz)
 				 temp <- as.zoo(temp)
 				 index(temp) <- index
 				 # insert sart date & date
@@ -506,7 +507,7 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 					index <- temp[,i_index]
 					temp<- temp[,-i_index]
 					index <- as.POSIXlt(index,format=format,tz=tz)
-					
+					index <- as.POSIXlt(index,format=format,tz=tz)
 					#print(x)
 					###print(index)
 					#print(index[1:10])
