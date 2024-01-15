@@ -47,5 +47,5 @@ f <- system.file("doc/examples/example.getvalues.brick.at.depth.R",package="geot
 # You can copy the example file using file.copy(from=f,to=....,...) See file.copy documentation
 }
 \seealso{
-code{\link{vertical.aggregate.brick.within.depth}}
+\code{\link{vertical.aggregate.brick.within.depth}}
 }

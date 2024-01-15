@@ -28,7 +28,7 @@ NULL
 #' \code{z1}       a 'Raster' containing the depth of the center  of  the (\code{i0}+1)-th layer
 #' 
 #' 
-#' @seealso  code{\link{vertical.aggregate.brick.within.depth}}
+#' @seealso  \code{\link{vertical.aggregate.brick.within.depth}}
 #' 
 #' @export
 #' 
