@@ -515,6 +515,10 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 					temp<- temp[,-i_index]
 					index <- as.POSIXlt(index,format=format,tz=tz)
 					index <- as.POSIXlt(index,format=format,tz=tz)
+					
+					index0 <- index 
+					temp <- temp[order(index0),]
+					index <- index0[order(index0)]## 2024
 					#print(x)
 					###print(index)
 					#print(index[1:10])
@@ -523,7 +527,11 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 					#print(index[which(index!=sort(index))])
 					#print(length(index))
 					#print(index[length(index)-11+1:10])
+					temp005 <<- temp ##2024
+					indexx005 <<- index
 					temp <- as.zoo(temp)
+					
+					
 					index(temp) <- index
 					# insert sart date & date
 					if (!is.null(start_date) & !is.null(end_date)) { 
