@@ -527,8 +527,8 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 					#print(index[which(index!=sort(index))])
 					#print(length(index))
 					#print(index[length(index)-11+1:10])
-					temp005 <<- temp ##2024
-					indexx005 <<- index
+					###temp005 ##- temp ##2024
+					##indexx005 ##- index
 					temp <- as.zoo(temp)
 					
 					

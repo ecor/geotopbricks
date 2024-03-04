@@ -25,19 +25,15 @@
 #' @importFrom terra rast
 #' @examples 
 #' 
-#' library(geotopbricks)
 #' 
-#' ## Simulation working path
-#'
-#' file <- paste0("https://raw.githubusercontent.com/ecor/geotopbricks_doc/master/template/",
-#' "rendena100/SnowDepthMapFile-2014-MA-mean-winter-2013-2014.asc")
-#' snow <- raster(file)
+#' file <- system.file("ex/elev.tif", package="terra")
+#' elev <- raster(file)
 #' 
 #' 
-#' snowfile <- rasterTmpFile()
-#' extension(snowfile) <- ".asc"
+#' elevfile <- rasterTmpFile()
+#' extension(elevfile) <- ".asc"
 #' 
-#' writeRasterxGEOtop(x=snow,file=snowfile)
+#' writeRasterxGEOtop(x=elev,file=elevfile)
 #' 
 #' 
 #' 
