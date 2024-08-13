@@ -11,7 +11,7 @@ To install this package on R fram R console:
 
 >library(devtools)
 
->library(reotes)
+>library(remotes)
 
 >install_github("ecor/geotopbricks")
 

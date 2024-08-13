@@ -21,4 +21,4 @@ Imports:
 Suggests:
     soilwater
 URL: https://zenodo.org/record/8228413, www.geotop.org, https://www.rendena100.eu/en/geotop-hydrological-model.html, https://github.com/ecor/geotopbricks
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
