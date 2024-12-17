@@ -360,6 +360,7 @@ brickFromOutputSoil3DTensor <- function(x,when,layers="SoilLayerThicknesses",one
 	names(out) <- strftime(when,tz=tz,format="DATE-TIME %Y-%m-%d %H:%M")
 	
 	
+	
 	if (length(out)==1) out <- out[[1]]
 	
 	return(out)
