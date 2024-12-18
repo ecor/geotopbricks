@@ -11,11 +11,11 @@ Description: It analyzes raster maps and other information as input/output
     Any information about the GEOtop Distributed Hydrological Model source code
     is available on www.geotop.org. Technical details about the model are
     available in Endrizzi et al (2014) <https://gmd.copernicus.org/articles/7/2831/2014/gmd-7-2831-2014.html>.
-Version: 1.5.8.2
-Date: 2024-03-04
+Version: 1.5.8.3
+Date: 2024-12-18
 Repository: http://cran.r-project.org/
 Depends:
-    R (>= 2.10),methods,raster,stringr,zoo,sf
+    R (>= 4.0),methods,raster,stringr,zoo,sf
 Imports:
     terra
 Suggests:

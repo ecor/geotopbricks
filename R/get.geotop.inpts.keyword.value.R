@@ -223,9 +223,13 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 			filepath <- paste(out,file_extension,sep=".") 
 		}
 		 if (use.read.raster.from.url) {
-			 out <- read.raster.from.url(x=filepath)
+			  out <- read.raster.from.url(x=filepath)
 		 } else {
-		     out <- raster(x=filepath)
+		     ##out <- raster(x=filepath) ## commeted on EC 20241219
+		     out <- rast(filepath) |> raster()  ## commeted on EC 20241219
+		     
+		     ## MAYPE PUT PRJEC IS NA ... 
+		     
 		}
 		
 		if (!is.null(wpath)) projfile <- paste(wpath,projfile,sep="/")

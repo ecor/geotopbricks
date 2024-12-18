@@ -2,7 +2,7 @@
 % Please edit documentation in R/getProjection.R
 \name{getProjection}
 \alias{getProjection}
-\title{It reads the CRS metadata utilzed in a GEOtop Simulation}
+\title{It reads the CRS metadata utilized in a GEOtop Simulation}
 \usage{
 getProjection(x, cond = TRUE, ...)
 }
@@ -17,7 +17,7 @@ getProjection(x, cond = TRUE, ...)
 A string corresponding the projection and CRS if the argument \code{cond} is \code{TRUE}.
 }
 \description{
-It reads the CRS metadata utilzed in a GEOtop Simulation
+It reads the CRS metadata utilized in a GEOtop Simulation
 }
 \examples{
 library(geotopbricks)

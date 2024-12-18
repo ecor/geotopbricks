@@ -1,7 +1,7 @@
 NULL
 
 #'
-#' It reads the CRS metadata utilzed in a GEOtop Simulation
+#' It reads the CRS metadata utilized in a GEOtop Simulation
 #' 
 #' @param x name and full path of the file containimg CRS information 
 #' @param cond logical value. If \code{FALSE} the function returns \code{NA}. Default is \code{TRUE}. 
@@ -31,8 +31,8 @@ getProjection <- function(x,cond=TRUE,...) {
 	if (cond) {
 		
 	
-		out <- as.character(scan(x,what="list",sep="\n",n=1))
-		
+		####out <- as.character(scan(x,what="list",sep="\n",n=1)) ## commented on EC 20241217
+		out <- readLines(x) |> paste(collapse="\n") ## EC 20241217
 
 		
 	}
