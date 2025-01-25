@@ -48,6 +48,7 @@ NULL
 #' @import zoo
 #' 
 #' @importFrom utils read.table
+#' @importFrom terra rast crs
 #' 
 #' 
 #' @examples
@@ -133,7 +134,7 @@ NULL
 #' 
 #' 
 #' 
-get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=NULL,col_sep=",",numeric=FALSE,format="%d/%m/%Y %H:%M",date=FALSE,tz="Etc/GMT-1",raster=FALSE,file_extension=".asc",add_wpath=FALSE,wpath=NULL,use.read.raster.from.url=TRUE,data.frame=FALSE,formatter="%04d",level=1,date_field="Date",isNA=-9999.000000,matlab.syntax=TRUE,projfile="geotop.proj",start_date=NULL,end_date=NULL,ContinuousRecovery=0,ContinuousRecoveryFormatter="_crec%04d",zlayer.formatter=NULL,z_unit=c("centimeters","millimeters"),geotop_z_unit="millimeters",add_suffix_dir=NULL,MAXNROW=4,header.only=FALSE,...) {
+get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=NULL,col_sep=",",numeric=FALSE,format="%d/%m/%Y %H:%M",date=FALSE,tz="Etc/GMT-1",raster=FALSE,file_extension=".asc",add_wpath=FALSE,wpath=NULL,use.read.raster.from.url=FALSE,data.frame=FALSE,formatter="%04d",level=1,date_field="Date",isNA=-9999.000000,matlab.syntax=TRUE,projfile="geotop.proj",start_date=NULL,end_date=NULL,ContinuousRecovery=0,ContinuousRecoveryFormatter="_crec%04d",zlayer.formatter=NULL,z_unit=c("centimeters","millimeters"),geotop_z_unit="millimeters",add_suffix_dir=NULL,MAXNROW=4,header.only=FALSE,...) {
 #####	check.columns=FALSE
 # Added by the author on Feb 6 2012	
 	
@@ -222,19 +223,29 @@ get.geotop.inpts.keyword.value <- function(keyword,inpts.frame=NULL,vector_sep=N
 		} else { 	
 			filepath <- paste(out,file_extension,sep=".") 
 		}
+		print(use.read.raster.from.url)
 		 if (use.read.raster.from.url) {
 			  out <- read.raster.from.url(x=filepath)
 		 } else {
 		     ##out <- raster(x=filepath) ## commeted on EC 20241219
-		     out <- rast(filepath) |> raster()  ## commeted on EC 20241219
+		     print(filepath)
+		     out <- terra::rast(filepath) 
+		     terra::crs(out) <- NA 
+		     if (!is.null(wpath)) projfile <- paste(wpath,projfile,sep="/")
+		   ##  out22 <<- out
+		   ##  print(out22)
+		     cond <- file.exists(projfile)
+		     terra::crs(out) <- getProjection(projfile,cond=cond)
+		    ## out23 <<- out
+		    ## print(out23)
+		     ###terra::crs(out) <- NA 
+		     out <- raster(out)  ## commeted on EC 20241219
 		     
 		     ## MAYPE PUT PRJEC IS NA ... 
 		     
 		}
 		
-		if (!is.null(wpath)) projfile <- paste(wpath,projfile,sep="/")
-		cond <- file.exists(projfile)
-		projection(out) <- getProjection(projfile,cond=cond)
+	
 	#	if (cond) {
 	#		
 	#		projection(out) <- readLines(projfile,warn=FALSE)

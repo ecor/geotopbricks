@@ -17,7 +17,7 @@ get.geotop.inpts.keyword.value(
   file_extension = ".asc",
   add_wpath = FALSE,
   wpath = NULL,
-  use.read.raster.from.url = TRUE,
+  use.read.raster.from.url = FALSE,
   data.frame = FALSE,
   formatter = "\%04d",
   level = 1,

@@ -10,13 +10,22 @@ NULL
 #' 
 #' 
 #' @param df data frame returend by \code{\link{declared.geotop.inpts.keywords}}
-#' @param file connetion or file name where to write 'df'
 #' @param wpath complere path to \code{file} (optional). Default is \code{NULL}. 
 #' @param comment.lines string or vector of strings to add as comments for each keyword. If it is \code{NULL} the comment lines are omitted. 
 #' @param header string or vector of strings to add as a header. If it is \code{NULL} the header is omitted. 
+#' @param like.meteo.keywords logical. It is used in case \code{df} is a \code{sf} object (geospatial), it often used for meteorological stations 
+#' @param coords_keywords keywords for station coordinates in case \code{like.meteo.keywords==TRUE}.
+#' @param num_keyword keyword for number of stations in case \code{like.meteo.keywords==TRUE}.
 #' @param ... further arguments for \code{\link{writeLines}}
 #' 
 #'  
+#'  
+#' @importFrom sf st_coordinates st_as_sf
+#' 
+#' 
+#' 
+#' 
+#' 
 ### @details The arguments \code{comment.lines} and \code{header} are set equal to \code{"default"} if not indicated (see the function usage). 
 ### In this case they will be replaced by the character string: \n
 ### \n
@@ -32,10 +41,14 @@ NULL
 #' 
 #' @export
 #' 
+#' 
+#' @seealso \code{\link{writeLines}},\code{\link{declared.geotop.inpts.keywords}}
+#' 
+#' 
+#' 
 #' @examples 
 #' 
 #' library(geotopbricks)
-#' \dontrun{
 #' #Simulation working path
 #' wpath <- 
 #' 'https://raw.githubusercontent.com/ecor/geotopbricks_doc/master/simulations/panola13_run2xC_test3'
@@ -43,25 +56,93 @@ NULL
 #' ## https://github.com/ecor/geotopbricks_doc/tree/master/simulations/panola13_run2xC_test3
 #' df <- declared.geotop.inpts.keywords(wpath=wpath)
 #' create.geotop.inpts.keyword(df=df)
-#' }
 #' 
 #' 
-#' @seealso \code{\link{writeLines}},\code{\link{declared.geotop.inpts.keywords}}
+#' df <- list(
+#' ## ! START METEO 
+#' 
+#' NumberOfMeteoStations=18,
+#' MeteoStationCode = c("DWD_01735","DWD_01831","DWD_01832","DWD_01833","DWD_04354","DWD_04755","DWD_05306","DWD_05800","DWD_05802","DWD_06191","CHMI_C1BLAD01","CHMI_C1CHUR01","CHMI_C1HUSI01","CHMI_C1JELE01","CHMI_C1KHOR01","CHMI_C1STRZ01","CHMI_C1VOLR01","CHMI_L1HOJS01"),
+#' MeteoStationElevation = c(628,1449,1436,1307,457,847,940,615,615,684,893,1117.8,492,810,728,811,749,866),
+#' MeteoStationLatitude = c(48.7894,49.1126,49.1129,49.0851,48.7832,48.6819,48.9293,49.028,49.0007,48.9023,48.9911111111111,49.0683333333333,49.0525,48.8030555555556,49.1455555555556,48.9088888888889,48.9088888888889,49.2125),
+#' MeteoStationLongitude = c(13.629,13.1353,13.1338,13.2801,13.3146,13.7351,13.4641,13.2385,13.2137,13.1442,13.6683333333333,13.6152777777778,13.99,13.8897222222222,13.55,13.7202777777778,13.8866666666667,13.1972222222222),
+#' MeteoStationSource = c("DWD","DWD","DWD","DWD","DWD","DWD","DWD","DWD","DWD","DWD","CHMI","CHMI","CHMI","CHMI","CHMI","CHMI","CHMI","CHMI"),
+#' MeteoStationWindVelocitySensorHeight = c(10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10),
+#' MeteoStationTemperatureSensorHeight = c(2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2),
+#' MeteoStationCoordinateX = c(399300.751483554,363922.260272129,363813.623704389,374419.289552317,376193.768289692,406895.244369364,387503.305318229,371234.500519548,369350.262272179,364000.012870334,402582.414145364,398857.930427203,426204.259500581,418472.448448941,394254.345037428,406228.32523286,418420.252345735,368705.300573528),
+#' MeteoStationCoordinateY = c(5404951.24399018,5441647.41925558,5441683.4621225,5438340.55274848,5404725.536756,5392867.0291128,5420733.31978365,5432063.12861282,5429070.90371837,5418255.08734482,5427322.00086173,5435975.56352357,5433783.28344618,5406157.18835262,5444648.8862922,5418116.78091222,5417924.86335169,5452642.98443844)
+#' ###! END METEO
+#' )
 #' 
 #' 
+#' out1 <- create.geotop.inpts.keyword(df=df,comment.lines="")
+#' 
+#' ###
+#' library(terra)
+#' 
+#' meteo_sts <- terra::vect(system.file("ex_data/meteo_sts3.rds",package="geotopbricks")) |>
+#'    st_as_sf()
+#'    
+#'    
+#' out2 <- create.geotop.inpts.keyword(df=meteo_sts,comment.lines="")
+#' 
+#' 
+#' 
+#' 
+#' 
+#' 
+#' 
 
 
 
+########### @param file NOT USED connetion or file name where to write 'df'. See \code{con} \code{\link{writeLines}}
 
 
-
-create.geotop.inpts.keyword <- function(df,file='geotop.inpts.copy',wpath=NULL,
+create.geotop.inpts.keyword <- function(df,wpath=NULL,
 		comment.lines="default",
-		header="default",...) {
+		header="default",like.meteo.keywords=inherits(df,"sf"),
+		coords_keywords=c("MeteoStationCoordinateX","MeteoStationCoordinateY"),
+		num_keyword="NumberOfMeteoStations",
+		...) {
 
+##	if (is.null(file)) file=formals("writeLines")$con
+		  
+		  if (like.meteo.keywords) {
+		    
+		    coords <- st_coordinates(df) |> as.data.frame()
+		    names(coords) <- coords_keywords
+		    df0 <- as.data.frame(df) 
+		    df0 <- df0[,which(names(df0)!="geometry")]
+		    df1 <- cbind(coords,df0) |> as.list()
+		    
+		    if (is.null(num_keyword)) num_keyword <- as.character(NA)
+		    if (!is.na(num_keyword)) {
+		     df1[[as.character(num_keyword)]] <- nrow(df0) 
+		    }
+		    df <- df1
+		    
+		  }  
+		  
+		  
+		  
+  ### dff <<- df
+	cond <- !is.data.frame(df) & is.list(df)
+	### condf <<- cond
 	
+	
+	
+  if (cond) {
+    
+    df0 <- data.frame(Keyword=names(df),Value="")
+    df0$Value <- sapply(df,FUN=paste,collapse=",")
+    
+    df <- df0
+    
+  }
+  
+  
 	if (comment.lines=="default") comment.lines <- paste("!",c(""," insert optional comment for the keyword below",""),sep="")
-	if (header=="default") heeader <- c("",paste("!",file,"automatically generated by create.geotop.inpts.keyword (\'geotobricks\' CRAN R Paackage)"),"","")
+	if (header=="default") heeader <- c("",paste0("!"," ","automatically generated by create.geotop.inpts.keyword (\'geotobricks\' CRAN R Paackage)"),"","")
 	
 	condition_wpath <- (!is.null(wpath) & !is.na(wpath) & wpath!=FALSE)
 	if (length(condition_wpath)==0)  condition_wpath=FALSE
@@ -70,7 +151,7 @@ create.geotop.inpts.keyword <- function(df,file='geotop.inpts.copy',wpath=NULL,
 	
 	df <- df[df$Keyword!="",]
 	
-	lines <- paste(df$Keyword,"=",df$Value)
+	lines <- paste0(df$Keyword,"=",df$Value)
 	
 	if (!is.null(comment.lines)) {
 		
@@ -83,9 +164,9 @@ create.geotop.inpts.keyword <- function(df,file='geotop.inpts.copy',wpath=NULL,
 	}
 	
 	if (!is.null(header)) lines <- c(header,lines)
+##	print(file)
+	base::writeLines(lines,sep="\n",...)
 	
-	base::writeLines(lines,con=file,sep="\n",...)
-	
-	return(0)
+	return(lines)
 	
 }
