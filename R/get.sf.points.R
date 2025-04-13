@@ -1,5 +1,5 @@
 NULL
-#' Get a \code{\link{sf}} object for Meteorological Stations or Control Points in a GEOtop simulation
+#' Get a \code{\link[sf]{sf}} object for Meteorological Stations or Control Points in a GEOtop simulation
 #'
 #' @param prefix keyword prefix
 #' @param suffixes keyword suffixes

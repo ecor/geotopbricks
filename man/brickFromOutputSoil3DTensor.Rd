@@ -37,7 +37,7 @@ rasterFromOutput2DMap(x, when, ...)
 
 \item{layers}{number of soil layer or geotop keyword for soil layer (e.g. \code{SoilLayerThicknesses} or \code{SoilFile}). Default is  \code{SoilLayerThicknesses}.}
 
-\item{one.layer}{logical value. If \code{TRUE} a \code{\link{RasterLayer-class}} object is imported, otherwise a \code{\link{RasterBrick-class}}object is returened. Default for \code{brickFromOutputSoil3DTensor} is \code{FALSE}}
+\item{one.layer}{logical value. If \code{TRUE} a \code{\link[raster]{RasterLayer-class}} object is imported, otherwise a \code{\link[raster]{RasterBrick-class}}object is returened. Default for \code{brickFromOutputSoil3DTensor} is \code{FALSE}}
 
 \item{suffix}{charachter string containing the decimal formatter used by GEOtop in the output file names. Default is \code{"L\%04dN\%04.asc"}. A simple user is recommended not to modify the value of this argument and use the default value.}
 
@@ -63,7 +63,7 @@ rasterFromOutput2DMap(x, when, ...)
 Extracts a brick or a raster layer from a output 3D Tensor or 2D map respectively
 }
 \details{
-These functions \code{brickFromOutputSoil3DTensor} and \code{rasterFromOutput2DMap} return 3D or 2D \code{\link{Raster-class}} objects respectively. \code{rasterFromOutput2DMap} is a wrapper function of \code{brickFromOutputSoil3DTensor} with the option \code{one.layer==TRUE}.
+These functions \code{brickFromOutputSoil3DTensor} and \code{rasterFromOutput2DMap} return 3D or 2D \code{\link[raster]{Raster-class}} objects respectively. \code{rasterFromOutput2DMap} is a wrapper function of \code{brickFromOutputSoil3DTensor} with the option \code{one.layer==TRUE}.
 The functionswork with the following output keywords: 
 
 \code{"SoilTempTensorFile"},

@@ -17,7 +17,7 @@ NULL
 #' @param comment character. Comment indicator. Default is \code{"!"}.
 #' @param formatter,extension,xx see \code{\link{get.geotop.recovery.state}}. 
 #' @param NAflag numeric. Default is -9999, see \code{\link{writeRasterxGEOtop}}.
-#' @param crs Character or object of class CRS. PROJ4 type description of a Coordinate Reference System (map projection) (optional). See \code{\link{brick}} or \code{\link{raster}}.
+#' @param crs Character or object of class CRS. PROJ4 type description of a Coordinate Reference System (map projection) (optional). See \code{\link{brick}} or \code{\link[raster]{raster}}.
 #' @param matlab.syntax logical value. Default is \code{TRUE}. If \code{TRUE} the file syntax is like the one of a *.m Matlab script file.
 #' @param ... further aguments inserted as attribute
 # @export 

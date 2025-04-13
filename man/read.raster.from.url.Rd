@@ -23,5 +23,5 @@ It imports a 'RasterLayer' object in Escri-Asci format from a URL 'http(s)://...
 This function reads a local or remote text files formatted as \url{https://en.wikipedia.org/wiki/Esri_grid} and creates a 'RasterLayer' object.
 }
 \seealso{
-\code{\link{raster}},\code{\link{readLines}}
+\code{\link[raster]{raster}},\code{\link{readLines}}
 }

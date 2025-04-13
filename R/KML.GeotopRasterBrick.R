@@ -6,7 +6,7 @@ NULL
 #' @param crs character string containing the LatLon reference system. Default is \code{"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"} (see \url{https://spatialreference.org/ref/epsg/4326/}). 
 #' @param ... further argument for S4 method \code{KLM} for Raster object.
 #' 
-#' @note A coordinate transformation is made with \code{\link{projectRaster}}. 
+#' @note A coordinate transformation is made with \code{\link[raster]{projectRaster}}. 
 #' 
 #' @title KML
 #' @name KML

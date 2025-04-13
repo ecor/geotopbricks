@@ -10,10 +10,10 @@ NULL
 #'
 #' Writes a z-layer brick referred to a time instant (e.g. date) in an ascii format like \code{'geotop.inpts'} file. 
 #' 
-#' @param b a \code{\link{RasterBrick-class}} or \code{\link{GeotopRasterBrick-class}} object
+#' @param b a \code{\link[raster]{RasterBrick-class}} or \code{\link{GeotopRasterBrick-class}} object
 #' @param file file name to write 
 #' @param header character string vector for header text lines. If missing, a default header is written. #Default is  \code{c("! header")}. 
-#' @param overwrite logical. Default is \code{TRUE}, see \code{\link{writeRaster}}.
+#' @param overwrite logical. Default is \code{TRUE}, see \code{\link[raster]{writeRaster}}.
 #' @param NAflag numeric. Default is -9999, see \code{\link{writeRasterxGEOtop}}.
 #' @param matlab.syntax logical value. Default is \code{FALSE}. If \code{TRUE} the file syntax is like the one of a *.m Matlab script file.
 #' @param ... further aguments inserted as attribute

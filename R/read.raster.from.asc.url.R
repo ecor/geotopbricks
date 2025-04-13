@@ -9,7 +9,7 @@ NULL
 #' @note This function reads a local or remote text files formatted as \url{https://en.wikipedia.org/wiki/Esri_grid} and creates a 'RasterLayer' object.
 #' @export 
 #' @return a 'RasterLayer' object
-#' @seealso \code{\link{raster}},\code{\link{readLines}}
+#' @seealso \code{\link[raster]{raster}},\code{\link{readLines}}
 ###,\url{https://en.wikipedia.org/wiki/Esri_grid}
 #' 
 

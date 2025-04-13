@@ -55,7 +55,7 @@ get.geotop.inpts.keyword.value(
 
 \item{tz}{format string representing the time zone, see \code{\link{as.POSIXlt}}, used if \code{date} is \code{TRUE}. Default is \code{"Etc/GMT-1"} (until the previous version it was \code{"A"}) which meens UTC +1.}
 
-\item{raster}{logical value. Default is \code{FALSE}. If \code{TRUE} function returns direclty the raster map as \code{\link{Raster-class}} object built with \code{\link{raster}} method.}
+\item{raster}{logical value. Default is \code{FALSE}. If \code{TRUE} function returns direclty the raster map as \code{\link[raster]{Raster-class}} object built with \code{\link[raster]{raster}} method.}
 
 \item{file_extension}{Extension to be added to the keyword if keyword is a file name. Default is \code{".asc"}}
 
@@ -63,9 +63,9 @@ get.geotop.inpts.keyword.value(
 
 \item{wpath}{working directory containing GEOtop files (included the inpts file). It is mandatory if \code{raster} is \code{TRUE}. See \code{\link{declared.geotop.inpts.keywords}}.}
 
-\item{use.read.raster.from.url}{logical value. Default is \code{TRUE}. If \code{TRUE} the RasterLayer are read with \code{\link{read.raster.from.url}}, istead of \code{\link{raster}} (otherwise). It is recomended in case the files whose paths are contained in \code{x} are remote and are 'http' addresses. In this cases the stand-alone method \code{raster(x)} does not always work and \code{use.read.raster.from.url} is necessary.}
+\item{use.read.raster.from.url}{logical value. Default is \code{TRUE}. If \code{TRUE} the RasterLayer are read with \code{\link{read.raster.from.url}}, istead of \code{\link[raster]{raster}} (otherwise). It is recomended in case the files whose paths are contained in \code{x} are remote and are 'http' addresses. In this cases the stand-alone method \code{raster(x)} does not always work and \code{use.read.raster.from.url} is necessary.}
 
-\item{data.frame}{logical value. It is an option for tabular data. If \code{TRUE} function returns direclty a data frame  or a list of  data frames as \code{\link{data.frame}} or \code{\link{zoo}} objects imported from the keyword-related files  using \code{\link{read.table}} function. In this case the argument \code{wpath} (see \code{\link{declared.geotop.inpts.keywords}}) is mandatory. Default is \code{FALSE}.}
+\item{data.frame}{logical value. It is an option for tabular data. If \code{TRUE} function returns direclty a data frame  or a list of  data frames as \code{\link{data.frame}} or \code{\link[zoo]{zoo}} objects imported from the keyword-related files  using \code{\link{read.table}} function. In this case the argument \code{wpath} (see \code{\link{declared.geotop.inpts.keywords}}) is mandatory. Default is \code{FALSE}.}
 
 \item{formatter}{string value. It is the decimal formatter contained in the file name and used in case the tabular data are referred at several points. Default is \code{"\%04d"} . It is used in case \code{data.frame} is \code{TRUE}.}
 

@@ -13,7 +13,7 @@ data(bondone)
 \description{
 It contains hourly meteorological data observed at MeteoTrentino \code{T0327} station located at Monte Bondone-Viotte (Trentino, Easter Alps, Italy) from August 2004 to December 2012.\\
 
-The \code{\link{zoo}} object 'meteo' contains: 
+The \code{\link[zoo]{zoo}} object 'meteo' contains: 
 \describe{
 \item{\code{Iprec}}{Hourly Precipitation Depth expressed in millimeters}
 \cr

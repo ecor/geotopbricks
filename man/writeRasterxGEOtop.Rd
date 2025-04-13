@@ -2,7 +2,7 @@
 % Please edit documentation in R/writeRasterxgeotop.R
 \name{writeRasterxGEOtop}
 \alias{writeRasterxGEOtop}
-\title{This function uses  \code{\link{writeRaster}} to create .asc maps which can be read by GEOtop}
+\title{This function uses  \code{\link[raster]{writeRaster}} to create .asc maps which can be read by GEOtop}
 \usage{
 writeRasterxGEOtop(
   x,
@@ -18,15 +18,15 @@ writeRasterxGEOtop(
 )
 }
 \arguments{
-\item{x}{a Raster object, see \code{\link{writeRaster}}. It can be also a \code{\link{RasterBrick-class}} object.}
+\item{x}{a Raster object, see \code{\link[raster]{writeRaster}}. It can be also a \code{\link[raster]{RasterBrick-class}} object.}
 
-\item{filename}{see \code{\link{writeRaster}}. It is a vector of string or one string containing a decimal formatter (see \code{\link{brick.decimal.formatter}}) in case \code{x} is a \code{\link{RasterBrick-class}} object.}
+\item{filename}{see \code{\link[raster]{writeRaster}}. It is a vector of string or one string containing a decimal formatter (see \code{\link{brick.decimal.formatter}}) in case \code{x} is a \code{\link[raster]{RasterBrick-class}} object.}
 
-\item{overwrite}{logical. Default is \code{TRUE}, see \code{\link{writeRaster}}.}
+\item{overwrite}{logical. Default is \code{TRUE}, see \code{\link[raster]{writeRaster}}.}
 
-\item{NAflag}{numeric. Dafauli is -9999, see \code{\link{writeRaster}}.}
+\item{NAflag}{numeric. Dafauli is -9999, see \code{\link[raster]{writeRaster}}.}
 
-\item{use.decimal.formatter}{logical value. Default is \code{FALSE}. If it is \code{TRUE} or \code{x} is a \code{\link{RasterBrick-class}} object with \code{nlayers(x)!=length(filename)} , \code{filename} is considered as one string containing a decimal formatter (e.g. \code{"\%04d"}, see \code{\link{brick.decimal.formatter}}). Otherwise, if \code{filename} is considered as a vector string.}
+\item{use.decimal.formatter}{logical value. Default is \code{FALSE}. If it is \code{TRUE} or \code{x} is a \code{\link[raster]{RasterBrick-class}} object with \code{nlayers(x)!=length(filename)} , \code{filename} is considered as one string containing a decimal formatter (e.g. \code{"\%04d"}, see \code{\link{brick.decimal.formatter}}). Otherwise, if \code{filename} is considered as a vector string.}
 
 \item{start.from.zero}{logical value. Default is \code{FALSE}. If \code{TRUE} the formatter starts from \code{0000}, otherwise it starts from \code{0001}.}
 
@@ -36,10 +36,10 @@ writeRasterxGEOtop(
 
 \item{suffix.ext}{charachter string to be added to the \code{keyword} value,e.g. possible suffix and extension of the raster file name. Default is \code{".asc"}.}
 
-\item{...}{further arguments of \code{\link{get.geotop.inpts.keyword.value}} or  \code{\link{writeRaster}}}
+\item{...}{further arguments of \code{\link{get.geotop.inpts.keyword.value}} or  \code{\link[raster]{writeRaster}}}
 }
 \description{
-This function uses  \code{\link{writeRaster}} to create .asc maps which can be read by GEOtop
+This function uses  \code{\link[raster]{writeRaster}} to create .asc maps which can be read by GEOtop
 }
 \note{
 It makes use of \code{\link{system}} functons. It uses \code{*.asc} format for raster files. 

@@ -3,18 +3,18 @@
 # Author: ecor
 ###############################################################################
 #'
-#' This function uses  \code{\link{writeRaster}} to create .asc maps which can be read by GEOtop
+#' This function uses  \code{\link[raster]{writeRaster}} to create .asc maps which can be read by GEOtop
 #' 
-#' @param x a Raster object, see \code{\link{writeRaster}}. It can be also a \code{\link{RasterBrick-class}} object.
-#' @param filename see \code{\link{writeRaster}}. It is a vector of string or one string containing a decimal formatter (see \code{\link{brick.decimal.formatter}}) in case \code{x} is a \code{\link{RasterBrick-class}} object.
-#' @param overwrite logical. Default is \code{TRUE}, see \code{\link{writeRaster}}. 
-#' @param NAflag numeric. Dafauli is -9999, see \code{\link{writeRaster}}.
-#' @param use.decimal.formatter logical value. Default is \code{FALSE}. If it is \code{TRUE} or \code{x} is a \code{\link{RasterBrick-class}} object with \code{nlayers(x)!=length(filename)} , \code{filename} is considered as one string containing a decimal formatter (e.g. \code{"\%04d"}, see \code{\link{brick.decimal.formatter}}). Otherwise, if \code{filename} is considered as a vector string. 
+#' @param x a Raster object, see \code{\link[raster]{writeRaster}}. It can be also a \code{\link[raster]{RasterBrick-class}} object.
+#' @param filename see \code{\link[raster]{writeRaster}}. It is a vector of string or one string containing a decimal formatter (see \code{\link{brick.decimal.formatter}}) in case \code{x} is a \code{\link[raster]{RasterBrick-class}} object.
+#' @param overwrite logical. Default is \code{TRUE}, see \code{\link[raster]{writeRaster}}. 
+#' @param NAflag numeric. Dafauli is -9999, see \code{\link[raster]{writeRaster}}.
+#' @param use.decimal.formatter logical value. Default is \code{FALSE}. If it is \code{TRUE} or \code{x} is a \code{\link[raster]{RasterBrick-class}} object with \code{nlayers(x)!=length(filename)} , \code{filename} is considered as one string containing a decimal formatter (e.g. \code{"\%04d"}, see \code{\link{brick.decimal.formatter}}). Otherwise, if \code{filename} is considered as a vector string. 
 #' @param start.from.zero logical value. Default is \code{FALSE}. If \code{TRUE} the formatter starts from \code{0000}, otherwise it starts from \code{0001}. 
 #' @param keyword geotop keyword to be used to extract the raster file name from \code{geotop.inpts} file. This is enabled if \code{filename} is equal to \code{NULL}.
 #' @param wpath simulation folder containing \code{geotop.inpts} file.
 #' @param suffix.ext charachter string to be added to the \code{keyword} value,e.g. possible suffix and extension of the raster file name. Default is \code{".asc"}.
-#' @param ... further arguments of \code{\link{get.geotop.inpts.keyword.value}} or  \code{\link{writeRaster}}
+#' @param ... further arguments of \code{\link{get.geotop.inpts.keyword.value}} or  \code{\link[raster]{writeRaster}}
 #'  
 #' @export
 #' @note It makes use of \code{\link{system}} functons. It uses \code{*.asc} format for raster files. 

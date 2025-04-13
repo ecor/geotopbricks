@@ -2,7 +2,7 @@
 % Please edit documentation in R/get.sf.points.R
 \name{get.geotop.points}
 \alias{get.geotop.points}
-\title{Get a \code{\link{sf}} object for Meteorological Stations or Control Points in a GEOtop simulation}
+\title{Get a \code{\link[sf]{sf}} object for Meteorological Stations or Control Points in a GEOtop simulation}
 \usage{
 get.geotop.points(
   prefix = c("MeteoStation", "CoordinatePoint"),
@@ -26,7 +26,7 @@ get.geotop.points(
 \item{vector_sep, ...}{further arguments for \code{\link{get.geotop.inpts.keyword.value}}}
 }
 \description{
-Get a \code{\link{sf}} object for Meteorological Stations or Control Points in a GEOtop simulation
+Get a \code{\link[sf]{sf}} object for Meteorological Stations or Control Points in a GEOtop simulation
 }
 \examples{
 

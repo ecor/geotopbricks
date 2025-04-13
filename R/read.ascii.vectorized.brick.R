@@ -10,20 +10,20 @@ NULL
 #'
 #' Read a text file containing  values and matedata of a z-layer brick referred to a time instant (e.g. date). The file is formatted like an ascii format like \code{'geotop.inpts'} file. 
 #' 
-# @param b a \code{\link{RasterBrick-class}} or \code{\link{GeotopRasterBrick-class}} object
+# @param b a \code{\link[raster]{RasterBrick-class}} or \code{\link{GeotopRasterBrick-class}} object
 #' @param file file name to write 
 #' @param comment character. Comment indicator. Default is \code{"!"}.
 # @param header character string vector for header text lines. Default is  \code{c("! header")}. 
 # @param overwrite logical. Default is \code{TRUE}, see \code{\link{writeRaster}}.
 #' @param NAflag numeric. Dafauli is -9999, see \code{\link{writeRasterxGEOtop}}.
-#' @param crs Character or object of class CRS. PROJ4 type description of a Coordinate Reference System (map projection) (optional). See \code{\link{brick}} or \code{\link{raster}}.
+#' @param crs Character or object of class CRS. PROJ4 type description of a Coordinate Reference System (map projection) (optional). See \code{\link{brick}} or \code{\link[raster]{raster}}.
 #' @param matlab.syntax logical value. Default is \code{FALSE}. If \code{TRUE} the file syntax is like the one of a *.m Matlab script file.
 #' @param ... further aguments inserted as attribute
 # @export 
 #' 
 #' 
 #' 
-#' @return the \code{\link{RasterBrick-class}} object 
+#' @return the \code{\link[raster]{RasterBrick-class}} object 
 #' @export
 #' @seealso \code{\link{write.ascii.vectorized.brick}}
 #' 

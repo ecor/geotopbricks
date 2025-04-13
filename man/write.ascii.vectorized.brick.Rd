@@ -15,13 +15,13 @@ write.ascii.vectorized.brick(
 )
 }
 \arguments{
-\item{b}{a \code{\link{RasterBrick-class}} or \code{\link{GeotopRasterBrick-class}} object}
+\item{b}{a \code{\link[raster]{RasterBrick-class}} or \code{\link{GeotopRasterBrick-class}} object}
 
 \item{file}{file name to write}
 
 \item{header}{character string vector for header text lines. If missing, a default header is written. #Default is  \code{c("! header")}.}
 
-\item{overwrite}{logical. Default is \code{TRUE}, see \code{\link{writeRaster}}.}
+\item{overwrite}{logical. Default is \code{TRUE}, see \code{\link[raster]{writeRaster}}.}
 
 \item{NAflag}{numeric. Default is -9999, see \code{\link{writeRasterxGEOtop}}.}
 

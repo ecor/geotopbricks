@@ -31,12 +31,12 @@ or a \code{\link{GeotopRasterBrick-class}} object}
 
 \item{rows}{rows of \code{zoo} correspondig to the geotop maps that are imported. By default all rows of \code{zoo} are considered. It is calculated by \code{time} or \code{timerange} if they are not set as \code{NULL}.}
 
-\item{crs}{coordinate system see \code{\link{RasterBrick-class}}}
+\item{crs}{coordinate system see \code{\link[raster]{RasterBrick-class}}}
 
-\item{use.read.raster.from.url}{logical value. Default is \code{TRUE}. If \code{TRUE} the RasterLayer are read with \code{\link{read.raster.from.url}}, istead of \code{\link{raster}} (otherwise). It is recomended in case the files whose paths are contained in \code{x} are remote and are 'http' addresses. In this cases the stand-alone method \code{raster(x)} does not always work and \code{use.read.raster.from.url} is necessary.}
+\item{use.read.raster.from.url}{logical value. Default is \code{TRUE}. If \code{TRUE} the RasterLayer are read with \code{\link{read.raster.from.url}}, istead of \code{\link[raster]{raster}} (otherwise). It is recomended in case the files whose paths are contained in \code{x} are remote and are 'http' addresses. In this cases the stand-alone method \code{raster(x)} does not always work and \code{use.read.raster.from.url} is necessary.}
 }
 \value{
-a  \code{\link{RasterBrick-class}} containing the geopop maps indicated by \code{x}, which is already in a \code{\link{GeotopRasterBrick-class}} object or a 'zoo' object returned by function \code{\link{pointer.to.maps.xyz.time}} or \code{\link{pointer.to.maps.xy.time}}.
+a  \code{\link[raster]{RasterBrick-class}} containing the geopop maps indicated by \code{x}, which is already in a \code{\link{GeotopRasterBrick-class}} object or a 'zoo' object returned by function \code{\link{pointer.to.maps.xyz.time}} or \code{\link{pointer.to.maps.xy.time}}.
 }
 \description{
 Added implemetation for 'brick' S4 method

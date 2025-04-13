@@ -33,7 +33,7 @@ showClass("GeotopRasterBrick")
  
 }
 \seealso{
-\code{\link{Raster-class}}
+\code{\link[raster]{Raster-class}}
 }
 \author{
 Emanuele Cordano

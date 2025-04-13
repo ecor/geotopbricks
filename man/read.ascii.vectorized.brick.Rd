@@ -18,7 +18,7 @@ read.ascii.vectorized.brick(
 
 \item{comment}{character. Comment indicator. Default is \code{"!"}.}
 
-\item{crs}{Character or object of class CRS. PROJ4 type description of a Coordinate Reference System (map projection) (optional). See \code{\link{brick}} or \code{\link{raster}}.}
+\item{crs}{Character or object of class CRS. PROJ4 type description of a Coordinate Reference System (map projection) (optional). See \code{\link{brick}} or \code{\link[raster]{raster}}.}
 
 \item{NAflag}{numeric. Dafauli is -9999, see \code{\link{writeRasterxGEOtop}}.}
 
@@ -27,7 +27,7 @@ read.ascii.vectorized.brick(
 \item{...}{further aguments inserted as attribute}
 }
 \value{
-the \code{\link{RasterBrick-class}} object
+the \code{\link[raster]{RasterBrick-class}} object
 }
 \description{
 Read a text file containing  values and matedata of a z-layer brick referred to a time instant (e.g. date). The file is formatted like an ascii format like \code{'geotop.inpts'} file.

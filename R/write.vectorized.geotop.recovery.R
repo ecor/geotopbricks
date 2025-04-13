@@ -13,7 +13,7 @@ NULL
 #' @param rec a \code{list} object returened by \code{\link{get.geotop.recovery.state}}
 #' @param file ascii text file name whrere to write the string vector
 #' @param header character string vector for header text lines. If missing, a default header is written. Default is  \code{c("! header")} or he one assigned by \code{matlab.syntax}.
-#' @param overwrite logical. Default is \code{TRUE}, see \code{\link{writeRaster}}.
+#' @param overwrite logical. Default is \code{TRUE}, see \code{\link[raster]{writeRaster}}.
 #' @param NAflag numeric. Default is -9999, see \code{\link{writeRasterxGEOtop}}.
 #' @param matlab.syntax logical value. Default is \code{TRUE}. If \code{TRUE} the file syntax is like the one of a *.m Matlab script file.
 #' @param ... further aguments inserted as attribute

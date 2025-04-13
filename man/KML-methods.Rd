@@ -26,7 +26,7 @@
 \code{KML} method for a \code{GeotopRasterBrick} object
 }
 \note{
-A coordinate transformation is made with \code{\link{projectRaster}}.
+A coordinate transformation is made with \code{\link[raster]{projectRaster}}.
 }
 \examples{
 

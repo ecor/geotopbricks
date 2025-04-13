@@ -26,14 +26,14 @@ brick.decimal.formatter(
 
 \item{nlayers}{number of layers}
 
-\item{use.read.raster.from.url}{logical value. Default is \code{FALSE}. (this is recommended in this function). If \code{TRUE} the RasterLayer are read with \code{\link{read.raster.from.url}}, istead of \code{\link{raster}} (otherwise). It is recomended in case the files whose paths are contained in \code{x} are remote and are 'http' addresses. In this cases the stand-alone method \code{raster(x)} does not always work and \code{use.read.raster.from.url} is necessary.}
+\item{use.read.raster.from.url}{logical value. Default is \code{FALSE}. (this is recommended in this function). If \code{TRUE} the RasterLayer are read with \code{\link{read.raster.from.url}}, istead of \code{\link[raster]{raster}} (otherwise). It is recomended in case the files whose paths are contained in \code{x} are remote and are 'http' addresses. In this cases the stand-alone method \code{raster(x)} does not always work and \code{use.read.raster.from.url} is necessary.}
 
-\item{crs}{coordinate system see \code{\link{RasterBrick-class}},\code{\link{brick}}, Default is \code{NULL}.}
+\item{crs}{coordinate system see \code{\link[raster]{RasterBrick-class}},\code{\link[raster]{brick}}, Default is \code{NULL}.}
 
 \item{start.from.zero}{logical value. Default is \code{FALSE}. If \code{TRUE} the formatter starts from \code{0000}, otherwise it starts from \code{0001}.}
 }
 \value{
-the output is returned as a \code{\link{RasterBrick-class}} object
+the output is returned as a \code{\link[raster]{RasterBrick-class}} object
 }
 \description{
 Imports a brick of raster ascii maps into a 'brick' object

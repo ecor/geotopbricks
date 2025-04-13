@@ -13,7 +13,7 @@ NULL
 #' @param wpath,tz,use.read.raster.from.url see \code{\link{get.geotop.inpts.keyword.value}}
 #' @param projfile  name of the \code{*.proj} file containing CRS information. See \code{\link{get.geotop.inpts.keyword.value}}. Default is \code{"geotop.proj"}. If is \code{NULL} or \code{NA} or this file does not exist, it is not searched and read.. In case \code{use.read.raster.from.url} is \code{TRUE} and no \code{NULL} or \code{NA} values are assinged, the \code{*.proj} file is searched. 
 #' @param crs,start.from.zero see \code{\link{brick.decimal.formatter}}. If \code{crs} is not \code{NULL} (Default) , \code{projfile} is ignored.
-#' @param one.layer logical value. If \code{TRUE} a \code{\link{RasterLayer-class}} object is imported, otherwise a \code{\link{RasterBrick-class}}object is returened. Default for \code{brickFromOutputSoil3DTensor} is \code{FALSE}
+#' @param one.layer logical value. If \code{TRUE} a \code{\link[raster]{RasterLayer-class}} object is imported, otherwise a \code{\link[raster]{RasterBrick-class}}object is returened. Default for \code{brickFromOutputSoil3DTensor} is \code{FALSE}
 #' @param start_date_key,end_date_key initial and final detes and times of the GEOtop simulation or alternatively the respective keywords of \code{*.inpts} file (Default) 
 #' @param secondary.suffix String secondary suffix which can be added at the end of the Map file name (optional). Default is \code{NULL} and no secondary suffix is added.  
 #' @param only.map.filename logical value. If it is \code{TRUE}, only map file names are returned and maps are not imported. Default is \code{FALSE}.
@@ -24,7 +24,7 @@ NULL
 #' 
 #'  
 #' 
-#' @details These functions \code{brickFromOutputSoil3DTensor} and \code{rasterFromOutput2DMap} return 3D or 2D \code{\link{Raster-class}} objects respectively. \code{rasterFromOutput2DMap} is a wrapper function of \code{brickFromOutputSoil3DTensor} with the option \code{one.layer==TRUE}.
+#' @details These functions \code{brickFromOutputSoil3DTensor} and \code{rasterFromOutput2DMap} return 3D or 2D \code{\link[raster]{Raster-class}} objects respectively. \code{rasterFromOutput2DMap} is a wrapper function of \code{brickFromOutputSoil3DTensor} with the option \code{one.layer==TRUE}.
 #' The functionswork with the following output keywords: 
 #' 
 #' \code{"SoilTempTensorFile"},

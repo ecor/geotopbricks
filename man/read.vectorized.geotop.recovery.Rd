@@ -27,7 +27,7 @@ read.vectorized.geotop.recovery(
 
 \item{NAflag}{numeric. Default is -9999, see \code{\link{writeRasterxGEOtop}}.}
 
-\item{crs}{Character or object of class CRS. PROJ4 type description of a Coordinate Reference System (map projection) (optional). See \code{\link{brick}} or \code{\link{raster}}.}
+\item{crs}{Character or object of class CRS. PROJ4 type description of a Coordinate Reference System (map projection) (optional). See \code{\link{brick}} or \code{\link[raster]{raster}}.}
 
 \item{...}{further aguments inserted as attribute}
 }

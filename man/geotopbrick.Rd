@@ -38,7 +38,7 @@ geotopbrick(x = NULL, ...)
 
 \item{time}{vector of time instants at which geotop maps are imported}
 
-\item{crs}{coordinate system see \code{\link{RasterBrick-class}}}
+\item{crs}{coordinate system see \code{\link[raster]{RasterBrick-class}}}
 
 \item{timerange}{two-elememts vector containing the time range at which geotop maps are imported}
 

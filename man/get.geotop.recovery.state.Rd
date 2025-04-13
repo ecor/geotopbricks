@@ -51,7 +51,7 @@ example_Rscript
 \seealso{
 \code{\link{brick.decimal.formatter}},
 
-\code{\link{raster}},\code{\link{set.geotop.recovery.state}},
+\code{\link[raster]{raster}},\code{\link{set.geotop.recovery.state}},
 
 \code{\link{write.vectorized.geotop.recovery}},\code{\link{read.vectorized.geotop.recovery}}
 }

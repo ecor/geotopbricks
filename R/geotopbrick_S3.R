@@ -46,7 +46,7 @@ NULL
 #' @param x a 'zoo' object returned by function \code{\link{pointer.to.maps.xyz.time}} or \code{\link{pointer.to.maps.xy.time}} or a \code{\link{GeotopRasterBrick-class}} object
 #' @param layer layer at which raster maps are imported. If is \code{NULL}, maps ara no-zlayer distributed and \code{zoo} must be returend by \code{\link{pointer.to.maps.xy.time}}
 #' @param time vector of time instants at which geotop maps are imported
-#' @param crs coordinate system see \code{\link{RasterBrick-class}}
+#' @param crs coordinate system see \code{\link[raster]{RasterBrick-class}}
 #' @param timerange two-elememts vector containing the time range at which geotop maps are imported
 #' @param ascpath \code{NULL} object or a \code{"zoo"} S3 object containing the names of ascii maps provided by GEOtop 
 #' @param ... further arguments. 

@@ -21,7 +21,7 @@ write.vectorized.geotop.recovery(
 
 \item{header}{character string vector for header text lines. If missing, a default header is written. Default is  \code{c("! header")} or he one assigned by \code{matlab.syntax}.}
 
-\item{overwrite}{logical. Default is \code{TRUE}, see \code{\link{writeRaster}}.}
+\item{overwrite}{logical. Default is \code{TRUE}, see \code{\link[raster]{writeRaster}}.}
 
 \item{NAflag}{numeric. Default is -9999, see \code{\link{writeRasterxGEOtop}}.}
 

@@ -73,7 +73,7 @@ NULL
 #' @title GeotopRasterBrick-class 
 #' 
 #' @keywords classes
-#' @seealso \code{\link{Raster-class}}
+#' @seealso \code{\link[raster]{Raster-class}}
 #' 
 #' @author Emanuele Cordano
 #' @aliases GeotopRasterBrick
