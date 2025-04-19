@@ -221,7 +221,7 @@
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://zenodo.org/record/8228413" class="external-link">geotopbricks</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ecor/geotopbricks" class="external-link">geotopbricks</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">#Simulation working path</span></span></span>
 <span class="r-in"><span> </span></span>
@@ -231,33 +231,56 @@
 <span class="r-in"><span><span class="st">'https://raw.githubusercontent.com/ecor/geotopbricks_doc/master/simulations/panola13_run2xC_test3'</span></span></span>
 <span class="r-in"><span><span class="co">## URL path (RAW VERSION) of</span></span></span>
 <span class="r-in"><span><span class="co">## https://github.com/ecor/geotopbricks_doc/tree/master/simulations/panola13_run2xC_test3</span></span></span>
-<span class="r-in"><span><span class="va">prefix</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"SoilLiqWaterPressTensorFile"</span>,wpath<span class="op">=</span><span class="va">wpath</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">slope</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"SlopeMapFile"</span>,raster<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span><span class="op">)</span> </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://raw.githubusercontent.com/ecor/geotopbricks_doc/master/simulations/panola13_run2xC_test3/slope.asc"</span>
-<span class="r-in"><span><span class="va">bedrock_depth</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"BedrockDepthMapFile"</span>,raster<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span><span class="op">)</span> </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://raw.githubusercontent.com/ecor/geotopbricks_doc/master/simulations/panola13_run2xC_test3/bedrock_depth.asc"</span>
+<span class="r-in"><span><span class="co">## This step allows to put all keywords with their value in memory:</span></span></span>
+<span class="r-in"><span><span class="co">## it not mandataory but it can save running time in the session</span></span></span>
+<span class="r-in"><span><span class="va">inpts.frame</span> <span class="op">&lt;-</span> <span class="fu"><a href="declared.geotop.inpts.keywords.html">declared.geotop.inpts.keywords</a></span><span class="op">(</span>wpath<span class="op">=</span><span class="va">wpath</span><span class="op">)</span> </span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">layers</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"SoilLayerThicknesses"</span>,numeric<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">layers</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"L"</span>,<span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">layers</span><span class="op">)</span>,sep<span class="op">=</span><span class="st">""</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">cond.time</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.time.html" class="external-link">system.time</a></span><span class="op">(</span><span class="op">{</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">prefix</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"SoilLiqWaterPressTensorFile"</span>,wpath<span class="op">=</span><span class="va">wpath</span>,</span></span>
+<span class="r-in"><span>inpts.frame<span class="op">=</span><span class="va">inpts.frame</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">layers</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"SoilLayerThicknesses"</span>,numeric<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span>,</span></span>
+<span class="r-in"><span>inpts.frame<span class="op">=</span><span class="va">inpts.frame</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">layers</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"L"</span>,<span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">layers</span><span class="op">)</span>,sep<span class="op">=</span><span class="st">""</span>,</span></span>
+<span class="r-in"><span>inpts.frame<span class="op">=</span><span class="va">inpts.frame</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">##### set van genuchten parameters to estimate water volume </span></span></span>
-<span class="r-in"><span><span class="va">theta_sat</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"ThetaSat"</span>,numeric<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">theta_res</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"ThetaRes"</span>,numeric<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">theta_sat</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"ThetaSat"</span>,numeric<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span>,</span></span>
+<span class="r-in"><span>inpts.frame<span class="op">=</span><span class="va">inpts.frame</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">theta_res</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"ThetaRes"</span>,numeric<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span>,</span></span>
+<span class="r-in"><span>inpts.frame<span class="op">=</span><span class="va">inpts.frame</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">alphaVG</span> <span class="op">&lt;-</span>  <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"AlphaVanGenuchten"</span>,</span></span>
-<span class="r-in"><span>numeric<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span><span class="op">)</span> <span class="co"># expressed in mm^-1</span></span></span>
+<span class="r-in"><span>numeric<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span>,inpts.frame<span class="op">=</span><span class="va">inpts.frame</span><span class="op">)</span> <span class="co"># expressed in mm^-1</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">nVG</span> <span class="op">&lt;-</span>  <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"NVanGenuchten"</span>,numeric<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span><span class="op">)</span> </span></span>
+<span class="r-in"><span><span class="va">nVG</span> <span class="op">&lt;-</span>  <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"NVanGenuchten"</span>,numeric<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span>,</span></span>
+<span class="r-in"><span>inpts.frame<span class="op">=</span><span class="va">inpts.frame</span><span class="op">)</span> </span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">##### end set van genuchten parameters to estimate water volume</span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co">##### set meteo data</span></span></span>
+<span class="r-in"><span><span class="va">cond2.time</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.time.html" class="external-link">system.time</a></span><span class="op">(</span><span class="op">{</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="va">cond.time</span><span class="op">[[</span><span class="st">"elapsed"</span><span class="op">]</span><span class="op">]</span><span class="op">&lt;</span><span class="fl">0.01</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co">##### spatial gridded covarege data (raster)</span></span></span>
+<span class="r-in"><span><span class="va">slope</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"SlopeMapFile"</span>,raster<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span>,</span></span>
+<span class="r-in"><span> inpts.frame<span class="op">=</span><span class="va">inpts.frame</span><span class="op">)</span> </span></span>
+<span class="r-in"><span><span class="va">bedrock_depth</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"BedrockDepthMapFile"</span>,raster<span class="op">=</span><span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>wpath<span class="op">=</span><span class="va">wpath</span>,</span></span>
+<span class="r-in"><span> inpts.frame<span class="op">=</span><span class="va">inpts.frame</span><span class="op">)</span> </span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">cond3.time</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.time.html" class="external-link">system.time</a></span><span class="op">(</span><span class="op">{</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="va">cond2.time</span><span class="op">[[</span><span class="st">"elapsed"</span><span class="op">]</span><span class="op">]</span><span class="op">&lt;</span><span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co">##### meteo data</span></span></span>
 <span class="r-in"><span><span class="va">tz</span> <span class="op">&lt;-</span> <span class="st">"Etc/GMT-1"</span>  <span class="co">## See help(timezones) In particular:</span></span></span>
 <span class="r-in"><span><span class="co">## Most platforms support time zones of the form Etc/GMT+n </span></span></span>
 <span class="r-in"><span><span class="co">## and Etc/GMT-n (possibly also without prefix Etc/), </span></span></span>
@@ -266,18 +289,18 @@
 <span class="r-in"><span><span class="co">## (but consistent with names such as PST8PDT), negative offsets are times ahead of (east of) UTC, </span></span></span>
 <span class="r-in"><span><span class="co">## positive offsets are times behind (west of) UTC.</span></span></span>
 <span class="r-in"><span><span class="va">start</span> <span class="op">&lt;-</span>  <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"InitDateDDMMYYYYhhmm"</span>,</span></span>
-<span class="r-in"><span>date<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span>,tz<span class="op">=</span><span class="va">tz</span><span class="op">)</span> </span></span>
+<span class="r-in"><span>date<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span>,tz<span class="op">=</span><span class="va">tz</span>,inpts.frame<span class="op">=</span><span class="va">inpts.frame</span><span class="op">)</span> </span></span>
 <span class="r-in"><span><span class="va">end</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"EndDateDDMMYYYYhhmm"</span>,</span></span>
-<span class="r-in"><span>date<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span>,tz<span class="op">=</span><span class="va">tz</span><span class="op">)</span> </span></span>
+<span class="r-in"><span>date<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span>,tz<span class="op">=</span><span class="va">tz</span>,inpts.frame<span class="op">=</span><span class="va">inpts.frame</span><span class="op">)</span> </span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">nmeteo</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"NumberOfMeteoStations"</span>,</span></span>
-<span class="r-in"><span>numeric<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span><span class="op">)</span></span></span>
+<span class="r-in"><span>numeric<span class="op">=</span><span class="cn">TRUE</span>,wpath<span class="op">=</span><span class="va">wpath</span>,inpts.frame<span class="op">=</span><span class="va">inpts.frame</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">level</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="va">nmeteo</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## set meteo data</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="va">meteo</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.inpts.keyword.value</span><span class="op">(</span><span class="st">"MeteoFile"</span>,wpath<span class="op">=</span><span class="va">wpath</span>,data.frame<span class="op">=</span><span class="cn">TRUE</span>,</span></span>
-<span class="r-in"><span>       level<span class="op">=</span><span class="va">level</span>,start_date<span class="op">=</span><span class="va">start</span>,end_date<span class="op">=</span><span class="va">end</span>,tz<span class="op">=</span><span class="va">tz</span><span class="op">)</span></span></span>
+<span class="r-in"><span>       level<span class="op">=</span><span class="va">level</span>,start_date<span class="op">=</span><span class="va">start</span>,end_date<span class="op">=</span><span class="va">end</span>,tz<span class="op">=</span><span class="va">tz</span>,inpts.frame<span class="op">=</span><span class="va">inpts.frame</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">##### end set meteo data</span></span></span>
@@ -299,7 +322,8 @@
 <span class="r-in"><span>         wpath<span class="op">=</span><span class="va">wpath</span>,data.frame<span class="op">=</span><span class="cn">TRUE</span>,date_field<span class="op">=</span><span class="st">"Date12.DDMMYYYYhhmm."</span>,</span></span>
 <span class="r-in"><span>          formatter<span class="op">=</span><span class="st">"%04d"</span>,zlayer.formatter<span class="op">=</span><span class="st">"z%04d"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>    </span></span>
 <span class="r-in"><span></span></span>

@@ -120,29 +120,56 @@ wpath <-
 'https://raw.githubusercontent.com/ecor/geotopbricks_doc/master/simulations/panola13_run2xC_test3'
 ## URL path (RAW VERSION) of
 ## https://github.com/ecor/geotopbricks_doc/tree/master/simulations/panola13_run2xC_test3
-prefix <- get.geotop.inpts.keyword.value("SoilLiqWaterPressTensorFile",wpath=wpath)
 
-slope <- get.geotop.inpts.keyword.value("SlopeMapFile",raster=TRUE,wpath=wpath) 
-bedrock_depth <- get.geotop.inpts.keyword.value("BedrockDepthMapFile",raster=TRUE,wpath=wpath) 
+## This step allows to put all keywords with their value in memory:
+## it not mandataory but it can save running time in the session
+inpts.frame <- declared.geotop.inpts.keywords(wpath=wpath) 
 
-layers <- get.geotop.inpts.keyword.value("SoilLayerThicknesses",numeric=TRUE,wpath=wpath)
-names(layers) <- paste("L",1:length(layers),sep="")
+cond.time <- system.time({
+
+prefix <- get.geotop.inpts.keyword.value("SoilLiqWaterPressTensorFile",wpath=wpath,
+inpts.frame=inpts.frame)
+
+
+layers <- get.geotop.inpts.keyword.value("SoilLayerThicknesses",numeric=TRUE,wpath=wpath,
+inpts.frame=inpts.frame)
+names(layers) <- paste("L",1:length(layers),sep="",
+inpts.frame=inpts.frame)
 
 ##### set van genuchten parameters to estimate water volume 
-theta_sat <- get.geotop.inpts.keyword.value("ThetaSat",numeric=TRUE,wpath=wpath)
-theta_res <- get.geotop.inpts.keyword.value("ThetaRes",numeric=TRUE,wpath=wpath)
+theta_sat <- get.geotop.inpts.keyword.value("ThetaSat",numeric=TRUE,wpath=wpath,
+inpts.frame=inpts.frame)
+theta_res <- get.geotop.inpts.keyword.value("ThetaRes",numeric=TRUE,wpath=wpath,
+inpts.frame=inpts.frame)
 alphaVG <-  get.geotop.inpts.keyword.value("AlphaVanGenuchten",
-numeric=TRUE,wpath=wpath) # expressed in mm^-1
+numeric=TRUE,wpath=wpath,inpts.frame=inpts.frame) # expressed in mm^-1
 
-nVG <-  get.geotop.inpts.keyword.value("NVanGenuchten",numeric=TRUE,wpath=wpath) 
+nVG <-  get.geotop.inpts.keyword.value("NVanGenuchten",numeric=TRUE,wpath=wpath,
+inpts.frame=inpts.frame) 
 
 
 ##### end set van genuchten parameters to estimate water volume
 
+})
 
-##### set meteo data
+cond2.time <- system.time({
+if (cond.time[["elapsed"]]<0.01) {
+
 \donttest{
+##### spatial gridded covarege data (raster)
+slope <- get.geotop.inpts.keyword.value("SlopeMapFile",raster=TRUE,wpath=wpath,
+ inpts.frame=inpts.frame) 
+bedrock_depth <- get.geotop.inpts.keyword.value("BedrockDepthMapFile",raster=TRUE,
+wpath=wpath,
+ inpts.frame=inpts.frame) 
+}
+}
+})
+cond3.time <- system.time({
+if (cond2.time[["elapsed"]]<1) {
 
+\donttest{
+##### meteo data
 tz <- "Etc/GMT-1"  ## See help(timezones) In particular:
 ## Most platforms support time zones of the form Etc/GMT+n 
 ## and Etc/GMT-n (possibly also without prefix Etc/), 
@@ -151,18 +178,18 @@ tz <- "Etc/GMT-1"  ## See help(timezones) In particular:
 ## (but consistent with names such as PST8PDT), negative offsets are times ahead of (east of) UTC, 
 ## positive offsets are times behind (west of) UTC.
 start <-  get.geotop.inpts.keyword.value("InitDateDDMMYYYYhhmm",
-date=TRUE,wpath=wpath,tz=tz) 
+date=TRUE,wpath=wpath,tz=tz,inpts.frame=inpts.frame) 
 end <- get.geotop.inpts.keyword.value("EndDateDDMMYYYYhhmm",
-date=TRUE,wpath=wpath,tz=tz) 
+date=TRUE,wpath=wpath,tz=tz,inpts.frame=inpts.frame) 
 
 nmeteo <- get.geotop.inpts.keyword.value("NumberOfMeteoStations",
-numeric=TRUE,wpath=wpath)
+numeric=TRUE,wpath=wpath,inpts.frame=inpts.frame)
 level <- 1:nmeteo
 
 ## set meteo data
 
  meteo <- get.geotop.inpts.keyword.value("MeteoFile",wpath=wpath,data.frame=TRUE,
-       level=level,start_date=start,end_date=end,tz=tz)
+       level=level,start_date=start,end_date=end,tz=tz,inpts.frame=inpts.frame)
 }
 
 ##### end set meteo data
@@ -184,7 +211,8 @@ wpath <-  paste0(
          wpath=wpath,data.frame=TRUE,date_field="Date12.DDMMYYYYhhmm.",
           formatter="\%04d",zlayer.formatter="z\%04d")
 }
-
+}
+})
 
 		
 

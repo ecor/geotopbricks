@@ -3,14 +3,17 @@ Maintainer: Emanuele Cordano <emanuele.cordano@gmail.com>
 License: GPL (>= 3) 
 Title: An R Plug-in for the Distributed Hydrological Model GEOtop
 Type: Package
-Author: Emanuele Cordano
+Authors@R: c(person(given = "Emanuele",
+                        family = "Cordano",
+                        role = c("aut", "cre","ctb"),
+                        email = "emanuele.cordano@gmail.com",comment=c(ORCID="0000-0002-3508-5898")))
 Description: It analyzes raster maps and other information as input/output
     files from the Hydrological Distributed Model GEOtop. It contains functions
     and methods to import maps and other keywords from geotop.inpts file. Some
     examples with simulation cases of GEOtop 2.x/3.x are presented in the package.
-    Any information about the GEOtop Distributed Hydrological Model in the provided documentation.
+    Any information about the GEOtop Distributed Hydrological Model can be found in the provided documentation.
 Version: 1.5.9.1
-Date: 2025-04-13
+Date: 2025-04-18
 Repository: http://cran.r-project.org/
 Depends:
     R (>= 4.1.0),methods,raster,stringr,zoo,sf
@@ -18,5 +21,5 @@ Imports:
     terra
 Suggests:
     soilwater
-URL: https://zenodo.org/record/8228413,www.geotop.org,https://www.rendena100.eu/en/geotop-hydrological-model.html,https://github.com/ecor/geotopbricks
+URL: https://github.com/ecor/geotopbricks
 RoxygenNote: 7.3.2
