@@ -10,13 +10,24 @@ create.geotop.inpts.keyword(
   comment.lines = "default",
   header = "default",
   like.meteo.keywords = inherits(df, "sf"),
-  coords_keywords = c("MeteoStationCoordinateX", "MeteoStationCoordinateY"),
+  meteo_coords_keywords = c("MeteoStationCoordinateX", "MeteoStationCoordinateY"),
+  meteo_lonlat_coords_keywords = c("MeteoStationLongitude", "MeteoStationLatitude"),
   num_keyword = "NumberOfMeteoStations",
+  crs_lonlat = 4326,
+  checkpoint_coords_keywords = c("CoordinatePointX", "CoordinatePointY"),
+  checkpoint_lonlat_coords_keywords = c("CoordinatePointLongitude",
+    "CoordinatePointLatitude"),
+  meteo = !checkpoint,
+  checkpoint = FALSE,
+  coords_keywords = list(meteo_coords_keywords,
+    checkpoint_coords_keywords)[which(c(meteo, checkpoint))][[1]],
+  lonlat_coords_keywords = list(meteo_lonlat_coords_keywords,
+    checkpoint_lonlat_coords_keywords)[which(c(meteo, checkpoint))][[1]],
   ...
 )
 }
 \arguments{
-\item{df}{data frame returend by \code{\link{declared.geotop.inpts.keywords}}}
+\item{df}{data frame returned by \code{\link{declared.geotop.inpts.keywords}}}
 
 \item{wpath}{complere path to \code{file} (optional). Default is \code{NULL}.}
 
@@ -26,9 +37,21 @@ create.geotop.inpts.keyword(
 
 \item{like.meteo.keywords}{logical. It is used in case \code{df} is a \code{sf} object (geospatial), it often used for meteorological stations}
 
-\item{coords_keywords}{keywords for station coordinates in case \code{like.meteo.keywords==TRUE}.}
+\item{meteo_coords_keywords, meteo_lonlat_coords_keywords}{coordinate keywords for meteo/wether stations (see default)}
 
 \item{num_keyword}{keyword for number of stations in case \code{like.meteo.keywords==TRUE}.}
+
+\item{crs_lonlat}{crs use for geographical coordinates (latittude and longitude in degrees)(see default)}
+
+\item{checkpoint_coords_keywords, checkpoint_lonlat_coords_keywords}{coordinate keywords for output control points (see default)}
+
+\item{meteo}{logical: is \code{df} a \code{sf} object for weather/meteo stations?}
+
+\item{checkpoint}{logical: is \code{df} a \code{sf} object for output control/check points?}
+
+\item{coords_keywords}{keywords for station coordinates in case \code{like.meteo.keywords==TRUE}.}
+
+\item{lonlat_coords_keywords}{keywords for station geographic coordinates (longitude and latitude in degrres) in case \code{like.meteo.keywords==TRUE}.}
 
 \item{...}{further arguments for \code{\link{writeLines}}}
 }

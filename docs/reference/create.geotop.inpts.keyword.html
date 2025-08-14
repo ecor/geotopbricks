@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">geotopbricks</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.5.9.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.5.9.2</span>
       </span>
     </div>
 
@@ -56,8 +56,19 @@
 <span>  comment.lines <span class="op">=</span> <span class="st">"default"</span>,</span>
 <span>  header <span class="op">=</span> <span class="st">"default"</span>,</span>
 <span>  like.meteo.keywords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">inherits</a></span><span class="op">(</span><span class="va">df</span>, <span class="st">"sf"</span><span class="op">)</span>,</span>
-<span>  coords_keywords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"MeteoStationCoordinateX"</span>, <span class="st">"MeteoStationCoordinateY"</span><span class="op">)</span>,</span>
+<span>  meteo_coords_keywords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"MeteoStationCoordinateX"</span>, <span class="st">"MeteoStationCoordinateY"</span><span class="op">)</span>,</span>
+<span>  meteo_lonlat_coords_keywords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"MeteoStationLongitude"</span>, <span class="st">"MeteoStationLatitude"</span><span class="op">)</span>,</span>
 <span>  num_keyword <span class="op">=</span> <span class="st">"NumberOfMeteoStations"</span>,</span>
+<span>  crs_lonlat <span class="op">=</span> <span class="fl">4326</span>,</span>
+<span>  checkpoint_coords_keywords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"CoordinatePointX"</span>, <span class="st">"CoordinatePointY"</span><span class="op">)</span>,</span>
+<span>  checkpoint_lonlat_coords_keywords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"CoordinatePointLongitude"</span>,</span>
+<span>    <span class="st">"CoordinatePointLatitude"</span><span class="op">)</span>,</span>
+<span>  meteo <span class="op">=</span> <span class="op">!</span><span class="va">checkpoint</span>,</span>
+<span>  checkpoint <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  coords_keywords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">meteo_coords_keywords</span>,</span>
+<span>    <span class="va">checkpoint_coords_keywords</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">meteo</span>, <span class="va">checkpoint</span><span class="op">)</span><span class="op">)</span><span class="op">]</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>,</span>
+<span>  lonlat_coords_keywords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">meteo_lonlat_coords_keywords</span>,</span>
+<span>    <span class="va">checkpoint_lonlat_coords_keywords</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">meteo</span>, <span class="va">checkpoint</span><span class="op">)</span><span class="op">)</span><span class="op">]</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -67,7 +78,7 @@
 
 
 <dl><dt id="arg-df">df<a class="anchor" aria-label="anchor" href="#arg-df"></a></dt>
-<dd><p>data frame returend by <code><a href="declared.geotop.inpts.keywords.html">declared.geotop.inpts.keywords</a></code></p></dd>
+<dd><p>data frame returned by <code><a href="declared.geotop.inpts.keywords.html">declared.geotop.inpts.keywords</a></code></p></dd>
 
 
 <dt id="arg-wpath">wpath<a class="anchor" aria-label="anchor" href="#arg-wpath"></a></dt>
@@ -86,12 +97,36 @@
 <dd><p>logical. It is used in case <code>df</code> is a <code>sf</code> object (geospatial), it often used for meteorological stations</p></dd>
 
 
-<dt id="arg-coords-keywords">coords_keywords<a class="anchor" aria-label="anchor" href="#arg-coords-keywords"></a></dt>
-<dd><p>keywords for station coordinates in case <code>like.meteo.keywords==TRUE</code>.</p></dd>
+<dt id="arg-meteo-coords-keywords-meteo-lonlat-coords-keywords">meteo_coords_keywords, meteo_lonlat_coords_keywords<a class="anchor" aria-label="anchor" href="#arg-meteo-coords-keywords-meteo-lonlat-coords-keywords"></a></dt>
+<dd><p>coordinate keywords for meteo/wether stations (see default)</p></dd>
 
 
 <dt id="arg-num-keyword">num_keyword<a class="anchor" aria-label="anchor" href="#arg-num-keyword"></a></dt>
 <dd><p>keyword for number of stations in case <code>like.meteo.keywords==TRUE</code>.</p></dd>
+
+
+<dt id="arg-crs-lonlat">crs_lonlat<a class="anchor" aria-label="anchor" href="#arg-crs-lonlat"></a></dt>
+<dd><p>crs use for geographical coordinates (latittude and longitude in degrees)(see default)</p></dd>
+
+
+<dt id="arg-checkpoint-coords-keywords-checkpoint-lonlat-coords-keywords">checkpoint_coords_keywords, checkpoint_lonlat_coords_keywords<a class="anchor" aria-label="anchor" href="#arg-checkpoint-coords-keywords-checkpoint-lonlat-coords-keywords"></a></dt>
+<dd><p>coordinate keywords for output control points (see default)</p></dd>
+
+
+<dt id="arg-meteo">meteo<a class="anchor" aria-label="anchor" href="#arg-meteo"></a></dt>
+<dd><p>logical: is <code>df</code> a <code>sf</code> object for weather/meteo stations?</p></dd>
+
+
+<dt id="arg-checkpoint">checkpoint<a class="anchor" aria-label="anchor" href="#arg-checkpoint"></a></dt>
+<dd><p>logical: is <code>df</code> a <code>sf</code> object for output control/check points?</p></dd>
+
+
+<dt id="arg-coords-keywords">coords_keywords<a class="anchor" aria-label="anchor" href="#arg-coords-keywords"></a></dt>
+<dd><p>keywords for station coordinates in case <code>like.meteo.keywords==TRUE</code>.</p></dd>
+
+
+<dt id="arg-lonlat-coords-keywords">lonlat_coords_keywords<a class="anchor" aria-label="anchor" href="#arg-lonlat-coords-keywords"></a></dt>
+<dd><p>keywords for station geographic coordinates (longitude and latitude in degrres) in case <code>like.meteo.keywords==TRUE</code>.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -1401,7 +1436,7 @@ See the example output.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">###</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> terra 1.8.6</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> terra 1.8.58</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: ‘terra’</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from ‘package:zoo’:</span>
@@ -1418,6 +1453,10 @@ See the example output.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> MeteoStationCoordinateX=655351.086730603,670675.304925094,654891.602324563,649703.698676308,670555.626371998,689067.491498123,679671.6020527,685776.007458624,676842.821008098,678840.351724782,669907.423253513,674901.136020487,682891.299400483,676954.476276673,682947.128699915,686998.146580986,670074.874339277,676067.352949235,686055.163718751,668133.222617811,681172.828190676,677233.538870388,679231.07772531,683226.208202526,686222.603000326,674293.061128542,674348.854975826,676346.369756032,678343.901794649,677400.924466786,672462.930529221,680453.031212814,682450.600084766,668523.761204749,674516.210909073,677512.493158213,671575.742877766,673629.007322781,676625.278697772,683672.502345514,676736.811977744</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> MeteoStationCoordinateY=5260901.4045469,5260760.93979053,5274234.28539904,5253859.72549078,5255285.32723999,5278012.72632141,5274608.21431367,5272945.71168906,5271444.39648009,5271556.06170175,5270054.85715809,5270333.9811456,5270780.6125743,5269446.87316514,5269781.82427595,5269006.33068408,5267058.65827207,5267393.53299058,5267951.70286771,5265948.31191677,5265675.04765904,5264453.05455076,5264564.65894493,5264787.87375149,5264955.29022815,5263286.89923909,5262288.14637512,5262399.73067686,5262511.31674014,5261456.75727674,5260179.07378294,5260625.34547926,5260736.917387,5258957.21823289,5259291.88527911,5259459.22362327,5258125.80845076,5257238.60585056,5257405.91735372,5256797.52751998,5255408.38962431</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> MeteoStationLongitude=11.0621,11.2653,11.0607,10.9848,11.2616,11.5166,11.390254466796,11.470683664822,11.3513799412745,11.3779620129072,11.258701794605,11.3251423822125,11.4314534004453,11.3520588352469,11.4317791640635,11.4852448588714,11.2597672774785,11.3394554842346,11.4722784160249,11.2335649584159,11.4065253608375,11.3537540403315,11.3803043428989,11.4334063123267,11.473233958788,11.3142749480049,11.3146203214315,11.3411608649286,11.3677018740557,11.3547697738641,11.2887796983665,11.3949065661167,11.4214394305011,11.2360777002127,11.3156557342378,11.3554463515748,11.2762178646186,11.3030866391017,11.3428633354318,11.4360039746388,11.3435435104476</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> MeteoStationLatitude=47.483,47.4779,47.603,47.421,47.4287,47.6279,47.599968102384,47.5833028313871,47.5723023315313,47.5727588389045,47.561662016664,47.5628453912151,47.5646588053583,47.5543136000829,47.5556642026621,47.5475390773562,47.5346796816327,47.5360943979933,47.5383292648426,47.5252017491415,47.519241882929,47.5093414894332,47.5097974561183,47.5106909492241,47.5113449332121,47.4996516636956,47.4906572976733,47.4911223266521,47.4915812112448,47.4823580384994,47.4721975076886,47.4740447090616,47.4744911532385,47.46224288692,47.4636741116175,47.4643689980017,47.4539711037338,47.4454506298559,47.4461498853911,47.4387329655291,47.4281608114964</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> MeteoStationCode=DWD_historical_01550,DWD_historical_03307,DWD_historical_03677,DWD_historical_05792,DWD_historical_06103,DWD_historical_06257,AT_INCA_1KM_NODE_0005,AT_INCA_1KM_NODE_0027,AT_INCA_1KM_NODE_0034,AT_INCA_1KM_NODE_0035,AT_INCA_1KM_NODE_0041,AT_INCA_1KM_NODE_0042,AT_INCA_1KM_NODE_0044,AT_INCA_1KM_NODE_0050,AT_INCA_1KM_NODE_0052,AT_INCA_1KM_NODE_0063,AT_INCA_1KM_NODE_0066,AT_INCA_1KM_NODE_0070,AT_INCA_1KM_NODE_0075,AT_INCA_1KM_NODE_0078,AT_INCA_1KM_NODE_0099,AT_INCA_1KM_NODE_0110,AT_INCA_1KM_NODE_0112,AT_INCA_1KM_NODE_0116,AT_INCA_1KM_NODE_0117,AT_INCA_1KM_NODE_0122,AT_INCA_1KM_NODE_0137,AT_INCA_1KM_NODE_0138,AT_INCA_1KM_NODE_0140,AT_INCA_1KM_NODE_0148,AT_INCA_1KM_NODE_0158,AT_INCA_1KM_NODE_0164,AT_INCA_1KM_NODE_0166,AT_INCA_1KM_NODE_0169,AT_INCA_1KM_NODE_0174,AT_INCA_1KM_NODE_0177,AT_INCA_1KM_NODE_0185,AT_INCA_1KM_NODE_0196,AT_INCA_1KM_NODE_0198,AT_INCA_1KM_NODE_0204,AT_INCA_1KM_NODE_0206</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>

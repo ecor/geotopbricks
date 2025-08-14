@@ -9,13 +9,19 @@ NULL
 #' 
 #' 
 #' 
-#' @param df data frame returend by \code{\link{declared.geotop.inpts.keywords}}
+#' @param df data frame returned by \code{\link{declared.geotop.inpts.keywords}}
 #' @param wpath complere path to \code{file} (optional). Default is \code{NULL}. 
 #' @param comment.lines string or vector of strings to add as comments for each keyword. If it is \code{NULL} the comment lines are omitted. 
 #' @param header string or vector of strings to add as a header. If it is \code{NULL} the header is omitted. 
 #' @param like.meteo.keywords logical. It is used in case \code{df} is a \code{sf} object (geospatial), it often used for meteorological stations 
 #' @param coords_keywords keywords for station coordinates in case \code{like.meteo.keywords==TRUE}.
+#' @param lonlat_coords_keywords keywords for station geographic coordinates (longitude and latitude in degrres) in case \code{like.meteo.keywords==TRUE}.
 #' @param num_keyword keyword for number of stations in case \code{like.meteo.keywords==TRUE}.
+#' @param meteo_coords_keywords,meteo_lonlat_coords_keywords coordinate keywords for meteo/wether stations (see default) 
+#' @param checkpoint_coords_keywords,checkpoint_lonlat_coords_keywords coordinate keywords for output control points (see default) 
+#' @param crs_lonlat crs use for geographical coordinates (latittude and longitude in degrees)(see default) 
+#' @param meteo logical: is \code{df} a \code{sf} object for weather/meteo stations?
+#' @param checkpoint logical: is \code{df} a \code{sf} object for output control/check points? 
 #' @param ... further arguments for \code{\link{writeLines}}
 #' 
 #'  
@@ -38,6 +44,7 @@ NULL
 #' they are suitably modified within the function code. 
 #' See the example output.
 #' 
+#' @importFrom sf st_transform
 #' 
 #' @export
 #' 
@@ -128,16 +135,33 @@ NULL
 create.geotop.inpts.keyword <- function(df,wpath=NULL,
 		comment.lines="default",
 		header="default",like.meteo.keywords=inherits(df,"sf"),
-		coords_keywords=c("MeteoStationCoordinateX","MeteoStationCoordinateY"),
-		num_keyword="NumberOfMeteoStations",
+		meteo_coords_keywords=c("MeteoStationCoordinateX","MeteoStationCoordinateY"),
+		meteo_lonlat_coords_keywords=c("MeteoStationLongitude","MeteoStationLatitude"),
+		num_keyword="NumberOfMeteoStations",crs_lonlat=4326,
+		checkpoint_coords_keywords=c("CoordinatePointX","CoordinatePointY"),
+		checkpoint_lonlat_coords_keywords=c("CoordinatePointLongitude","CoordinatePointLatitude"),
+		meteo=!checkpoint,checkpoint=FALSE,
+		coords_keywords=list(meteo_coords_keywords,checkpoint_coords_keywords)[which(c(meteo,checkpoint))][[1]],
+		lonlat_coords_keywords=list(meteo_lonlat_coords_keywords,checkpoint_lonlat_coords_keywords)[which(c(meteo,checkpoint))][[1]],
+		
+		
 		...) {
 
 ##	if (is.null(file)) file=formals("writeLines")$con
-		  
+  ##prefix_coords=prefix_coords[1]
+
+  
 		  if (like.meteo.keywords) {
 		    
 		    coords <- st_coordinates(df) |> as.data.frame()
 		    names(coords) <- coords_keywords
+		    ###
+		    if (!all(names(df) %in% lonlat_coords_keywords)) {
+		      lonlat_coords <- st_transform(df,crs=crs_lonlat) |> st_coordinates() |> as.data.frame()
+		      names(lonlat_coords) <- lonlat_coords_keywords
+		      coords <- cbind(coords,lonlat_coords)
+		    }
+		   
 		    df0 <- as.data.frame(df) 
 		    df0 <- df0[,which(names(df0)!="geometry")]
 		    df1 <- cbind(coords,df0) |> as.list()

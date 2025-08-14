@@ -12,8 +12,8 @@ Description: It analyzes raster maps and other information as input/output
     and methods to import maps and other keywords from geotop.inpts file. Some
     examples with simulation cases of GEOtop 2.x/3.x are presented in the package.
     Any information about the GEOtop Distributed Hydrological Model can be found in the provided documentation.
-Version: 1.5.9.1
-Date: 2025-04-18
+Version: 1.5.9.2
+Date: 2025-08-14
 Repository: http://cran.r-project.org/
 Depends:
     R (>= 4.1.0),methods,raster,stringr,zoo,sf
