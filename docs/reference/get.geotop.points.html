@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">geotopbricks</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.5.9.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.5.9.3</span>
       </span>
     </div>
 
@@ -55,6 +55,8 @@
 <span>  suffixes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Code"</span>, <span class="st">"Elevation"</span>, <span class="st">"Source"</span><span class="op">)</span>,</span>
 <span>  coord_suffixes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>MeteoStation <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"CoordinateX"</span>, <span class="st">"CoordinateY"</span><span class="op">)</span>, CoordinatePoint <span class="op">=</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"X"</span>, <span class="st">"Y"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  elevation_suffix <span class="op">=</span> <span class="st">"Elevation"</span>,</span>
+<span>  elevation_map_keyword <span class="op">=</span> <span class="st">"DemFile"</span>,</span>
 <span>  <span class="va">wpath</span>,</span>
 <span>  <span class="va">...</span>,</span>
 <span>  vector_sep <span class="op">=</span> <span class="st">","</span></span>
@@ -77,6 +79,14 @@
 <dd><p>coordinate keyword suffixes. Default is <code>c("PointX","PointY")</code></p></dd>
 
 
+<dt id="arg-elevation-suffix">elevation_suffix<a class="anchor" aria-label="anchor" href="#arg-elevation-suffix"></a></dt>
+<dd><p>sting suffix for Elvation (see default)</p></dd>
+
+
+<dt id="arg-elevation-map-keyword">elevation_map_keyword<a class="anchor" aria-label="anchor" href="#arg-elevation-map-keyword"></a></dt>
+<dd><p>keyword used for Digital Elevation Model map, e.g. <code>"DemFile"</code></p></dd>
+
+
 <dt id="arg-wpath">wpath<a class="anchor" aria-label="anchor" href="#arg-wpath"></a></dt>
 <dd><p>GEOtop simulation path</p></dd>
 
@@ -96,11 +106,12 @@
 <span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.points</span><span class="op">(</span>wpath<span class="op">=</span><span class="va">wpath</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Code"        "Elevation"   "Source"      "CoordinateX" "CoordinateY"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "CoordinateX" "CoordinateY"</span>
-<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.points</span><span class="op">(</span>prefix<span class="op">=</span><span class="st">"CoordinatePoint"</span>,suffix<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Code"</span>,<span class="st">"Source"</span><span class="op">)</span>,wpath<span class="op">=</span><span class="va">wpath</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Code"   "Source" "X"      "Y"     </span>
+<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.points</span><span class="op">(</span>prefix<span class="op">=</span><span class="st">"CoordinatePoint"</span>,suffix<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Code"</span>,<span class="st">"Source"</span>,<span class="st">"Elevation"</span><span class="op">)</span>,wpath<span class="op">=</span><span class="va">wpath</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Code"      "Source"    "Elevation" "X"         "Y"        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "X" "Y"</span>
-<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.points</span><span class="op">(</span>prefix<span class="op">=</span><span class="st">"MeteoStation"</span>,suffix<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Code"</span>,<span class="st">"Source"</span><span class="op">)</span>,wpath<span class="op">=</span><span class="va">wpath</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Code"        "Source"      "CoordinateX" "CoordinateY"</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Warning (get.geotop.inpts.keyword.value): keyword CoordinatePointElevation without value:</span>
+<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">get.geotop.points</span><span class="op">(</span>prefix<span class="op">=</span><span class="st">"MeteoStation"</span>,suffix<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Code"</span>,<span class="st">"Source"</span>,<span class="st">"Elevation"</span><span class="op">)</span>,wpath<span class="op">=</span><span class="va">wpath</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Code"        "Source"      "Elevation"   "CoordinateX" "CoordinateY"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "CoordinateX" "CoordinateY"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>

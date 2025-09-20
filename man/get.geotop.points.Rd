@@ -9,6 +9,8 @@ get.geotop.points(
   suffixes = c("Code", "Elevation", "Source"),
   coord_suffixes = list(MeteoStation = c("CoordinateX", "CoordinateY"), CoordinatePoint =
     c("X", "Y")),
+  elevation_suffix = "Elevation",
+  elevation_map_keyword = "DemFile",
   wpath,
   ...,
   vector_sep = ","
@@ -20,6 +22,10 @@ get.geotop.points(
 \item{suffixes}{keyword suffixes}
 
 \item{coord_suffixes}{coordinate keyword suffixes. Default is \code{c("PointX","PointY")}}
+
+\item{elevation_suffix}{sting suffix for Elvation (see default)}
+
+\item{elevation_map_keyword}{keyword used for Digital Elevation Model map, e.g. \code{"DemFile"}}
 
 \item{wpath}{GEOtop simulation path}
 
@@ -35,8 +41,8 @@ Get a \code{\link[sf]{sf}} object for Meteorological Stations or Control Points 
 wpath <- "https://raw.githubusercontent.com/ecor/geotopbricks_doc/master/template/sumava/"
 ## system.file("template/sumava",package="geotopbricks") 
 out <- get.geotop.points(wpath=wpath)
-out <- get.geotop.points(prefix="CoordinatePoint",suffix=c("Code","Source"),wpath=wpath)
-out <- get.geotop.points(prefix="MeteoStation",suffix=c("Code","Source"),wpath=wpath)
+out <- get.geotop.points(prefix="CoordinatePoint",suffix=c("Code","Source","Elevation"),wpath=wpath)
+out <- get.geotop.points(prefix="MeteoStation",suffix=c("Code","Source","Elevation"),wpath=wpath)
 
 }
 }
