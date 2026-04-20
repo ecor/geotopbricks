@@ -10,7 +10,7 @@ NULL
 #' 
 #' 
 #' @param df data frame returned by \code{\link{declared.geotop.inpts.keywords}}
-#' @param wpath complere path to \code{file} (optional). Default is \code{NULL}. 
+#' @param wpath complere path to \code{con} (optional) if it is a file. Default is \code{NULL}. 
 #' @param comment.lines string or vector of strings to add as comments for each keyword. If it is \code{NULL} the comment lines are omitted. 
 #' @param header string or vector of strings to add as a header. If it is \code{NULL} the header is omitted. 
 #' @param like.meteo.keywords logical. It is used in case \code{df} is a \code{sf} object (geospatial), it often used for meteorological stations 
@@ -22,7 +22,11 @@ NULL
 #' @param crs_lonlat crs use for geographical coordinates (latittude and longitude in degrees)(see default) 
 #' @param meteo logical: is \code{df} a \code{sf} object for weather/meteo stations?
 #' @param checkpoint logical: is \code{df} a \code{sf} object for output control/check points? 
-#' @param ... further arguments for \code{\link{writeLines}}
+#' @param append logical If \code{TRUE} it appends to an existing \code{geotop.inpts} file.
+#' @param inpts.file file to append
+#' @param sep_lines separation lines
+#' @param replacing_text text replaced with in the line where keyword was already present.  
+#' @param con,... further arguments for \code{\link{writeLines}}
 #' 
 #'  
 #'  
@@ -134,7 +138,8 @@ NULL
 
 create.geotop.inpts.keyword <- function(df,wpath=NULL,
 		comment.lines="default",
-		header="default",like.meteo.keywords=inherits(df,"sf"),
+		header="default",
+		like.meteo.keywords=inherits(df,"sf"),
 		meteo_coords_keywords=c("MeteoStationCoordinateX","MeteoStationCoordinateY"),
 		meteo_lonlat_coords_keywords=c("MeteoStationLongitude","MeteoStationLatitude"),
 		num_keyword="NumberOfMeteoStations",crs_lonlat=4326,
@@ -143,13 +148,16 @@ create.geotop.inpts.keyword <- function(df,wpath=NULL,
 		meteo=!checkpoint,checkpoint=FALSE,
 		coords_keywords=list(meteo_coords_keywords,checkpoint_coords_keywords)[which(c(meteo,checkpoint))][[1]],
 		lonlat_coords_keywords=list(meteo_lonlat_coords_keywords,checkpoint_lonlat_coords_keywords)[which(c(meteo,checkpoint))][[1]],
-		
-		
+	  con=NULL,  ##ifelse(is.character(wpath),"geotop.inpts",NULL),
+		append=FALSE,
+		sep_lines="!! APPENDIX !!",
+		inpts.file="geotop.inpts",
+		replacing_text="!!! Keyword %s not set here and reported in the appendix",
 		...) {
 
 ##	if (is.null(file)) file=formals("writeLines")$con
   ##prefix_coords=prefix_coords[1]
-
+     
   
 		  if (like.meteo.keywords) {
 		    
@@ -197,8 +205,14 @@ create.geotop.inpts.keyword <- function(df,wpath=NULL,
 	
 	condition_wpath <- (!is.null(wpath) & !is.na(wpath) & wpath!=FALSE)
 	if (length(condition_wpath)==0)  condition_wpath=FALSE
-	if (condition_wpath)  file <- paste(wpath,file,sep="/")
 	
+	if (condition_wpath) {
+	  if (str_sub(wpath,start=-1)=="/") wpath <- str_sub(wpath,end=-2)
+	}
+##	condition_wpath <- condition_wpath & is.character(con) 
+	
+	if (condition_wpath & is.character(con))  con <- paste(wpath,con,sep="/")
+	if (condition_wpath & is.character(inpts.file))  inpts.file <- paste(wpath,inpts.file,sep="/")
 	
 	df <- df[df$Keyword!="",]
 	
@@ -216,8 +230,30 @@ create.geotop.inpts.keyword <- function(df,wpath=NULL,
 	
 	if (!is.null(header)) lines <- c(header,lines)
 ##	print(file)
-	base::writeLines(lines,sep="\n",...)
+	if (append) {
+	   
+	   lines0 <- readLines(inpts.file) ## TO DO 
+	   ###
+	   if (!is.character(replacing_text)) replacing_text <- NA
+	   if (is.null(replacing_text)) replacing_text <- NA
+	   if (!is.na(replacing_text)) for (itk in df$Keyword) {
+	     
+	     ikkk <- which(str_detect(lines0,paste0(df$Keyword,"=")) | str_detect(lines0,paste0(df$Keyword," ")))
+	     lines0[ikkk] <- sprintf(replacing_text,itk)
+	     
+	     
+	   }
+	   
+	   ###
+	   
+	   lines <- c(lines0,sep_lines,lines)
+	 }
 	
+	if (is.null(con)) {
+	  base::writeLines(lines,sep="\n",...)
+	} else {
+	  base::writeLines(lines,sep="\n",con,...)
+	}
 	return(lines)
 	
 }

@@ -23,13 +23,18 @@ create.geotop.inpts.keyword(
     checkpoint_coords_keywords)[which(c(meteo, checkpoint))][[1]],
   lonlat_coords_keywords = list(meteo_lonlat_coords_keywords,
     checkpoint_lonlat_coords_keywords)[which(c(meteo, checkpoint))][[1]],
+  con = NULL,
+  append = FALSE,
+  sep_lines = "!! APPENDIX !!",
+  inpts.file = "geotop.inpts",
+  replacing_text = "!!! Keyword \%s not set here and reported in the appendix",
   ...
 )
 }
 \arguments{
 \item{df}{data frame returned by \code{\link{declared.geotop.inpts.keywords}}}
 
-\item{wpath}{complere path to \code{file} (optional). Default is \code{NULL}.}
+\item{wpath}{complere path to \code{con} (optional) if it is a file. Default is \code{NULL}.}
 
 \item{comment.lines}{string or vector of strings to add as comments for each keyword. If it is \code{NULL} the comment lines are omitted.}
 
@@ -53,7 +58,15 @@ create.geotop.inpts.keyword(
 
 \item{lonlat_coords_keywords}{keywords for station geographic coordinates (longitude and latitude in degrres) in case \code{like.meteo.keywords==TRUE}.}
 
-\item{...}{further arguments for \code{\link{writeLines}}}
+\item{con, ...}{further arguments for \code{\link{writeLines}}}
+
+\item{append}{logical If \code{TRUE} it appends to an existing \code{geotop.inpts} file.}
+
+\item{sep_lines}{separation lines}
+
+\item{inpts.file}{file to append}
+
+\item{replacing_text}{text replaced with in the line where keyword was already present.}
 }
 \description{
 Creates an 'geotop.inpts'  files the keyword and their values of a date.frame like the one returned by \code{\link{declared.geotop.inpts.keywords}}
